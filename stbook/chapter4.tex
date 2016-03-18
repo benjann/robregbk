@@ -833,187 +833,174 @@ estimator.
 
 \section{Robust regression with a high breakdown point}
 
-As explained previously, LS regression is now being criticized more and more
-for its dramatic lack of robustness. Indeed, one single outlier can have an
-arbitrarily large effect on the estimate: the breakdown point $\varepsilon
-^{\ast}$ of $\sthat{\beta}_{\stsc{LS}}$ is clearly equal to zero. Although
-L$_{1}$-regression protects against outlying $y_{i}$, it cannot cope with
-grossly aberrant values of $\stvec{x}_{i}$: \ L$_{1}$-regression yields the
-same value $\varepsilon^{\ast}=0$ as LS. M-estimation provides a certain
-robustness with respect to vertical points, but not with respect to bad
-leverage points when the loss function $\rho$ is unbounded: the breakdown
-point $\varepsilon^{\ast}$ associated with a monotone M-estimator is then
-still equal to zero.
+As explained previously, \stsc{LS} regression is now being criticized more and
+more for its dramatic lack of robustness. Indeed, one single outlier can have
+an arbitrarily large effect on the estimate: the breakdown point
+$\varepsilon^*$ of $\sthat{\beta}_{\stsc{LS}}$ is clearly equal to zero.
+Although \stsc{LAD} regression protects against outlying $y_{i}$, it cannot
+cope with grossly aberrant values of $\stvec{x}_{i}$: \stsc{LAD} regression
+yields the same value $\varepsilon^*=0$ as \stsc{LS}. \stsc{M} estimation
+provides a certain robustness with respect to vertical points, but not with
+respect to bad leverage points when the loss function $\rho$ is unbounded: the
+breakdown point $\varepsilon^*$ associated with a monotone \stsc{M} estimator
+is then still equal to zero.
 
-Because of this vulnerability to bad leverage points, generalized M-estimators
-(GM-estimators) were introduced, with the basic purpose of bounding the
-influence of outlying $\stvec{x}_{i}$. It turns out, however, that the
-GM-estimators now in use have a breakdown point of at most $1/(p+1)$, where
-$(p+1)$ is the dimension of $\stvec{x}_{i}$. Various other estimators have
-been proposed by Theil (1950), Brown and Mood (1951), Sen (1968), Jaeckel
-(1972), and Andrews (1974), but none of them achieves $\varepsilon^{\ast
-}=30\%$ in the case of simple regression ($p=1$).
+Because of this vulnerability to bad leverage points, generalized \stsc{M}
+estimators (\stsc{GM} estimators) were introduced, with the basic purpose of
+bounding the influence of outlying $\stvec{x}_{i}$. It turns out, however, that
+the GM-estimators now in use have a breakdown point of at most $1/(p+1)$, where
+$(p+1)$ is the dimension of $\stvec{x}_{i}$. Various other estimators have been
+proposed by \citet{Theil:1950}, \citet{Brown:1951}, \citet{Sen:1968},
+\citet{Jaeckel:1972}, and \citet{Andrews:1974}, but none of them achieves
+$\varepsilon^*=30\%$ in the case of simple regression ($p=1$).
 
-All of this raises the question whether robust regression with a high
-breakdown point is at all possible. The affirmative answer was given by Siegel
-(1982), who proposed an estimator (the \emph{repeated median}) with a 50\%
-breakdown point. Note that 50\% is the best that can be expected: for larger
-amounts of contamination, it becomes impossible to distinguish between the
-\textquotedblleft good\textquotedblright\ and the \textquotedblleft
-bad\textquotedblright\ parts of the sample. Siegel's estimator can be
+All of this raises the question whether robust regression with a high breakdown
+point is at all possible. The affirmative answer was given by
+\citet{Siegel:1982}, who proposed an estimator (the \emph{repeated median})
+with a 50\% breakdown point. Note that 50\% is the best that can be expected:
+for larger amounts of contamination, it becomes impossible to distinguish
+between the “good” and the “bad” parts of the sample. Siegel's estimator can be
 calculated explicitly but is not equivariant for linear transformations of the
 $\stvec{x}_{i}$ (it is not affine equivariant). This explains why we do not
 study this estimator in more details and prefer to present other estimators
 introduced by Rousseeuw and Yohai, and all based on a robust scale measure.
 
-\subsection{LTS- and LMS-estimation}
+\subsection{LTS and LMS estimation}
 
 Robustness can be achieved by tackling the estimation of the regression
-parameters vector $\boldsymbol\beta$ from a different perspective. We know
-that \stsc{LS} estimation is based on the minimization of the variance of the
+parameters vector $\boldsymbol\beta$ from a different perspective. We know that
+\stsc{LS} estimation is based on the minimization of the variance of the
 residuals. However, since the variance is highly sensitive to outliers,
 LS-estimate will be sensitive to them as well. An interesting idea would then
-consist in minimizing a measure of the residual dispersion $s\left(
-r_{1}(\boldsymbol\beta),\ldots,r_{n}(\boldsymbol\beta)\right)  $ that is
-less sensitive to extreme residuals.
+consist in minimizing a measure of the residual dispersion
+$s(r_{1}(\boldsymbol\beta), \dots, r_{n}(\boldsymbol\beta))$ that is less
+sensitive to extreme residuals.
 
-Relying on this idea, Rousseeuw (1983) introduced the \emph{Least Trimmed
-Sum of Squares} (LTS) estimator which is based on the minimization of
-a trimmed variance of the residuals:
+Relying on this idea, \citet{Rousseeuw:1983} introduced the \emph{Least Trimmed
+Sum of Squares} (\stsc{LTS}) estimator which is based on the minimization of a
+trimmed variance of the residuals:
 \[
-\sthat{\boldsymbol\beta}_{\mathrm{LTS}}=\arg\min_{\boldsymbol\beta%
-}s_{\mathrm{LTS}}\left(  r_{1}(\boldsymbol\beta),\ldots,r_{n}%
-(\boldsymbol\beta)\right)
+    \sthat{\boldsymbol\beta}_{\stsc{LTS}}
+     = \arg\min_{\boldsymbol\beta}s_{\stsc{LTS}}(r_{1}(\boldsymbol\beta), \dots, r_{n}(\boldsymbol\beta))
 \]
-with%
+with
 \[
-s_{\mathrm{LTS}}\left(  r_{1}(\boldsymbol\beta),\ldots,r_{n}%
-(\boldsymbol\beta)\right)  =\left(  \frac{1}{\left\lceil \alpha
-n\right\rceil }\sum_{i=1}^{\left\lceil \alpha n\right\rceil }r_{(i)}%
-^{2}(\boldsymbol\beta)\right)  ^{1/2},
+    s_{\stsc{LTS}}(r_{1}(\boldsymbol\beta), \dots, r_{n}(\boldsymbol\beta))
+    = \sqrt{\frac{1}{\lceil\alpha n\rceil} 
+      \sum_{i=1}^{\lceil\alpha n\rceil}r_{(i)}^{2}(\boldsymbol\beta)}
 \]
-where $1/2\leq\alpha\leq1$, $r_{(1)}^{2}(\boldsymbol\beta)\leq r_{(2)}%
-^{2}(\boldsymbol\beta)\leq\cdots\leq r_{(n)}^{2}(\boldsymbol\beta)$ are
-the ordered squared residuals, and $\left\lceil \cdot\right\rceil $ is the
-ceil function. The constant $\alpha$ determines the trade-off between the
-robustness and the efficiency of the estimator. Indeed, if $\alpha$ tends to
-one, the LTS-estimator tends to the \stsc{LS} estimator. In contrast, if $\alpha
-=1/2$, the LTS-estimator will resist up to 50\% of outlying data and,
-consequently, will have a breakdown point equal to 50\%. Unfortunately, even
-if $\sthat{\boldsymbol\beta}_{\mathrm{LTS}}$ converges to
-$\boldsymbol\beta$ at a rate of $1/\sqrt{n}$, its efficiency is low (under
-Gaussian conditions, the asymptotic relative efficiency of $\widehat
-{\boldsymbol\beta}_{\mathrm{LTS}}$ with respect to $\widehat
-{\boldsymbol\beta}_{\stsc{LS}}$ reaches only 7\% when 50\% of the data are trimmed).
+where $1/2 \leq \alpha \leq 1$ and $r_{(1)}^{2}(\boldsymbol\beta) \leq \dots
+\leq r_{(n)}^{2}(\boldsymbol\beta)$ are the ordered squared residuals. The
+constant $\alpha$ determines the trade-off between the robustness and the
+efficiency of the estimator. Indeed, if $\alpha$ tends to one, the \stsc{LTS}
+estimator tends to the \stsc{LS} estimator. In contrast, if $\alpha = 1/2$, the
+\stsc{LTS} estimator will resist up to 50\% of outlying data and, consequently,
+will have a breakdown point equal to 50\%. Unfortunately, even if
+$\sthat{\boldsymbol\beta}_{\stsc{LTS}}$ converges to $\boldsymbol\beta$ at a
+rate of $1/\sqrt{n}$, its efficiency is low (under Gaussian conditions, the
+asymptotic relative efficiency of $\sthat{\boldsymbol\beta}_{\stsc{LTS}}$ with
+respect to $\sthat{\boldsymbol\beta}_{\stsc{LS}}$ reaches only 7\% when 50\% of
+the data are trimmed).
 
-Despite its relatively low efficiency, the LTS-estimator is quite popular
+Despite its relatively low efficiency, the \stsc{LTS} estimator is quite popular
 because it can be quickly computed using the \emph{Fast-lts algorithm}
-developed by Rousseeuw and Van Driessen (2006); this estimator is available in
-Stata through the command \texttt{robreg lts}.
+developed by \citet{rousseeuw&vdriessen99}; this estimator is available in
+Stata through the command \stcmd{robreg lts}.
 
-Following the same idea, Rousseeuw (1984) introduced the \emph{Least Median
-Squares} (LMS) estimator based on the minimization of the median of
-the squared residuals\footnote{The variance of the residuals corresponds to
+Following the same idea, \citet{rousseeuw:1984} introduced the \emph{Least Median
+Squares} (\stsc{LMS}) estimator based on the minimization of the median of
+the squared residuals:\footnote{The variance of the residuals corresponds to
 the arithmetic mean of the squared residuals; why not replace the mean by the
-more robust median?}:%
+more robust median?}
 \[
-\sthat{\boldsymbol\beta}_{\mathrm{LMS}}=\arg\min_{\boldsymbol\beta%
-}s_{\mathrm{LMS}}\left(  r_{1}(\boldsymbol\beta),\ldots,r_{n}%
-(\boldsymbol\beta)\right)
+    \sthat{\boldsymbol\beta}_{\stsc{LMS}} 
+    = \arg\min_{\boldsymbol\beta} s_{\stsc{LMS}}(r_{1}(\boldsymbol\beta), \dots, r_{n}(\boldsymbol\beta))
 \]
-with%
+with
 \[
-s_{\mathrm{LMS}}\left(  r_{1}(\boldsymbol\beta),\ldots,r_{n}%
-(\boldsymbol\beta)\right)  =\left(  \mathrm{med}_{i}\;r_{i}^{2}%
-(\boldsymbol\beta)\right)  ^{1/2}.
+    s_{\stsc{LMS}}(r_{1}(\boldsymbol\beta), \dots, r_{n}(\boldsymbol\beta)) 
+    = \sqrt{\mathrm{med}_{i}\;r_{i}^{2}(\boldsymbol\beta)}
 \]
-LMS satisfies $\varepsilon^{\ast}=50\%$ but has unfortunately a very low
-efficiency because of its $1/\sqrt[3]{n}$ convergence rate. The LMS-estimator
-is available in Stata through the command \texttt{robreg lms}.
+\stsc{LMS} satisfies $\varepsilon^* = 50\%$ but has unfortunately a very low
+efficiency because of its $1/\sqrt[3]{n}$ convergence rate. The \stsc{LMS}
+estimator is available in Stata through the command \stcmd{robreg lms}.
 
-\subsection{S-estimation}
+\alert{[Add paragraph on LQS, as this is also supported by robreg.]}
 
-Following always the same principle, Rousseeuw and Yohai (1984) have
+\subsection{S estimation}
+
+Following always the same principle, \citet{rousseeuw:yohai:1984} have
 introduced a more general class of estimators: the regression
-\emph{S-estimators}.
+\stsc{S} estimators.
 
-In order to well understand the basic intuition behind the S-estimation, let
-us consider once again the \stsc{LS} estimation. For \stsc{LS} estimation, we actually are
-looking for the value of the regression coefficients vector $\boldsymbol{\beta
-}$ that minimizes the variance (or standard deviation) of the residuals
-$r_{i}\left(  \boldsymbol\beta\right)  $ ($i = 1, \dots, n$). More formally, we
-have
+In order to well understand the basic intuition behind the \stsc{S} estimation,
+let us consider once again the \stsc{LS} estimation. For \stsc{LS} estimation,
+we actually are looking for the value of the regression coefficients vector
+$\boldsymbol{\beta}$ that minimizes the variance (or standard deviation) of the
+residuals $r_{i}(\boldsymbol\beta)$, $i = 1, \dots, n$. More formally, we have
 \[
-\sthat{\boldsymbol\beta}_{\stsc{LS}}=\arg\min_{\boldsymbol\beta%
-}s_{\stsc{LS}}\left(  r_{1}(\boldsymbol\beta),\ldots,r_{n}%
-(\boldsymbol\beta)\right)
+    \sthat{\boldsymbol\beta}_{\stsc{LS}} 
+    = \arg\min_{\boldsymbol\beta} s_{\stsc{LS}}(r_{1}(\boldsymbol\beta), \dots, r_{n}(\boldsymbol\beta))
 \]
-with%
+with
 \[
-s_{\stsc{LS}}\left(  r_{1}(\boldsymbol\beta),\ldots,r_{n}%
-(\boldsymbol\beta)\right)  =\left(  \frac{1}{n}\sum_{i=1}^{n}r_{i}%
-^{2}(\boldsymbol\beta)\right)  ^{1/2}.
+    s_{\stsc{LS}}(r_{1}(\boldsymbol\beta), \dots, r_{n}(\boldsymbol\beta)) 
+    = \sqrt{\frac{1}{n}\sum_{i=1}^{n} r_{i}^{2}(\boldsymbol\beta)}
 \]
-The dispersion measure $s_{\stsc{LS}}$ may be characterized as follows:
-given the realizations $e_{1},\ldots,e_{n}$ of $n$ i.i.d. random variables
-whose distribution is characterized by a mean equal to zero and a scale
-parameter $\sigma$, the dispersion measure $s_{\stsc{LS}}\left(
-e_{1},\ldots,e_{n}\right)  $ of the sample is an estimate of $\sigma$
-satisfying the equality
+The dispersion measure $s_{\stsc{LS}}$ may be characterized as follows: given
+the realizations $e_{1}, \dots, e_{n}$ of $n$ i.i.d.\ random variables whose
+distribution is characterized by a mean equal to zero and a scale parameter
+$\sigma$, the dispersion measure $s_{\stsc{LS}}(e_{1}, \dots, e_{n})$ of the
+sample is an estimate of $\sigma$ satisfying the equality
 \[
-\frac{1}{n}\sum_{i=1}^{n}\left(  \frac{e_{i}}{s_{\stsc{LS}}\left(
-e_{1},\ldots,e_{n}\right)  }\right)  ^{2}=1,
+    \frac{1}{n}\sum_{i=1}^{n} \left(\frac{e_{i}}{s_{\stsc{LS}}(e_{1}, \dots, e_{n})}\right)^{2} = 1
 \]
-or still, taking $\rho(u)=u^{2}$,
+or, taking $\rho(u) = u^{2}$,
 \[
-\frac{1}{n}\sum_{i=1}^{n}\rho\left(  \frac{e_{i}}{s_{\stsc{LS}}\left(
-e_{1},\ldots,e_{n}\right)  }\right)  =1.
+    \frac{1}{n}\sum_{i=1}^{n} \rho\left(\frac{e_{i}}{s_{\stsc{LS}}(e_{1}, \dots, e_{n})}\right) = 1
 \]
-Moreover, if $u\sim\mathcal{N}(0,1)$, then $\mathrm{E}\left[  \rho(u)\right]
-=\mathrm{E}\left[  u^{2}\right]  =1$.
+Moreover, if $u \sim \mathcal{N}(0,1)$, then $E(\rho(u)) = E(u^{2}) = 1$.
 
-The S-estimation procedure proposed by Rousseeuw and Yohai (1984) relies on
-the same philosophy as the one underlying the \stsc{LS} estimation, but introduces
-robustness by using specific robust residual dispersion measures which
-correspond to M-estimators of the scale parameter $\sigma$. More formally,
-given the realizations $e_{1},\ldots,e_{n}$ of $n$ i.i.d. random variables
-with scale parameter $\sigma$ (and a location parameter equal to zero), the
-\emph{M-estimate} $\sthat{\sigma}_{\rho}$ of $\sigma$ is the measure of
-dispersion $s_{\rho}\left(  e_{1},\ldots,e_{n}\right)  $ defined as the
-solution of the equation
-\begin{equation}
-\frac{1}{n}\sum_{i=1}^{n}\rho\left(  \frac{e_{i}}{s_{\rho}\left(  e_{1}%
-,\ldots,e_{n}\right)  }\right)  =\delta\label{eq:M_scale_equation}%
+The \stsc{S} estimation procedure proposed by \citet{rousseeuw:yohai:1984}
+relies on the same philosophy as the one underlying the \stsc{LS} estimation,
+but introduces robustness by using specific robust residual dispersion measures
+which correspond to \stsc{M} estimators of the scale parameter $\sigma$. More
+formally, given the realizations $e_{1}, \dots, e_{n}$ of $n$ i.i.d.\ random
+variables with scale parameter $\sigma$ (and a location parameter equal to
+zero), the \stsc{M} estimate $\sthat{\sigma}_{\rho}$ of $\sigma$ is the
+measure of dispersion $s_{\rho}(e_{1}, \dots, e_{n})$ defined as the solution
+of the equation
+%
+\begin{equation}\label{eq:M_scale_equation}
+    \frac{1}{n}\sum_{i=1}^{n} \rho\left(\frac{e_{i}}{s_{\rho}(e_{1}, \dots, e_{n})}\right) = \delta
 \end{equation}
+%
 where
-
 \begin{itemize}
-\item the function $\rho\left(  \cdot\right)  $ is positive, even, such that
-$\rho\left(  0\right)  =0$, non decreasing for positive values and bounded;
+    \item the function $\rho(\cdot)$ is positive, even (such that
+    $\rho(0) = 0$), non decreasing for positive values and bounded;
 
-\item the constant $\delta$ is defined such that $\sthat{\sigma}_{\rho
-}=s_{\rho}\left(  e_{1},\ldots,e_{n}\right)  $ is a consistent estimate of
-$\sigma$ for the Gaussian regression model (generally $\delta$ is defined by
-$\delta=\mathrm{E}\left[  \rho\left(  u\right)  \right]  $ for $u\sim
-\mathcal{N}(0,1)$; the consistency parameter $\delta$ would therefore be
-nothing else than the population counterpart of the lefthand side of equation
-(\ref{eq:M_scale_equation})).
+    \item the constant $\delta$ is defined such that $\sthat{\sigma}_{\rho} =
+    s_{\rho}(e_{1}, \dots, e_{n})$ is a consistent estimate of $\sigma$ for the
+    Gaussian regression model (generally $\delta$ is defined by $\delta =
+    E(\rho(u))$ for $u \sim \mathcal{N}(0,1)$; the consistency parameter
+    $\delta$ would therefore be nothing else than the population counterpart of
+    the lefthand side of equation (\ref{eq:M_scale_equation})).
 \end{itemize}
 
-Then Rousseeuw and Yohai (1984) defined an S-estimate of $\boldsymbol\beta$
-by
+Then \citet{rousseeuw:yohai:1984} defined an \stsc{S} estimate of
+$\boldsymbol\beta$ by
 \[
-\sthat{\boldsymbol\beta}_{\mathrm{S};\rho}=\arg\min_{\boldsymbol\beta%
-}s_{\rho}\left(  r_{1}(\boldsymbol\beta),\ldots,r_{n}(\boldsymbol{\beta
-})\right)
+    \sthat{\boldsymbol\beta}_{\mathrm{S};\rho} 
+    = \arg\min_{\boldsymbol\beta}s_{\rho} (r_{1}(\boldsymbol\beta), \dots, r_{n}(\boldsymbol{\beta}))
 \]
-where $s_{\rho}$ is a measure of dispersion defining a scale M-estimator, i.e.
+where $s_{\rho}$ is a measure of dispersion defining a scale \stsc{M} estimator, that is,
 satisfying
-\begin{equation}
-\frac{1}{n}\sum_{i=1}^{n}\rho\left(  \frac{r_{i}\left(  \boldsymbol{\beta
-}\right)  }{s_{\rho}\left(  r_{1}(\boldsymbol\beta),\ldots,r_{n}%
-(\boldsymbol\beta)\right)  }\right)  =\delta\hspace{2cm}\text{for all
-}\boldsymbol\beta\in\mathbb{R}^{p+1}. \label{eq:M_scale_equation_res}%
+%
+\begin{equation}\label{eq:M_scale_equation_res}
+    \frac{1}{n}\sum_{i=1}^{n} \rho\left(\frac{r_{i}(\boldsymbol{\beta})}%
+        {s_{\rho}(r_{1}(\boldsymbol\beta), \dots, r_{n}(\boldsymbol\beta))}\right) = \delta
+    \qquad\text{for all $\boldsymbol\beta \in \mathbb{R}^{p+1}$}
 \end{equation}
 
 
