@@ -704,7 +704,7 @@ $\sthat{\boldsymbol\beta}_{\alpha}$ as follows:
     = \arg\min_{\boldsymbol\beta} \sum_{i=1}^{n} \rho_{\alpha}(y_{i}-\stvec{x}_{i}'\boldsymbol\beta)
 \end{equation}
 
-The case $\alpha=0.5$ corresponds to \stsc{LAD} estimate. Assume the model
+The case $\alpha=0.5$ corresponds to the \stsc{LAD} estimate. Assume the model
 \[
     y_{i} = \stvec{x}_{i}' \boldsymbol\beta_{\alpha} + \epsilon_{i},
     \qquad i = 1, \dots, n
@@ -721,7 +721,7 @@ Regression quantiles are especially useful with heteroskedastic data. There is
 a very large literature on regression quantiles; see, for instance,
 \citet{Koenker:2005}.
 
-\subsection{Monotone or redescending M-estimators?}
+\subsection{Monotone vs. redescending M estimators}
 
 As already mentioned, taking a loss function $\rho(u)$ in the minimization
 problem (\ref{eq:M_min}) that is less rapidly increasing than the square
@@ -734,7 +734,7 @@ equations system (\ref{eq:M_equations}).
 
 It is easy to see that \emph{monotone} \stsc{M} estimates break down in
 presence of a single bad leverage point. Indeed, if $\psi(u)$ is a monotone
-function, a $\stvec{x}$-outlier will dominate the solution of
+function, an $\stvec{x}$-outlier will dominate the solution of
 (\ref{eq:M_equations}) in the following sense: if for some $i$, $\stvec{x}_{i}$
 is “much larger than the rest”, then in order to make the sum in the left part
 of (\ref{eq:M_equations}) to zero, the residual
@@ -749,88 +749,87 @@ use of a function $\psi$ that vanishes for “outlying” residuals allows to fi
 a solution $\widehat{\boldsymbol\beta}_{\stsc{M};\rho}$ of
 (\ref{eq:M_equations}) which is not affected by the presence of a bad leverage
 point $(\stvec{x}_{i}, y_{i})$ in the data set. Hence, from the robustness
-point of view, the redescending regression M-estimators are more interesting
+point of view, the redescending regression \stsc{M} estimators are more interesting
 than the monotone \stsc{M} estimators. Unfortunately, as already explained, the
 practical implementation of \stsc{M} estimators is less easy for the
 redescending than for the monotone ones.
 
 \subsection{GM estimation}
 
-Other approaches have been considered to limit the influence of leverage
-points on the estimation of the regression coefficients. For instance,
-defining \underline{$\stvec{x}$}$_{i}=\left(  x_{i1},\ldots,x_{ip}\right)
-^{t}$ such that $\stvec{x}_{i}=\left(  1,\underline{\stvec{x}}_{i}%
-^{t}\right)  ^{t}$, a simple way to robustify a monotone M-estimate is to
-downweight the influential \underline{$\stvec{x}$}$_{i}$'s to prevent them
-from dominating the estimating equations. Hence we may define an estimate as
-solution of
-\begin{equation}
-\sum_{i=1}^{n}\psi\left(  \frac{r_{i}\left(  \boldsymbol\beta\right)
-}{\sthat{\sigma}}\right)  \widetilde{W}(d(\underline{\stvec{x}}%
-_{i}))\stvec{x}_{i}=\mathbf{0} \label{eq:GM_equations_1}%
+Other approaches have been considered to limit the influence of leverage points
+on the estimation of the regression coefficients. For instance, defining
+$\underline{\stvec{x}}_{i} = (x_{i1}, \ldots, x_{ip})'$ such that
+$\stvec{x}_{i} = (1,\underline{\stvec{x}}_{i}')'$, a simple way to robustify a
+monotone \stsc{M} estimate is to downweight the influential
+$\underline{\stvec{x}}_{i}$'s to prevent them from dominating the estimating
+equations. Hence we may define an estimate as solution of
+\begin{equation}\label{eq:GM_equations_1}
+    \sum_{i=1}^{n} \psi\left(\frac{r_{i}(\boldsymbol\beta)}{\sthat{\sigma}}\right) 
+    \widetilde{w}(d(\underline{\stvec{x}}_{i})) \stvec{x}_{i} = \mathbf{0}
 \end{equation}
-where $\widetilde{W}$ is a weight function and $d(\underline{\stvec{x}}_{i})$
-is some measure of the \textquotedblleft largeness\textquotedblright\ of
-\underline{$\stvec{x}$}$_{i}$. Here $\psi$ is monotone and $\sthat{\sigma}$
-is simultaneously estimated by an M-estimating equation of the form
+where $\widetilde{w}$ is a weight function and $d(\underline{\stvec{x}}_{i})$
+is some measure of the “largeness” of $\underline{\stvec{x}}_{i}$. Here $\psi$
+is monotone and $\sthat{\sigma}$ is simultaneously estimated by an \stsc{M}
+estimating equation of the form
 \[
-\frac{1}{n}\sum_{i=1}^{n}\rho_{\mathrm{scale}}\left(  \frac{r_{i}\left(
-\boldsymbol\beta\right)  }{\sigma}\right)  =\delta.
+    \frac{1}{n}\sum_{i=1}^{n} \rho_{\mathrm{scale}}\left(\frac{r_{i}(\boldsymbol\beta)}{\sigma}\right)  = \delta
 \]
-In order to bound the effect of influential points, $\widetilde{W}$ must be
-such that $\widetilde{W}(t)t$ is bounded.
+In order to bound the effect of influential points, $\widetilde{w}$ must be
+such that $\widetilde{w}(t)t$ is bounded.
 
 More generally, we may let the weights depend on the residuals as well as on
-the predictor variables, and use a \emph{generalized} M-estimate
-(GM-estimate) $\sthat{\boldsymbol\beta}_{\mathrm{GM}}$ defined as solution
+the predictor variables, and use a \emph{generalized} \stsc{M} estimate
+(\stsc{GM} estimate) $\sthat{\boldsymbol\beta}_{\stsc{GM}}$ defined as solution
 of
-\begin{equation}
-\sum_{i=1}^{n}\eta\left(  d(\underline{\stvec{x}}_{i}),\frac{r_{i}\left(
-\boldsymbol\beta\right)  }{\sthat{\sigma}}\right)  \stvec{x}%
-_{i}=\mathbf{0} \label{eq:GM_equations_2}%
+%
+\begin{equation}\label{eq:GM_equations_2}
+    \sum_{i=1}^{n}\eta\left(d(\underline{\stvec{x}}_{i}), \frac{r_{i}(\boldsymbol\beta)}{\sthat{\sigma}}\right)
+    \stvec{x}_{i} = \mathbf{0}
 \end{equation}
-where for each $s$, $\eta\left(  s,u\right)  $ is a nondecreasing and bounded
-$\psi$-function of $u$. The estimating equations system
-(\ref{eq:GM_equations_1}) may be seen as a particular case of
-(\ref{eq:GM_equations_2}) when choosing $\eta\left(  s,u\right)
-=\widetilde{W}\left(  s\right)  \psi\left(  u\right)  $. This particular
-choice corresponds to the class of \emph{Mallows estimates} (see
-\citealp{Mallows:1975}) which has been extensively studied in the literature.
+%
+where for each $s$, $\eta(s,u)$ is a nondecreasing and bounded $\psi$-function
+of $u$. The estimating equations system (\ref{eq:GM_equations_1}) may be seen
+as a particular case of (\ref{eq:GM_equations_2}) when choosing $\eta(s,u) =
+\widetilde{w}(s) \psi(u)$. This particular choice corresponds to the class of
+\emph{Mallows estimates} (see \citealp{Mallows:1975}) which has been
+extensively studied in the literature.
 
-The most usual way to measure the \textquotedblleft
-largeness\textquotedblright\ of \underline{$\stvec{x}$}$_{i}$ ($i=1,\ldots
-,n$) is to take the \emph{leverage} of \underline{$\stvec{x}$}$_{i}$, i.e.,
-to consider%
+The most usual way to measure the “largeness” of $\underline{\stvec{x}}_{i}$,
+$i=1, \dots, n$, is to take the \emph{leverage} of $\underline{\stvec{x}}_{i}$,
+that is, to consider
+%
 \begin{equation}
-d(\underline{\stvec{x}}_{i})=\sqrt{\left(  \underline{\stvec{x}}%
-_{i}-\sthat{\boldsymbol{\mu}}_{\underline{\stvec{x}}}\right)  ^{\prime
-}\sthat{\boldsymbol{\Sigma}}_{\underline{\stvec{x}}}^{-1}\left(
-\underline{\stvec{x}}_{i}-\sthat{\boldsymbol{\mu}}_{\underline{\stvec{x}}%
-}\right)  }, \label{eq:leverage}%
+    \label{eq:leverage}
+    d(\underline{\stvec{x}}_{i}) = 
+    \sqrt{\left(\underline{\stvec{x}}_{i} - \sthat{\boldsymbol\mu}_{\underline{\stvec{x}}}\right)'
+    \sthat{\boldsymbol\Sigma}_{\underline{\stvec{x}}}^{-1}
+    \left(\underline{\stvec{x}}_{i} - \sthat{\boldsymbol\mu}_{\underline{\stvec{x}}}\right)}
 \end{equation}
-where $\sthat{\boldsymbol{\mu}}_{\underline{\stvec{x}}}$ and $\widehat
-{\boldsymbol{\Sigma}}_{\underline{\stvec{x}}}$ are respectively a robust
-location vector and robust dispersion matrix of the \underline{$\stvec{x}$%
-}$_{i}$'s (see Chapter ***). \ If $\sthat{\boldsymbol{\mu}}_{\underline
-{\stvec{x}}}$ and $\sthat{\boldsymbol{\Sigma}}_{\underline{\stvec{x}}}$
-are the sample mean and covariance matrix, $d\left(  \cdot\right)  $ is known
-as the Mahalanobis distance.
+%
+where $\sthat{\boldsymbol\mu}_{\underline{\stvec{x}}}$ and
+$\sthat{\boldsymbol\Sigma}_{\underline{\stvec{x}}}$ are a robust location
+vector and robust dispersion matrix of the $\underline{\stvec{x}}_{i}$'s,
+respectively (see chapter~\ref{chap:mv}). If
+$\sthat{\boldsymbol\mu}_{\underline{\stvec{x}}}$ and
+$\sthat{\boldsymbol\Sigma}_{\underline{\stvec{x}}}$ are the sample mean and
+covariance matrix, $d(\cdot)$ is known as the Mahalanobis distance.
 
-As stated in \citet{rousseeuw:leroy:1987}, the GM estimators were constructed
-in the hope of bounding the influence of a single outlying observation.
-Relying on this, optimal choices of $\psi$ and $\widetilde{W}$ were made (see,
-among others, \citealp{Ronchetti:Rousseeuw:1985} for a survey). However,
-\citet{Maronna:1979} have proven that the breakdown point of all
-GM-estimators is non-zero but decreases as a function of $p$ (i.e., the
-breakdown point is less or equal to $\frac{1}{p+1}$) pointing out that a
-GM-estimator is interesting to be used only when the number of explanatory
-variables is very small. Furthermore, Maronna \textit{et al.} (2006) show
-that, to obtain affine equivariance of $\sthat{\boldsymbol\beta%
-}_{\mathrm{GM}}$, it is necessary that $\sthat{\boldsymbol{\mu}}%
-_{\underline{\stvec{x}}}$ and $\sthat{\boldsymbol{\Sigma}}_{\underline
-{\stvec{x}}}$ used in (\ref{eq:leverage}) are affine equivariant which
-presents the same computational difficulties as for redescending M-estimates
-and reduce substantially the appeal of this estimator.
+As stated in \citet{rousseeuw:leroy:1987}, the \stsc{GM} estimators were
+constructed in the hope of bounding the influence of a single outlying
+observation. Relying on this, optimal choices of $\psi$ and $\widetilde{w}$
+were made (see, among others, \citealp{Ronchetti:Rousseeuw:1985} for a survey).
+However, \citet{Maronna:1979} have proven that the breakdown point of all
+\stsc{GM} estimators is non-zero but decreases as a function of $p$ (i.e., the
+breakdown point is less or equal to $1/(p+1)$) pointing out that a
+\stsc{GM} estimator is interesting to be used only when the number of
+explanatory variables is very small. Furthermore, \citet{maronna:etal:2006}
+show that, to obtain affine equivariance of
+$\sthat{\boldsymbol\beta}_{\stsc{GM}}$, it is necessary that
+$\sthat{\boldsymbol\mu}_{\underline{\stvec{x}}}$ and
+$\sthat{\boldsymbol\Sigma}_{\underline{\stvec{x}}}$ used in (\ref{eq:leverage})
+are affine equivariant, which presents the same computational difficulties as
+for redescending \stsc{M} estimates and reduce substantially the appeal of this
+estimator.
 
 \section{Robust regression with a high breakdown point}
 
@@ -2162,8 +2161,8 @@ of being adjusted, hence leading to the adjusted coefficient
 \end{equation}
 
 
-\subsection{Extension of the Hausman test to check for the presence of
-outliers\label{subsec:Hausman}}
+\subsection{Extension of the Hausman test to check for the presence of outliers}
+\label{subsec:Hausman}
 
 In practice, it is usual to ask oneself if it is necessary to use a robust
 regression estimator or if it is preferable to use a classical estimator that
@@ -2367,7 +2366,7 @@ where $\sthat{\underline{\boldsymbol{\Sigma}}}_{\left(  \widehat
 {\boldsymbol\beta}_{\stsc{LS}}\right)  }$ without its first line and its
 first column.
 
-\subsubsection{Comparison of $\sthat{\underline{\boldsymbol\beta}}_{\mathrm{LS}}$ and $\sthat{\underline{\boldsymbol\beta}}_{\mathrm{S};\rho_{0}}$}
+\subsubsection{Comparison of LS and S}
 
 Let us consider the classical LS estimator $\sthat{\boldsymbol\beta%
 }_{\stsc{LS}}$ and the S-estimator $\sthat{\boldsymbol\beta}%
@@ -2417,7 +2416,7 @@ H>\chi_{p;1-\alpha}^{2},
 where $\alpha$ is the given significance level and $\chi_{p;1-\alpha}^{2}$ is
 the $\left(  1-\alpha\right)  $- quantile of the $\chi_{p}^{2}$ distribution.
 
-\subsubsection{Comparison of $\sthat{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}$ and $\sthat{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho}$}
+\subsubsection{Comparison of S and MM}
 
 Suppose now that the previous test has rejected the null hypothesis
 $\mathcal{H}_{0}$: the significant difference between $\sthat{\underline
