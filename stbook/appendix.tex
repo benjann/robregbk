@@ -1,0 +1,739 @@
+\appendix
+\part{Appendix}
+\label{part:appendix}
+
+\chapter{Syntax and options}
+
+\section{Robust statistics (robstat)}
+\label{sec:syntax:robstat}                                                      \todo{This section will be replaced.
+                                                                                The plan is to collect the different
+                                                                                tools in new command \stcmd{robstat}}
+
+\subsection{Classical estimators}
+
+Classical estimators are readily available in Stata via the \texttt{summarize}
+command using the \texttt{detail} option.
+
+\subsection{Quantile-based estimators}
+
+Quantile based estimators are not readily available in Stata but can easily be
+calculated using the \texttt{centile} command. For example, for a statistical
+series $x$, we compute:
+
+\begin{description}
+\item the \emph{median} $Q_{0.5;n}$ by
+\end{description}
+
+\texttt{centile x, centile(50)}
+
+\texttt{local med=r(c\_1)}
+
+\begin{description}
+\item the \emph{corrected interquartile range} $\stsc{IQR}_c$ by
+\end{description}
+
+\texttt{centile x, centile(25 75)}
+
+\texttt{local iqr=(r(c\_2)-r(c\_1))*0.7413}
+
+\begin{description}
+\item the Yule and Kendall skewness coefficient $\stsc{SK}_{0.25;n}$ by
+\end{description}
+
+\texttt{centile x, centile(25 50 75)}
+
+\texttt{local sk=(r(c\_1)+r(c\_3)-2*r(c\_2))/(r(c\_2)-r(c\_1))}
+
+\begin{description}
+\item the quantile tail weight measures $\stsc{LQW}_{0.25;n}$ and
+$\stsc{RQW}_{0.25;n}$ by
+\end{description}
+
+\texttt{centile body, centile(12.5 25 37.5 62.5 75 87.5)}
+
+\texttt{local lqw=-(r(c\_1)+r(c\_3)-2*r(c\_2))/(r(c\_3)-r(c\_1))}
+
+\texttt{local rqw=(r(c\_4)+r(c\_6)-2*r(c\_5))/(r(c\_6)-r(c\_4))}
+
+\subsection{Pairwise-based estimators}
+
+As explained in the previous sections, the location, scale, skewness and tails
+heaviness estimators based on pairwise combinations or comparisons of the
+observations are particularly interesting because they perform better than the
+classical or quantile-based estimators, namely in terms of robustness. But
+they require at first sight a heavy computation time of an order of $n^2$.
+Fortunately, as explained in \cite{Croux.Rousseeuw (1992)}, an efficient
+algorithm proposed by Johnson and Mizoguchi (see \cite{Johnson.Mizoguchi
+(1978)}) allows to substantially reduce the computation time to an order of
+$n\log n$ and, hence, allows to use these robust estimators even in very large
+datasets. This algorithm has been programmed in Stata (cf.\
+\cite{Gelade.Verardi.Vermandele (2013)}) and is involved in the Stata
+computation of the pairwise-based estimators.
+
+For these pairwise-based estimators, the Stata commands are \texttt{hl} (for
+the Hodges-Lehman location estimator $\stsc{HL}_n$), \texttt{qn} (for the
+Rousseeuw and Croux $Q_n$ estimator), \texttt{medcouple} (for Brys'
+medcouple $\stsc{MC}_n$, left medcouple $\stsc{LMC}_n$ and right
+medcouple $\stsc{RMC}_n$).\ The corresponding syntaxes are:
+
+\underline{\textbf{Location}}
+
+\medskip
+
+\textbf{Title}
+
+hl -- Hodges and Lehman (1963) robust measure of location
+
+\smallskip
+
+\textbf{Syntax}
+
+hl varname [if] [in]
+
+\bigskip
+
+\underline{\textbf{Dispersion}}
+
+\medskip
+
+\textbf{Title}
+
+qn -- Rousseeuw and Croux (1993) robust measure of dispersion
+
+\smallskip
+
+\textbf{Syntax}
+
+qn varname [if] [in]
+
+\bigskip
+
+\underline{\textbf{Skewness and heavyness of the tails}}
+
+\medskip
+
+\textbf{Title}
+
+medcouple -- medcouple measure of asymmetry and heaviness of the tails
+
+\smallskip
+
+\textbf{Syntax}
+
+medcouple varname [if] [in] [, lmc rmc nomc]
+
+\bigskip
+
+----------------------------------------------------------------------------------
+
+\textbf{options description}
+
+----------------------------------------------------------------------------------
+
+\underline{Main} \smallskip
+
+\texttt{lmc} specifies to calculate the medcouple only for those informations
+smaller than the median. This is an indicator of the heaviness of the left tail.
+
+\texttt{rmc} Specifies to calculate the medcouple only for those informations
+larger than the median. This is an indicator of the heaviness of the right tail.
+
+\texttt{nomc} Specifies not to calculate the global medcouple. This is for
+instance useful when one is only interested in the heaviness of the tails.
+
+\subsection{Normality tests}
+
+The Stata command \textquotedblleft\texttt{robjb} \textit{varname} [if]
+[in]\textquotedblright\ has been created to apply these robust tests of
+normality. This command implements the test considering both skewness and
+heaviness of tails by default. Two mutually exclusive options are available:
+\texttt{skewness} and \texttt{kurtosis}. If the former is used, a test based
+exclusively on the skewness is performed while if the latter is called, a test
+based exclusively on the heaviness of the tails is performed.
+
+\subsection{Boxplot}
+
+DESCRIBE\ HERE\ THE\ COMMAND, FOR\ THE\ MOMENT\ WE\ HAVE
+
+\bigskip
+
+\textbf{Title}
+
+box\_out - Boxplot for skewed and/or heavy-tailed distributions
+
+\textbf{Syntax}
+
+box\_out varname [if] [in] [, out(varname) bdp(\#) perc(\#) nograph]
+
+\underline{\textbf{Description}}
+
+box\_out Creates the boxplot for skewed and/or heavy-tailed distributions
+
+----------------------------------------------------------------------------------
+
+\textbf{options description}
+
+----------------------------------------------------------------------------------
+
+\underline{Main} \smallskip
+
+\texttt{out(varname)} Identifies the new variable to be created to identify
+individuals outside the fence defined by the whiskers
+
+\texttt{bdp(integer)} Sets the desired Break-down point (in \%). It is 10\% by default
+
+\texttt{perc(real)} Sets the desired percentage of points outside the whiskers
+in case of uncontaminated data.
+
+\texttt{nograph} Suppresses the graph
+
+box\_out saves the following in e():
+
+\texttt{e(g) }Estimated skewness parameter of the underlying Tukey g and h distribution
+
+\texttt{e(h)} Estimated elongation parameter of the underlying Tukey g and h distribution
+
+\texttt{e(upperW)} Value of the upper whisker
+
+\texttt{e(lowerW)} Value of the lower whisker
+
+
+
+
+\section{Robust linear regression (robreg)}
+\label{sec:syntax:robreg}
+
+\stcmd{robreg} provides a number of robust estimators for linear
+regression models. The syntax of \stcmd{robreg} is:
+
+\begin{stsyntax}
+    robreg 
+    \stit{estimator} 
+    \depvar\
+    \optindepvars\
+    \optif\
+    \optin\
+    %\optweight\
+    \optional{, \stit{options}}
+\end{stsyntax}
+
+\noindent
+where \stit{estimator} is one of the following:
+
+\hangpara
+    \stcmd{mm} to fit the efficient high breakdown \stsc{MM} estimator proposed
+    by \citet{yohai:1987}. On the first stage, a high breakdown \stsc{S}
+    estimator is applied to estimate the residual scale and derive starting
+    values for the coefficients vector. On the second stage, an efficient
+    bisquare \stsc{M} estimator is applied to obtain the final coefficient
+    estimates.
+
+\hangpara
+    \stcmd{gm} \alert{to be implemented}
+
+\hangpara
+    \stcmd{m} to fit regression \stcmd{M} estimators \citep{huber73} using
+    iteratively reweighted least squares (\stsc{IRWLS}).
+
+\hangpara
+    \stcmd{s} to fit the high breakdown \stcmd{S} estimator introduced by
+    \citet{rousseeuw:yohai:1984} using the fast algorithm by
+    \cite{salibian:yohai:2006} with a nonsingular subsampling refinement as
+    proposed by \citet{Koller:2012}.
+
+\hangpara
+    \stcmd{lms}, \stcmd{lqs}, or \stcmd{lts} to fit the least median of squares
+    (\stsc{LMS}), the least quantile of squares (\stsc{LQS}; a generalization
+    of \stsc{LMS}), or the least trimmed squares (\stsc{LTS}) estimator,
+    respectively \citep{rousseeuw:leroy:1987}. Estimation is carried out using
+    simple resampling without local improvement (e.g.\
+    \citealp[197]{rousseeuw:leroy:1987}). Computation of standard errors is not
+    supported for \stcmd{lms}, \stcmd{lqs}, and \stcmd{lts}.
+
+\noindent \stcmd{robreg} without arguments replays the previous results; see
+\uref{20.3 Replaying prior results}. \stcmd{robreg} saves its results in
+\stcmd{e()}, so that post estimation commands can be applied; see \uref{20
+Estimation and postestimation commands}. Type \stcmd{ereturn list} to list the
+\stcmd{e()}-returns after estimation; see \pref{ereturn}.
+
+\subsection{Options for robreg mm}
+
+\subsubsection{Main}
+
+\hangpara
+    \stcmd{\underbar{eff}iciency(\num)} sets the gaussian efficiency of the \stsc{MM}
+    estimator (i.e., the asymptotic relative efficiency compared to the
+    \stsc{LS} or \stsc{ML} estimator in case of i.i.d.\ normal errors). The
+    efficiency is determined by appropriate choice of the tuning constant for
+    the bisquare \stsc{M} estimator in the second stage of the \stsc{MM}
+    algorithm. \num\ must be between 0.1 and 99.9. The default for the
+    \stsc{MM} estimator is \stcmd{efficiency(85)}, as suggested by
+    \citet[144]{maronna:etal:2006}.
+
+\hangpara
+    \stcmd{bp(\num)} sets the breakdown point of the \stsc{MM} estimator. The
+    breakdown point is determined by appropriate choice of the tuning constant
+    for the \stsc{S} estimator in the first stage of the \stsc{MM} algorithm.
+    \num\ must be between 1 and 50. The default is \stcmd{bp(50)}.
+
+\hangpara
+    \stcmd{\underbar{haus}man} performs a generalized Hausman test of the \stsc{MM}
+    estimate against the \stsc{S} estimate. A significant Hausman test
+    indicates that the \stsc{MM} estimate significantly deviates from the
+    \stsc{S} estimate.
+
+
+\subsubsection{Biweight M estimate}
+
+\hangpara
+    \stcmd{k(\num)} specifies the tuning constant for the bisquare \stsc{M}
+    estimator in the second stage of the \stsc{MM} algorithm. \stcmd{k()} not
+    allowed if \stcmd{efficiency()} is specified.
+
+\hangpara
+    \stcmd{\underbar{tol}erance(\num)} specifies the tolerance for the weights of the
+    \stsc{IRWLS} algorithm used to fit the bisquare \stsc{M} estimator. When
+    the maximum absolute change in the weights from one iteration to the next
+    is less than or equal to \stcmd{tolerance()}, the convergence criterion is
+    satisfied. The default is \stcmd{tolerance(1e-6)}.
+
+\hangpara
+    \stcmd{\underbar{iter}ate(\num)} specifies the maximum number of iterations for the
+    IRWLS algorithm used to fit the bisquare \stsc{M} estimator. If convergence
+    is not reached within \stcmd{iterate()} iterations, the algorithm stops and
+    returns error. The default is \stcmd{iterate(16000)} or as set by
+    \stcmd{set maxiter} (see \rref{maximize}).
+
+\hangpara
+    \stcmd{relax} causes the \stsc{IRWLS} algorithm to return the current
+    results instead of returning error if convergence is not reached.
+
+\hangpara
+    \stcmd{\dunderbar{g}enerate(\stit{newvar})} stores the final weights of the
+    \stsc{IRWLS} algorithm in variable \stit{newvar}.
+
+\hangpara
+    \stcmd{\underbar{re}place} permits \stcmd{robreg} to overwrite existing variables.
+
+\subsubsection{Initial S estimate}
+
+\hangpara
+    \stcmd{\underbar{n}samp(\num)} specifies the number of trial samples for the search
+    algorithm of the \stsc{S} estimator in the first stage of the \stsc{MM}
+    algorithm. The default value is determined according to formula
+    $
+    \lceil \ln(\alpha) / \ln(1 - (1 - \varepsilon)^p) \rceil
+    $
+    within a range of 50 to 10000, where $p$ is the number of coefficients in
+    the model and $\alpha = 0.01$ and $\varepsilon = 0.2$ (see
+    \citealp{salibian:yohai:2006} for a justification of the formula). The
+    default values for $\alpha$ and $\varepsilon$ can be changed via
+    \stcmd{sopts()} (see below).
+
+\hangpara
+    \stcmd{\underbar{s}opts(\stit{options})} specifies additional options to be passed
+    through to the \stsc{S} estimator. See the section on options for
+    \stcmd{robreg s} below.
+
+\hangpara
+    \stcmd{save(\stit{name})} saves the results of the \stsc{S} estimator under
+    \stit{name} using \stcmd{estimates store} (see \rref{estimates}).
+
+\subsubsection{Standard errors}
+
+\hangpara
+    \stcmd{vce(\underbar{nor}obust)} causes standard errors to be computed
+    using traditional formulas assuming constant error variance. The default
+    is to compute robust standard errors as suggested by \citet{Croux:2003}
+    (using formula $\stsc{Avar}_1$; the traditional formula is equivalent to
+    $\stsc{Avar}_{2s}$).
+
+\hangpara
+    \stcmd{\underbar{nor}obust} is a synonym for \stcmd{vce(norobust)}
+
+\subsubsection{Reporting}
+
+\hangpara
+    \stcmd{\underbar{l}evel(\num)} specifies the level for confidence intervals. The
+    default is \stcmd{level(95)} or as set by \stcmd{set level} (see
+    \rref{level}).
+
+\hangpara
+    \stcmd{first} causes the first stage \stsc{S} estimate to be displayed.
+
+\hangpara
+    \stcmd{\underbar{nodot}s} suppresses the progress dots of the \stsc{S} estimator
+    search algorithm.
+
+\hangpara
+    \stcmd{\underbar{lo}g} displays the iteration log of the second stage \stsc{IRWLS}
+    algorithm.
+    
+\hangpara
+    \stit{display\_options} are various display options; see \rref{estimation
+    options}.
+
+\subsection{Options for robreg gm}
+
+\alert{To be completed.}
+
+\subsection{Options for robreg m}
+
+\subsubsection{Main}
+
+\hangpara
+    \stcmd{\underbar{h}uber} causes the Huber objective function to be used
+    (monotone \stsc{M} estimator). This is the default.
+
+\hangpara
+    \stcmd{\underbar{bi}weight} causes the biweight or bisquare objective function to be
+    used (redescending \stsc{M} estimator). \stcmd{bisquare} is a synonym for
+    \stcmd{biweight}. The solution of a redescending \stsc{M} estimator may
+    depend on the starting values.
+
+\hangpara
+    \stcmd{\underbar{eff}iciency(\num)} sets the gaussian efficiency (i.e.\ the asymptotic
+    relative efficiency compared to the \stsc{LS} or \stsc{ML} estimator in
+    case of i.i.d.\ normal errors) by appropriate choice of the tuning
+    constant. \num\ must be between 63.7 and 99.9 for \stcmd{huber} and between
+    0.1 and 99.9 for \stcmd{biweight}. The default is \stcmd{efficiency(95)}.
+
+\hangpara
+    \stcmd{k(\num)} specifies the tuning constant. \stcmd{k()} not allowed if
+    \stcmd{efficiency()} is specified.
+
+\subsubsection{IRWLS algorithm}
+
+\hangpara
+    \stcmd{\underbar{tol}erance(\num)} specifies the tolerance for the weights of the
+    \stsc{IRWLS} algorithm. When the maximum absolute change in the weights
+    from one iteration to the next is less than or equal to
+    \stcmd{tolerance()}, the convergence criterion is satisfied. The default is
+    \stcmd{tolerance(1e-6)}.
+
+\hangpara
+    \stcmd{\underbar{iter}ate(\num)} specifies the maximum number of iterations for the
+    \stsc{IRWLS} algorithm. If convergence is not reached within
+    \stcmd{iterate()} iterations, the algorithm stops and returns error. The
+    default is \stcmd{iterate(16000)} or as set by \stcmd{set maxiter} (see
+    \rref{maximize}).
+
+\hangpara
+    \stcmd{relax} causes the \stsc{IRWLS} algorithm to return the current results
+    instead of returning error if convergence is not reached. For example,
+    to fit a one-step \stsc{M} estimate specify \stcmd{relax} together with
+    \stcmd{iterate(1)}.
+
+\hangpara
+    \stcmd{\dunderbar{g}enerate(\stit{newvar})} stores the final weights of the
+    \stsc{IRWLS} algorithm in variable \stit{newvar}.
+
+\hangpara
+    \stcmd{\underbar{re}place} permits \stcmd{robreg} to overwrite existing variables.
+
+\subsubsection{Initial estimate}
+
+\hangpara
+    \stcmd{init(\textit{arg})} determines the choice of the initial estimate
+    that provides the starting values for the \stsc{IRWLS} algorithm.
+    \stit{arg} may be \stcmd{lav} for the \stsc{LAV} estimator (a.k.a.\ median
+    regression; fitted using \stcmd{qreg}, see \rref{qreg}), \stcmd{ols} for
+    the least squares estimator (fitted using \stcmd{regress}, see
+    \rref{regress}), \stit{name} for an estimation set stored under
+    \stit{name}, or \stcmd{.} for the currently active estimation results. The
+    default is \stcmd{init(lav)}.
+
+\hangpara
+    \stcmd{save(\stit{name})} saves initial \stcmd{lav} or \stcmd{ols} estimate
+    under \stit{name} using \stcmd{estimates store} (see \rref{estimates}).
+
+\subsubsection{Scale estimate}
+
+\hangpara
+    \stcmd{\underbar{s}cale(\num)} provides a preliminary value for the residual scale
+    that will be held constant. The default is to use the normalized median of
+    the $(n-p)$ largest absolute residuals from the initial fit, where $n$ is
+    the sample size and $p$ is the number of coefficients, as an estimate of
+    the residual scale (\stsc{MADN}).
+
+\hangpara
+    \stcmd{\dunderbar{update}scale} causes the \stsc{MADN} scale estimate to be updated in
+    each iteration of the \stsc{IRWLS} algorithm. \stcmd{updatescale} has no
+    effect if \stcmd{scale()} is specified.
+
+\hangpara
+    \stcmd{\underbar{cen}ter} causes the \stsc{MADN} scale estimate to be computed based
+    on median centered residuals. \stcmd{center} has no effect if
+    \stcmd{scale()} is specified.
+
+\subsubsection{Standard errors}
+
+\hangpara
+    \stcmd{vce(\underbar{nor}obust)} causes standard errors to be computed
+    using traditional formulas assuming constant error variance. The default
+    is to compute robust standard errors as suggested by \citet{Croux:2003}
+    (using formula $\stsc{Avar}_1$; the traditional formula is equivalent to
+    $\stsc{Avar}_{2s}$).
+
+\hangpara
+    \stcmd{vce(pv)} causes traditional standard errors to be computed using the
+    pseudo-values approach \citep{street.etal.AmStat.1988}. \stcmd{vce(pv)} is
+    equivalent to \stcmd{vce(norobust)} but includes some small sample
+    correction.
+
+\hangpara
+    \stcmd{\underbar{nor}obust} is a synonym for \stcmd{vce(norobust)}
+
+\hangpara
+    \stcmd{nose} skips the computation of standard errors.
+
+\subsubsection{Reporting}
+
+\hangpara
+    \stcmd{\underbar{l}evel(\num)} specifies the level for confidence intervals. The
+    default is \stcmd{level(95)} or as set by \stcmd{set level} (see
+    \rref{level}).
+
+\hangpara
+    \stcmd{first} causes the initial estimate to be displayed.
+
+\hangpara
+    \stcmd{\underbar{lo}g} displays the iteration log of the second stage \stsc{IRWLS}
+    algorithm.
+
+\hangpara
+    \stit{display\_options} are various display options; see \rref{estimation
+    options}.
+
+\subsection{Options for robreg s}
+
+\subsubsection{Main}
+
+\hangpara
+    \stcmd{bp(\num)} sets the breakdown point by appropriate choice of the
+    tuning constant (this also determines the gaussian efficiency). \num\
+    must be between 1 and 50. The default is \stcmd{bp(50)}.
+
+\hangpara
+    \stcmd{k(\num)} specifies the tuning constant. \stcmd{k()} not allowed if
+    \stcmd{bp()} is specified.
+    
+\hangpara
+    \stcmd{\underbar{haus}man} performs a generalized Hausman test of the least squares
+    estimate against the \stsc{S} estimate. A significant Hausman test
+    indicates that the least squares estimate significantly deviates from the
+    \stsc{S} estimate.
+
+\subsubsection{Resampling algorithm}
+
+\hangpara
+    \stcmd{\underbar{c}ategorical(\stit{varlist})} specifies the variables to be treated
+    as categorical. The default is to detect and treat all dummy variables as
+    categorical. If \stcmd{categorical()} is specified, the detection of dummy
+    variables is deactivated and only the variables identified by
+    \stcmd{categorical()} are treated as categorical. Variables from
+    \stcmd{categorical()} that are not found in \stit{indepvars} will be
+    automatically added to the end of \stit{indepvars}. \stcmd{categorical()}
+    may contain factor variables; see \uref{11.4.3 Factor variables}.
+    \alert{I changed the default behavior, if I remember right. Needs to be updated.}
+
+\hangpara
+    \stcmd{\underbar{noc}ategorical} treats all variables as continuous.
+
+\hangpara
+    \stcmd{\dunderbar{nonsing}ular} use nonsingular subsampling \alert{needs to be completed; 
+    nonsingular should be default}
+
+\hangpara
+    \stcmd{\underbar{n}samp(\num)} specifies the number of trial samples for the search
+    algorithm. The default value is determined according to formula
+    $
+    \lceil \ln(\alpha) / \ln(1 - (1 - \varepsilon)^p) \rceil
+    $
+    within a range of 50 to 10000, where $p$ is the number of coefficients in
+    the model and $\alpha$ and $\varepsilon$ are set by \stcmd{alpha()} and
+    \stcmd{epsilon()} (see \citealp{salibian:yohai:2006} for a justification of
+    the formula).
+
+\hangpara
+    \stcmd{alpha(\num)} specifies the maximum admissible risk of drawing a set
+    of samples of which none is free of outliers. This is a parameter in the
+    formula for the computation of the required number samples (see above). The
+    default is \stcmd{alpha(0.01)} (i.e.\ 1 percent). \stcmd{alpha()} has no
+    effect if \stcmd{nsamp()} is specified.
+
+\hangpara
+    \stcmd{\dunderbar{eps}ilon(\num)} specifies the assumed maximum fraction of
+    contaminated data. This is a parameter in the formula for the computation
+    of the required number samples (see above). The default is
+    \stcmd{epsilon(0.2)} (i.e.\ 20 percent). \stcmd{epsilon()} has no effect if
+    \stcmd{nsamp()} is specified.
+
+\hangpara
+    \stcmd{\underbar{nk}eep(\num)} specifies the number of best candidates to be
+    kept for final refinement. The default is \stcmd{nkeep(2)}.
+
+\hangpara
+    \stcmd{\dunderbar{rstep}s(\num)} specifies the number of local improvement steps
+    applied to the candidates. The default is \stcmd{rsteps(1)}.
+
+\hangpara
+    \stcmd{\underbar{stol}erance(\num)} specifies the tolerance for the scale estimate of
+    the candidates. When the absolute relative change in the scale from one
+    iteration to the next is less than or equal to \stcmd{stolerance()}, the
+    convergence criterion is satisfied. The default is \stcmd{stolerance(1e-6)}.
+
+\hangpara
+    \stcmd{\underbar{siter}ate(\num)} specifies the maximum number of iterations for the
+    scale estimate of the candidates. If convergence is not reached within
+    \stcmd{siterate()} iterations, the algorithm stops and returns error. The
+    default is \stcmd{siterate(16000)} or as set by \stcmd{set maxiter} (see
+    \rref{maximize}).
+
+\hangpara
+    \stcmd{\underbar{tol}erance(\num)} specifies the tolerance for the coefficients in the
+    refinement \stsc{IRWLS} algorithm. When the maximum relative change in the
+    coefficient vector from one iteration to the next is less than or equal to
+    \stcmd{tolerance()}, the convergence criterion is satisfied. The default is
+    \stcmd{tolerance(1e-6)}.
+
+\hangpara
+    \stcmd{\underbar{iter}ate(\num)} specifies the maximum number of iterations for the
+    refinement \stsc{IRWLS} algorithm. If convergence is not reached within
+    \stcmd{iterate()} iterations, the algorithm stops and returns error. The
+    default is \stcmd{iterate(16000)} or as set by \stcmd{set maxiter} (see
+    \rref{maximize}).
+
+\hangpara
+    \stcmd{\dunderbar{sstep}s(\num)} specifies the number of approximation steps for the
+    scale estimate within each \stsc{RWLS} iteration. The default is
+    \stcmd{ssteps(1)}.
+
+\hangpara
+    \stcmd{\dunderbar{srstep}s(\num)} n of iterations for p-subset scale; default: until
+    convergence \alert{revise!}
+
+\hangpara
+    \stcmd{\underbar{ceff}iciency(\num)} efficiency of M for catvars; default
+    \stcmd{cefficiency(95)} \alert{revise!}
+
+\hangpara
+    \stcmd{ck(\num)} k of M for catvars; not allowed with \stcmd{cefficiency()}
+    \alert{revise!}
+
+\hangpara
+    \stcmd{\dunderbar{cstep}s(\num)} approx. steps for catvar M within p-subset; default
+    \stcmd{cstep(0)} \alert{revise!}
+
+\hangpara
+    \stcmd{\underbar{noxr}esid} do not residualize continuous variables \alert{revise!}
+
+\hangpara
+    \stcmd{\dunderbar{fstep}s(\num)} approx. iteration in final backfit rounds; default:
+    until convergence \alert{revise!}
+
+\hangpara
+    \stcmd{\underbar{nback}fit(\num)} n of final backfit rounds; default: 20
+    \alert{revise!}
+
+\hangpara
+    \stcmd{\underbar{nobr}eak} do not exit final backfitting if scale increases
+    \alert{revise!}
+
+\hangpara
+    \stcmd{\dunderbar{g}enerate(\stit{newvar})} stores the final \stsc{IRWLS} weights from
+    the best solution in variable \stit{newvar}.
+
+\hangpara
+    \stcmd{\underbar{re}place} permits \stcmd{robreg} to overwrite existing variables.
+
+\subsubsection{Standard errors}
+
+\hangpara
+    \stcmd{vce(\underbar{nor}obust)} causes standard errors to be computed using
+    traditional formulas assuming constant error variance. The default is to
+    compute robust standard errors as suggested by \citet{Croux:2003} (using
+    formula $\stsc{Avar}_1$; the traditional formula is equivalent to
+    $\stsc{Avar}_{2s}$).
+    
+\hangpara
+    \stcmd{\underbar{nor}obust} is a synonym for \stcmd{vce(norobust)}
+
+\hangpara
+    \stcmd{nose} skips the computation of standard errors.
+
+\subsubsection{Reporting}
+
+\hangpara
+    \stcmd{\underbar{l}evel(\num)} specifies the level for confidence intervals. The
+    default is \stcmd{level(95)} or as set by \stcmd{set level} (see
+    \rref{level}).
+
+\hangpara
+    \stcmd{\underbar{nodot}s} suppresses the progress dots of the search algorithm.
+
+\hangpara
+    \stit{display\_options} are various display options; see \rref{estimation
+    options}.
+
+\subsection{Options for robreg lms, robreg lqs, and robreg lts}
+
+\subsubsection{Main}
+
+\hangpara
+    \stcmd{bp(\num)} sets the breakdown point, where \num\ may be in $(0,0.5]$. \stcmd{bp()}
+    determines the $h$ parameter for the \stsc{LQS} and \stsc{LTS} estimators as
+    $
+    h = \lfloor(1-\num) \cdot n\rfloor + \lfloor\num \cdot (p + 1)\rfloor
+    $
+    where $n$ is the sample size and $p$ is the number of coefficients. The
+    default is \stcmd{bp(0.5)}. \stcmd{bp()} is not allowed with
+    \stcmd{robreg lms}.
+
+\subsubsection{Resampling algorithm}
+
+\hangpara
+    \stcmd{\underbar{n}samp(\num)} specifies the number of trial samples for the search
+    algorithm. The default value is determined according to formula
+    $
+    \lceil \ln(\alpha) / \ln(1 - (1 - \varepsilon)^p) \rceil
+    $
+    within a range of 50 to 10000, where $p$ is the number of coefficients in
+    the model and $\alpha$ and $\varepsilon$ are set by \stcmd{alpha()} and
+    \stcmd{epsilon()}.
+
+\hangpara
+    \stcmd{alpha(\num)} specifies the maximum admissible risk of drawing a set
+    of samples of which none is free of outliers. This is a parameter in the
+    formula for the computation of the required number samples (see above). The
+    default is \stcmd{alpha(0.01)} (i.e.\ 1 percent). \stcmd{alpha()} has no
+    effect if \stcmd{nsamp()} is specified.
+
+\hangpara
+    \stcmd{\dunderbar{eps}ilon(\num)} specifies the assumed maximum fraction of
+    contaminated data. This is a parameter in the formula for the computation
+    of the required number samples (see above). The default is
+    \stcmd{epsilon(0.2)} (i.e.\ 20 percent). \stcmd{epsilon()} has no effect if
+    \stcmd{nsamp()} is specified.
+
+\hangpara
+    \stcmd{\dunderbar{g}enerate(\stit{newvar})} stores a variable \stit{newvar} that marks the
+    minimizing trial sample.
+
+\hangpara
+    \stcmd{\underbar{re}place} permits \stcmd{robreg} to overwrite existing variables.
+
+\subsubsection{Reporting}
+
+\hangpara
+    \stcmd{\underbar{nodot}s} suppresses the progress dots of the search algorithm.
+
+\hangpara
+    \stit{display\_options} are various display options; see \rref{estimation
+    options}.
+
+\section{Robust logistics regression (roblogit)}
+\label{sec:syntax:roblogit}
+
+\section{Robust multivariate statistics (robmv)}
+\label{sec:syntax:robmv}

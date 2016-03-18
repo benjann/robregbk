@@ -1,0 +1,28 @@
+texdoc init ../stbook/chapter7.tex, replace logdir(dof/7) nodo ///
+    grdir(eps/7) gropts(as(eps pdf) epsfig figure(h!))
+clear all
+set scheme sj
+set linesize 80
+
+/***
+\chapter{Robust estimators for categorical and limited dependent variables}
+\label{chap:categorical}
+
+\begin{itemize}
+\item
+    Robust logit
+\item
+    Possibly: Robust models for limited dependent variables % CLAD
+\item
+    Possibly: more on robust GLM  % ologit, mlogit, count data, ...
+\end{itemize}
+
+***/
+
+
+
+
+/***
+
+\endinput
+***/

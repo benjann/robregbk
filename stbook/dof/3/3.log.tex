@@ -1,0 +1,27 @@
+. mata
+\HLI{49} mata (type {\bftt{end}} to exit) \HLI{6}
+: d = 1/(sqrt(2)*invnormal(5/8))
+{\smallskip}
+: d 
+  2.219144466
+{\smallskip}
+: function myf(x) return(normalden(x+sqrt(2)*invnormal(5/8))*normalden(x))
+{\smallskip}
+: // note: normalden(37)=2.12e-298, normalden(38)=0
+: dd = mm_integrate_sr(\&myf(), -38, 38, 1000, 1) 
+{\smallskip}
+: dd
+  .2681315272
+{\smallskip}
+: function myf1(x, d, dd)
+> {\lbr}
+>     return( (d * (0.25 - normal(x + 1/d) + normal(x - 1/d)) / dd){\caret}2 * 
+>              normalden(x))
+> {\rbr}
+{\smallskip}
+: mm_integrate_sr(\&myf1(), -38, 38, 1000, 1, d, dd)
+  .6089006937
+{\smallskip}
+: end
+\HLI{80}
+{\smallskip}

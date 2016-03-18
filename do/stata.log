@@ -1,0 +1,143 @@
+
+
+running /Applications/Stata14/sysprofile.do ...
+
+
+. texdoc init ../stbook/chapter4.tex, replace logdir(dof/4) nodo ///
+>     grdir(eps/4) gropts(as(eps pdf) epsfig figure(h!))
+(texdoc output file is ../stbook/chapter4.tex)
+
+. 
+end of do-file
+
+. clear all
+
+. set scheme sj
+
+. set linesize 80
+
+. 
+. 
+end of do-file
+
+. 
+. texdoc stlog, nolog
+
+. texdoc stlog close
+
+. texdoc graph, label(fig:outlier_types) ///
+>     caption(Vertical outlier, good leverage point and bad leverage point)
+
+. 
+. 
+end of do-file
+
+. 
+. texdoc stlog, nolog
+
+. texdoc stlog close
+
+. texdoc graph, label(fig:rho_psi_Huber) ///
+>     caption(Huber loss function \$\rho_{\kappa}^{\stsc{H}}\$ and ///
+>     score function \$\psi_{\kappa}^{\stsc{H}}\$)
+
+. 
+. texdoc stlog, nolog
+
+. texdoc stlog close
+
+. texdoc graph, label(fig:rho_psi_Biweight) ///
+>     caption(Tukey-Biweight loss function \$\rho_{\kappa}^{\stsc{B}}\$ and ///
+>     score function \$\psi_{\kappa}^{\stsc{B}}\$)
+
+. 
+. 
+end of do-file
+
+. 
+. texdoc stlog, nolog
+
+. texdoc stlog close
+
+. texdoc graph, caption(\alert{Caption needed}) label(fig:stars_scatterplot)
+
+. 
+. 
+end of do-file
+
+. 
+. texdoc stlog
+
+. texdoc stlog close
+
+. 
+. 
+end of do-file
+
+. 
+. texdoc stlog
+
+. texdoc stlog close
+
+. 
+. 
+end of do-file
+
+. 
+. texdoc stlog
+
+. texdoc stlog close
+
+. 
+. 
+end of do-file
+
+. 
+. texdoc stlog
+
+. texdoc stlog close
+
+. 
+. 
+end of do-file
+
+. 
+. texdoc stlog, nodo cmdlog
+
+. texdoc stlog close
+hl log_temperature
+local mu=e(hl)
+qn log_temperature
+local s=e(qn)
+gen leverage=(log_temperature-`mu')/`s'
+robreg m log_intensity log_temperature if abs(leverage)<=2.5
+(texdoc stlog written to ../stbook/dof/4/9.log.tex)
+
+. 
+end of do-file
+
+. 
+. texdoc stlog
+
+. texdoc stlog close
+
+. 
+. 
+end of do-file
+
+. 
+. texdoc stlog
+
+. texdoc stlog close
+
+. 
+. 
+end of do-file
+
+. 
+. 
+. 
+. 
+. 
+end of do-file
+(texdoc output written to ../stbook/chapter4.tex)

@@ -1,0 +1,17 @@
+. drop _all
+{\smallskip}
+. matrix x = (6.00, 6.50, 7.00, 7.00, 7.00,    ///
+>             7.00, 7.00, 7.50, 7.50, 8.00,    ///
+>             8.00, 8.00, 8.50, 8.50, 8.50,    ///
+>             8.50, 9.00, 9.00, 9.50, 9.50,    ///
+>             9.50, 9.50, 9.50, 9.50, 10.00)'
+{\smallskip}
+. quietly svmat x
+{\smallskip}
+. tabstat x, statistics(mean median sd iqr)
+{\smallskip}
+    variable {\VBAR}      mean       p50        sd       iqr
+\HLI{13}{\PLUS}\HLI{40}
+          x1 {\VBAR}      8.22       8.5  1.137248       2.5
+\HLI{13}{\BOTT}\HLI{40}
+{\smallskip}

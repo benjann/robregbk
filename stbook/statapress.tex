@@ -1,0 +1,30 @@
+% statapress.tex
+% version 1.1.3  14dec2005%
+% Written by:  Jeff Pitblado
+% This is a user's guide to statapress.cls, the Stata Press document class.
+
+\section{The indexes}
+
+\texttt{statapress.cls} automatically defines two types of indexes:  author
+and subject.  Any string of words may be added to either index using the
+\verb+\index+ macro.  For example, we use \verb+\index{subject}{indexes}+ to
+add ``indexes''
+%
+\index{subject}{indexes}
+%
+to the subject index.  Next we use%
+%
+\verb+\index{author}{Knuth, D.~E.}+
+%
+to add ``Knuth, D.~E.''
+%
+\index{author}{Knuth, D.~E.}
+%
+to the author index as we cite \cite{texbook}.
+
+The \verb+\stbkAuthorIndex+ and \verb+\stbkSubjectIndex+ macros generate
+the section containing each respective index.  The \textsf{makeindex}
+command is required; it reformats the raw index data into a \texttt{.ind}
+sorted index data file.
+
+\endinput

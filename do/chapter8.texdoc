@@ -1,0 +1,29 @@
+texdoc init ../stbook/chapter8.tex, replace logdir(dof/8) nodo ///
+    grdir(eps/8) gropts(as(eps pdf) epsfig figure(h!))
+clear all
+set scheme sj
+set linesize 80
+
+/***
+\chapter{Robust estimation of location and scatter}
+\label{chap:mcd}
+
+\begin{itemize}
+\item
+    Minimum covariance determinant (MCD) and minimum volume ellipsoid (MVE) estimators of location and scatter
+\item
+    Possibly: Other multivariate location and scatter estimators such as the
+    Stahel-Donoho estimate
+\item
+    S-estimators and MM-estimators of location and scatter
+\end{itemize}
+
+***/
+
+
+
+
+/***
+
+\endinput
+***/

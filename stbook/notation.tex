@@ -1,0 +1,141 @@
+\stbkpreface[Notation and typography]
+
+\subsubsection*{Math typesetting conventions and custom commands (to be removed later)}
+
+The following lists contain some notational conventions for equations and some 
+custom commands. The conventions are guided by what is typically done in Stata Press books.
+\begin{itemize}[itemsep=0pt,topsep=0pt]
+    \item omit punctuation in display-style equations
+    \item use small caps for acronyms of estimators and other definitions, 
+       such as \stsc{IF}, \stsc{ARE}, \stsc{ASV}, \stsc{BIC}, \stsc{MM} estimator, \stsc{S} estimator, etc.
+    \item use boldface lowercase letters for vectors ($\stvec{x}$)
+    \item use boldface uppercase letters for matrices ($\stmat{X}$)
+    \item use $E(X)$ for expectation
+    \item use $\mathrm{Var}(X)$ and $\mathrm{Cov}(X,Y)$ for 
+          variance and covariance: \verb+\mathrm{Var}+ \dots
+    \item use $\mathcal{N}(a, b)$ for normal distribution: \verb+\mathcal{N}+ \dots
+    \item use $\Pr(x<y)$ for probability: \verb+\Pr+ \dots
+    \item use $'$ for both transposition $\stvec{x}'$ (\verb+\stvec{x}'+) and first derivative $F'(x)$ (\verb+F'(x)+)
+    \item use of parentheses
+    \begin{itemize}
+        \item parentheses (): grouping/order of operations, functions, open intervals
+        \item square brackets []: matrices, closed intervals
+        \item nested [()] for grouping/order of operations: may use square brackets as second set of parentheses 
+        for visual distinction
+        \item braces \{\}: sets
+    \end{itemize}
+    \item commands:
+        \begin{tabular}[t]{lll}
+            small caps acronyms      & \verb+\stsc{IQR}(X)+       & $\stsc{IQR}(X)$         \\
+            estimation hat           & \verb+\sthat{\theta}+      & $\sthat{\theta}$     \\
+            mean bar                 & \verb+\stbar{x}+           & $\stbar{x}$          \\
+            vectors                  & \verb+\stvec{x}+           & $\stvec{x}$          \\
+            matrices                 & \verb+\stmat{X}+           & $\stmat{X}$          \\
+            bold symbols             & \verb+\boldsymbol\theta+   & $\boldsymbol\theta$  \\
+            integral dif operator    & \verb+\int_a^b x \dif F(x)+& $\int_a^b x \dif F(x)$ \\
+            indicator function       & \verb+\I(x<X)+             & $\I(x<X)$            \\
+            sign operator            & \verb+\sign(x)+            & $\sign(x)$            \\
+            median operator          & \verb+\med(x)+             & $\med(x)$            \\
+        \end{tabular}
+\end{itemize}
+
+
+
+\subsubsection*{Stata code, datasets, programs, and references to manuals}
+
+In this book we assume that you are somewhat familiar with \stata, that you
+know how to input data and to use previously created datasets, create new
+variables, run regressions, and the like. Generally, we use the \stcmd{typewriter font}
+to refer to Stata commands, syntax, and variables. A “dot”
+prompt followed by a command indicates that you can type verbatim what is
+displayed after the dot (in context) to replicate the results in the book.
+
+The data we use in this book are freely available for you to download, using a
+net-aware Stata, from the Stata Press website,
+\url{http://www.stata-press.com}. In fact, when we introduce new datasets, we
+merely load them into Stata the same way that you would. For example,
+
+\begin{stlog}
+. use http://www.stata-press.com/data/!!!/football.dta, clear
+\end{stlog}
+
+\noindent
+In addition, the Stata packages presented in this book may be obtained by typing
+
+\begin{stlog}
+. ssc install robstat
+\oom
+. ssc install robreg
+\oom
+. ssc install robmv
+\oom
+\end{stlog}
+
+\alert{Also say what other packages need to be installed (if any), e.g. \stcmd{moremata}, I think.}
+
+Throughout the book, we often refer to the Stata manuals using \rref{\!}, \pref{\!}, etc.
+For example, \rref{regress} refers to the \textsl{Stata Reference Manual} entry for
+\stcmd{regress}, and \pref{matrix} refers to the entry for \stcmd{matrix} in
+the \textsl{Stata Programming Manual}.
+
+\subsubsection*{Mathematical and statistical symbols}
+
+We also assume that you have basic knowledge of mathematics and statistics,
+although we tried to keep the exposition as simple and non-technical as
+possible. Below is a list of some mathematical and statistical symbols that we
+will frequently use in the book.
+
+\begin{description}[leftmargin=6em,style=nextline]
+    \item[$X, Y, Z, \dots$]
+        random variables
+    \item[$x_i, y_i, z_i, \dots$]
+        realizations (observations) of random variables
+    \item[$n$]
+        number of observations
+    \item[$x_{(i)}$]
+        $i$th order statistic of $x_1, \dots, x_n$ ($i$th observation in the list of observations sorted in ascending order)
+    \item[$F(x)$]
+        cumulative distribution function of a random variable; \dots
+    \item[$f(x)$]
+        density \dots
+    \item[$F'(x)$]
+        first derivative of function $F(x)$, that is $F'(x) = dF(x)/dx = f(x)$;
+        we use $'$ for both the first derivative of a function and the
+        transposition of a vector or matrix
+    \item[$\mathcal{N}(\mu, \sigma)$]
+        normal distribution with mean $\mu$ and standard deviation $\sigma$
+    \item[$\mathcal{N}(0, 1)$]
+        standard normal distribution
+    \item[$|x|$]
+        absolute value of $x$
+    \item[$\Vert\stvec{x}\Vert$]
+        Euclidean norm of vector $\stvec{x} = (x_1, \dots, x_p)'$, that is, $\Vert\stvec{x}\Vert = \sqrt{x_1^2 + \dots + x_p^2}$
+    \item[$\lceil x \rceil$]
+        smallest integer greater or equal to $x$
+    \item[$\lfloor x \rfloor$] 
+        largest integer smaller or equal to $x$
+    \item[$\stvec{x}'$, $\stmat{X}'$]
+        transposition of a vector or a matrix; we use $'$ for both
+        the transposition of a vector or matrix and the first derivative of a
+        function
+    \item[\normalfont i.i.d.]
+        independent and identically distributed
+    \item[$\displaystyle\lim_{x\rightarrow y} g(x)$]
+        limiting value of function $g(x)$ as $x$ approaches $y$
+    \item[$\displaystyle\sup_x g(x)$]
+        supremum (least upper bound) of function $g(x)$ with respect 
+        to argument $x$
+    \item[$\sign(x)$]
+        the sign of $x$; to be precise, $\sign(x)=-1$ if $x<0$, $\sign(x)=+1$ if $x>0$, $\sign(x)=0$ if $x=0$
+    \item[$X\sim F$]
+        random variable $X$ is distributed as $F$
+    \item[$X\approx F$]
+        random variable $X$ is approximately distributed as $F$
+    \item[\alert{...}]
+        \alert{...}
+\end{description}
+
+
+
+
+\endinput

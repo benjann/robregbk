@@ -1,0 +1,24 @@
+texdoc init ../stbook/chapter5.tex, replace logdir(dof/5) nodo ///
+    grdir(eps/5) gropts(as(eps pdf) epsfig figure(h!))
+clear all
+set scheme sj
+set linesize 80
+
+/***
+\chapter{Robust estimators for panel data}
+\label{chap:panel}
+
+\begin{itemize}
+\item
+    Some basic FE and RE panel data robust models       % what about multilevel models?
+\end{itemize}
+
+***/
+
+
+
+
+/***
+
+\endinput
+***/

@@ -1,0 +1,24 @@
+texdoc init ../stbook/chapter6.tex, replace logdir(dof/6) nodo ///
+    grdir(eps/6) gropts(as(eps pdf) epsfig figure(h!))
+clear all
+set scheme sj
+set linesize 80
+
+/***
+\chapter{Robust instrumental variables estimation}
+\label{chap:iv}
+
+\begin{itemize}
+\item
+    Robust IV/2SLS estimators   % Cohe Freue-Zamar method, the Amemyia 2 proposal, tests
+\end{itemize}
+
+***/
+
+
+
+
+/***
+
+\endinput
+***/

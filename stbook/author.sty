@@ -1,0 +1,108 @@
+% author.sty
+% This file is automatically \input by stbook.cls.  Place helpful (global)
+% macros in this file and they will be available in the entire book.
+
+% Stata manual references
+\input fr.sty
+
+% Current version of Stata
+\def\stataversion{!!}
+
+% Remove extra space between items in an enumerated and itemized lists
+\let\stenumerate\enumerate
+\def\enumerate{%
+  \itemsep=0pt\topsep=0pt\partopsep=0pt%
+  \stenumerate%
+  \itemsep=0pt\topsep=0pt\partopsep=0pt%
+}
+\let\stitemize\itemize
+\def\itemize{
+  \itemsep=0pt\topsep=0pt\partopsep=0pt%
+  \stitemize%
+  \itemsep=0pt\topsep=0pt\partopsep=0pt%
+}
+
+% Additional settings (BJ)
+
+% - general
+\usepackage{dcolumn,booktabs,enumitem,upquote}
+\usepackage[autolanguage]{numprint}
+\usepackage[utf8]{inputenc}
+\belowcaptionskip=.5\abovecaptionskip
+
+% - fix closing single quote in stlog (use upright quote)
+\usepackage{textcomp}
+\makeatletter
+\g@addto@macro\stLogSetup{\let\'=\textquotesingle}
+\makeatother
+
+% - \stit{} command
+\def\stit#1{\begingroup\it #1\/\endgroup}
+
+% - simplified index command; use as \Index{word} or \Index[indexspec]{word}
+\newcommand{\Index}[2][]{#2%
+    \ifx&#1&%
+        \index{subject}{#2}%
+    \else%
+        \index{subject}{#1}%
+    \fi}
+
+% - math
+\usepackage{amssymb}
+\DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator*{\med}{med}
+\DeclareMathOperator{\I}{I}
+\newcommand*\dif{\mathop{}\!d} %\newcommand*\dif{\mathop{}\!\mathrm{d}}
+\newcommand{\stsc}[1]{\textsc{\lowercase{#1}}}
+% - fix spacing around \left and \right (alternative: package mleftright and then \mleft,\mright)
+\let\originalleft\left
+\let\originalright\right
+\renewcommand{\left}{\mathopen{}\mathclose\bgroup\originalleft}
+\renewcommand{\right}{\aftergroup\egroup\originalright}
+
+% tables
+%\newcolumntype{L}[1]{>{\raggedright\hspace{0pt}}p{#1}}
+%\newcolumntype{C}[1]{>{\centering\hspace{0pt}}p{#1}}
+%\newcolumntype{R}[1]{>{\raggedleft\hspace{0pt}}p{#1}}
+\newcommand{\subtab}[2]{%
+    \begin{tabular}[t]{@{}#1@{}}%
+        #2%
+    \end{tabular}%
+}
+
+% Remarks (sttech)
+\newenvironment{stremark}[1][Remark]{%
+  \bigskip%
+  \par\noindent%
+  \hskip\sttechhskip%
+  {\hbox{\statashabox}{\textsf{\textbf{~#1}}}}%
+  \par\smallskip%
+}{
+  \penalty10000\vskip-5pt\penalty10000%
+  \par\penalty10000\vbox{\hfill\lower1.25ex\hbox{\statashabox}}
+}
+% Proposition (sttech)
+\newenvironment{stproposition}[1][Proposition]{%
+  \bigskip%
+  \par\noindent%
+  \hskip\sttechhskip%
+  {\hbox{\statashabox}{\textsf{\textbf{~#1}}}}%
+  \par\smallskip%
+}{
+  \penalty10000\vskip-5pt\penalty10000%
+  \par\penalty10000\vbox{\hfill\lower1.25ex\hbox{\statashabox}}
+}
+
+% Comments for revision
+% - todo
+\newcounter{todo}
+\newcommand{\todo}[1]{\stepcounter{todo}%
+    \marginpar%
+        {\scriptsize\colorbox{gray!20}{\textcolor{red}{\thetodo:\;\parbox[t]{1.2in}{\raggedright #1}}}}%
+    }
+\setlength{\marginparwidth}{1.4in}
+\setlength{\marginparsep}{1em}
+% - alert
+\newcommand{\alert}[1]{\textcolor{red}{#1}}
+
+\endinput

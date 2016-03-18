@@ -1,0 +1,223 @@
+set seed 1234
+{\smallskip}
+clear
+set obs 1000
+{\smallskip}
+drawnorm z
+gen x=invchi2(1,uniform())
+{\smallskip}
+{\smallskip}
+**** UNCONTAMINATED NORMAL  ******
+{\smallskip}
+qui sum z, d
+local meanN=r(mean)
+local medianN=r(p50)
+{\smallskip}
+local sdN=r(sd)
+local iqrN=(r(p75)-r(p25))*0.7413
+local skewN=r(skewness)
+local kurtN=r(kurtosis)-3
+{\smallskip}
+centile z, centile(25 50 75)
+local qskewN=(r(c_1)+r(c_3)-2*r(c_2))/((r(c_2)-r(c_1))/1.349)
+{\smallskip}
+qui hl z
+local hlN=e(hl)
+{\smallskip}
+qui qn z
+local qnN=e(qn)
+{\smallskip}
+qui medcouple z, lmc rmc
+local mcN=e(mc)
+local lmcN=e(lmc)
+local rmcN=e(rmc)
+{\smallskip}
+qui centile z, centile(12.5 25 37.5 62.5 75 87.5)
+local lqwN=-(r(c_1)+r(c_3)-2*r(c_2))/(r(c_3)-r(c_1))
+local rqwN=(r(c_4)+r(c_6)-2*r(c_5))/(r(c_6)-r(c_4))
+{\smallskip}
+di in r "Location parameters Normal"
+{\smallskip}
+di "Mean: " `meanN'
+di "Median: " `medianN'
+di "Hodges-Lehman: " `hlN'
+{\smallskip}
+di in r"Scale parameters Normal"
+di "Standard deviation: " `sdN'
+di "Iqr: " `iqrN'
+di "Qn: " `qnN'
+{\smallskip}
+{\smallskip}
+di in r "Skewness parameters Normal"
+di "Skewness: " `skewN'
+di "Quantile skewness: " `qskewN'
+di "Mecouple: " `mcN'
+{\smallskip}
+di in r "Tail heavyness parameters Normal"
+di "Kurtosis: " `kurtN'
+di "Quantile right heaviness: " `rqwN'
+di "Quantile left heaviness: " `lqwN'
+di "Right mecouple: " `rmcN'
+di "Left mecouple: " `lmcN'
+{\smallskip}
+{\smallskip}
+**** UNCONTAMINATED CHI2 *****
+{\smallskip}
+qui sum x, d
+local meanCHI2=r(mean)
+local medianCHI2=r(p50)
+{\smallskip}
+local sdCHI2=r(sd)
+local iqrCHI2=(r(p75)-r(p25))*0.7413
+local skewCHI2=r(skewness)
+local kurtCHI2=r(kurtosis)-3
+{\smallskip}
+centile x, centile(25 50 75)
+local qskewCHI2=(r(c_1)+r(c_3)-2*r(c_2))/((r(c_2)-r(c_1))/1.349)
+{\smallskip}
+qui hl x
+local hlCHI2=e(hl)
+{\smallskip}
+qui qn x
+local qnCHI2=e(qn)
+{\smallskip}
+qui medcouple x, lmc rmc
+local mcCHI2=e(mc)
+local lmcCHI2=e(lmc)
+local rmcCHI2=e(rmc)
+{\smallskip}
+qui centile x, centile(12.5 25 37.5 62.5 75 87.5)
+local lqwCHI2=-(r(c_1)+r(c_3)-2*r(c_2))/(r(c_3)-r(c_1))
+local rqwCHI2=(r(c_4)+r(c_6)-2*r(c_5))/(r(c_6)-r(c_4))
+{\smallskip}
+di in r "Location parameters CHI2"
+{\smallskip}
+di "Mean: " `meanCHI2'
+di "Median: " `medianCHI2'
+di "Hodges-Lehman: " `hlCHI2'
+{\smallskip}
+di in r"Scale parameters CHI2"
+di "Standard deviation: " `sdCHI2'
+di "Iqr: " `iqrCHI2'
+di "Qn: " `qnCHI2'
+{\smallskip}
+{\smallskip}
+di in r "Skewness parameters CHI2"
+di "Skewness: " `skewCHI2'
+di "Quantile skewness: " `qskewCHI2'
+di "Mecouple: " `mcCHI2'
+{\smallskip}
+di in r "Tail heavyness parameters CHI2"
+di "Kurtosis: " `kurtCHI2'
+di "Quantile right heaviness: " `rqwCHI2'
+di "Quantile left heaviness: " `lqwCHI2'
+di "Right mecouple: " `rmcCHI2'
+di "Left mecouple: " `lmcCHI2'
+{\smallskip}
+{\smallskip}
+**** CONTAMINATED NORMAL  ******
+{\smallskip}
+replace z=5 in 1/50
+qui sum z, d
+local meanNc=r(mean)
+local medianNc=r(p50)
+{\smallskip}
+local sdNc=r(sd)
+local iqrNc=(r(p75)-r(p25))*0.7413
+local skewNc=r(skewness)
+local kurtNc=r(kurtosis)-3
+{\smallskip}
+centile z, centile(25 50 75)
+local qskewNc=(r(c_1)+r(c_3)-2*r(c_2))/((r(c_2)-r(c_1))/1.349)
+{\smallskip}
+qui hl z
+local hlNc=e(hl)
+{\smallskip}
+qui qn z
+local qnNc=e(qn)
+{\smallskip}
+qui medcouple z, lmc rmc
+local mcNc=e(mc)
+local lmcNc=e(lmc)
+local rmcNc=e(rmc)
+{\smallskip}
+qui centile z, centile(12.5 25 37.5 62.5 75 87.5)
+local lqwNc=-(r(c_1)+r(c_3)-2*r(c_2))/(r(c_3)-r(c_1))
+local rqwNc=(r(c_4)+r(c_6)-2*r(c_5))/(r(c_6)-r(c_4))
+{\smallskip}
+di in r "Location parameters Normal"
+{\smallskip}
+di "Mean: " `meanNc'
+di "Median: " `medianNc'
+di "Hodges-Lehman: " `hlNc'
+{\smallskip}
+di in r"Scale parameters Normal"
+di "Standard deviation: " `sdNc'
+di "Iqr: " `iqrNc'
+di "Qn: " `qnNc'
+{\smallskip}
+{\smallskip}
+di in r "Skewness parameters Normal"
+di "Skewness: " `skewNc'
+di "Quantile skewness: " `qskewNc'
+di "Mecouple: " `mcNc'
+{\smallskip}
+di in r "Tail heavyness parameters Normal"
+di "Kurtosis: " `kurtNc'
+di "Quantile right heaviness: " `rqwNc'
+di "Quantile left heaviness: " `lqwNc'
+di "Right mecouple: " `rmcNc'
+di "Left mecouple: " `lmcNc'
+{\smallskip}
+**** CONTAMINATED CHI2 *****
+replace x=invchi2(1,normal(5)) in 1/50
+qui sum x, d
+local meanCHI2c=r(mean)
+local medianCHI2c=r(p50)
+{\smallskip}
+local sdCHI2c=r(sd)
+local iqrCHI2c=(r(p75)-r(p25))*0.7413
+local skewCHI2c=r(skewness)
+local kurtCHI2c=r(kurtosis)-3
+{\smallskip}
+centile x, centile(25 50 75)
+local qskewCHI2c=(r(c_1)+r(c_3)-2*r(c_2))/((r(c_2)-r(c_1))/1.349)
+{\smallskip}
+qui hl x
+local hlCHI2c=e(hl)
+{\smallskip}
+qui qn x
+local qnCHI2c=e(qn)
+{\smallskip}
+qui medcouple x, lmc rmc
+local mcCHI2c=e(mc)
+local lmcCHI2c=e(lmc)
+local rmcCHI2c=e(rmc)
+{\smallskip}
+qui centile x, centile(12.5 25 37.5 62.5 75 87.5)
+local lqwCHI2c=-(r(c_1)+r(c_3)-2*r(c_2))/(r(c_3)-r(c_1))
+local rqwCHI2c=(r(c_4)+r(c_6)-2*r(c_5))/(r(c_6)-r(c_4))
+{\smallskip}
+di in r "Location parameters CHI2c"
+{\smallskip}
+di "Mean: " `meanCHI2c'
+di "Median: " `medianCHI2c'
+di "Hodges-Lehman: " `hlCHI2c'
+{\smallskip}
+di in r"Scale parameters CHI2c"
+di "Standard deviation: " `sdCHI2c'
+di "Iqr: " `iqrCHI2c'
+di "Qn: " `qnCHI2c'
+{\smallskip}
+{\smallskip}
+di in r "Skewness parameters CHI2c"
+di "Skewness: " `skewCHI2c'
+di "Quantile skewness: " `qskewCHI2c'
+di "Mecouple: " `mcCHI2c'
+{\smallskip}
+di in r "Tail heavyness parameters CHI2c"
+di "Kurtosis: " `kurtCHI2c'
+di "Quantile right heaviness: " `rqwCHI2c'
+di "Quantile left heaviness: " `lqwCHI2c'
+di "Right mecouple: " `rmcCHI2c'
+di "Left mecouple: " `lmcCHI2c'

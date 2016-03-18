@@ -1,0 +1,269 @@
+%updated to Stata 11
+
+\def\gswref#1{[{\smrm GSW}]~{\bf #1}}
+\def\gsuref#1{[{\smrm GSU$\,$}]~{\bf #1}}
+\def\gsmref#1{[{\smrm GSM}]~{\bf #1}}
+\def\gsref#1{[{\smrm GS}]~{\bf #1}}
+
+
+\def\stataversion{11}
+\def\pstataversion{10}
+% 26apr2004 -- added by jsp
+% webuse macro
+\def\webuse#1{use http://www.stata-press.com/data/r{\stataversion}/#1}
+\def\pressurl#1{http://www.stata-press.com/data/r{\stataversion}/#1}
+
+
+\def\frbegin{\fref{1~Read this{\emd}it will help}}
+\def\frstart{\fref{1.1~Getting Started with Stata}}
+\def\frfman{\fref{1.2~The User's Guide and the Reference manuals}}
+\def\frtutorials{\fref{1.2.2~Example datasets}}
+\def\frwhatsnew{\fref{1.3~What's new}}
+\def\frwhatsmore{\fref{1.3.13~What's more}}
+\def\frbrief{\fref{2~A brief description of Stata}}
+
+\def\frres{\fref{3~Resources for learning and using Stata}}
+\def\frwww{\fref{3.2~The Stata web site (www.stata.com)}}
+\def\frstatapress{\fref{3.3~The Stata Press web site (www.stata-press.com)}}
+\def\frstatalist{\fref{3.4~The Stata listserver}}
+\def\frstb{\fref{3.5~The Stata Journal}}
+\def\frweb{\fref{3.6~Updating and adding features from the web}}
+\def\frnetcourse{\fref{3.7.1~NetCourses}}
+\def\frpublictrain{\fref{3.7.2~Public training courses}}
+\def\fronsitetrain{\fref{3.7.3~On-site training courses}}
+\def\frbooks{\fref{3.8~Books and other support materials}}
+\def\frtechsupport{\fref{3.9~Technical support}}
+
+\def\frhelp{\fref{4~Stata's help and search facilities}}
+\def\frmlookup{\fref{4.6~More on search}}
+\def\frlookup{\fref{4.9~search: All the details}}
+\def\frflavors{\fref{5~Flavors of Stata}}
+
+\def\frmemory{\fref{6~Setting the size of memory}}
+\def\frmemflyse{\fref{6.2~Setting memory size on the fly: Stata/MP and Stata/SE}}
+\def\frmemflycool{\fref{6.3~Setting memory size on the fly: Stata/IC}}
+\def\frmemcmd{\fref{6.4~The memory command}}
+\def\frmemvir{\fref{6.5~Virtual memory and speed considerations}}
+
+\def\frmore{\fref{7~--more-- conditions}}
+\def\frrc{\fref{8~Error messages and return codes}}
+
+\def\frbreak{\fref{9~The Break key}}
+
+\def\frkeyboard{\fref{10~Keyboard use}}
+\def\frfkeys{\fref{10.2~F-keys}}
+\def\fredit{\fref{10.5~Editing previous lines in Stata}}
+\def\frtabexp{\fref{10.6~Tab expansion of variable names}}
+
+\def\frsyntax{\fref{11~Language syntax}}
+\def\frsynvl{\fref{11.1.1~varlist}}
+\def\frbyv{\fref{11.1.2~by varlist:}}
+\def\frif{\fref{11.1.3~if exp}}
+\def\frinrange{\fref{11.1.4~in range}}
+\def\frequalexp{\fref{11.1.5~=exp}}
+\def\frsyntaxwt{\fref{11.1.6~weight}}
+\def\frsyntaxop{\fref{11.1.7~options}}
+\def\frnumlist{\fref{11.1.8~numlist}}
+\def\frdatelist{\fref{11.1.9~datelist}}
+\def\frprefix{\fref{11.1.10~Prefix commands}}
+
+\def\frabbrev{\fref{11.2~Abbreviation rules}}
+\def\frvarabbrev{\fref{11.2.3~Variable-name abbreviation}}
+\def\frnames{\fref{11.3~Naming conventions}}
+\def\frvarlists{\fref{11.4~varlists}}
+\def\frvarold{\fref{11.4.1~Lists of existing variables}}
+\def\frvarnew{\fref{11.4.2~Lists of new variables}}
+\def\frfvvarlists{\fref{11.4.3~Factor variables}}
+\def\frfvvarlistsop{\fref{11.4.3.1~Factor-variable operators}}
+\def\frfvvarlistsbl{\fref{11.4.3.2~Base levels}}
+\def\frfvvarlistsfvset{\fref{11.4.3.3~Setting base levels permanently}}
+\def\frfvvarlistslev{\fref{11.4.3.4~Selecting levels}}
+\def\frfvvarlistsparen{\fref{11.4.3.5~Applying operators to a group of variables}}
+\def\frfvvarliststs{\fref{11.4.3.6~Using factor variables with time-series operators}}
+\def\frtsvarlists{\fref{11.4.4~Time-series varlists}}
+\def\frby{\fref{11.5~by varlist:\ construct}}
+\def\frfilenames{\fref{11.6~File-naming conventions}}
+
+\def\frdatatypes{\fref{12~Data}}
+\def\frnum{\fref{12.2~Numbers}}
+\def\frmiss{\fref{12.2.1~Missing values}}
+\def\frnumtypes{\fref{12.2.2~Numeric storage types}}
+\def\frstr{\fref{12.4~Strings}}
+\def\frstrtypes{\fref{12.4.4~String storage types}}
+\def\frformats{\fref{12.5~Formats: Controlling how data are displayed}}
+\def\frformatnum{\fref{12.5.1~Numeric formats}}
+\def\frforeuro{\fref{12.5.2~European numeric formats}}
+\def\frformatdatetime{\fref{12.5.3~Date and time formats}}
+\def\frlabels{\fref{12.6~Dataset, variable, and value labels}}
+\def\frdatalab{\fref{12.6.1~Dataset labels}}
+\def\frvarlab{\fref{12.6.2~Variable labels}}
+\def\frvallab{\fref{12.6.3~Value labels}}
+\def\frvallang{\fref{12.6.4~Labels in other languages}}
+\def\frnotes{\fref{12.7~Notes attached to data}}
+\def\frchars{\fref{12.8~Characteristics}}
+
+\def\frexp{\fref{13~Functions and expressions}}
+\def\froperators{\fref{13.2~Operators}}
+\def\frrel{\fref{13.2.3~Relational operators}}
+\def\froplog{\fref{13.2.4~Logical operators}}
+\def\frfunctions{\fref{13.3~Functions}}
+\def\frusvars{\fref{13.4~System variables (\_variables)}}
+\def\frcoefficients{\fref{13.5~Accessing coefficients and standard errors}}
+\def\frmulteq{\fref{13.5.2~Multiple-equation models}}
+\def\fraccres{\fref{13.6~Accessing results from Stata commands}}
+\def\frsubscripts{\fref{13.7~Explicit subscripting}}
+\def\frlag{\fref{13.7.1~Generating lags and leads}}
+\def\frfvind{\fref{13.8~Indicator values for levels of factor variables}}
+\def\frtsops{\fref{13.9~Time-series operators}}
+\def\frtslag{\fref{13.9.1~Generating lags, leads, and differences}}
+\def\frexpvallab{\fref{13.10~Label values}}
+\def\frprecision{\fref{13.11~Precision and problems therein}}
+\def\frprecisionshort{\fref{13.11~Precision}}
+\def\frmatexp{\fref{14~Matrix expressions}}
+\def\frmatrow{\fref{14.2~Row and column names}}
+\def\frrowcolnames{\fref{14.2.4~Obtaining row and column names}}
+\def\fraccessmats{\fref{14.5~Accessing matrices created by Stata commands}}
+\def\frmatfunc{\fref{14.8~Matrix functions}}
+
+\def\frlogs{\fref{15~Saving and printing output---log files}}
+\def\frlogcomments{\fref{15.2~Placing comments in logs}}
+
+\def\frdofiles{\fref{16~Do-files}}
+\def\frdoversion{\fref{16.1.1~Version}}
+\def\frdocomments{\fref{16.1.2~Comments and blank lines in do-files}}
+\def\frdolonglines{\fref{16.1.3~Long lines in do-files}}
+\def\frdoerr{\fref{16.1.4~Error handling in do-files}}
+\def\frdomore{\fref{16.1.6~Preventing --more-- conditions}}
+\def\frrun{\fref{16.4.2~Suppressing output}}
+\def\frado{\fref{17~Ado-files}}
+\def\fradowhat{\fref{17.2~What is an ado-file?}}
+\def\fradowhich{\fref{17.3~How can I tell if a command is built in or an ado-file?}}
+\def\fradolook{\fref{17.5~Where does Stata look for ado-files?}}
+\def\frpersonal{\fref{17.5.2~Where is my personal ado-directory?}}
+\def\frotherinstall{\fref{17.6~How do I install an addition?}}
+\def\frmyown{\fref{17.7~How do I add my own ado-files?}}
+\def\froffinstall{\fref{17.8~How do I install official updates?}}
+\def\fruserinstall{\fref{17.9~How do I install updates to user-written additions?}}
+
+\def\frprograms{\fref{18~Programming Stata}}
+\def\frrelation{\fref{18.2~Relationship between a program and a do-file}}
+\def\frmacros{\fref{18.3~Macros}}
+\def\frlocal{\fref{18.3.1~Local macros}}
+\def\frglobal{\fref{18.3.2~Global macros}}
+\def\frmacrosexp{\fref{18.3.4~Macros and expressions}}
+\def\frdoubleq{\fref{18.3.5~Double quotes}}
+\def\frexmacfuncs{\fref{18.3.6~Extended macro functions}}
+\def\frmacadv{\fref{18.3.7~Macro increment and decrement functions}}
+
+\def\fradvlmac{\fref{18.3.9~Advanced local macro manipulation}}
+\def\frwinmacnm{\fref{18.3.11~Constructing Windows filenames by using macros}}
+\def\frrefchar{\fref{18.3.13~Referring to characteristics}}
+\def\frarguments{\fref{18.4~Program arguments}}
+\def\frparse{\fref{18.4.4~Parsing standard Stata syntax}}
+\def\frparsens{\fref{18.4.6~Parsing nonstandard syntax}}
+\def\frscamat{\fref{18.5~Scalars and matrices}}
+\def\frtempdes{\fref{18.6~Temporarily destroying the data in memory}}
+
+\def\frtemp{\fref{18.7~Temporary objects}}
+\def\frtempvar{\fref{18.7.1~Temporary variables}}
+\def\frtempsca{\fref{18.7.2~Temporary scalars and matrices}}
+\def\frtempfile{\fref{18.7.3~Temporary files}}
+
+\def\frresult{\fref{18.8~Accessing results calculated by other programs}}
+\def\frresest{\fref{18.9~Accessing results calculated by estimation commands}}
+\def\frsr{\fref{18.10~Saving results}}
+\def\frdefest{\fref{18.10.2~Saving results in e()}}
+\def\frdefest{\fref{18.10.3~Saving results in s()}}
+
+\def\fradoprog{\fref{18.11~Ado-files}}
+\def\frversion{\fref{18.11.1~Version}}
+\def\fradocomllines{\fref{18.11.2~Comments and long lines in ado-files}}
+\def\fradodebug{\fref{18.11.3~Debugging ado-files}}
+\def\fradosamp{\fref{18.11.5~Development of a sample ado-command}}
+\def\fradohelp{\fref{18.11.6~Writing online help}}
+\def\frprogcomp{\fref{18.12~A compendium of useful commands for programmers}}
+
+\def\frimmediate{\fref{19~Immediate commands}}
+
+\def\frestimate{\fref{20~Estimation and postestimation commands}}
+\def\frreplayingresults{\fref{20.3~Replaying prior results}}
+\def\frsamp{\fref{20.6~Specifying the estimation subsample}}
+\def\frlevel{\fref{20.7~Specifying the width of confidence intervals}}
+\def\frvarcov{\fref{20.8~Obtaining the variance{\endash}covariance matrix}}
+\def\frpv{\fref{20.9~Obtaining predicted values}}
+\def\frpvin{\fref{20.9.2~Making in-sample predictions}}
+\def\frpvout{\fref{20.9.3~Making out-of-sample predictions}}
+\def\fraccesscoef{\fref{20.10~Accessing estimated coefficients}}
+\def\frht{\fref{20.11~Performing hypothesis tests on the coefficients}}
+\def\frtestany{\fref{20.11.2~Using test}}
+\def\frlrtest{\fref{20.11.3~Likelihood-ratio tests}}
+\def\frnonlinear{\fref{20.11.4~Nonlinear Wald tests}}
+\def\frlincom{\fref{20.12~Obtaining linear combinations of coefficients}}
+\def\frnlcom{\fref{20.13~Obtaining nonlinear combinations of coefficients}}
+\def\frmargins{\fref{20.14~Obtaining marginal means, adjusted predictions, and predictive margins}}
+\def\fremm{\fref{20.14.1~Obtaining expected marginal means}}
+\def\fradjpred{\fref{20.14.2~Obtaining adjusted predictions}}
+\def\frpredmarg{\fref{20.14.3~Obtaining predictive margins}}
+\def\frmfx{\fref{20.15~Obtaining conditional and average marginal effects}}
+\def\frcondmfx{\fref{20.15.1~Obtaining conditional marginal effects}}
+\def\fravgmfx{\fref{20.15.2~Obtaining average marginal effects}}
+\def\frrobust{\fref{20.16~Obtaining robust variance estimates}}
+\def\frscore{\fref{20.17~Obtaining scores}}
+\def\frwest{\fref{20.18~Weighted estimation}}
+\def\frwestf{\fref{20.18.1~Frequency weights}}
+\def\frwesta{\fref{20.18.2~Analytic weights}}
+\def\frwestp{\fref{20.18.3~Sampling weights}}
+\def\frwesti{\fref{20.18.4~Importance weights}}
+\def\frpostest{\fref{20.19~A list of postestimation commands}}
+\def\frdatain{\fref{21~Inputting data}}
+\def\freight{\fref{21.2~Determining which input method to use}}
+\def\frmemout{\fref{21.3~If you run out of memory}}
+\def\frtransfer{\fref{21.4~Transfer programs}}
+\def\frodbc{\fref{21.5~ODBC sources}}
+
+\def\frcombine{\fref{22~Combining datasets}}
+
+\def\frstrings{\fref{23~Working with strings}}
+\def\frencode{\fref{23.2~Categorical string variables}}
+
+\def\frdatetime{\fref{24~Working with dates and times}}
+\def\frdatetimeinput{\fref{24.2~Inputting dates and times}}
+\def\frdatetimedisplay{\fref{24.3~Displaying dates and times}}
+\def\frdatetimeliterals{\fref{24.4~Typing dates and times (date/time literals)}}
+\def\frdatetimecomponents{\fref{24.5~Extracting components of dates and times}}
+\def\frdatetimeconversion{\fref{24.6~Converting between date and time values}}
+
+\def\frcatvars{\fref{25~Working with categorical data and factor variables}}
+\def\frconttocat{\fref{25.1.2~Converting continuous variables to categorical variables}}
+\def\frcatfvi{\fref{25.2.1~Including factor variables}}
+\def\frcatfvbase{\fref{25.2.2~Specifying base levels}}
+\def\frcatfvset{\fref{25.2.3~Setting base levels permanently}}
+\def\frcatfvtest{\fref{25.2.4~Testing significance of a main effect}}
+\def\frcatdum{\fref{25.2.5~Specifying indicator (dummy) variables as factor variables}}
+\def\frcatfvx{\fref{25.2.6~Including interactions}}
+\def\frcatfvxtest{\fref{25.2.7~Testing significance of interactions}}
+\def\frcatfvfact{\fref{25.2.8~Including factorial specifications}}
+\def\frcatfvpoly{\fref{25.2.9~Including squared terms and polynomials}}
+\def\frcatfvxc{\fref{25.2.10~Including interactions with continuous variables}}
+\def\frcatfvparen{\fref{25.2.11~Parentheses binding}}
+\def\frcatfvlevel{\fref{25.2.12~Including indicators for single levels}}
+\def\frcatfvsel{\fref{25.2.13~Including subgroups of levels}}
+\def\frcatfvts{\fref{25.2.14~Combining factor variables and time-series operators}}
+\def\frcatfvempty{\fref{25.2.15~Treatment of empty cells}}
+\def\frestadv{\fref{26~Overview of Stata estimation commands}}
+\def\freestanova{\fref{26.3~ANOVA, ANCOVA, MANOVA, and MANCOVA}}
+\def\frglm{\fref{26.4~Generalized linear models}}
+\def\frexact{\fref{26.9~Exact estimators}}
+\def\frestts{\fref{26.14~Models with time-series data}}
+\def\frlrpd{\fref{26.15.1~Linear regression with panel data}}
+\def\frglmpd{\fref{26.15.3~Generalized linear models with panel data}}
+\def\frestsvy{\fref{26.19~Survey data}}
+\def\frestcl{\fref{26.21~Multivariate and cluster analysis}}
+\def\frestpk{\fref{26.22~Pharmacokinetic data}}
+\def\frallknow{\fref{27~Commands everyone should know}}
+\def\frcomby{\fref{27.2~The by construct}}
+
+\def\frupdate{\fref{28~Using the Internet to keep up to date}}
+
+\def\frdownload{\fref{28.5~Making your own download site}}
+

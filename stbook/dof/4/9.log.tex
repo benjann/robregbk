@@ -1,0 +1,6 @@
+hl log_temperature
+local mu=e(hl)
+qn log_temperature
+local s=e(qn)
+gen leverage=(log_temperature-`mu')/`s'
+robreg m log_intensity log_temperature if abs(leverage)<=2.5

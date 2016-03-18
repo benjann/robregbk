@@ -1,0 +1,325 @@
+%%
+%% This is file `stbook.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% stbook.dtx  (with options: `stbook')
+%% ===========================================================================
+%% LaTeX 2e document class for Stata Press books
+%% 
+%% Copyright 2001--2006 StataCorp LP
+%% 4905 Lakeway Drive
+%% College Station, Texas 77845 USA
+%% http://www.stata.com
+%% stata@stata.com
+%% 
+%% Some macros and environments are modified versions of those given in
+%% classes.dtx v1.4a 1999/01/07, copyrighted by The LaTeX3 Project.
+%% 
+%% \CharacterTable
+%%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%%   Digits        \0\1\2\3\4\5\6\7\8\9
+%%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%%   Dollar        \$     Percent       \%     Ampersand     \&
+%%   Acute accent  \'     Left paren    \(     Right paren   \)
+%%   Asterisk      \*     Plus          \+     Comma         \,
+%%   Minus         \-     Point         \.     Solidus       \/
+%%   Colon         \:     Semicolon     \;     Less than     \<
+%%   Equals        \=     Greater than  \>     Question mark \?
+%%   Commercial at \@     Left bracket  \[     Backslash     \\
+%%   Right bracket \]     Circumflex    \^     Underscore    \_
+%%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%%   Right brace   \}     Tilde         \~}
+%%
+\NeedsTeXFormat{LaTeX2e}[1996/06/01]
+\ProvidesPackage{stbook}
+  [2005/12/20 v1.17
+ Stata Press Book document class]
+\def\stbk@Warning#1{\PackageWarning{stbook}{#1}}
+\def\stbk@WarningNoLine#1{\PackageWarningNoLine{stbook}{#1}}
+\def\stbk@Info#1{\typeout{#1}\PackageInfo{stbook}{#1}}
+\DeclareOption*{\stbk@Warning{{\CurrentOption} is not a valid option}}
+\ProcessOptions\relax
+\RequirePackage{ifthen}[1999/09/10]
+\def\st@chapter@name{Chapter}
+\let\stappendix=\appendix
+\def\appendix{%
+  \def\st@chapter@name{Appendix}
+  \sp@appendixtrue
+  \stappendix%
+}
+\pagestyle{headings}
+\def\ps@headings{%
+  \let\@evenfoot\@empty%
+  \let\@oddfoot\@empty%
+  \def\@evenhead{\thepage\hfil{\slshape\leftmark}}%
+  \def\@oddhead{{\slshape\rightmark}\hfil\thepage}%
+  \let\@mkboth\markboth
+  \def\chaptermark##1{%
+    \markboth{{\st@chapter@name} \thechapter\space\space ##1}{}%
+  }
+  \def\schaptermark##1{%
+    \markboth{##1}{}%
+  }
+  \def\sectionmark##1{%
+    \markright{\thesection\space\space\space ##1}{}%
+  }
+  \def\subsectionmark##1{%
+    \markright{\thesubsection\space\space\space ##1}{}%
+  }
+  \def\leftmark{\expandafter\@firstoftwo\topmark{}{}}
+  \def\rightmark{\expandafter\@secondoftwo\botmark{}{}}
+}
+\newcommand{\stbkpreface}[1][Preface]{%
+  \chapter*{#1}%
+  \addcontentsline{toc}{preface}{\numberline{}#1}%
+  \markboth{#1}{#1}%
+}
+\newcommand{\stbkack}[1][Acknowledgments]{%
+  \chapter*{#1}%
+  \markboth{#1}{#1}%
+}
+\renewcommand{\part}{
+  \if@openright\cleardoublepage\else\clearpage\fi%
+  \@afterindentfalse%
+  \secdef\stbk@part\stbk@spart%
+}
+\newcommand{\stbk@part}[2][default]{%
+  \refstepcounter{part}%
+  \typeout{Chapter\space\thepart.}%
+  \addcontentsline{toc}{part}{\protect\numberline{\thepart}#1}%
+  \addtocontents{lof}{\protect\addvspace{2ex}}%
+  \addtocontents{lot}{\protect\addvspace{2ex}}%
+  % mark headings for this part
+  \pagestyle{empty}%
+  % make part heading for this page
+  \stbk@makeparthead{#2}%
+  \@afterheading%
+}
+\newcommand{\stbk@makeparthead}[1]{%
+  \vspace*{30pt}% beforeskip
+  {\parindent \z@ \raggedright \normalfont%
+    \huge%
+    \sffamily%
+    \bfseries%
+    Part~\thepart%
+    \vskip\baselineskip%
+    #1%
+    \par\nobreak% afterskip
+    \vskip 20pt%
+  }%
+}
+\newcommand{\stbk@spart}[1]{%
+  % make part heading for this page
+  \stbk@makesparthead{#1}
+  \@afterheading
+}
+\newcommand{\stbk@makesparthead}[1]{%
+  \thispagestyle{empty}%
+  \vspace*{30pt}% beforeskip
+  {\parindent \z@ \raggedright \normalfont%
+    \huge%
+    \sffamily%
+    \bfseries%
+    #1%
+    \par\nobreak%
+    \vskip 20pt% afterskip
+  }%
+}
+\renewcommand{\chapter}{
+  \if@openright%
+    \clearpage%
+    \thispagestyle{empty}%
+    \cleardoublepage%
+  \else%
+    \clearpage%
+  \fi%
+  \pagestyle{headings}%
+  \@afterindentfalse%
+  \secdef\@chapter\@schapter%
+}
+\newcommand{\stbk@chapter}[2][default]{%
+  \refstepcounter{chapter}%
+  \typeout{Chapter\space\thechapter.}%
+  \addcontentsline{toc}{chapter}{\protect\numberline{\thechapter}#1}%
+  \addtocontents{lof}{\protect\addvspace{2ex}}%
+  \addtocontents{lot}{\protect\addvspace{2ex}}%
+  % mark headings for this chapter
+  \chaptermark{#1}%
+  % make chapter heading for this page
+  \stbk@makechapterhead{#2}%
+  \@afterheading%
+}
+\newdimen\stbk@dim
+\let\@chapter\stbk@chapter
+\newcommand{\stbk@makechapterhead}[1]{%
+  \thispagestyle{plain}%
+  \vspace*{30pt}% beforeskip
+  {\parindent \z@ \raggedright \normalfont%
+    \hskip -0.25in%
+    \huge%
+    \sffamily%
+    \bfseries%
+    \setbox\st@box\hbox{\thechapter\space\space\space}%
+    \stbk@dim=\wd\st@box
+    \advance\stbk@dim by-0.25in
+    \hangindent=\stbk@dim\hangafter=1 %
+    \thechapter\space\space\space #1%
+    \par\nobreak%
+    \vskip 20pt% afterskip
+  }%
+}
+\newcommand{\stbk@schapter}[1]{%
+  % mark headings for this chapter
+  \schaptermark{#1}%
+  % make chapter heading for this page
+  \stbk@makeschapterhead{#1}
+  \@afterheading
+}
+\let\@schapter\stbk@schapter
+\newcommand{\stbk@makeschapterhead}[1]{%
+  \thispagestyle{empty}%
+  \vspace*{30pt}% beforeskip
+  {\parindent \z@ \raggedright \normalfont%
+    \hskip -0.25in%
+    \huge%
+    \sffamily%
+    \bfseries%
+    \hangindent=-0.25in\hangafter=1 %
+    #1%
+    \par\nobreak%
+    \vskip 20pt% afterskip
+  }%
+}
+\renewcommand{\section}{\@startsection%
+  {section}%          name
+  {1}%            level
+  {-0.25in}%          indent
+  {-\baselineskip}%        beforeskip
+  {0.25\baselineskip}%        afterskip
+  {\normalfont\Large\sffamily\bfseries}%  style
+}
+\renewcommand{\subsection}{\@startsection%
+  {subsection}%          name
+  {2}%            level
+  {-0.25in}%          indent
+  {-\baselineskip}%        beforeskip
+  {0.25\baselineskip}%        afterskip
+  {\normalfont\large\sffamily\bfseries}%  style
+}
+\renewcommand{\subsubsection}{\@startsection%
+  {subsubsection}%        name
+  {3}%            level
+  {-0.25in}%          indent
+  {-\baselineskip}%        beforeskip
+  {0.25\baselineskip}%        afterskip
+  {\normalfont\normalsize\sffamily\bfseries}%  style
+}
+\renewcommand{\paragraph}{\@startsection%
+  {paragraph}%          name
+  {4}%            level
+  {0pt}%            indent
+  {\baselineskip}%        beforeskip
+  {0.25\baselineskip}%        afterskip
+  {\normalfont\normalsize\sffamily\bfseries}%  style
+}
+\renewcommand{\subparagraph}{\@startsection%
+  {subparagraph}%          name
+  {5}%            level
+  {0pt}%            indent
+  {\baselineskip}%        beforeskip
+  {-1.5ex}%          afterskip
+  {\normalfont\normalsize\sffamily}%    style
+}
+\def\contentsname{Contents}
+\renewcommand{\tableofcontents}{%
+  \chapter*{\contentsname}%
+  \markboth{\contentsname}{\contentsname}%
+  \@starttoc{toc}%
+}
+\setcounter{tocdepth}{3}
+\renewcommand*\l@part[2]{%
+  \ifnum \c@tocdepth >-2\relax
+    \addpenalty{-\@highpenalty}%
+    \addvspace{1em \@plus\p@}%
+    \setlength\@tempdima{2.5em}%
+    \begingroup
+      \parindent \z@ \rightskip \@pnumwidth
+      \parfillskip -\@pnumwidth
+      {\leavevmode
+       \large%
+       \bfseries%
+       #1\hfil \hb@xt@\@pnumwidth{\hss #2}}\par
+       \nobreak
+         \global\@nobreaktrue
+         \everypar{\global\@nobreakfalse\everypar{}}%
+    \endgroup
+  \fi}
+\renewcommand*\l@chapter[2]{%
+  \ifnum \c@tocdepth >\m@ne
+    \addpenalty{-\@highpenalty}%
+    \setlength\@tempdima{2.5em}%
+    \begingroup
+      \parindent \z@ \rightskip \@pnumwidth
+      \parfillskip -\@pnumwidth
+      \leavevmode \bfseries
+      \advance\leftskip\@tempdima
+      \hskip -\leftskip
+      #1\nobreak%
+      \hfil \nobreak\hb@xt@\@pnumwidth{\hss #2}\par
+      \penalty\@highpenalty
+    \endgroup
+  \fi}
+\renewcommand\@tocrmarg{4em}
+\renewcommand\@pnumwidth{2em}
+\renewcommand*\l@section{\@dottedtocline{1}{2.5em}{2.8em}}
+\renewcommand*\l@subsection{\@dottedtocline{2}{5.3em}{3.8em}}
+\renewcommand*\l@subsubsection{\@dottedtocline{3}{9.1em}{4.1em}}
+\renewcommand*\l@paragraph{\@dottedtocline{4}{13.2em}{5.2em}}
+\renewcommand*\l@subparagraph{\@dottedtocline{5}{18.4em}{6em}}
+\renewcommand*\l@figure{\@dottedtocline{1}{2.5em}{3.0em}}
+\let\l@table\l@figure
+\newcommand*{\l@preface}[2]{%
+  \addpenalty{-\@highpenalty}%
+  \setlength\@tempdima{2.5em}%
+  \begingroup%
+    \parindent \z@ \rightskip \@pnumwidth%
+    \parfillskip -\@pnumwidth%
+    \leavevmode \bfseries%
+    \advance\leftskip\@tempdima%
+    \hskip -\leftskip%
+    #1\nobreak\hfil \nobreak\hb@xt@\@pnumwidth{\hss #2}\par%
+    \penalty\@highpenalty%
+  \endgroup%
+}
+\newcommand*{\l@index}[2]{%
+  \addpenalty{-\@highpenalty}%
+  \setlength\@tempdima{2.5em}%
+  \begingroup%
+    \parindent \z@ \rightskip \@pnumwidth%
+    \parfillskip -\@pnumwidth%
+    \leavevmode \bfseries%
+    \advance\leftskip\@tempdima%
+    \hskip -\leftskip%
+    #1\nobreak\hfill \nobreak\hb@xt@\@pnumwidth{\hss #2}\par%
+    \penalty\@highpenalty%
+  \endgroup%
+}
+\def\bibsection{%
+  \chapter*{\bibname}%
+  \addcontentsline{toc}{index}{\numberline{}\bibname}%
+  \markboth{\bibname}{}%
+  \markright{\bibname}{}%
+}
+\AtBeginDocument{%
+  \IfFileExists{author.sty}{%
+    \stbk@Info{automatically inputting author.sty}
+    \input{author.sty}
+  }{}
+}
+\newcommand*\alsosee[2]{\emph{also see} #1}
+\endinput
+%%
+%% End of file `stbook.sty'.

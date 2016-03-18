@@ -1,0 +1,56 @@
+% THIS FILE SHOULD NOT NEED EDITING
+% The main driver LaTeX file.
+\documentclass[efinal,bib]{statapress}
+
+% Page dimensions
+\usepackage[crop,frame,newcenter]{pagedims}
+	\headsep=18pt
+	\pdSetDims
+
+% The Stata Press book styles
+\usepackage{stbook}
+
+% Encapsulated PostScript figures
+\usepackage{epsfig}
+
+% Multiple columns within a page
+\usepackage{multicol}
+
+% Stata log listings and useful macros
+\usepackage{stata}
+
+% math arrays, and tabular environments
+\usepackage{array}
+
+% More math symbols
+\usepackage[tbtags]{amsmath}
+
+% Index generation
+\makeindex{author}
+\makeindex{subject}
+
+\begin{document}
+
+% Front matter
+\frontmatter
+\input{main_front.tex}
+
+% File containing the chapter inserts
+\clearpage
+\thispagestyle{empty}
+\cleardoublepage
+\mainmatter
+\input{main_inc.tex}
+
+% References
+\bibliographystyle{sj}
+\bibliography{main}
+\clearpage
+\thispagestyle{empty}
+
+% Index material
+\spAuthorIndex		% display the author index
+\spSubjectIndex		% display the subject index
+
+\end{document}
+

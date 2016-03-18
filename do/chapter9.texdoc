@@ -1,0 +1,19 @@
+texdoc init ../stbook/chapter9.tex, replace logdir(dof/9) nodo ///
+    grdir(eps/9) gropts(as(eps pdf) epsfig figure(h!))
+clear all
+set scheme s2manual
+set linesize 80
+
+/***
+\chapter{Robust principal component analysis}
+\label{chap:pca}
+
+***/
+
+
+
+
+/***
+
+\endinput
+***/
