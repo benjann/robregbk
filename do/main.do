@@ -17,7 +17,6 @@ texdoc do chapter1.texdoc
 texdoc do chapter2.texdoc
 texdoc do chapter3.texdoc
 texdoc do chapter4.texdoc
-texdoc do chapter4_old.texdoc
 texdoc do chapter5.texdoc
 texdoc do chapter6.texdoc
 texdoc do chapter7.texdoc
