@@ -1,46 +1,5 @@
 \stbkpreface[Notation and typography]
 
-\subsubsection*{Math typesetting conventions and custom commands (to be removed later)}
-
-The following lists contain some notational conventions for equations and some 
-custom commands. The conventions are guided by what is typically done in Stata Press books.
-\begin{itemize}[itemsep=0pt,topsep=0pt]
-    \item omit punctuation in display-style equations
-    \item use small caps for acronyms of estimators and other definitions, 
-       such as \stsc{IF}, \stsc{ARE}, \stsc{ASV}, \stsc{BIC}, \stsc{MM} estimator, \stsc{S} estimator, etc.
-    \item use boldface lowercase letters for vectors ($\stvec{x}$)
-    \item use boldface uppercase letters for matrices ($\stmat{X}$)
-    \item use $E(X)$ for expectation
-    \item use $\mathrm{Var}(X)$ and $\mathrm{Cov}(X,Y)$ for 
-          variance and covariance: \verb+\mathrm{Var}+ \dots
-    \item use $\mathcal{N}(a, b)$ for normal distribution: \verb+\mathcal{N}+ \dots
-    \item use $\Pr(x<y)$ for probability: \verb+\Pr+ \dots
-    \item use $'$ for both transposition $\stvec{x}'$ (\verb+\stvec{x}'+) and first derivative $F'(x)$ (\verb+F'(x)+)
-    \item use of parentheses
-    \begin{itemize}
-        \item parentheses (): grouping/order of operations, functions, open intervals
-        \item square brackets []: matrices, closed intervals
-        \item nested [()] for grouping/order of operations: may use square brackets as second set of parentheses 
-        for visual distinction
-        \item braces \{\}: sets
-    \end{itemize}
-    \item commands:
-        \begin{tabular}[t]{lll}
-            small caps acronyms      & \verb+\stsc{IQR}(X)+       & $\stsc{IQR}(X)$         \\
-            estimation hat           & \verb+\sthat{\theta}+      & $\sthat{\theta}$     \\
-            mean bar                 & \verb+\stbar{x}+           & $\stbar{x}$          \\
-            vectors                  & \verb+\stvec{x}+           & $\stvec{x}$          \\
-            matrices                 & \verb+\stmat{X}+           & $\stmat{X}$          \\
-            bold symbols             & \verb+\boldsymbol\theta+   & $\boldsymbol\theta$  \\
-            integral dif operator    & \verb+\int_a^b x \dif F(x)+& $\int_a^b x \dif F(x)$ \\
-            indicator function       & \verb+\I(x<X)+             & $\I(x<X)$            \\
-            sign operator            & \verb+\sign(x)+            & $\sign(x)$            \\
-            median operator          & \verb+\med(x)+             & $\med(x)$            \\
-        \end{tabular}
-\end{itemize}
-
-
-
 \subsubsection*{Stata code, datasets, programs, and references to manuals}
 
 In this book we assume that you are somewhat familiar with \stata, that you
