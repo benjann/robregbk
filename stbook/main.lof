@@ -11,13 +11,13 @@
 \contentsline {figure}{\numberline {\kern \digitwidth 3.2}{\ignorespaces Influence functions of $\sigma $, $\textsc {\lowercase {IQR}}_c$, $\textsc {\lowercase {MAD}}$ and $Q$ under the standard normal distribution}}{30}{subsection.3.2.1}
 \contentsline {figure}{\numberline {\kern \digitwidth 3.3}{\ignorespaces Influence functions of $\gamma _1$, $\textsc {\lowercase {SK}}_{0.25}$ and $\textsc {\lowercase {MC}}$ under the standard normal distribution}}{35}{subsection.3.3.1}
 \contentsline {figure}{\numberline {\kern \digitwidth 3.4}{\ignorespaces Influence functions of $\gamma _2$, $\textsc {\lowercase {LQW}}_{0.25}$ and $\textsc {\lowercase {RQW}}_{0.25}$, $\textsc {\lowercase {LMC}}$ and $\textsc {\lowercase {RMC}}$ under the standard normal distribution}}{39}{subsection.3.4.1}
-\contentsline {figure}{\numberline {\kern \digitwidth 3.5}{\ignorespaces Classic, adjusted, and generalized boxplot \leavevmode {\color {red}[will be inserted after revising the boxplot program]}}}{52}{Item.10}
+\contentsline {figure}{\numberline {\kern \digitwidth 3.5}{\ignorespaces Classic, adjusted, and generalized boxplot \leavevmode {\color {red}[will be inserted after revising the boxplot program]}}}{53}{Item.10}
 \addvspace {2ex}
 \addvspace {2ex}
-\contentsline {figure}{\numberline {\kern \digitwidth 4.1}{\ignorespaces Vertical outlier, good leverage point and bad leverage point}}{58}{section.4.2}
-\contentsline {figure}{\numberline {\kern \digitwidth 4.2}{\ignorespaces Huber loss function $\rho _{\kappa }^{\textsc {\lowercase {H}}}$ and score function $\psi _{\kappa }^{\textsc {\lowercase {H}}}$}}{63}{equation.4.4.18}
-\contentsline {figure}{\numberline {\kern \digitwidth 4.3}{\ignorespaces Tukey-Biweight loss function $\rho _{\kappa }^{\textsc {\lowercase {B}}}$ and score function $\psi _{\kappa }^{\textsc {\lowercase {B}}}$}}{63}{equation.4.4.18}
-\contentsline {figure}{\numberline {\kern \digitwidth 4.4}{\ignorespaces \leavevmode {\color {red}Caption needed}}}{92}{section*.26}
+\contentsline {figure}{\numberline {\kern \digitwidth 4.1}{\ignorespaces Vertical outlier, good leverage point and bad leverage point}}{60}{section.4.2}
+\contentsline {figure}{\numberline {\kern \digitwidth 4.2}{\ignorespaces Huber loss function $\rho _{\kappa }^{\textsc {\lowercase {H}}}$ and score function $\psi _{\kappa }^{\textsc {\lowercase {H}}}$}}{65}{equation.4.4.18}
+\contentsline {figure}{\numberline {\kern \digitwidth 4.3}{\ignorespaces Tukey-Biweight loss function $\rho _{\kappa }^{\textsc {\lowercase {B}}}$ and score function $\psi _{\kappa }^{\textsc {\lowercase {B}}}$}}{65}{equation.4.4.18}
+\contentsline {figure}{\numberline {\kern \digitwidth 4.4}{\ignorespaces \leavevmode {\color {red}Caption needed}}}{94}{section*.26}
 \addvspace {2ex}
 \addvspace {2ex}
 \addvspace {2ex}

@@ -991,7 +991,7 @@ where
 Then \citet{rousseeuw:yohai:1984} defined an \stsc{S} estimate of
 $\boldsymbol\beta$ by
 \[
-    \sthat{\boldsymbol\beta}_{\mathrm{S};\rho} 
+    \sthat{\boldsymbol\beta}_{\stsc{S};\rho} 
     = \arg\min_{\boldsymbol\beta}s_{\rho} (r_{1}(\boldsymbol\beta), \dots, r_{n}(\boldsymbol{\beta}))
 \]
 where $s_{\rho}$ is a measure of dispersion defining a scale \stsc{M} estimator, that is,
@@ -1004,209 +1004,200 @@ satisfying
 \end{equation}
 
 
-One important fact is that an S-estimate of $\boldsymbol\beta$ is also an
-M-estimate. More precisely, $\sthat{\boldsymbol\beta}_{\mathrm{S};\rho}$
-is an M-estimate (in the sense of (\ref{eq:M_min})) in that
-\begin{equation}
-\sum_{i=1}^{n}\rho\left(  \frac{r_{i}\left(  \sthat{\boldsymbol\beta%
-}_{\mathrm{S};\rho}\right)  }{\sthat{\sigma}_{\rho}}\right)  \leq\sum
-_{i=1}^{n}\rho\left(  \frac{r_{i}\left(  \widetilde{\boldsymbol\beta%
-}\right)  }{\sthat{\sigma}_{\rho}}\right)  \hspace{2cm}\text{for all
-}\widetilde{\boldsymbol\beta}\in\mathbb{R}^{p+1}, \label{eq:S_Minequality_1}%
+One important fact is that an \stsc{S} estimate of $\boldsymbol\beta$ is also an
+\stsc{M} estimate. More precisely, $\sthat{\boldsymbol\beta}_{\stsc{S};\rho}$
+is an \stsc{M} estimate (in the sense of \ref{eq:M_min}) in that
+%
+\begin{equation}\label{eq:S_Minequality_1}
+    \sum_{i=1}^{n}\rho\left(\frac{r_{i}(\sthat{\boldsymbol\beta}_{\stsc{S};\rho})}{\sthat{\sigma}_{\rho}}\right) 
+    \leq \sum_{i=1}^{n}\rho\left(\frac{r_{i}(\widetilde{\boldsymbol\beta})}{\sthat{\sigma}_{\rho}}\right)
+    \qquad
+    \text{for all $\widetilde{\boldsymbol\beta} \in \mathbb{R}^{p+1}$}
 \end{equation}
-where the residuals are standardized by the same scale M-estimate
-$\sthat{\sigma}_{\rho}=s_{\rho}\left(  r_{1}\left(  \widehat
-{\boldsymbol\beta}_{\mathrm{S};\rho}\right)  ,\ldots,r_{n}\left(
-\sthat{\boldsymbol\beta}_{\mathrm{S};\rho}\right)  \right)  $ of $\sigma$
-on both sides of the inequation (\ref{eq:S_Minequality_1}). Indeed,
-$\sthat{\boldsymbol\beta}_{\mathrm{S};\rho}$ minimizes the residual
-dispersion measure $s_{\rho}\left(  r_{1}(\boldsymbol\beta),\ldots
-,r_{n}(\boldsymbol\beta)\right)  $ which satisfies
-(\ref{eq:M_scale_equation_res}). This means that, if we denote $\widehat
-{\sigma}_{\rho}=s_{\rho}\left(  r_{1}\left(  \sthat{\boldsymbol\beta%
-}_{\mathrm{S};\rho}\right)  ,\ldots,r_{n}\left(  \sthat{\boldsymbol\beta%
-}_{\mathrm{S};\rho}\right)  \right)  $ and $\widetilde{\sigma}_{\rho}=s_{\rho
-}\left(  r_{1}\left(  \widetilde{\boldsymbol\beta}\right)  ,\ldots
-,r_{n}\left(  \widetilde{\boldsymbol\beta}\right)  \right)  $ for
-$\widetilde{\boldsymbol\beta}\in\mathbb{R}^{p+1}$, we have $\sthat{\sigma
-}_{\rho}\leq\widetilde{\sigma}_{\rho}$ and
+%
+where the residuals are standardized by the same scale \stsc{M} estimate
+$\sthat{\sigma}_{\rho} =
+s_{\rho}(r_{1}(\sthat{\boldsymbol\beta}_{\stsc{S};\rho}),\allowbreak
+\dots,\allowbreak r_{n}(\sthat{\boldsymbol\beta}_{\stsc{S};\rho}))$ of $\sigma$
+on both sides of the inequality (\ref{eq:S_Minequality_1}). Indeed,
+$\sthat{\boldsymbol\beta}_{\stsc{S};\rho}$ minimizes the residual dispersion
+measure $s_{\rho}(r_{1}(\boldsymbol\beta), \dots, r_{n}(\boldsymbol\beta))$
+which satisfies (\ref{eq:M_scale_equation_res}). This means that, if we denote
+$\sthat{\sigma}_{\rho} =
+s_{\rho}(r_{1}(\sthat{\boldsymbol\beta}_{\stsc{S};\rho}), \dots,
+r_{n}(\sthat{\boldsymbol\beta}_{\stsc{S};\rho}))$ and
+$\widetilde{\sigma}_{\rho} = s_{\rho}(r_{1}(\widetilde{\boldsymbol\beta}),
+\dots, r_{n}(\widetilde{\boldsymbol\beta}))$ for $\widetilde{\boldsymbol\beta}
+\in \mathbb{R}^{p+1}$, we have $\sthat{\sigma}_{\rho} \leq
+\widetilde{\sigma}_{\rho}$ and
 \[
-\sum_{i=1}^{n}\rho\left(  \frac{r_{i}\left(  \sthat{\boldsymbol\beta%
-}_{\mathrm{S};\rho}\right)  }{\sthat{\sigma}_{\rho}}\right)  =n\delta
-=\sum_{i=1}^{n}\rho\left(  \frac{r_{i}\left(  \widetilde{\boldsymbol\beta%
-}\right)  }{\widetilde{\sigma}_{\rho}}\right)  .
+    \sum_{i=1}^{n} \rho\left(\frac{r_{i}(\sthat{\boldsymbol\beta}_{\stsc{S};\rho})}{\sthat{\sigma}_{\rho}}\right) 
+    = n\delta
+    = \sum_{i=1}^{n}\rho\left(\frac{r_{i}(\widetilde{\boldsymbol\beta})}{\widetilde{\sigma}_{\rho}}\right)
 \]
-Then, since $\rho$ is monotone and $\sthat{\sigma}_{\rho}\leq\widetilde
-{\sigma}_{\rho}$, we necessarily have
+Then, since $\rho$ is monotone and $\sthat{\sigma}_{\rho} \leq
+\widetilde{\sigma}_{\rho}$, we necessarily have
 \[
-\sum_{i=1}^{n}\rho\left(  \frac{r_{i}\left(  \sthat{\boldsymbol\beta%
-}_{\mathrm{S};\rho}\right)  }{\sthat{\sigma}_{\rho}}\right)  =\sum_{i=1}%
-^{n}\rho\left(  \frac{r_{i}\left(  \widetilde{\boldsymbol\beta}\right)
-}{\widetilde{\sigma}_{\rho}}\right)  \leq\sum_{i=1}^{n}\rho\left(  \frac
-{r_{i}\left(  \widetilde{\boldsymbol\beta}\right)  }{\sthat{\sigma}_{\rho
-}}\right)  ,
+    \sum_{i=1}^{n} \rho\left(\frac{r_{i}(\sthat{\boldsymbol\beta}_{\stsc{S};\rho})}{\sthat{\sigma}_{\rho}}\right)
+    = \sum_{i=1}^{n} \rho\left(\frac{r_{i}(\widetilde{\boldsymbol\beta})}{\widetilde{\sigma}_{\rho}}\right)
+    \leq \sum_{i=1}^{n}\rho\left(\frac{r_{i}(\widetilde{\boldsymbol\beta})}{\sthat{\sigma}_{\rho}}\right)
 \]
 which proves (\ref{eq:S_Minequality_1}).
 
-If $\rho$ has a derivative $\psi$, it follows that $\sthat{\boldsymbol{\beta
-}}_{\mathrm{S};\rho}$ is also an M-estimate in the sense of
-(\ref{eq:M_equations}), but with the condition that the scale parameter
-$\sigma$ is estimated simultaneously with $\boldsymbol\beta$. More formally,
-$\boldsymbol\beta$ is estimated by $\sthat{\boldsymbol\beta}%
-_{\mathrm{S};\rho}$ and $\sigma$ by $\sthat{\sigma}_{\rho}=s_{\rho}\left(
-r_{1}\left(  \sthat{\boldsymbol\beta}_{\mathrm{S};\rho}\right)
-,\ldots,r_{n}\left(  \sthat{\boldsymbol\beta}_{\mathrm{S};\rho}\right)
-\right)  $, with $\sthat{\boldsymbol\beta}_{\mathrm{S};\rho}$ and
-$\sthat{\sigma}_{\rho}$ such that
+If $\rho$ has a derivative $\psi$, it follows that
+$\sthat{\boldsymbol{\beta}}_{\stsc{S};\rho}$ is also an \stsc{M} estimate in
+the sense of (\ref{eq:M_equations}), but with the condition that the scale
+parameter $\sigma$ is estimated simultaneously with $\boldsymbol\beta$. More
+formally, $\boldsymbol\beta$ is estimated by
+$\sthat{\boldsymbol\beta}_{\stsc{S};\rho}$ and $\sigma$ by
+$\sthat{\sigma}_{\rho}=s_{\rho}(r_{1}(\sthat{\boldsymbol\beta}_{\stsc{S};\rho}),
+ \dots, r_{n}(\sthat{\boldsymbol\beta}_{\stsc{S};\rho}))$, with
+$\sthat{\boldsymbol\beta}_{\stsc{S};\rho}$ and $\sthat{\sigma}_{\rho}$ such that
 \[
-\left\{
-\begin{array}
-[c]{l}%
-\sum\limits_{i=1}^{n}\psi\left(  \dfrac{r_{i}\left(  \widehat
-{\boldsymbol\beta}_{\mathrm{S};\rho}\right)  }{\sthat{\sigma}_{\rho}%
-}\right)  \stvec{x}_{i}=\mathbf{0}\\
-\dfrac{1}{n}\sum\limits_{i=1}^{n}\rho\left(  \dfrac{r_{i}\left(
-\sthat{\boldsymbol\beta}_{\mathrm{S};\rho}\right)  }{\sthat{\sigma
-}_{\rho}}\right)  =\delta.
-\end{array}
-\right.
+    \begin{cases}
+        \sum_{i=1}^{n} 
+        \psi\left(\frac{r_{i}(\sthat{\boldsymbol\beta}_{\stsc{S};\rho})}{\sthat{\sigma}_{\rho}}\right) 
+        \stvec{x}_{i} = \stvec{0}
+        \\[1em]
+        \frac{1}{n} \sum_{i=1}^{n}
+        \rho\left(\frac{r_{i}(\sthat{\boldsymbol\beta}_{\stsc{S};\rho})}{\sthat{\sigma}_{\rho}}\right)
+        = \delta
+    \end{cases}
 \]
-Note that, taking $\rho\left(  u\right)  =u^{2}$ and $\delta=1$, we retrieve
-the standard LS minimization problem.
+Note that, taking $\rho(u) = u^{2}$ and $\delta=1$, we retrieve
+the standard \stsc{LS} minimization problem.
 
-The choice of $\rho\left(  \cdot\right)  $ is crucial to have good robustness
-properties\footnote{Note that the function $\rho$ defining the S-estimator
-needs to be \emph{bounded} to get a positive breakdown point for the
-regression estimator $\sthat{\boldsymbol\beta}_{\mathrm{S};\rho}$.} and a
-high Gaussian efficiency. The Tukey-Biweight function defined in
-(\ref{eq:Tukey_Biweight_function}), with $\kappa=1.547$, is a common choice.
-This S-estimator resists to a contamination of up-to 50\% of outliers and,
-hence, have a breakdown point of 50\%. Unfortunately, this S-estimator has a
-Gaussian efficiency of only 28.7\%. If $\kappa=5.182$, the Gaussian efficiency
-raises to 96.6\% but the breakdown point drops to 10\%. Actually an
-S-estimator cannot simultaneously have a high breakdown point and a high
-efficiency. In particular, H\"{o}ssjer (1992) has shown that the maximum
-Gaussian asymptotic efficiency of an S-estimator with a breakdown point of
-50\% is 33\%.
+The choice of $\rho(\cdot)$ is crucial to have good robustness
+properties\footnote{Note that the function $\rho$ defining the \stsc{S}
+estimator needs to be \emph{bounded} to get a positive breakdown point for the
+regression estimator $\sthat{\boldsymbol\beta}_{\stsc{S};\rho}$.} and a high
+Gaussian efficiency. The Tukey-Biweight function defined in
+(\ref{eq:Tukey_Biweight_function}), with $\kappa = 1.547$, is a common choice.
+This \stsc{S} estimator resists to a contamination of up to 50\% of outliers
+and, hence, has a breakdown point of 50\%. Unfortunately, this \stsc{S}
+estimator has a Gaussian efficiency of only 28.7\%. If $\kappa = 5.182$, the
+Gaussian efficiency raises to 96.6\% but the breakdown point drops to 10\%.
+Actually an \stsc{S} estimator cannot simultaneously have a high breakdown
+point and a high efficiency. In particular, \citet{Hossjer:1992} has shown that the
+maximum Gaussian asymptotic efficiency of an \stsc{S} estimator with a
+breakdown point of 50\% is 33\%.
 
-\subsection{MM-estimation}
+\subsection{MM estimation}
 \label{subsec:MM_estimation}
 
-We have just seen that S-estimation does not allow to reach jointly a high
-breakdown point and a high Gaussian efficiency. How should we then estimate
-the parameters of the regression model if we aim to combine high efficiency
-under normal errors with a high breakdown point? Several proposals have been
-made: the \emph{MM-estimators} of Yohai (1987), the $\tau$%
-\emph{-estimators} of Yohai and Zamar (1988), the \emph{constrained M (CM)
-estimators} of Mendes and Tyler (1996). All these estimators can have a
-Gaussian asymptotic efficiency as close to 1 as desired, and simultaneously a
-breakdown point of 50\%. Gervini and Yohai (2002) proposed one estimator that
+We have just seen that \stsc{S} estimation does not allow to reach jointly a
+high breakdown point and a high Gaussian efficiency. How should we then
+estimate the parameters of the regression model if we aim to combine high
+efficiency under normal errors with a high breakdown point? Several proposals
+have been made: the \stsc{MM} estimators of \citet{yohai:1987}, the $\tau$
+estimators of \citet{Yohai:1988}, the constrained \stsc{M} (\stsc{CM})
+estimators of \citet{Mendes:1996}. All these estimators can have a Gaussian
+asymptotic efficiency as close to 1 as desired, and simultaneously a breakdown
+point of 50\%. Furthermore, \citet{Gervini:2002} proposed one estimator that
 has a breakdown point of 50\% and an efficiency equal to 1.
 
-Let us here focus our attention on the regression MM-estimators since there
-are based on the M- and S-estimation procedures studied in the previous
-sections. An MM-estimator is defined in two successive steps:
+Let us here focus our attention on the regression \stsc{MM} estimators since
+they are based on the \stsc{M} and \stsc{S} estimation procedures studied in
+the previous sections. An \stsc{MM} estimator is defined in two successive
+steps:
 
 \begin{enumerate}
-\item Take an S-estimate $\sthat{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}$
-with high breakdown point (but possibly low normal efficiency) where the scale
-measure $s_{\rho_{0}}$ is defined by
-\[
-\frac{1}{n}\sum_{i=1}^{n}\rho_{0}\left(  \frac{r_{i}\left(  \boldsymbol{\beta
-}\right)  }{s_{\rho_{0}}\left(  r_{1}(\boldsymbol\beta),\ldots
-,r_{n}(\boldsymbol\beta)\right)  }\right)  =\delta\hspace{2cm}\text{for all
-}\boldsymbol\beta\in\mathbb{R}^{p+1}%
-\]
-($s_{\rho_{0}}$ is associated with the function $\rho_{0}\left(  \cdot\right)
-$ and the constant $\delta$). Let $\sthat{\sigma}_{\rho_{0}}=s_{\rho_{0}%
-}\left(  r_{1}\left(  \sthat{\boldsymbol\beta}_{\mathrm{S};\rho_{0}%
-}\right)  ,\ldots,r_{n}\left(  \sthat{\boldsymbol\beta}_{\mathrm{S}%
-;\rho_{0}}\right)  \right)  $.
+    \item Take an \stsc{S} estimate $\sthat{\boldsymbol\beta}_{\stsc{S};\rho_{0}}$
+    with high breakdown point (but possibly low Gaussian efficiency) where the scale
+    measure $s_{\rho_{0}}$ is defined by
+    \[
+        \frac{1}{n} \sum_{i=1}^{n}\rho_{0}\left(\frac{r_{i}(\boldsymbol\beta)}
+            {s_{\rho_{0}}(r_{1}(\boldsymbol\beta), \dots, r_{n}(\boldsymbol\beta))}\right) 
+            = \delta
+        \qquad\text{for all $\boldsymbol\beta\in\mathbb{R}^{p+1}$}
+    \]
+    ($s_{\rho_{0}}$ is associated with the function $\rho_{0}(\cdot)$ and the
+    constant $\delta$). Let $\sthat{\sigma}_{\rho_{0}} =
+    s_{\rho_{0}}(r_{1}(\sthat{\boldsymbol\beta}_{\stsc{S};\rho_{0}}),\allowbreak
+    \dots,\allowbreak r_{n}(\sthat{\boldsymbol\beta}_{\stsc{S};\rho_{0}}))$.
 
-\item Take any other function $\rho\left(  \cdot\right)  \leq\rho_{0}\left(
-\cdot\right)  $ and find the MM-estimate $\sthat{\boldsymbol\beta%
-}_{\mathrm{MM};\rho_{0},\rho}$ as a local minimum of
-\begin{equation}
-\sum_{i=1}^{n}\rho\left(  \frac{r_{i}\left(  \boldsymbol\beta\right)
-}{\sthat{\sigma}_{\rho_{0}}}\right)  \label{eq:MM_min}%
-\end{equation}
-such that
-\begin{equation}
-\sum_{i=1}^{n}\rho\left(  \frac{r_{i}\left(  \sthat{\boldsymbol\beta%
-}_{\mathrm{MM};\rho_{0},\rho}\right)  }{\sthat{\sigma}_{\rho_{0}}}\right)
-\leq\sum_{i=1}^{n}\rho\left(  \frac{r_{i}\left(  \sthat{\boldsymbol\beta%
-}_{\mathrm{S};\rho_{0}}\right)  }{\sthat{\sigma}_{\rho_{0}}}\right)  .
-\label{eq:MM_inequality}%
-\end{equation}
-
+    \item Take any other function $\rho(\cdot) \leq \rho_{0}(\cdot)$ and find
+    the \stsc{MM} estimate $\sthat{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho}$
+    as a local minimum of
+    %
+    \begin{equation}\label{eq:MM_min}
+        \sum_{i=1}^{n} \rho\left(\frac{r_{i}(\boldsymbol\beta)}{\sthat{\sigma}_{\rho_{0}}}\right)
+    \end{equation}
+    %
+    such that
+    %
+    \begin{equation}\label{eq:MM_inequality}
+        \sum_{i=1}^{n} \rho\left(\frac{r_{i}(\sthat{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho})}
+            {\sthat{\sigma}_{\rho_{0}}}\right)
+     \leq \sum_{i=1}^{n}\rho\left(\frac{r_{i}(\sthat{\boldsymbol\beta}_{\stsc{S};\rho_{0}})}
+         {\sthat{\sigma}_{\rho_{0}}}\right)
+    %
+    \end{equation}
+    %
 \end{enumerate}
 
-\begin{stremark}
-The key result is given in \citet{yohai:1987}. Recall that all local minima
-of (\ref{eq:MM_min}) is solution of the estimating equations
-(\ref{eq:M_equations}) with $\psi\left(  u\right)  =\rho^{\prime}\left(
-u\right)  $ and $\sthat{\sigma}=\sthat{\sigma}_{\rho_{0}}$:
-\begin{equation}
-\sum_{i=1}^{n}\psi\left(  \frac{r_{i}\left(  \boldsymbol\beta\right)
-}{\sthat{\sigma}_{\rho_{0}}}\right)  \stvec{x}_{i}=\mathbf{0}.
-\label{eq:MM_equations}%
+The key result is given in \citet{yohai:1987}. Recall that all local minima of
+(\ref{eq:MM_min}) are solutions of the estimating equations
+(\ref{eq:M_equations}) with $\psi(u) = \rho^{\prime}(u)$ and $\sthat{\sigma} =
+\sthat{\sigma}_{\rho_{0}}$:
+%
+\begin{equation}\label{eq:MM_equations}
+    \sum_{i=1}^{n} \psi\left(\frac{r_{i}(\boldsymbol\beta)}{\sthat{\sigma}_{\rho_{0}}}\right)
+    \stvec{x}_{i} = \stvec{0}
 \end{equation}
-Yohai shows that if $\rho\left(  u\right)  \leq\rho_{0}\left(  u\right)  $ for
-all $u\in%
-%TCIMACRO{\U{211d} }%
-%BeginExpansion
-\mathbb{R}
-%EndExpansion
-$ and if (\ref{eq:MM_inequality}) is satisfied, then $\widehat
-{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho}$ is consistent. Moreover, it
-can be shown that the MM-estimator $\sthat{\boldsymbol\beta}%
-_{\mathrm{MM};\rho_{0},\rho}$ has the same breakdown point than the
-S-estimator $\sthat{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}$ of the first
-step, determined by the function $\rho_{0}\left(  \cdot\right)  $. If
-furthermore $\sthat{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho}$ is any
-solution of (\ref{eq:MM_equations}), then it has the same efficiency --- this
-efficiency is determined by the choice of the function $\rho\left(
-\cdot\right)  $ --- as the global minimum of (\ref{eq:MM_min}). In conclusion,
-it is not necessary to find the absolute minimum of (\ref{eq:MM_min}) to
-ensure consistency, a high breakdown point and a high efficiency.
-\end{stremark}
+%
+\citeauthor{yohai:1987} shows that if $\rho(u) \leq \rho_{0}(u)$ for all $u \in
+\mathbb{R}$ and if (\ref{eq:MM_inequality}) is satisfied, then
+$\sthat{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho}$ is consistent. Moreover,
+it can be shown that the \stsc{MM} estimator
+$\sthat{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho}$ has the same breakdown
+point than the \stsc{S} estimator
+$\sthat{\boldsymbol\beta}_{\stsc{S};\rho_{0}}$ of the first step, determined by
+the function $\rho_{0}(\cdot)$. If, furthermore,
+$\sthat{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho}$ is any solution of
+(\ref{eq:MM_equations}), then it has the same efficiency---this efficiency is
+determined by the choice of the function $\rho(\cdot)$---as the global minimum
+of (\ref{eq:MM_min}). In conclusion, it is not necessary to find the absolute
+minimum of (\ref{eq:MM_min}) to ensure consistency, a high breakdown point and
+a high efficiency.
 
-It is common to use a Tukey-Biweight $\rho_{\kappa}^{B}\left(  \cdot\right)  $
-function for both the preliminary S-estimator and the final MM-estimator. The
-tuning constant $\kappa$ can be set to 1.547 for the preliminary S-estimator
-to guarantee a 50\% breakdown point, and it can be set to 4.685 for the second
-step MM-estimator to guarantee a 95\% asymptotic Gaussian efficiency of this
-final estimator. Note however that though not breaking-down, an MM-estimator
-with a very high efficiency may have a high bias \emph{under moderate
-contamination}: the larger the efficiency, the larger the bias. It is
-therefore important to choose the efficiency so as to maintain reasonable bias
-control. Results in Section 5.9 of \citet{maronna:etal:2006} show
-that an efficiency of 0.95 yields too high a bias, and hence it is safer to
-choose an efficiency of 0.85 which gives a smaller bias while retaining a
-sufficiently high efficiency. We will raise once again this problem of bias in
-Subsection \ref{subsec:Hausman}.
+It is common to use a Tukey-Biweight $\rho_{\kappa}^{\stsc{B}}(\cdot)$ function
+for both the preliminary \stsc{S} estimator and the final \stsc{MM} estimator.
+The tuning constant $\kappa$ can be set to 1.547 for the preliminary \stsc{S}
+estimator to guarantee a 50\% breakdown point, and it can be set to 4.685 for
+the second step \stsc{MM} estimator to guarantee a 95\% asymptotic Gaussian
+efficiency of this final estimator. Note, however, that though not
+breaking-down, an \stsc{MM} estimator with a very high efficiency may have a
+high bias \emph{under moderate contamination}: the larger the efficiency, the
+larger the bias. It is therefore important to choose the efficiency so as to
+maintain reasonable bias control. Results in Section 5.9 of
+\citet{maronna:etal:2006} show that an efficiency of 0.95 yields too high a
+bias, and hence it is safer to choose an efficiency of 0.85 which gives a
+smaller bias while retaining a sufficiently high efficiency. We will raise once
+again this problem of bias in section~\ref{subsec:Hausman}.
 
 \subsubsection{Numerical computation of the S- and MM-estimate}
 
-The numerical computation of the estimate $\sthat{\boldsymbol\beta%
-}_{\mathrm{MM};\rho_{0},\rho}$ at the second step of the procedure follows the
-approach described in Section \ref{subsec:practical_implementation_Mestimate}:
-starting with $\sthat{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}$, we use the
-iteratively reweighted least squares algorithm to attain a solution of the
+The numerical computation of the estimate
+$\sthat{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho}$ at the second step of the
+procedure follows the approach described in
+section~\ref{subsec:practical_implementation_Mestimate}: starting with
+$\sthat{\boldsymbol\beta}_{\stsc{S};\rho_{0}}$, we use the iteratively
+reweighted least squares (\stsc{IRWLS}) algorithm to attain a solution of the
 equation (\ref{eq:MM_equations}). It may be shown (see
-\citet{maronna:etal:2006} that (\ref{eq:MM_min}) decreases at each
-iteration, which insures (\ref{eq:MM_inequality}). Hence, once the initial
-S-estimate is computed, $\sthat{\boldsymbol\beta}_{\mathrm{MM};\rho
-_{0},\rho}$ comes at almost no additional computational cost.
+\citet{maronna:etal:2006} that (\ref{eq:MM_min}) decreases at each iteration,
+which insures (\ref{eq:MM_inequality}). Hence, once the initial \stsc{S}
+estimate is computed, $\sthat{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho}$
+comes at almost no additional computational cost.
 
-We programmed an S- and an MM-estimator in Stata (with Tukey-Biweight loss
-function) using the fast algorithm of Salibian-Barrera and Yohai (2006) for
-computing the S-estimator. Explicit formulas for the estimators are not
-available and it is necessary to call on numerical optimization to compute
-them. We present just below a sketch of the fast algorithm for regression
-S-estimates we implemented in Stata.
+We programmed an \stsc{S} and an \stsc{MM} estimator in Stata (with
+Tukey-Biweight loss function) using the fast algorithm of
+\citet{salibian:yohai:2006} for computing the \stsc{S} estimator. Explicit
+formulas for the estimators are not available and it is necessary to call on
+numerical optimization to compute them. We present just below a sketch of the
+fast algorithm for regression \stsc{S} estimates we implemented in Stata.
 
-Consider an estimate $\sthat{\boldsymbol\beta}_{\mathrm{S};\rho}$ defined
+Consider an estimate $\sthat{\boldsymbol\beta}_{\stsc{S};\rho}$ defined
 as
 \begin{equation}
 \arg\min_{\boldsymbol\beta\in%
@@ -1230,7 +1221,7 @@ where
 ,\sthat{\boldsymbol\beta}_{N}\right\}
 \]
 is a finite set of well selected candidates for $\sthat{\boldsymbol\beta%
-}_{\mathrm{S};\rho}$. One way to select these candidates is by subsampling
+}_{\stsc{S};\rho}$. One way to select these candidates is by subsampling
 elementary sets among the sample $\left(  \stvec{x}_{1},y_{1}\right)
 ,\ldots,\left(  \stvec{x}_{n},y_{n}\right)  $ (see \citealp{rousseeuw:1984}).
 More formally, take a first random subsample of $(p+1)$
@@ -1307,7 +1298,7 @@ computed only for those subsamples that verify the inequality
 (\ref{eq:S_algorithm}).
 
 Although the $N$ given by (\ref{eq:N}) ensures that the approximation
-$\sthat{\boldsymbol\beta}$ of $\sthat{\boldsymbol\beta}_{\mathrm{S}%
+$\sthat{\boldsymbol\beta}$ of $\sthat{\boldsymbol\beta}_{\stsc{S}%
 ;\rho}$ has the desired breakdown point, it does not imply that it is a good
 approximation to the exact S-estimate. To solve this problem, Salibian-Barrera
 and Yohai (2006) have proposed a procedure based on a \textquotedblleft local
@@ -1328,7 +1319,7 @@ errors) are computed according to the formulas available in the literature
 
 \subsection{MS-estimation}
 
-Explicit formulas for $\sthat{\boldsymbol\beta}_{\mathrm{S};\rho}$ are
+Explicit formulas for $\sthat{\boldsymbol\beta}_{\stsc{S};\rho}$ are
 generally not available and, as explained in the previous section, empirical
 implementation of S-estimation requires numerical optimization based on a
 subsampling algorithm. But this method presents an Achille's heel: it becomes
@@ -1482,11 +1473,11 @@ $\left(  \stvec{x}_{i},y_{i}\right)  $, $i = 1, \dots, n$, are
 results, valid in presence of \emph{autocorrelation}, in
 \citet{Croux:2003}.}.
 
-Let us denote by $\sthat{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}$ the
+Let us denote by $\sthat{\boldsymbol\beta}_{\stsc{S};\rho_{0}}$ the
 S-estimator of $\boldsymbol\beta$ associated with the loss function
 $\rho_{0}$:%
 \[
-\sthat{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}=\arg\min_{\boldsymbol{\beta
+\sthat{\boldsymbol\beta}_{\stsc{S};\rho_{0}}=\arg\min_{\boldsymbol{\beta
 }}s_{\rho_{0}}\left(  r_{1}\left(  \boldsymbol\beta\right)  ,\ldots
 ,r_{n}\left(  \boldsymbol\beta\right)  \right)
 \]
@@ -1500,16 +1491,16 @@ where $s_{\rho_{0}}$ is a measure of dispersion satisfying%
 This leads to the scale M-estimator%
 \[
 \sthat{\sigma}_{\rho_{0}}=s_{\rho_{0}}\left(  r_{1}(\widehat
-{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}),\ldots,r_{n}\boldsymbol{(}%
-\sthat{\boldsymbol\beta}_{\mathrm{S};\rho_{0}})\right)  .
+{\boldsymbol\beta}_{\stsc{S};\rho_{0}}),\ldots,r_{n}\boldsymbol{(}%
+\sthat{\boldsymbol\beta}_{\stsc{S};\rho_{0}})\right)  .
 \]
 
 
-Let $\sthat{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho}$ be the
+Let $\sthat{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho}$ be the
 MM-estimator of $\boldsymbol\beta$ associated with the loss function
 $\rho_{0}$ for the first step of the estimation procedure (S-estimation) and
 with the loss function $\rho$ for the second step (M-estimation):
-$\sthat{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho}$ is a (local)
+$\sthat{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho}$ is a (local)
 minimum of
 \[
 \sum_{i=1}^{n}\rho\left(  \frac{r_{i}\left(  \boldsymbol\beta\right)
@@ -1519,9 +1510,9 @@ minimum of
 
 To avoid any ambiguity in the formulation of the results, we will denote the
 vector of regression parameters by $\boldsymbol\beta$ when it is estimated
-by $\sthat{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho}$ and by
+by $\sthat{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho}$ and by
 $\boldsymbol\beta_{0}$ when it is estimated by $\sthat{\boldsymbol\beta%
-}_{\mathrm{S};\rho_{0}}$. Moreover, we will use the generic notations
+}_{\stsc{S};\rho_{0}}$. Moreover, we will use the generic notations
 $u_{0}=\frac{y-\stvec{x}^{t}\boldsymbol\beta_{0}}{\sigma}$ and
 $u=\frac{y-\stvec{x}^{t}\boldsymbol\beta}{\sigma}$, and we will simply
 replace $\psi\left(  u\right)  =\rho^{\prime}\left(  u\right)  $ by $\psi$,
@@ -1537,8 +1528,8 @@ independent (Assumption A), then
 \sqrt{n}\left(  \left(
 \begin{array}
 [c]{c}%
-\sthat{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho}\\
-\sthat{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}\\
+\sthat{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho}\\
+\sthat{\boldsymbol\beta}_{\stsc{S};\rho_{0}}\\
 \sthat{\sigma}_{\rho_{0}}%
 \end{array}
 \right)  -\left(
@@ -1549,18 +1540,18 @@ independent (Assumption A), then
 \sigma
 \end{array}
 \right)  \right)  \rightarrow^{d}\mathcal{N}(\mathbf{0},\mathbf{V}%
-_{\mathrm{MM}})
+_{\stsc{MM}})
 \]
 where
 \begin{equation}
-\mathbf{V}_{\mathrm{MM}}=\mathbf{G}_{\mathrm{MM}}^{-1}\boldsymbol{\Omega
-}_{\mathrm{MM}}\left(  \mathbf{G}_{\mathrm{MM}}^{t}\right)  ^{-1},
+\mathbf{V}_{\stsc{MM}}=\mathbf{G}_{\stsc{MM}}^{-1}\boldsymbol{\Omega
+}_{\stsc{MM}}\left(  \mathbf{G}_{\stsc{MM}}^{t}\right)  ^{-1},
 \label{eq:V_MM}%
 \end{equation}
-with the matrices $\mathbf{G}_{\mathrm{MM}}$ and $\boldsymbol{\Omega
-}_{\mathrm{MM}}$ given by:%
+with the matrices $\mathbf{G}_{\stsc{MM}}$ and $\boldsymbol{\Omega
+}_{\stsc{MM}}$ given by:%
 \begin{equation}
-\mathbf{G}_{\mathrm{MM}}=-\frac{1}{\sigma}\mathrm{E}\left(
+\mathbf{G}_{\stsc{MM}}=-\frac{1}{\sigma}\mathrm{E}\left(
 \begin{array}
 [c]{ccc}%
 \psi^{\prime}\mathbf{xx}^{t} & \mathbf{0} & \psi^{\prime}u\stvec{x}\\
@@ -1572,7 +1563,7 @@ with the matrices $\mathbf{G}_{\mathrm{MM}}$ and $\boldsymbol{\Omega
 \end{equation}
 and
 \begin{equation}
-\boldsymbol{\Omega}_{\mathrm{MM}}=\mathrm{E}\left(
+\boldsymbol{\Omega}_{\stsc{MM}}=\mathrm{E}\left(
 \begin{array}
 [c]{ccc}%
 \psi^{2}\mathbf{xx}^{t} & \psi\rho_{0}^{\prime}\mathbf{xx}^{t} & \psi\rho
@@ -1588,45 +1579,45 @@ _{0}\stvec{x}\\
 \end{stproposition}
 
 In particular, this result establishes the consistency of the regression
-MM-estimator $\sthat{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho}$ and
-S-estimator $\sthat{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}$, and of the
+MM-estimator $\sthat{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho}$ and
+S-estimator $\sthat{\boldsymbol\beta}_{\stsc{S};\rho_{0}}$, and of the
 scale M-estimator $\sthat{\sigma}_{\rho_{0}}$.
 
 Moreover, il allows to derive explicit formulas for the asymptotic variances
-of $\sthat{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho}$ and
-$\sthat{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}$ --- denoted hereafter by
-$\mathrm{Avar}\left(  \sthat{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho
+of $\sthat{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho}$ and
+$\sthat{\boldsymbol\beta}_{\stsc{S};\rho_{0}}$ --- denoted hereafter by
+$\mathrm{Avar}\left(  \sthat{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho
 }\right)  $ and $\mathrm{Avar}\left(  \sthat{\boldsymbol\beta}%
-_{\mathrm{S};\rho_{0}}\right)  $, respectively ---, and for the asymptotic
-covariance of $\sthat{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho}$ and
-$\sthat{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}$ --- denoted by
-$\mathrm{Acov}\left(  \sthat{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho
-},\sthat{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}\right)  $:%
+_{\stsc{S};\rho_{0}}\right)  $, respectively ---, and for the asymptotic
+covariance of $\sthat{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho}$ and
+$\sthat{\boldsymbol\beta}_{\stsc{S};\rho_{0}}$ --- denoted by
+$\mathrm{Acov}\left(  \sthat{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho
+},\sthat{\boldsymbol\beta}_{\stsc{S};\rho_{0}}\right)  $:%
 \begin{align}
-\mathrm{Avar}\left(  \sthat{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho
+\mathrm{Avar}\left(  \sthat{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho
 }\right)   &  =\frac{1}{n}[\mathbf{A}\mathrm{E}\left(  \psi^{2}\mathbf{xx}%
 ^{t}\right)  \mathbf{A}-\mathbf{a}\mathrm{E}\left(  \psi\rho_{0}\stvec{x}%
 ^{t}\right)  \mathbf{A}\label{eq:Avar_betahat_MM}\\
 &  \hspace*{1cm}\left.  -\mathbf{A}\mathrm{E}\left(  \psi\rho_{0}%
 \stvec{x}\right)  \mathbf{a}^{t}+\mathrm{E}\left(  \rho_{0}^{2}-\delta
 ^{2}\right)  \mathbf{aa}^{t}\right]  ,\nonumber\\
-\mathrm{Avar}\left(  \sthat{\boldsymbol\beta}_{\mathrm{S};\rho_{0}%
-}\right)   &  =\frac{1}{n}[\mathbf{A}_{\mathrm{S}}\mathrm{E}\left(  \left(
-\rho_{0}^{\prime}\right)  ^{2}\mathbf{xx}^{t}\right)  \mathbf{A}_{\mathrm{S}%
-}-\mathbf{a}_{\mathrm{S}}\mathrm{E}\left(  \rho_{0}\rho_{0}^{\prime}%
-\stvec{x}^{t}\right)  \mathbf{A}_{\mathrm{S}}\label{eq:Avar_betahat_S}\\
-&  \hspace*{1cm}\left.  -\mathbf{A}_{\mathrm{S}}\mathrm{E}\left(  \rho_{0}%
-\rho_{0}^{\prime}\stvec{x}\right)  \mathbf{a}_{\mathrm{S}}^{t}+\mathrm{E}%
-\left(  \rho_{0}^{2}-\delta^{2}\right)  \mathbf{a}_{\mathrm{S}}\mathbf{a}%
-_{\mathrm{S}}^{t}\right]  ,\nonumber\\
-\mathrm{Acov}\left(  \sthat{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho
-},\sthat{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}\right)   &  =\frac{1}%
+\mathrm{Avar}\left(  \sthat{\boldsymbol\beta}_{\stsc{S};\rho_{0}%
+}\right)   &  =\frac{1}{n}[\mathbf{A}_{\stsc{S}}\mathrm{E}\left(  \left(
+\rho_{0}^{\prime}\right)  ^{2}\mathbf{xx}^{t}\right)  \mathbf{A}_{\stsc{S}%
+}-\mathbf{a}_{\stsc{S}}\mathrm{E}\left(  \rho_{0}\rho_{0}^{\prime}%
+\stvec{x}^{t}\right)  \mathbf{A}_{\stsc{S}}\label{eq:Avar_betahat_S}\\
+&  \hspace*{1cm}\left.  -\mathbf{A}_{\stsc{S}}\mathrm{E}\left(  \rho_{0}%
+\rho_{0}^{\prime}\stvec{x}\right)  \mathbf{a}_{\stsc{S}}^{t}+\mathrm{E}%
+\left(  \rho_{0}^{2}-\delta^{2}\right)  \mathbf{a}_{\stsc{S}}\mathbf{a}%
+_{\stsc{S}}^{t}\right]  ,\nonumber\\
+\mathrm{Acov}\left(  \sthat{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho
+},\sthat{\boldsymbol\beta}_{\stsc{S};\rho_{0}}\right)   &  =\frac{1}%
 {n}[\mathbf{A}\mathrm{E}\left(  \psi\rho_{0}^{\prime}\mathbf{xx}^{t}\right)
-\mathbf{A}_{\mathrm{S}}-\mathbf{a}\mathrm{E}\left(  \rho_{0}\rho_{0}^{\prime
-}\stvec{x}^{t}\right)  \mathbf{A}_{\mathrm{S}}\label{eq:Acov_betahat_MM_S}\\
+\mathbf{A}_{\stsc{S}}-\mathbf{a}\mathrm{E}\left(  \rho_{0}\rho_{0}^{\prime
+}\stvec{x}^{t}\right)  \mathbf{A}_{\stsc{S}}\label{eq:Acov_betahat_MM_S}\\
 &  \hspace*{1cm}\left.  -\mathbf{A}\mathrm{E}\left(  \psi\rho_{0}%
-\stvec{x}\right)  \mathbf{a}_{\mathrm{S}}^{t}+\mathrm{E}\left(  \rho_{0}%
-^{2}-\delta^{2}\right)  \mathbf{aa}_{\mathrm{S}}^{t}\right]  ,\nonumber
+\stvec{x}\right)  \mathbf{a}_{\stsc{S}}^{t}+\mathrm{E}\left(  \rho_{0}%
+^{2}-\delta^{2}\right)  \mathbf{aa}_{\stsc{S}}^{t}\right]  ,\nonumber
 \end{align}
 with
 \begin{align}
@@ -1634,9 +1625,9 @@ with
 ^{t}\right)  \right]  ^{-1},\label{eq:A}\\
 \mathbf{a}  &  =\mathbf{A}\frac{\mathrm{E}\left(  \psi^{\prime}u\stvec{x}%
 \right)  }{\mathrm{E}\left(  \rho_{0}^{\prime}u_{0}\right)  },\label{eq:a}\\
-\mathbf{A}_{\mathrm{S}}  &  =\sigma\left[  \mathrm{E}\left(  \rho_{0}%
+\mathbf{A}_{\stsc{S}}  &  =\sigma\left[  \mathrm{E}\left(  \rho_{0}%
 ^{\prime\prime}\mathbf{xx}^{t}\right)  \right]  ^{-1},\label{eq:A_S}\\
-\mathbf{a}_{\mathrm{S}}  &  =\mathbf{A}_{\mathrm{S}}\frac{\mathrm{E}\left(
+\mathbf{a}_{\stsc{S}}  &  =\mathbf{A}_{\stsc{S}}\frac{\mathrm{E}\left(
 \rho_{0}^{\prime\prime}u_{0}\stvec{x}\right)  }{\mathrm{E}\left(  \rho
 _{0}^{\prime}u_{0}\right)  }. \label{eq:a_S}%
 \end{align}
@@ -1657,19 +1648,19 @@ precisely, the estimates are obtained by applying the following two rules:
 \begin{enumerate}
 \item Replace, in $u$ and $u_{0}$, the parameters $\boldsymbol\beta$,
 $\boldsymbol\beta_{0}$ and $\sigma$ by the estimates $\widehat
-{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho}$, $\sthat{\boldsymbol{\beta
-}}_{\mathrm{S};\rho_{0}}$ and $\sthat{\sigma}_{\rho_{0}}$.
+{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho}$, $\sthat{\boldsymbol{\beta
+}}_{\stsc{S};\rho_{0}}$ and $\sthat{\sigma}_{\rho_{0}}$.
 
 \item Replace $\mathrm{E}\left(  \cdot\right)  $ by $\frac{1}{n}\sum_{i=1}%
 ^{n}\left(  \cdot\right)  $.
 \end{enumerate}
 
 For example, the first term of $\sthat{\mathrm{Avar}}\left(  \widehat
-{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho}\right)  $ is given by
+{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho}\right)  $ is given by
 \[
 \frac{1}{n}\left[  \sthat{\mathbf{A}}\left(  \frac{1}{n}\sum_{i=1}%
 ^{n}\left[  \psi\left(  \frac{y_{i}-\stvec{x}_{i}^{t}\widehat
-{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho}}{\sthat{\sigma}_{\rho_{0}}%
+{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho}}{\sthat{\sigma}_{\rho_{0}}%
 }\right)  \right]  ^{2}\stvec{x}_{i}\stvec{x}_{i}^{t}\right)  \widehat
 {\mathbf{A}}\right]
 \]
@@ -1677,26 +1668,26 @@ with
 \[
 \sthat{\mathbf{A}}=\sthat{\sigma}_{\rho_{0}}\left[  \frac{1}{n}\sum
 _{i=1}^{n}\psi^{\prime}\left(  \frac{y_{i}-\stvec{x}_{i}^{t}\widehat
-{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho}}{\sthat{\sigma}_{\rho_{0}}%
+{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho}}{\sthat{\sigma}_{\rho_{0}}%
 }\right)  \stvec{x}_{i}\stvec{x}_{i}^{t}\right]  ^{-1}.
 \]
 It is interesting \ to note that the estimate $\sthat{\mathrm{Avar}}\left(
-\sthat{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho}\right)  $ of the
+\sthat{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho}\right)  $ of the
 asymptotic variance $\mathrm{Avar}\left(  \sthat{\boldsymbol\beta%
-}_{\mathrm{MM};\rho_{0},\rho}\right)  $ is robust with respect to bad leverage
+}_{\stsc{MM};\rho_{0},\rho}\right)  $ is robust with respect to bad leverage
 points and vertical outliers. Indeed, if there are observations yielding large
 residuals with respect to the robust MM-fit, then $\psi\left(  \frac
-{y_{i}-\stvec{x}_{i}^{t}\sthat{\boldsymbol\beta}_{\mathrm{MM};\rho
+{y_{i}-\stvec{x}_{i}^{t}\sthat{\boldsymbol\beta}_{\stsc{MM};\rho
 _{0},\rho}}{\sthat{\sigma}_{\rho_{0}}}\right)  $ has a small value when
 $\psi$ is a redescending function\footnote{Recall that, if $\psi$ is
 redescending, it has the property to be equal to zero for large arguments.}.
 Hence, if there are bad leverage points in the sample, then their
 $\stvec{x}_{i}$-value is large, but at the same time $\psi\left(  \frac
-{y_{i}-\stvec{x}_{i}^{t}\sthat{\boldsymbol\beta}_{\mathrm{MM};\rho
+{y_{i}-\stvec{x}_{i}^{t}\sthat{\boldsymbol\beta}_{\stsc{MM};\rho
 _{0},\rho}}{\sthat{\sigma}_{\rho_{0}}}\right)  $ will be zero. This explains
 intuitively why vertical outliers and bad leverage points have only a limited
 influence on the estimate $\sthat{\mathrm{Avar}}\left(  \widehat
-{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho}\right)  $.
+{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho}\right)  $.
 
 \begin{stremark}
 As previously explained, the \stsc{LS} estimator $\sthat{\boldsymbol\beta%
@@ -1706,7 +1697,7 @@ As previously explained, the \stsc{LS} estimator $\sthat{\boldsymbol\beta%
 $\rho_{0}^{\prime\prime}\left(  u_{0}\right)  =2$) and with the constant
 $\delta=1$. The expression of the asymptotic variance matrix of $\widehat
 {\boldsymbol\beta}_{\stsc{LS}}$ may then be simply derived from the one
-obtained for $\mathrm{Avar}\left(  \sthat{\boldsymbol\beta}_{\mathrm{S}%
+obtained for $\mathrm{Avar}\left(  \sthat{\boldsymbol\beta}_{\stsc{S}%
 ;\rho_{0}}\right)  $:%
 \begin{align}
 \mathrm{Avar}\left(  \sthat{\boldsymbol\beta}_{\stsc{LS}}\right)   &
@@ -1747,13 +1738,13 @@ Finally, since the \stsc{LS} estimation can be considered as the special case of
 MM-estimation associated with $\rho(u)=u^{2}$, it can be shown that:%
 \begin{align}
 \mathrm{Acov}\left(  \sthat{\boldsymbol\beta}_{\stsc{LS}},\widehat
-{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}\right)   &  =\frac{1}{n}%
+{\boldsymbol\beta}_{\stsc{S};\rho_{0}}\right)   &  =\frac{1}{n}%
 [\mathbf{A}\mathrm{E}\left(  2u\rho_{0}^{\prime}\mathbf{xx}^{t}\right)
-\mathbf{A}_{\mathrm{S}}-\mathbf{a}\mathrm{E}\left(  \rho_{0}\rho_{0}^{\prime
-}\stvec{x}^{t}\right)  \mathbf{A}_{\mathrm{S}}\label{eq:Acov_betahat_LS_S}\\
+\mathbf{A}_{\stsc{S}}-\mathbf{a}\mathrm{E}\left(  \rho_{0}\rho_{0}^{\prime
+}\stvec{x}^{t}\right)  \mathbf{A}_{\stsc{S}}\label{eq:Acov_betahat_LS_S}\\
 &  \hspace*{1cm}\left.  -\mathbf{A}\mathrm{E}\left(  2u\rho_{0}\stvec{x}%
-\right)  \mathbf{a}_{\mathrm{S}}^{t}+\mathrm{E}\left(  \rho_{0}^{2}-\delta
-^{2}\right)  \mathbf{aa}_{\mathrm{S}}^{t}\right]  ,\nonumber
+\right)  \mathbf{a}_{\stsc{S}}^{t}+\mathrm{E}\left(  \rho_{0}^{2}-\delta
+^{2}\right)  \mathbf{aa}_{\stsc{S}}^{t}\right]  ,\nonumber
 \end{align}
 with%
 \[
@@ -1762,7 +1753,7 @@ with%
 =\mathbf{A}_{\stsc{LS}}\frac{\mathrm{E}\left(  2u\stvec{x}\right)
 }{\mathrm{E}\left(  \rho_{0}^{\prime}u_{0}\right)  },
 \]
-while $\mathbf{A}_{\mathrm{S}}$ and $\mathbf{a}_{\mathrm{S}}$ remain unchanged
+while $\mathbf{A}_{\stsc{S}}$ and $\mathbf{a}_{\stsc{S}}$ remain unchanged
 with respect to (\ref{eq:A_S}) and (\ref{eq:a_S}).
 \end{stremark}
 
@@ -2009,7 +2000,7 @@ are robust estimates of $\boldsymbol\beta$ and $\sigma$ for the full model
 Note that, independently, Croux and Dehon (2003) have proposed a class of
 robust $R^{2}$ which generalizes (\ref{eq:R2_classic_SS}) given by
 \begin{equation}
-R_{\mathrm{S}}^{2}=1-\frac{s\left(  y_{i}-\stvec{x}_{i}^{t}\widehat
+R_{\stsc{S}}^{2}=1-\frac{s\left(  y_{i}-\stvec{x}_{i}^{t}\widehat
 {\boldsymbol\beta}\ ;i = 1, \dots, n\right)  }{s\left(  y_{i}-\sthat{\mu
 }\ ;i = 1, \dots, n\right)  } \label{eq:R2_S}%
 \end{equation}
@@ -2020,7 +2011,7 @@ Although (\ref{eq:R2_rho}) and (\ref{eq:R2_S}) are direct generalizations of
 (\ref{eq:R2_classic_SS}) to the robust framework, they suffer from an
 important drawback: in practice, they are often biased. One possible reason
 why this phenomenon happens is that the computation of $R_{\rho}^{2}$ or
-$R_{\mathrm{S}}^{2}$ requires and uses the estimation of two models: the full
+$R_{\stsc{S}}^{2}$ requires and uses the estimation of two models: the full
 regression model and a location model. The associate residuals $y_{i}%
 -\stvec{x}_{i}^{t}\sthat{\boldsymbol\beta}$ and $y_{i}-\sthat{\mu}$ are
 not influenced by model deviation (as presence of outliers, for instance) in
@@ -2211,25 +2202,25 @@ The development of the tests proposed in \citet{Dehon:2012}
 relies on the results presented in Subsection
 \ref{subsec:asymptotic_distr_M_S_MM_estimators} providing the asymptotic
 distribution of $\sthat{\boldsymbol\beta}_{\stsc{LS}}$, $\widehat
-{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}$ and $\sthat{\boldsymbol\beta%
-}_{\mathrm{MM};\rho_{0},\rho}$ under $\mathcal{H}_{0}$ and Assumption A. In
+{\boldsymbol\beta}_{\stsc{S};\rho_{0}}$ and $\sthat{\boldsymbol\beta%
+}_{\stsc{MM};\rho_{0},\rho}$ under $\mathcal{H}_{0}$ and Assumption A. In
 Subsection \ref{subsec:asymptotic_distr_M_S_MM_estimators}, to avoid any
 ambiguity, the regression parameters vector was denoted by $\boldsymbol{\beta
 }_{0}$ if it was estimated by the S-estimator $\sthat{\boldsymbol\beta%
-}_{\mathrm{S};\rho_{0}}$, and by $\boldsymbol\beta$ if it was estimated by
-the MM-estimator $\sthat{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho}$.
+}_{\stsc{S};\rho_{0}}$, and by $\boldsymbol\beta$ if it was estimated by
+the MM-estimator $\sthat{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho}$.
 From now on, we will exclusively denote the regression parameters vector in
 model (\ref{eq:location_scale_regr_model}) by $\boldsymbol\beta$ as soon as
 there is no risk of confusion anymore.
 
 We have seen that, under $\mathcal{H}_{0}$ and Assumption A, for large $n$,%
 \begin{align*}
-\sthat{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho}  &  \approx
+\sthat{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho}  &  \approx
 \mathcal{N}_{p+1}\left(  \boldsymbol\beta,\mathrm{Avar}\left(
-\sthat{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho}\right)  \right)  ,\\
-\sthat{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}  &  \approx\mathcal{N}%
+\sthat{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho}\right)  \right)  ,\\
+\sthat{\boldsymbol\beta}_{\stsc{S};\rho_{0}}  &  \approx\mathcal{N}%
 _{p+1}\left(  \boldsymbol\beta,\mathrm{Avar}\left(  \widehat
-{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}\right)  \right)
+{\boldsymbol\beta}_{\stsc{S};\rho_{0}}\right)  \right)
 \end{align*}
 and
 \[
@@ -2238,118 +2229,118 @@ and
 }_{\stsc{LS}}\right)  \right)  ,
 \]
 where the matrices $\mathrm{Avar}\left(  \sthat{\boldsymbol\beta%
-}_{\mathrm{MM};\rho_{0},\rho}\right)  $, $\mathrm{Avar}\left(  \widehat
-{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}\right)  $ and $\mathrm{Avar}\left(
+}_{\stsc{MM};\rho_{0},\rho}\right)  $, $\mathrm{Avar}\left(  \widehat
+{\boldsymbol\beta}_{\stsc{S};\rho_{0}}\right)  $ and $\mathrm{Avar}\left(
 \sthat{\boldsymbol\beta}_{\stsc{LS}}\right)  $ are given by
 (\ref{eq:Avar_betahat_MM}), (\ref{eq:Avar_betahat_S}) and
 (\ref{eq:Avar_betahat_LS}), respectively. Moreover,
 \begin{align*}
-&  \sthat{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}-\widehat
-{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho}\\
+&  \sthat{\boldsymbol\beta}_{\stsc{S};\rho_{0}}-\widehat
+{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho}\\
 &  \approx\mathcal{N}_{p+1}\left(  \mathbf{0},\mathrm{Avar}\left(
-\sthat{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}\right)  +\mathrm{Avar}%
-\left(  \sthat{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho}\right)
--2\mathrm{Acov}\left(  \sthat{\boldsymbol\beta}_{\mathrm{MM};\rho_{0}%
-,\rho},\sthat{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}\right)  \right)  ,
+\sthat{\boldsymbol\beta}_{\stsc{S};\rho_{0}}\right)  +\mathrm{Avar}%
+\left(  \sthat{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho}\right)
+-2\mathrm{Acov}\left(  \sthat{\boldsymbol\beta}_{\stsc{MM};\rho_{0}%
+,\rho},\sthat{\boldsymbol\beta}_{\stsc{S};\rho_{0}}\right)  \right)  ,
 \end{align*}
-where $\mathrm{Acov}\left(  \sthat{\boldsymbol\beta}_{\mathrm{MM};\rho
-_{0},\rho},\sthat{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}\right)  $ is
+where $\mathrm{Acov}\left(  \sthat{\boldsymbol\beta}_{\stsc{MM};\rho
+_{0},\rho},\sthat{\boldsymbol\beta}_{\stsc{S};\rho_{0}}\right)  $ is
 given by (\ref{eq:Acov_betahat_MM_S}). Since $\mathrm{Avar}\left(
-\sthat{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}\right)  $, $\mathrm{Avar}%
-\left(  \sthat{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho}\right)  $ and
-$\mathrm{Acov}\left(  \sthat{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho
-},\sthat{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}\right)  $ may be
+\sthat{\boldsymbol\beta}_{\stsc{S};\rho_{0}}\right)  $, $\mathrm{Avar}%
+\left(  \sthat{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho}\right)  $ and
+$\mathrm{Acov}\left(  \sthat{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho
+},\sthat{\boldsymbol\beta}_{\stsc{S};\rho_{0}}\right)  $ may be
 consistently estimated by their empirical counterparts\footnote{As explained
 in Subsection \ref{subsec:asymptotic_distr_M_S_MM_estimators}, these empirical
 counterparts are simply obtained by replacing, in $u$ and $u_{0}$, the
 parameters $\boldsymbol\beta$, $\boldsymbol\beta_{0}$ and $\sigma$ by the
-estimates $\sthat{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho}$,
-$\sthat{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}$ and $\sthat{\sigma
+estimates $\sthat{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho}$,
+$\sthat{\boldsymbol\beta}_{\stsc{S};\rho_{0}}$ and $\sthat{\sigma
 }_{\rho_{0}}$, and the mathematical esperance $\mathrm{E}\left(  \cdot\right)
 $ by $\frac{1}{n}\sum_{i=1}^{n}\left(  \cdot\right)  $.} $\widehat
-{\mathrm{Avar}}\left(  \sthat{\boldsymbol\beta}_{\mathrm{S};\rho_{0}%
+{\mathrm{Avar}}\left(  \sthat{\boldsymbol\beta}_{\stsc{S};\rho_{0}%
 }\right)  $, $\sthat{\mathrm{Avar}}\left(  \sthat{\boldsymbol\beta%
-}_{\mathrm{MM};\rho_{0},\rho}\right)  $ and $\sthat{\mathrm{Acov}}\left(
-\sthat{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho},\widehat
-{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}\right)  $, we have, under
+}_{\stsc{MM};\rho_{0},\rho}\right)  $ and $\sthat{\mathrm{Acov}}\left(
+\sthat{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho},\widehat
+{\boldsymbol\beta}_{\stsc{S};\rho_{0}}\right)  $, we have, under
 $\mathcal{H}_{0}$ and Assumption A, for large $n$:
 \[
-\sthat{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}-\sthat{\boldsymbol{\beta
-}}_{\mathrm{MM};\rho_{0},\rho}\approx\mathcal{N}_{p+1}\left(  \mathbf{0}%
+\sthat{\boldsymbol\beta}_{\stsc{S};\rho_{0}}-\sthat{\boldsymbol{\beta
+}}_{\stsc{MM};\rho_{0},\rho}\approx\mathcal{N}_{p+1}\left(  \mathbf{0}%
 ,\sthat{\boldsymbol{\Sigma}}_{\left(  \sthat{\boldsymbol\beta%
-}_{\mathrm{S};\rho_{0}}-\sthat{\boldsymbol\beta}_{\mathrm{MM};\rho
+}_{\stsc{S};\rho_{0}}-\sthat{\boldsymbol\beta}_{\stsc{MM};\rho
 _{0},\rho}\right)  }\right)
 \]
 where
 \begin{align}
 \sthat{\boldsymbol{\Sigma}}_{\left(  \sthat{\boldsymbol\beta%
-}_{\mathrm{S};\rho_{0}}-\sthat{\boldsymbol\beta}_{\mathrm{MM};\rho
+}_{\stsc{S};\rho_{0}}-\sthat{\boldsymbol\beta}_{\stsc{MM};\rho
 _{0},\rho}\right)  }  &  =\sthat{\mathrm{Avar}}\left(  \widehat
-{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}\right)  +\sthat{\mathrm{Avar}%
-}\left(  \sthat{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho}\right)
+{\boldsymbol\beta}_{\stsc{S};\rho_{0}}\right)  +\sthat{\mathrm{Avar}%
+}\left(  \sthat{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho}\right)
 \label{eq:Hausman_sigmahat_S-MM}\\
 &  -2\sthat{\mathrm{Acov}}\left(  \sthat{\boldsymbol\beta}%
-_{\mathrm{MM};\rho_{0},\rho},\sthat{\boldsymbol\beta}_{\mathrm{S};\rho
+_{\stsc{MM};\rho_{0},\rho},\sthat{\boldsymbol\beta}_{\stsc{S};\rho
 _{0}}\right)  .\nonumber
 \end{align}
 If we only consider the slopes estimates, we simply have, under $\mathcal{H}%
 _{0}$ and Assumption A, for large $n$:
 \begin{equation}
-\sthat{\underline{\boldsymbol\beta}}_{\mathrm{S};\rho_{0}}-\widehat
-{\underline{\boldsymbol\beta}}_{\mathrm{MM};\rho_{0},\rho}\approx
+\sthat{\underline{\boldsymbol\beta}}_{\stsc{S};\rho_{0}}-\widehat
+{\underline{\boldsymbol\beta}}_{\stsc{MM};\rho_{0},\rho}\approx
 \mathcal{N}_{p}\left(  \underline{\mathbf{0}},\sthat{\underline
-{\boldsymbol{\Sigma}}}_{\left(  \sthat{\boldsymbol\beta}_{\mathrm{S}%
-;\rho_{0}}-\sthat{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho}\right)
+{\boldsymbol{\Sigma}}}_{\left(  \sthat{\boldsymbol\beta}_{\stsc{S}%
+;\rho_{0}}-\sthat{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho}\right)
 }\right)  \label{eq:Hausman_normality_S-MM}%
 \end{equation}
 where $\sthat{\underline{\boldsymbol{\Sigma}}}_{\left(  \widehat
-{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}-\sthat{\boldsymbol\beta%
-}_{\mathrm{MM};\rho_{0},\rho}\right)  }$ is the matrix $\widehat
-{\boldsymbol{\Sigma}}_{\left(  \sthat{\boldsymbol\beta}_{\mathrm{S}%
-;\rho_{0}}-\sthat{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho}\right)  }$
+{\boldsymbol\beta}_{\stsc{S};\rho_{0}}-\sthat{\boldsymbol\beta%
+}_{\stsc{MM};\rho_{0},\rho}\right)  }$ is the matrix $\widehat
+{\boldsymbol{\Sigma}}_{\left(  \sthat{\boldsymbol\beta}_{\stsc{S}%
+;\rho_{0}}-\sthat{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho}\right)  }$
 without its first line and its first column.
 
 Following a similar approach, we have, under $\mathcal{H}_{0}$ and Assumption
 A, for large $n$:
 \[
-\sthat{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}-\sthat{\boldsymbol{\beta
+\sthat{\boldsymbol\beta}_{\stsc{S};\rho_{0}}-\sthat{\boldsymbol{\beta
 }}_{\stsc{LS}}\approx\mathcal{N}_{p+1}\left(  \mathbf{0},\widehat
-{\boldsymbol{\Sigma}}_{\left(  \sthat{\boldsymbol\beta}_{\mathrm{S}%
+{\boldsymbol{\Sigma}}_{\left(  \sthat{\boldsymbol\beta}_{\stsc{S}%
 ;\rho_{0}}-\sthat{\boldsymbol\beta}_{\stsc{LS}}\right)  }\right)
 \]
 with
 \begin{align}
 \sthat{\boldsymbol{\Sigma}}_{\left(  \sthat{\boldsymbol\beta%
-}_{\mathrm{S};\rho_{0}}-\sthat{\boldsymbol\beta}_{\stsc{LS}}\right)  }
-&  =\sthat{\mathrm{Avar}}\left(  \sthat{\boldsymbol\beta}_{\mathrm{S}%
+}_{\stsc{S};\rho_{0}}-\sthat{\boldsymbol\beta}_{\stsc{LS}}\right)  }
+&  =\sthat{\mathrm{Avar}}\left(  \sthat{\boldsymbol\beta}_{\stsc{S}%
 ;\rho_{0}}\right)  +\sthat{\mathrm{Avar}}\left(  \sthat{\boldsymbol{\beta
 }}_{\stsc{LS}}\right) \label{eq:Hausman_sigmahat_S-LS}\\
 &  -2\sthat{\mathrm{Acov}}\left(  \sthat{\boldsymbol\beta}_{\stsc{LS}%
-},\sthat{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}\right) \nonumber
+},\sthat{\boldsymbol\beta}_{\stsc{S};\rho_{0}}\right) \nonumber
 \end{align}
 where $\sthat{\mathrm{Avar}}\left(  \sthat{\boldsymbol\beta}%
-_{\mathrm{S};\rho_{0}}\right)  $, $\sthat{\mathrm{Avar}}\left(
+_{\stsc{S};\rho_{0}}\right)  $, $\sthat{\mathrm{Avar}}\left(
 \sthat{\boldsymbol\beta}_{\stsc{LS}}\right)  $ and $\widehat
 {\mathrm{Acov}}\left(  \sthat{\boldsymbol\beta}_{\stsc{LS}}%
-,\sthat{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}\right)  $ are the
+,\sthat{\boldsymbol\beta}_{\stsc{S};\rho_{0}}\right)  $ are the
 empirical counterparts of the matrices $\mathrm{Avar}\left(  \widehat
-{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}\right)  $, $\mathrm{Avar}\left(
+{\boldsymbol\beta}_{\stsc{S};\rho_{0}}\right)  $, $\mathrm{Avar}\left(
 \sthat{\boldsymbol\beta}_{\stsc{LS}}\right)  $ and $\mathrm{Acov}\left(
 \sthat{\boldsymbol\beta}_{\stsc{LS}},\sthat{\boldsymbol\beta%
-}_{\mathrm{S};\rho_{0}}\right)  $ given by (\ref{eq:Avar_betahat_S}),
+}_{\stsc{S};\rho_{0}}\right)  $ given by (\ref{eq:Avar_betahat_S}),
 (\ref{eq:Avar_betahat_LS}) and (\ref{eq:Acov_betahat_LS_S}), respectively. As
 a consequence, under $\mathcal{H}_{0}$ and Assumption A, for large $n$:
 \begin{equation}
-\sthat{\underline{\boldsymbol\beta}}_{\mathrm{S};\rho_{0}}-\underline
+\sthat{\underline{\boldsymbol\beta}}_{\stsc{S};\rho_{0}}-\underline
 {\sthat{\boldsymbol\beta}}_{\stsc{LS}}\approx\mathcal{N}_{p}\left(
 \underline{\mathbf{0}},\sthat{\underline{\boldsymbol{\Sigma}}}_{\left(
-\sthat{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}-\sthat{\boldsymbol{\beta
+\sthat{\boldsymbol\beta}_{\stsc{S};\rho_{0}}-\sthat{\boldsymbol{\beta
 }}_{\stsc{LS}}\right)  }\right)  \label{eq:Hausman_normality_S-LS}%
 \end{equation}
 where $\sthat{\underline{\boldsymbol{\Sigma}}}_{\left(  \widehat
-{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}-\sthat{\boldsymbol\beta%
+{\boldsymbol\beta}_{\stsc{S};\rho_{0}}-\sthat{\boldsymbol\beta%
 }_{\stsc{LS}}\right)  }$ is the matrix $\sthat{\boldsymbol{\Sigma}%
-}_{\left(  \sthat{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}-\widehat
+}_{\left(  \sthat{\boldsymbol\beta}_{\stsc{S};\rho_{0}}-\widehat
 {\boldsymbol\beta}_{\stsc{LS}}\right)  }$ without its first line and its
 first column.
 
@@ -2357,38 +2348,38 @@ first column.
 
 Let us consider the classical LS estimator $\sthat{\boldsymbol\beta%
 }_{\stsc{LS}}$ and the S-estimator $\sthat{\boldsymbol\beta}%
-_{\mathrm{S};\rho_{0}}$ associated with the loss function $\rho_{0}\left(
+_{\stsc{S};\rho_{0}}$ associated with the loss function $\rho_{0}\left(
 \cdot\right)  $. As already mentioned, the choice of $\rho_{0}$ is crucial to
 guarantee robustness. The function $\rho_{0}$ usually used in the present
 context is the Tukey-Biweight function (\ref{eq:Tukey_Biweight_function}): if
 the tuning constant $\kappa$ is set at 1.547, $\sthat{\boldsymbol\beta%
-}_{\mathrm{S};\rho_{0}}$ has a breakdown point equal to 50\% (but a rather low
+}_{\stsc{S};\rho_{0}}$ has a breakdown point equal to 50\% (but a rather low
 Gaussian efficiency of only 28\%). Under the null hypothesis (and Assumption
 A), $\sthat{\boldsymbol\beta}_{\stsc{LS}}$ and $\widehat
-{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}$ are both consistant estimators of
+{\boldsymbol\beta}_{\stsc{S};\rho_{0}}$ are both consistant estimators of
 $\boldsymbol\beta$, but $\sthat{\boldsymbol\beta}_{\stsc{LS}}$ has a
 higher Gaussian efficiency. Under the alternative hypothesis of a moderate
-contamination, $\sthat{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}$ still
+contamination, $\sthat{\boldsymbol\beta}_{\stsc{S};\rho_{0}}$ still
 converges to $\boldsymbol\beta$ (see \citealp{Omelka:2010})
 but it is not the case for $\sthat{\boldsymbol\beta}_{\stsc{LS}}$
 anymore (the outliers distort the LS estimate and introduce a bias, in such a
 way that $\sthat{\boldsymbol\beta}_{\stsc{LS}}$ possesses another limit
-in probability than $\sthat{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}$).
+in probability than $\sthat{\boldsymbol\beta}_{\stsc{S};\rho_{0}}$).
 
 The test statistics proposed by Dehon \textit{et al.} (2012) to check if the
 LS and S-estimates of the regression coefficients are statistically different
 is defined as
 \begin{equation}
-H=\left(  \sthat{\underline{\boldsymbol\beta}}_{\mathrm{S};\rho_{0}%
+H=\left(  \sthat{\underline{\boldsymbol\beta}}_{\stsc{S};\rho_{0}%
 }-\sthat{\underline{\boldsymbol\beta}}_{\stsc{LS}}\right)  ^{t}%
 \sthat{\underline{\boldsymbol{\Sigma}}}_{\left(  \sthat{\boldsymbol{\beta
-}}_{\mathrm{S};\rho_{0}}-\sthat{\boldsymbol\beta}_{\stsc{LS}}\right)
-}^{-1}\left(  \sthat{\underline{\boldsymbol\beta}}_{\mathrm{S};\rho_{0}%
+}}_{\stsc{S};\rho_{0}}-\sthat{\boldsymbol\beta}_{\stsc{LS}}\right)
+}^{-1}\left(  \sthat{\underline{\boldsymbol\beta}}_{\stsc{S};\rho_{0}%
 }-\sthat{\underline{\boldsymbol\beta}}_{\stsc{LS}}\right)  ,
 \label{Hausman_SvsLS}%
 \end{equation}
 with $\sthat{\boldsymbol{\Sigma}}_{\left(  \sthat{\underline
-{\boldsymbol\beta}}_{\mathrm{S};\rho_{0}}-\sthat{\underline
+{\boldsymbol\beta}}_{\stsc{S};\rho_{0}}-\sthat{\underline
 {\boldsymbol\beta}}_{\stsc{LS}}\right)  }$ computed from
 (\ref{eq:Hausman_sigmahat_S-LS}). It follows from
 (\ref{eq:Hausman_normality_S-LS}) that $H$ is, under the null hyptothesis
@@ -2408,61 +2399,61 @@ the $\left(  1-\alpha\right)  $- quantile of the $\chi_{p}^{2}$ distribution.
 Suppose now that the previous test has rejected the null hypothesis
 $\mathcal{H}_{0}$: the significant difference between $\sthat{\underline
 {\boldsymbol\beta}}_{\stsc{LS}}$ and $\sthat{\underline
-{\boldsymbol\beta}}_{\mathrm{S};\rho_{0}}$ indicates the presence of
+{\boldsymbol\beta}}_{\stsc{S};\rho_{0}}$ indicates the presence of
 influential outliers in the sample and a robust regression estimator should
 then be preferred. In this case, it might be a good strategy to replace the
-S-estimator $\sthat{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}$ by an
-MM-estimator $\sthat{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho}$, since
+S-estimator $\sthat{\boldsymbol\beta}_{\stsc{S};\rho_{0}}$ by an
+MM-estimator $\sthat{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho}$, since
 a good choice of the loss function $\rho\left(  \cdot\right)  $ allows this
 MM-estimator to reach a much higher efficiency than the initial S-estimator
-$\sthat{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}$\footnote{Recall here that
-$\sthat{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho}$ possesses the same
-breakdown point as $\sthat{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}$.}. For
+$\sthat{\boldsymbol\beta}_{\stsc{S};\rho_{0}}$\footnote{Recall here that
+$\sthat{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho}$ possesses the same
+breakdown point as $\sthat{\boldsymbol\beta}_{\stsc{S};\rho_{0}}$.}. For
 instance, if we take for $\rho$ the Tukey-Biweight function
 (\ref{eq:Tukey_Biweight_function}) with the tuning constant $\kappa$ equal to
-4.685, the Gaussian efficiency of $\sthat{\boldsymbol\beta}_{\mathrm{MM}%
+4.685, the Gaussian efficiency of $\sthat{\boldsymbol\beta}_{\stsc{MM}%
 ;\rho_{0},\rho}$ attains 95\%, and for $\kappa=6.256$, the Gaussian efficiency
-of $\sthat{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho}$ is equal to
+of $\sthat{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho}$ is equal to
 99\%. However, as already mentioned when we have studied the MM-estimation
 procedure, it is not advised to consider too highly efficient MM-estimators:
 indeed, a moderate contamination of the sample induces a bias for
-$\sthat{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho}$ and, for a fixed
+$\sthat{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho}$ and, for a fixed
 sample, this bias grows when the efficiency of the estimator raises (see
 \citealp{maronna:etal:2006} and \citealp{Omelka:2010}).
 As a consequence, it is of the utmost importance to find the highest
 efficiency we may fix for the MM-estimator without paying the price of an
 excessive bias.
 
-The statistical comparison of $\sthat{\boldsymbol\beta}_{\mathrm{S}%
-;\rho_{0}}$ and $\sthat{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho}$
+The statistical comparison of $\sthat{\boldsymbol\beta}_{\stsc{S}%
+;\rho_{0}}$ and $\sthat{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho}$
 (with a fixed value of the tuning constant $\kappa$ for the loss function
 $\rho$, hence a fixed Gaussian efficiency for the MM-estimator) can be made
 using the statistics
 \begin{equation}
-H=\left(  \sthat{\underline{\boldsymbol\beta}}_{\mathrm{S};\rho_{0}%
-}-\sthat{\underline{\boldsymbol\beta}}_{\mathrm{MM};\rho_{0},\rho}\right)
+H=\left(  \sthat{\underline{\boldsymbol\beta}}_{\stsc{S};\rho_{0}%
+}-\sthat{\underline{\boldsymbol\beta}}_{\stsc{MM};\rho_{0},\rho}\right)
 ^{t}\sthat{\underline{\boldsymbol{\Sigma}}}_{\left(  \widehat
-{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}-\sthat{\boldsymbol\beta%
-}_{\mathrm{MM};\rho_{0},\rho}\right)  }^{-1}\left(  \sthat{\underline
-{\boldsymbol\beta}}_{\mathrm{S};\rho_{0}}-\sthat{\underline
-{\boldsymbol\beta}}_{\mathrm{MM};\rho_{0},\rho}\right)  ,
+{\boldsymbol\beta}_{\stsc{S};\rho_{0}}-\sthat{\boldsymbol\beta%
+}_{\stsc{MM};\rho_{0},\rho}\right)  }^{-1}\left(  \sthat{\underline
+{\boldsymbol\beta}}_{\stsc{S};\rho_{0}}-\sthat{\underline
+{\boldsymbol\beta}}_{\stsc{MM};\rho_{0},\rho}\right)  ,
 \label{Hausman_MMvsS}%
 \end{equation}
 with $\sthat{\boldsymbol{\Sigma}}_{\left(  \sthat{\boldsymbol\beta%
-}_{\mathrm{S};\rho_{0}}-\sthat{\boldsymbol\beta}_{\mathrm{MM};\rho
+}_{\stsc{S};\rho_{0}}-\sthat{\boldsymbol\beta}_{\stsc{MM};\rho
 _{0},\rho}\right)  }$ given by (\ref{eq:Hausman_sigmahat_S-MM}). Under the
 null hypothesis $\mathcal{H}_{0}$, $\sthat{\underline{\boldsymbol\beta}%
-}_{\mathrm{S};\rho_{0}}$ and $\sthat{\underline{\boldsymbol\beta}%
-}_{\mathrm{MM};\rho_{0},\rho}$ are both consistant estimators of
+}_{\stsc{S};\rho_{0}}$ and $\sthat{\underline{\boldsymbol\beta}%
+}_{\stsc{MM};\rho_{0},\rho}$ are both consistant estimators of
 \underline{$\boldsymbol\beta$} and $H\approx\chi_{p}^{2}$. Under the
 alternative hypothesis $\mathcal{H}_{1}$, i.e., under a moderate contamination
-of the sample, the bias of $\sthat{\boldsymbol\beta}_{\mathrm{MM};\rho
+of the sample, the bias of $\sthat{\boldsymbol\beta}_{\stsc{MM};\rho
 _{0},\rho}$ risks to be large (the magnitude of the bias depends of the fixed
 efficiency of the MM-estimator) and a potentially significant difference may
 appear between the S-estimate and the MM-estimate of the regression slopes. As
 a consequence, we will decide to reject $\mathcal{H}_{0}$ --- that is, in
 practice, we will conclude that the contamination of the sample by outliers
-significantly biases $\sthat{\underline{\boldsymbol\beta}}_{\mathrm{MM}%
+significantly biases $\sthat{\underline{\boldsymbol\beta}}_{\stsc{MM}%
 ;\rho_{0},\rho}$ and hence distorts the MM-estimation with respect to the
 S-estimation --- if
 \[
@@ -2471,9 +2462,9 @@ H>\chi_{p;1-\alpha}^{2},
 where $\alpha$ is the chosen significance level. Dehon \textit{et al.} (2012)
 propose to repeat this test by considering successively different values for
 the constant $\kappa$ in function $\rho$ (that is, different levels for the
-efficiency of $\sthat{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho}$) and
+efficiency of $\sthat{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho}$) and
 to retain ultimately the MM-estimator that, while not being significantly
-different from $\sthat{\underline{\boldsymbol\beta}}_{\mathrm{S};\rho_{0}%
+different from $\sthat{\underline{\boldsymbol\beta}}_{\stsc{S};\rho_{0}%
 }$ and hence not rejecting the null, has the highest efficiency. This way of
 proceeding allows to find heuristically the highest efficiency that may have
 the MM-estimator without suffering from an excessive bias in presence of
@@ -3272,9 +3263,9 @@ GMM-estimator for $\boldsymbol{\theta}=\left(  \boldsymbol\beta^{t}%
 
 S-estimators of regression and scale depend only on a chosen loss function
 $\rho_{0}$ and on a constant $\delta$. We have defined the S-regression
-estimator $\sthat{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}$ as follows:
+estimator $\sthat{\boldsymbol\beta}_{\stsc{S};\rho_{0}}$ as follows:
 \begin{equation}
-\sthat{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}=\arg\min_{\boldsymbol{\beta
+\sthat{\boldsymbol\beta}_{\stsc{S};\rho_{0}}=\arg\min_{\boldsymbol{\beta
 }}s_{\rho_{0}}\left(  r_{1}\left(  \boldsymbol\beta\right)  ,\ldots
 ,r_{n}\left(  \boldsymbol\beta\right)  \right)  \label{eq:S_min_rho0}%
 \end{equation}
@@ -3288,10 +3279,10 @@ where $s_{\rho_{0}}$ is a measure of dispersion satisfying
 The scale estimator is then simply given by
 \[
 \sthat{\sigma}_{\rho_{0}}=s_{\rho_{0}}\left(  r_{1}\left(  \widehat
-{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}\right)  ,\ldots,r_{n}\left(
-\sthat{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}\right)  \right)  .
+{\boldsymbol\beta}_{\stsc{S};\rho_{0}}\right)  ,\ldots,r_{n}\left(
+\sthat{\boldsymbol\beta}_{\stsc{S};\rho_{0}}\right)  \right)  .
 \]
-As previously explained, $\sthat{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}$
+As previously explained, $\sthat{\boldsymbol\beta}_{\stsc{S};\rho_{0}}$
 and $\sthat{\sigma}_{\rho_{0}}$ satisfy the first order conditions
 \begin{equation}
 \left\{
@@ -3303,7 +3294,7 @@ and $\sthat{\sigma}_{\rho_{0}}$ satisfy the first order conditions
 {\displaystyle\sum\limits_{i=1}^{n}}
 %EndExpansion
 \rho_{0}^{\prime}\left(  \dfrac{y_{i}-\stvec{x}_{i}^{t}\widehat
-{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}}{\sthat{\sigma}_{\rho_{0}}%
+{\boldsymbol\beta}_{\stsc{S};\rho_{0}}}{\sthat{\sigma}_{\rho_{0}}%
 }\right)  \stvec{x}_{i}=\mathbf{0}\\
 \dfrac{1}{n}%
 %TCIMACRO{\dsum \limits_{i=1}^{n}}%
@@ -3311,7 +3302,7 @@ and $\sthat{\sigma}_{\rho_{0}}$ satisfy the first order conditions
 {\displaystyle\sum\limits_{i=1}^{n}}
 %EndExpansion
 \rho_{0}\left(  \dfrac{y_{i}-\stvec{x}_{i}^{t}\sthat{\boldsymbol\beta%
-}_{\mathrm{S};\rho_{0}}}{\sthat{\sigma}_{\rho_{0}}}\right)  -\delta=0.
+}_{\stsc{S};\rho_{0}}}{\sthat{\sigma}_{\rho_{0}}}\right)  -\delta=0.
 \end{array}
 \right.  \label{Eq:GMM_equations_S}%
 \end{equation}
@@ -3327,7 +3318,7 @@ for the regression estimator. But if $\rho_{0}$ is bounded, $\rho_{0}^{\prime
 solutions. Therefore one usually uses (\ref{eq:S_min_rho0}) to compute the
 S-estimate but (\ref{Eq:GMM_equations_S}) to determine its asymptotic
 distribution. Actually, (\ref{Eq:GMM_equations_S}) implies that $\left(
-\sthat{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}^{t},\sthat{\sigma}%
+\sthat{\boldsymbol\beta}_{\stsc{S};\rho_{0}}^{t},\sthat{\sigma}%
 _{\rho_{0}}\right)  ^{t}$ is first-order equivalent with the GMM-estimator for
 $\boldsymbol{\theta}=\left(  \boldsymbol\beta^{t},\sigma\right)  ^{t}$,
 with
@@ -3345,7 +3336,7 @@ with
 
 
 Let us now focus on MM-estimators of regression. First one needs to compute
-S-estimators $\left(  \sthat{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}%
+S-estimators $\left(  \sthat{\boldsymbol\beta}_{\stsc{S};\rho_{0}}%
 ^{t},\sthat{\sigma}_{\rho_{0}}\right)  ^{t}$ for a given function $\rho_{0}$
 and a constant $\delta$. Secondly, for a given function $\psi=\rho^{\prime}$,
 the MM-estimator of regression solves
@@ -3356,14 +3347,14 @@ the MM-estimator of regression solves
 {\displaystyle\sum\limits_{i=1}^{n}}
 %EndExpansion
 \psi\left(  \dfrac{y_{i}-\stvec{x}_{i}^{t}\sthat{\boldsymbol\beta%
-}_{\mathrm{MM};\rho_{0},\rho}}{\sthat{\sigma}_{\rho_{0}}}\right)
+}_{\stsc{MM};\rho_{0},\rho}}{\sthat{\sigma}_{\rho_{0}}}\right)
 \stvec{x}_{i}=\mathbf{0}.
 \]
 Note that $\rho$ needs to be different from $\rho_{0}$, otherwise the
 MM-estimator would be equivalent with an S-estimator and share the low
 efficiency of the latter. In this MM-estimation procedure, $\widehat
-{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho}$, $\sthat{\boldsymbol{\beta
-}}_{\mathrm{S};\rho_{0}}$ and $\sthat{\sigma}_{\rho_{0}}$ are such that
+{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho}$, $\sthat{\boldsymbol{\beta
+}}_{\stsc{S};\rho_{0}}$ and $\sthat{\sigma}_{\rho_{0}}$ are such that
 \begin{equation}
 \left\{
 \begin{array}
@@ -3374,7 +3365,7 @@ efficiency of the latter. In this MM-estimation procedure, $\widehat
 {\displaystyle\sum\limits_{i=1}^{n}}
 %EndExpansion
 \psi\left(  \dfrac{y_{i}-\stvec{x}_{i}^{t}\sthat{\boldsymbol\beta%
-}_{\mathrm{MM};\rho_{0},\rho}}{\sthat{\sigma}_{\rho_{0}}}\right)
+}_{\stsc{MM};\rho_{0},\rho}}{\sthat{\sigma}_{\rho_{0}}}\right)
 \stvec{x}_{i}=\mathbf{0}\\
 \dfrac{1}{n}%
 %TCIMACRO{\dsum \limits_{i=1}^{n}}%
@@ -3382,7 +3373,7 @@ efficiency of the latter. In this MM-estimation procedure, $\widehat
 {\displaystyle\sum\limits_{i=1}^{n}}
 %EndExpansion
 \rho_{0}^{\prime}\left(  \dfrac{y_{i}-\stvec{x}_{i}^{t}\widehat
-{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}}{\sthat{\sigma}_{\rho_{0}}%
+{\boldsymbol\beta}_{\stsc{S};\rho_{0}}}{\sthat{\sigma}_{\rho_{0}}%
 }\right)  \stvec{x}_{i}=\mathbf{0}\\
 \dfrac{1}{n}%
 %TCIMACRO{\dsum \limits_{i=1}^{n}}%
@@ -3390,17 +3381,17 @@ efficiency of the latter. In this MM-estimation procedure, $\widehat
 {\displaystyle\sum\limits_{i=1}^{n}}
 %EndExpansion
 \rho_{0}\left(  \dfrac{y_{i}-\stvec{x}_{i}^{t}\sthat{\boldsymbol\beta%
-}_{\mathrm{S};\rho_{0}}}{\sthat{\sigma}_{\rho_{0}}}\right)  -\delta=0.
+}_{\stsc{S};\rho_{0}}}{\sthat{\sigma}_{\rho_{0}}}\right)  -\delta=0.
 \end{array}
 \right.  \label{Eq:GMM_equations_MM}%
 \end{equation}
 Defining $\boldsymbol{\theta}=(\boldsymbol\beta^{t},\boldsymbol\beta%
 _{0}^{t},\sigma)^{t}$, where the first parameter $\boldsymbol\beta$ will be
-estimated by $\sthat{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho}$ and
-the latter two by $\sthat{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}$ and
+estimated by $\sthat{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho}$ and
+the latter two by $\sthat{\boldsymbol\beta}_{\stsc{S};\rho_{0}}$ and
 $\sthat{\sigma}_{\rho_{0}}$, equations (\ref{Eq:GMM_equations_MM}) show that
-$(\sthat{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho}^{t},\widehat
-{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}^{t},\sthat{\sigma}_{\rho_{0}%
+$(\sthat{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho}^{t},\widehat
+{\boldsymbol\beta}_{\stsc{S};\rho_{0}}^{t},\sthat{\sigma}_{\rho_{0}%
 })^{t}$ is first-order equivalent with the GMM-estimator for
 $\boldsymbol{\theta}$, with
 \[
@@ -3452,8 +3443,8 @@ more practice to use in the sequel.
 $i = 1, \dots, n$, are generated by a stationary and ergodic process, and are
 independent (Assumption A1)}
 
-The first-order equivalence of $(\sthat{\boldsymbol\beta}_{\mathrm{MM}%
-;\rho_{0},\rho}^{t},\sthat{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}%
+The first-order equivalence of $(\sthat{\boldsymbol\beta}_{\stsc{MM}%
+;\rho_{0},\rho}^{t},\sthat{\boldsymbol\beta}_{\stsc{S};\rho_{0}}%
 ^{t},\sthat{\sigma}_{\rho_{0}})^{t}$ with a GMM-estimator for
 $\boldsymbol{\theta}=(\boldsymbol\beta^{t},\boldsymbol\beta_{0}^{t}%
 ,\sigma)^{t}$ allows us to conclude that, if the observations $\left(
@@ -3467,8 +3458,8 @@ various assumptions we will consider in the sequel of this appendix.},
 \sqrt{n}\left(  \left(
 \begin{array}
 [c]{c}%
-\sthat{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho}\\
-\sthat{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}\\
+\sthat{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho}\\
+\sthat{\boldsymbol\beta}_{\stsc{S};\rho_{0}}\\
 \sthat{\sigma}_{\rho_{0}}%
 \end{array}
 \right)  -\left(
@@ -3479,19 +3470,19 @@ various assumptions we will consider in the sequel of this appendix.},
 \sigma
 \end{array}
 \right)  \right)  \rightarrow^{d}\mathcal{N}(\mathbf{0},\mathbf{V}%
-_{\mathrm{MM}})
+_{\stsc{MM}})
 \]
 where
 \[
-\mathbf{V}_{\mathrm{MM}}=\mathbf{G}_{\mathrm{MM}}^{-1}\boldsymbol{\Omega
-}_{\mathrm{MM}}\left(  \mathbf{G}_{\mathrm{MM}}^{t}\right)  ^{-1},
+\mathbf{V}_{\stsc{MM}}=\mathbf{G}_{\stsc{MM}}^{-1}\boldsymbol{\Omega
+}_{\stsc{MM}}\left(  \mathbf{G}_{\stsc{MM}}^{t}\right)  ^{-1},
 \]
-with the matrices $\mathbf{G}_{\mathrm{MM}}$ and $\boldsymbol{\Omega
-}_{\mathrm{MM}}$ obtained by applying relations
+with the matrices $\mathbf{G}_{\stsc{MM}}$ and $\boldsymbol{\Omega
+}_{\stsc{MM}}$ obtained by applying relations
 (\ref{Eq:GMM_estimator_G_Omega}) to the moment function
 (\ref{Eq:GMM_moment_function_MM}):
 \[
-\mathbf{G}_{\mathrm{MM}}=-\frac{1}{\sigma}\mathrm{E}\left(
+\mathbf{G}_{\stsc{MM}}=-\frac{1}{\sigma}\mathrm{E}\left(
 \begin{array}
 [c]{ccc}%
 \psi^{\prime}\mathbf{xx}^{t} & \mathbf{0} & \psi^{\prime}u\stvec{x}\\
@@ -3503,7 +3494,7 @@ with the matrices $\mathbf{G}_{\mathrm{MM}}$ and $\boldsymbol{\Omega
 \]
 and
 \[
-\boldsymbol{\Omega}_{\mathrm{MM}}=\mathrm{E}\left(
+\boldsymbol{\Omega}_{\stsc{MM}}=\mathrm{E}\left(
 \begin{array}
 [c]{ccc}%
 \psi^{2}\mathbf{xx}^{t} & \psi\rho_{0}^{\prime}\mathbf{xx}^{t} & \psi\rho
@@ -3516,12 +3507,12 @@ _{0}\stvec{x}\\
 \right)  .
 \]
 In particular, this result establishes the consistency of the MM-regression
-estimator $\sthat{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho}$.
+estimator $\sthat{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho}$.
 Moreover, using the upper left $\left(  p+1\right)  \times(p+1)$ submatrice of
-$\mathbf{V}_{\mathrm{MM}}$, we obtain that the asymptotic variance of
-$\sthat{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho}$ is equal to
+$\mathbf{V}_{\stsc{MM}}$, we obtain that the asymptotic variance of
+$\sthat{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho}$ is equal to
 \begin{align*}
-\mathrm{Avar}_{1}\left(  \sthat{\boldsymbol\beta}_{\mathrm{MM};\rho
+\mathrm{Avar}_{1}\left(  \sthat{\boldsymbol\beta}_{\stsc{MM};\rho
 _{0},\rho}\right)   &  =\frac{1}{n}[\mathbf{A}\mathrm{E}\left(  \psi
 ^{2}\mathbf{xx}^{t}\right)  \mathbf{A}-\mathbf{a}\mathrm{E}\left(  \psi
 \rho_{0}\stvec{x}^{t}\right)  \mathbf{A}\\
@@ -3537,27 +3528,27 @@ where
 \rho_{0}^{\prime}u_{0}\right)  }.
 \]
 This expression of $\mathrm{Avar}_{1}\left(  \sthat{\boldsymbol\beta%
-}_{\mathrm{MM};\rho_{0},\rho}\right)  $ is then estimated by its empirical
+}_{\stsc{MM};\rho_{0},\rho}\right)  $ is then estimated by its empirical
 counterpart $\sthat{\mathrm{Avar}}_{1}\left(  \sthat{\boldsymbol\beta%
-}_{\mathrm{MM};\rho_{0},\rho}\right)  $, by applying the following two rules:
+}_{\stsc{MM};\rho_{0},\rho}\right)  $, by applying the following two rules:
 
 \begin{enumerate}
 \item Replace, in $u$ and $u_{0}$, the parameters $\boldsymbol\beta$,
 $\boldsymbol\beta_{0}$ and $\sigma$ by the estimates $\widehat
-{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho}$, $\sthat{\boldsymbol{\beta
-}}_{\mathrm{S};\rho_{0}}$ and $\sthat{\sigma}_{\rho_{0}}$.
+{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho}$, $\sthat{\boldsymbol{\beta
+}}_{\stsc{S};\rho_{0}}$ and $\sthat{\sigma}_{\rho_{0}}$.
 
 \item Replace $\mathrm{E}\left(  \cdot\right)  $ by $\frac{1}{n}\sum_{i=1}%
 ^{n}\left(  \cdot\right)  $.
 \end{enumerate}
 
 For example, the first term of $\sthat{\mathrm{Avar}}_{1}\left(
-\sthat{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho}\right)  $ is given
+\sthat{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho}\right)  $ is given
 by
 \[
 \frac{1}{n}\left[  \sthat{\mathbf{A}}\left(  \frac{1}{n}\sum_{i=1}%
 ^{n}\left[  \psi\left(  \frac{y_{i}-\stvec{x}_{i}^{t}\widehat
-{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho}}{\sthat{\sigma}_{\rho_{0}}%
+{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho}}{\sthat{\sigma}_{\rho_{0}}%
 }\right)  \right]  ^{2}\stvec{x}_{i}\stvec{x}_{i}^{t}\right)  \widehat
 {\mathbf{A}}\right]
 \]
@@ -3565,54 +3556,54 @@ with
 \[
 \sthat{\mathbf{A}}=\sthat{\sigma}_{\rho_{0}}\left[  \frac{1}{n}\sum
 _{i=1}^{n}\psi^{\prime}\left(  \frac{y_{i}-\stvec{x}_{i}^{t}\widehat
-{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho}}{\sthat{\sigma}_{\rho_{0}}%
+{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho}}{\sthat{\sigma}_{\rho_{0}}%
 }\right)  \stvec{x}_{i}\stvec{x}_{i}^{t}\right]  ^{-1}.
 \]
 
 
 Using standard asymptotic arguments, it can be shown that $\widehat
-{\mathrm{Avar}}_{1}\left(  \sthat{\boldsymbol\beta}_{\mathrm{MM};\rho
+{\mathrm{Avar}}_{1}\left(  \sthat{\boldsymbol\beta}_{\stsc{MM};\rho
 _{0},\rho}\right)  $ is a consistent estimate of $\mathrm{Avar}_{1}\left(
-\sthat{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho}\right)  $. From
+\sthat{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho}\right)  $. From
 $\sthat{\mathrm{Avar}}_{1}\left(  \sthat{\boldsymbol\beta}%
-_{\mathrm{MM};\rho_{0},\rho}\right)  $, standard errors for the regression
+_{\stsc{MM};\rho_{0},\rho}\right)  $, standard errors for the regression
 coefficients are obtained in the usual way: for $j=0,1,\ldots,p$,
 \[
 \sthat{\mathrm{se}}\left(  \left[  \sthat{\boldsymbol\beta}%
-_{\mathrm{MM};\rho_{0},\rho}\right]  _{j}\right)  =\sqrt{\left[
-\sthat{\mathrm{Avar}}_{1}\left(  \sthat{\boldsymbol\beta}_{\mathrm{MM}%
+_{\stsc{MM};\rho_{0},\rho}\right]  _{j}\right)  =\sqrt{\left[
+\sthat{\mathrm{Avar}}_{1}\left(  \sthat{\boldsymbol\beta}_{\stsc{MM}%
 ;\rho_{0},\rho}\right)  \right]  _{jj}}.
 \]
 
 
 Moreover, the estimate $\sthat{\mathrm{Avar}}_{1}\left(  \widehat
-{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho}\right)  $ of the asymptotic
-variance $\mathrm{Avar}_{1}\left(  \sthat{\boldsymbol\beta}_{\mathrm{MM}%
+{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho}\right)  $ of the asymptotic
+variance $\mathrm{Avar}_{1}\left(  \sthat{\boldsymbol\beta}_{\stsc{MM}%
 ;\rho_{0},\rho}\right)  $ is robust with respect to bad leverage points and
 vertical outliers. Indeed, if there are observations yielding large residuals
 with respect to the robust MM-fit, then $\psi\left(  \frac{y_{i}%
--\stvec{x}_{i}^{t}\sthat{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho}%
+-\stvec{x}_{i}^{t}\sthat{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho}%
 }{\sthat{\sigma}_{\rho_{0}}}\right)  $ has a small value when $\psi$ is a
 redescending function\footnote{Recall that, if $\psi$ is redescending, it has
 the property to be equal to zero for large arguments.}. Hence, if there are
 bad leverage points in the sample, then their $\stvec{x}_{i}$-value is large,
 but at the same time $\psi\left(  \frac{y_{i}-\stvec{x}_{i}^{t}%
-\sthat{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho}}{\sthat{\sigma
+\sthat{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho}}{\sthat{\sigma
 }_{\rho_{0}}}\right)  $ will be zero. This explains intuitively why vertical
 outliers and bad leverage points have only a limited influence on the estimate
 $\sthat{\mathrm{Avar}}_{1}\left(  \sthat{\boldsymbol\beta}%
-_{\mathrm{MM};\rho_{0},\rho}\right)  $.
+_{\stsc{MM};\rho_{0},\rho}\right)  $.
 
 \subsubsection{In absence of heteroskedasticity (Assumption A2)}
 
 A simplification of the asymptotic variance of $\sthat{\boldsymbol\beta%
-}_{\mathrm{MM};\rho_{0},\rho}$ occurs when, in addition to Assumption A1, we
+}_{\stsc{MM};\rho_{0},\rho}$ occurs when, in addition to Assumption A1, we
 also assume that there is \emph{no heteroskedasticity}, i.e., we assume that
 the processes $\stvec{x}_{i}$ and $\left(  u_{i},u_{0i}\right)  $ are
 independent (Assumption A2). In that case, the asymptotic variance of
-$\sthat{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho}$ becomes
+$\sthat{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho}$ becomes
 \begin{align*}
-\mathrm{Avar}_{12}\left(  \sthat{\boldsymbol\beta}_{\mathrm{MM};\rho
+\mathrm{Avar}_{12}\left(  \sthat{\boldsymbol\beta}_{\stsc{MM};\rho
 _{0},\rho}\right)   &  =\frac{1}{n}[\mathrm{E}\left(  \psi^{2}\right)
 \mathbf{A}_{2}\mathrm{E}\left(  \mathbf{xx}^{t}\right)  \mathbf{A}%
 _{2}-\mathrm{E}\left(  \psi\rho_{0}\right)  \mathbf{a}_{2}\mathrm{E}\left(
@@ -3631,7 +3622,7 @@ where
 }u_{0}\right)  }.
 \]
 Taking the empirical counterpart yields $\sthat{\mathrm{Avar}}_{12}\left(
-\sthat{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho}\right)  $. However,
+\sthat{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho}\right)  $. However,
 Croux \textit{et al.} (2003) do advise against the use of this variance matrix
 estimator in practice, even when assumptions A1 and A2 holds. The reason is
 that this estimator will not be robust with respect to (good and bad) leverage
@@ -3640,7 +3631,7 @@ the inverse of an empirical second moment matrix of the observations
 $\stvec{x}_{i}$. Leverage points are outlying in the covariates' space, and
 will then have a strong influence on $\sthat{\mathbf{A}}_{2}$. This can even
 lead $\sthat{\mathrm{Avar}}_{12}\left(  \sthat{\boldsymbol\beta%
-}_{\mathrm{MM};\rho_{0},\rho}\right)  $ to break down, where breakdown of a
+}_{\stsc{MM};\rho_{0},\rho}\right)  $ to break down, where breakdown of a
 variance matrix estimator means that the latter has a determinant close to
 zero or enormously large.
 
@@ -3654,9 +3645,9 @@ asymptotically independent, and the different expressions simplify
 considerably, due to the fact that $\mathbf{a}=\mathbf{0}$.
 
 Under Assumptions A1 and A3, the asymptotic variance of $\widehat
-{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho}$ becomes
+{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho}$ becomes
 \begin{align*}
-\mathrm{Avar}_{13}\left(  \sthat{\boldsymbol\beta}_{\mathrm{MM};\rho
+\mathrm{Avar}_{13}\left(  \sthat{\boldsymbol\beta}_{\stsc{MM};\rho
 _{0},\rho}\right)   &  =\frac{1}{n}\mathbf{A}\mathrm{E}\left(  \psi
 ^{2}\mathbf{xx}^{t}\right)  \mathbf{A}\\
 &  =\frac{\sigma^{2}}{n}\left[  \mathrm{E}\left(  \psi^{\prime}\mathbf{xx}%
@@ -3664,9 +3655,9 @@ _{0},\rho}\right)   &  =\frac{1}{n}\mathbf{A}\mathrm{E}\left(  \psi
 \left[  \mathrm{E}\left(  \psi^{\prime}\mathbf{xx}^{t}\right)  \right]  ^{-1}.
 \end{align*}
 The empirical counterpart of the latter expression, $\sthat{\mathrm{Avar}%
-}_{13}\left(  \sthat{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho}\right)
+}_{13}\left(  \sthat{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho}\right)
 $, is an estimate of the asymptotic variance of $\sthat{\boldsymbol\beta%
-}_{\mathrm{MM};\rho_{0},\rho}$ that is robust against vertical outliers and
+}_{\stsc{MM};\rho_{0},\rho}$ that is robust against vertical outliers and
 bad leverage points. But it relies on symmetry of the errors distribution, a
 quite strong assumption. A simulation study in \cite{Croux:2003} shows that, even when symmetry is present, there is no gain in using
 $\sthat{\mathrm{Avar}}_{13}$ compared to $\sthat{\mathrm{Avar}}_{1}$: the
@@ -3674,9 +3665,9 @@ authors of \cite{Croux:2003} then recommend to use
 $\sthat{\mathrm{Avar}}_{1}$ in any case.
 
 When all of Assumptions A1, A2 and A3 hold, then $\sthat{\boldsymbol\beta%
-}_{\mathrm{MM};\rho_{0},\rho}$ has asymptotic variance
+}_{\stsc{MM};\rho_{0},\rho}$ has asymptotic variance
 \[
-\mathrm{Avar}_{123}\left(  \sthat{\boldsymbol\beta}_{\mathrm{MM};\rho
+\mathrm{Avar}_{123}\left(  \sthat{\boldsymbol\beta}_{\stsc{MM};\rho
 _{0},\rho}\right)  =\frac{\sigma^{2}}{n}\frac{\mathrm{E}\left(  \psi
 ^{2}\right)  }{\left[  \mathrm{E}\left(  \psi^{\prime}\right)  \right]  ^{2}%
 }\left[  \mathrm{E}\left(  \mathbf{xx}^{t}\right)  \right]  ^{-1}.
@@ -3684,40 +3675,40 @@ _{0},\rho}\right)  =\frac{\sigma^{2}}{n}\frac{\mathrm{E}\left(  \psi
 This corresponds to the expression for the variance of the MM-regression
 estimator that was derived in \cite{yohai:1987}. The empirical counterpart
 $\sthat{\mathrm{Avar}}_{123}\left(  \sthat{\boldsymbol\beta%
-}_{\mathrm{MM};\rho_{0},\rho}\right)  $ is an estimate of this asymptotic
+}_{\stsc{MM};\rho_{0},\rho}\right)  $ is an estimate of this asymptotic
 variance that, as $\sthat{\mathrm{Avar}}_{12}\left(  \widehat
-{\boldsymbol\beta}_{\mathrm{MM};\rho_{0},\rho}\right)  $, lacks robustness
+{\boldsymbol\beta}_{\stsc{MM};\rho_{0},\rho}\right)  $, lacks robustness
 with respect to leverage points.
 
 \subsection{Asymptotic variance matrix of an S-estimator}
 
 If Assumption A1 holds, the asymptotic variance matrix of $\widehat
-{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}$ is simply derived from the central
-$(p+1)\times(p+1)$ submatrice of $\mathbf{V}_{\mathrm{MM}}$ (cf.
+{\boldsymbol\beta}_{\stsc{S};\rho_{0}}$ is simply derived from the central
+$(p+1)\times(p+1)$ submatrice of $\mathbf{V}_{\stsc{MM}}$ (cf.
 (\ref{eq:V_MM}), (\ref{eq:G_MM}) and (\ref{eq:Omega_MM})):
 \begin{align*}
-\mathrm{Avar}_{1}\left(  \sthat{\boldsymbol\beta}_{\mathrm{S};\rho_{0}%
-}\right)   &  =\frac{1}{n}[\mathbf{A}_{\mathrm{S}}\mathrm{E}\left(  \left(
-\rho_{0}^{\prime}\right)  ^{2}\mathbf{xx}^{t}\right)  \mathbf{A}_{\mathrm{S}%
-}-\mathbf{a}_{\mathrm{S}}\mathrm{E}\left(  \rho_{0}\rho_{0}^{\prime}%
-\stvec{x}^{t}\right)  \mathbf{A}_{\mathrm{S}}\\
-&  \hspace{1cm}-\mathbf{A}_{\mathrm{S}}\mathrm{E}\left(  \rho_{0}\rho
-_{0}^{\prime}\stvec{x}\right)  \mathbf{a}_{\mathrm{S}}^{t}+\mathrm{E}\left(
-\rho_{0}^{2}-\delta^{2}\right)  \mathbf{a}_{\mathrm{S}}\mathbf{a}_{\mathrm{S}%
+\mathrm{Avar}_{1}\left(  \sthat{\boldsymbol\beta}_{\stsc{S};\rho_{0}%
+}\right)   &  =\frac{1}{n}[\mathbf{A}_{\stsc{S}}\mathrm{E}\left(  \left(
+\rho_{0}^{\prime}\right)  ^{2}\mathbf{xx}^{t}\right)  \mathbf{A}_{\stsc{S}%
+}-\mathbf{a}_{\stsc{S}}\mathrm{E}\left(  \rho_{0}\rho_{0}^{\prime}%
+\stvec{x}^{t}\right)  \mathbf{A}_{\stsc{S}}\\
+&  \hspace{1cm}-\mathbf{A}_{\stsc{S}}\mathrm{E}\left(  \rho_{0}\rho
+_{0}^{\prime}\stvec{x}\right)  \mathbf{a}_{\stsc{S}}^{t}+\mathrm{E}\left(
+\rho_{0}^{2}-\delta^{2}\right)  \mathbf{a}_{\stsc{S}}\mathbf{a}_{\stsc{S}%
 }^{t}],
 \end{align*}
 where
 \[
-\mathbf{A}_{\mathrm{S}}=\sigma\left[  \mathrm{E}\left(  \rho_{0}^{\prime
+\mathbf{A}_{\stsc{S}}=\sigma\left[  \mathrm{E}\left(  \rho_{0}^{\prime
 \prime}\mathbf{xx}^{t}\right)  \right]  ^{-1}\quad\text{and\quad}%
-\mathbf{a}_{\mathrm{S}}=\mathbf{A}_{\mathrm{S}}\frac{\mathrm{E}\left(
+\mathbf{a}_{\stsc{S}}=\mathbf{A}_{\stsc{S}}\frac{\mathrm{E}\left(
 \rho_{0}^{\prime\prime}u_{0}\stvec{x}\right)  }{\mathrm{E}\left(  \rho
 _{0}^{\prime}u_{0}\right)  }.
 \]
 If, in addition, A2 holds, then the asymptotic variance matrix of
-$\sthat{\boldsymbol\beta}_{\mathrm{S};\rho_{0}}$ takes the form
+$\sthat{\boldsymbol\beta}_{\stsc{S};\rho_{0}}$ takes the form
 \begin{align*}
-\mathrm{Avar}_{12}\left(  \sthat{\boldsymbol\beta}_{\mathrm{S};\rho_{0}%
+\mathrm{Avar}_{12}\left(  \sthat{\boldsymbol\beta}_{\stsc{S};\rho_{0}%
 }\right)   &  =\frac{\sigma^{2}}{n}\frac{\mathrm{E}\left(  \left(  \rho
 _{0}^{\prime}\right)  ^{2}\right)  }{\left[  \mathrm{E}\left(  \rho
 _{0}^{\prime\prime}\right)  \right]  ^{2}}\left[  \mathrm{E}\left(
