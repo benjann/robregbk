@@ -3,9 +3,9 @@
 running /Applications/Stata14/sysprofile.do ...
 
 
-. texdoc init ../stbook/chapter4.tex, replace logdir(dof/4) nodo ///
->     grdir(eps/4) gropts(as(eps pdf) epsfig figure(h!))
-(texdoc output file is ../stbook/chapter4.tex)
+. texdoc init ../stbook/chapter3.tex, replace logdir(dof/3) nodo ///
+>     grdir(eps/3) gropts(as(eps pdf) epsfig figure(h!))
+(texdoc output file is ../stbook/chapter3.tex)
 
 . 
 end of do-file
@@ -25,8 +25,10 @@ end of do-file
 
 . texdoc stlog close
 
-. texdoc graph, label(fig:outlier_types) ///
->     caption(Vertical outlier, good leverage point and bad leverage point)
+. texdoc graph, optargs(width=.9\textwidth) label(fig:stat:IF_loc) ///
+>     caption(Influence functions of \$\mu\$, \$\mu^{0.25}\$, \$\mu^{0.05}\$, //
+> /
+>     \$Q_{0.5}\$, and \$\stsc{HL}\$ under the standard normal distribution)
 
 . 
 . 
@@ -37,18 +39,315 @@ end of do-file
 
 . texdoc stlog close
 
-. texdoc graph, label(fig:rho_psi_Huber) ///
->     caption(Huber loss function \$\rho_{\kappa}^{\stsc{H}}\$ and ///
->     score function \$\psi_{\kappa}^{\stsc{H}}\$)
+. texdoc graph, optargs(width=.9\textwidth) label(fig:stat:IF_scale) ///
+>     caption(Influence functions of \$\sigma\$, \$\stsc{IQR}_c\$, ///
+>     \$\stsc{MAD}\$ and \$Q\$ under the standard normal distribution)
+
+. 
+. 
+. 
+end of do-file
+
+. 
+. texdoc write \todo{The following output shows my computations. Results should 
+> ///
+>     be precise (e.g., they do not change if I increase the number of          
+> ///
+>     integration points to 100000). This is just for you. It will be removed   
+> ///
+>     later on.}
+
+. set linesize 80
+
+. mata: mata clear
+
+. texdoc stlog
+
+. texdoc stlog close
+
+. // note: normalden(37)=2.12e-298, normalden(38)=0
+. // d = 2.219144466
+. // dd = .2681315272
+. // ASV = .6089006937
+. 
+. 
+end of do-file
 
 . 
 . texdoc stlog, nolog
 
 . texdoc stlog close
 
-. texdoc graph, label(fig:rho_psi_Biweight) ///
->     caption(Tukey-Biweight loss function \$\rho_{\kappa}^{\stsc{B}}\$ and ///
->     score function \$\psi_{\kappa}^{\stsc{B}}\$)
+. texdoc graph, optargs(width=.9\textwidth) label(fig:stat:IF_skew) ///
+>     caption(Influence functions of \$\gamma_1\$, \$\stsc{SK}_{0.25}\$ and ///
+>     \$\stsc{MC}\$ under the standard normal distribution)
+
+. 
+. 
+end of do-file
+
+. 
+. // mata: mata clear
+. // mata:
+. // function myf(x) return((pi()*(2*normal(x)-1-sign(x)/sqrt(2)))^2*normalden(x
+> ))
+. // mm_integrate_sr(&myf(), -38, 38, 100000, 1)
+. // 1.244808659
+. // end
+. 
+. 
+end of do-file
+
+. 
+. texdoc stlog, nolog
+
+. texdoc stlog close
+
+. texdoc graph, optargs(width=.9\textwidth) label(fig:stat:IF_tail) ///
+>     caption(Influence functions of \$\gamma_2\$, \$\stsc{LQW}_{0.25}\$ and ///
+>     \$\stsc{RQW}_{0.25}\$, \$\stsc{LMC}\$ and \$\stsc{RMC}\$ under the ///
+>     standard normal distribution)
+
+. 
+. 
+. 
+end of do-file
+
+. 
+. texdoc write \alert{
+
+. texdoc stlog, cmdlog nodo
+
+. texdoc stlog close
+set seed 1234
+
+clear
+set obs 1000
+
+drawnorm z
+gen x=invchi2(1,uniform())
+
+
+**** UNCONTAMINATED NORMAL  ******
+
+qui sum z, d
+local meanN=r(mean)
+local medianN=r(p50)
+
+local sdN=r(sd)
+local iqrN=(r(p75)-r(p25))*0.7413
+local skewN=r(skewness)
+local kurtN=r(kurtosis)-3
+
+centile z, centile(25 50 75)
+local qskewN=(r(c_1)+r(c_3)-2*r(c_2))/((r(c_2)-r(c_1))/1.349)
+
+qui hl z
+local hlN=e(hl)
+
+qui qn z
+local qnN=e(qn)
+
+qui medcouple z, lmc rmc
+local mcN=e(mc)
+local lmcN=e(lmc)
+local rmcN=e(rmc)
+
+qui centile z, centile(12.5 25 37.5 62.5 75 87.5)
+local lqwN=-(r(c_1)+r(c_3)-2*r(c_2))/(r(c_3)-r(c_1))
+local rqwN=(r(c_4)+r(c_6)-2*r(c_5))/(r(c_6)-r(c_4))
+
+di in r "Location parameters Normal"
+
+di "Mean: " `meanN'
+di "Median: " `medianN'
+di "Hodges-Lehman: " `hlN'
+
+di in r"Scale parameters Normal"
+di "Standard deviation: " `sdN'
+di "Iqr: " `iqrN'
+di "Qn: " `qnN'
+
+
+di in r "Skewness parameters Normal"
+di "Skewness: " `skewN'
+di "Quantile skewness: " `qskewN'
+di "Mecouple: " `mcN'
+
+di in r "Tail heavyness parameters Normal"
+di "Kurtosis: " `kurtN'
+di "Quantile right heaviness: " `rqwN'
+di "Quantile left heaviness: " `lqwN'
+di "Right mecouple: " `rmcN'
+di "Left mecouple: " `lmcN'
+
+
+**** UNCONTAMINATED CHI2 *****
+
+qui sum x, d
+local meanCHI2=r(mean)
+local medianCHI2=r(p50)
+
+local sdCHI2=r(sd)
+local iqrCHI2=(r(p75)-r(p25))*0.7413
+local skewCHI2=r(skewness)
+local kurtCHI2=r(kurtosis)-3
+
+centile x, centile(25 50 75)
+local qskewCHI2=(r(c_1)+r(c_3)-2*r(c_2))/((r(c_2)-r(c_1))/1.349)
+
+qui hl x
+local hlCHI2=e(hl)
+
+qui qn x
+local qnCHI2=e(qn)
+
+qui medcouple x, lmc rmc
+local mcCHI2=e(mc)
+local lmcCHI2=e(lmc)
+local rmcCHI2=e(rmc)
+
+qui centile x, centile(12.5 25 37.5 62.5 75 87.5)
+local lqwCHI2=-(r(c_1)+r(c_3)-2*r(c_2))/(r(c_3)-r(c_1))
+local rqwCHI2=(r(c_4)+r(c_6)-2*r(c_5))/(r(c_6)-r(c_4))
+
+di in r "Location parameters CHI2"
+
+di "Mean: " `meanCHI2'
+di "Median: " `medianCHI2'
+di "Hodges-Lehman: " `hlCHI2'
+
+di in r"Scale parameters CHI2"
+di "Standard deviation: " `sdCHI2'
+di "Iqr: " `iqrCHI2'
+di "Qn: " `qnCHI2'
+
+
+di in r "Skewness parameters CHI2"
+di "Skewness: " `skewCHI2'
+di "Quantile skewness: " `qskewCHI2'
+di "Mecouple: " `mcCHI2'
+
+di in r "Tail heavyness parameters CHI2"
+di "Kurtosis: " `kurtCHI2'
+di "Quantile right heaviness: " `rqwCHI2'
+di "Quantile left heaviness: " `lqwCHI2'
+di "Right mecouple: " `rmcCHI2'
+di "Left mecouple: " `lmcCHI2'
+
+
+**** CONTAMINATED NORMAL  ******
+
+replace z=5 in 1/50
+qui sum z, d
+local meanNc=r(mean)
+local medianNc=r(p50)
+
+local sdNc=r(sd)
+local iqrNc=(r(p75)-r(p25))*0.7413
+local skewNc=r(skewness)
+local kurtNc=r(kurtosis)-3
+
+centile z, centile(25 50 75)
+local qskewNc=(r(c_1)+r(c_3)-2*r(c_2))/((r(c_2)-r(c_1))/1.349)
+
+qui hl z
+local hlNc=e(hl)
+
+qui qn z
+local qnNc=e(qn)
+
+qui medcouple z, lmc rmc
+local mcNc=e(mc)
+local lmcNc=e(lmc)
+local rmcNc=e(rmc)
+
+qui centile z, centile(12.5 25 37.5 62.5 75 87.5)
+local lqwNc=-(r(c_1)+r(c_3)-2*r(c_2))/(r(c_3)-r(c_1))
+local rqwNc=(r(c_4)+r(c_6)-2*r(c_5))/(r(c_6)-r(c_4))
+
+di in r "Location parameters Normal"
+
+di "Mean: " `meanNc'
+di "Median: " `medianNc'
+di "Hodges-Lehman: " `hlNc'
+
+di in r"Scale parameters Normal"
+di "Standard deviation: " `sdNc'
+di "Iqr: " `iqrNc'
+di "Qn: " `qnNc'
+
+
+di in r "Skewness parameters Normal"
+di "Skewness: " `skewNc'
+di "Quantile skewness: " `qskewNc'
+di "Mecouple: " `mcNc'
+
+di in r "Tail heavyness parameters Normal"
+di "Kurtosis: " `kurtNc'
+di "Quantile right heaviness: " `rqwNc'
+di "Quantile left heaviness: " `lqwNc'
+di "Right mecouple: " `rmcNc'
+di "Left mecouple: " `lmcNc'
+
+**** CONTAMINATED CHI2 *****
+replace x=invchi2(1,normal(5)) in 1/50
+qui sum x, d
+local meanCHI2c=r(mean)
+local medianCHI2c=r(p50)
+
+local sdCHI2c=r(sd)
+local iqrCHI2c=(r(p75)-r(p25))*0.7413
+local skewCHI2c=r(skewness)
+local kurtCHI2c=r(kurtosis)-3
+
+centile x, centile(25 50 75)
+local qskewCHI2c=(r(c_1)+r(c_3)-2*r(c_2))/((r(c_2)-r(c_1))/1.349)
+
+qui hl x
+local hlCHI2c=e(hl)
+
+qui qn x
+local qnCHI2c=e(qn)
+
+qui medcouple x, lmc rmc
+local mcCHI2c=e(mc)
+local lmcCHI2c=e(lmc)
+local rmcCHI2c=e(rmc)
+
+qui centile x, centile(12.5 25 37.5 62.5 75 87.5)
+local lqwCHI2c=-(r(c_1)+r(c_3)-2*r(c_2))/(r(c_3)-r(c_1))
+local rqwCHI2c=(r(c_4)+r(c_6)-2*r(c_5))/(r(c_6)-r(c_4))
+
+di in r "Location parameters CHI2c"
+
+di "Mean: " `meanCHI2c'
+di "Median: " `medianCHI2c'
+di "Hodges-Lehman: " `hlCHI2c'
+
+di in r"Scale parameters CHI2c"
+di "Standard deviation: " `sdCHI2c'
+di "Iqr: " `iqrCHI2c'
+di "Qn: " `qnCHI2c'
+
+
+di in r "Skewness parameters CHI2c"
+di "Skewness: " `skewCHI2c'
+di "Quantile skewness: " `qskewCHI2c'
+di "Mecouple: " `mcCHI2c'
+
+di in r "Tail heavyness parameters CHI2c"
+di "Kurtosis: " `kurtCHI2c'
+di "Quantile right heaviness: " `rqwCHI2c'
+di "Quantile left heaviness: " `lqwCHI2c'
+di "Right mecouple: " `rmcCHI2c'
+di "Left mecouple: " `lmcCHI2c'
+(texdoc stlog written to ../stbook/dof/3/6.log.tex)
+
+. 
+end of do-file
+
+. texdoc write }
 
 . 
 . 
@@ -59,85 +358,18 @@ end of do-file
 
 . texdoc stlog close
 
-. texdoc graph, caption(\alert{Caption needed}) label(fig:stars_scatterplot)
+. texdoc graph, label(fig:football) ///
+>     caption(Classic, adjusted, and generalized boxplot \alert{[will be inserte
+> d after revising the boxplot program]})
 
 . 
 . 
-end of do-file
-
-. 
-. texdoc stlog
-
-. texdoc stlog close
-
 . 
 . 
-end of do-file
-
-. 
-. texdoc stlog
-
-. texdoc stlog close
-
-. 
-. 
-end of do-file
-
-. 
-. texdoc stlog
-
-. texdoc stlog close
-
-. 
-. 
-end of do-file
-
-. 
-. texdoc stlog
-
-. texdoc stlog close
-
-. 
-. 
-end of do-file
-
-. 
-. texdoc stlog, nodo cmdlog
-
-. texdoc stlog close
-hl log_temperature
-local mu=e(hl)
-qn log_temperature
-local s=e(qn)
-gen leverage=(log_temperature-`mu')/`s'
-robreg m log_intensity log_temperature if abs(leverage)<=2.5
-(texdoc stlog written to ../stbook/dof/4/9.log.tex)
-
-. 
-end of do-file
-
-. 
-. texdoc stlog
-
-. texdoc stlog close
-
-. 
-. 
-end of do-file
-
-. 
-. texdoc stlog
-
-. texdoc stlog close
-
-. 
-. 
-end of do-file
-
 . 
 . 
 . 
 . 
 . 
 end of do-file
-(texdoc output written to ../stbook/chapter4.tex)
+(texdoc output written to ../stbook/chapter3.tex)
