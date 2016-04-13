@@ -181,9 +181,12 @@ For symmetric $F$, the influence function of $\stsc{HL}$ is given as
                                                                                 \todo{I use $f(x)^2$ instead of 
                                                                                 $f^2(x)$. I know the latter is often used in 
                                                                                 stats literature, but to me the former much is
-                                                                                clearer.}
+                                                                                clearer. Furthermore, in the numerator it should 
+                                                                                be $F(x-\stsc{HL}(F))$, not $F(x-\mu)$, I think (in 
+                                                                                Staudte/Sheather 1990:121 $\mu$ is used, but 
+                                                                                they define $\mu$ as the median of $(X+Y)/2$).}
 \[
-    \stsc{IF}(x; \stsc{HL}, F) = \frac{2 F(x-\mu) - 1}{2 \int_{-\infty}^\infty f(y)^2 \dif y}
+    \stsc{IF}(x; \stsc{HL}, F) = \frac{2 F(x-\stsc{HL}(F)) - 1}{2 \int_{-\infty}^\infty f(y)^2 \dif y}
 \]
 Figure~\ref{fig:stat:IF_loc}c presents the influence function for standard Gaussian
 data. It illustrates that outliers have a bounded influence. Also note that the \todo{The original just said that the sensitivity
@@ -443,6 +446,14 @@ not only bounded, but also smooth:                                              
 \[
     \stsc{IF}(x; Q, F) = d\cdot \frac{0.25 - F(x+d^{-1}) + F(x-d^{-1})}{\int_{-\infty}^\infty f(y+d^{-1}) \dif F(y)}
 \]
+\alert{[I think the above is only valid if $X$ has a scale of 1. Probably the IF should be
+\[
+    \stsc{IF}(x; Q, F) = d\cdot \frac{0.25 - F(x+Q/d) + F(x-Q/d)}{\int_{-\infty}^\infty f(y+Q/d) \dif F(y)}
+\]
+Furthermore, wouldn't the denominator have to be different if the distribution 
+of $X$ is asymmetric? Intuitively, it seems odd that only $f(y+Q/d)$ appears in 
+the denominator and not also $f(y-Q/d)$.]
+}
 Figure~\ref{fig:stat:IF_scale}d displays the influence function of $Q_n$ for 
 standard Gaussian data.                                                         
 
@@ -857,7 +868,7 @@ denote, as usual, the quantile of order $p$ of $F$ by $Q_p=F^{-1}(p)$, we have
     \stsc{IF}(x; \stsc{LQW}_p, F) 
          = 2\, \frac{\begin{array}{@{}l@{}}
                     \left(\stsc{IF}(x; Q_{0.25}, F) - \stsc{IF}(x; Q_{0.5-p/2}, F)\right)
-                                       \left(q_{0.25} - Q_{p/2}\right)\\
+                                       \left(Q_{0.25} - Q_{p/2}\right)\\
                     \qquad - \left(\stsc{IF}(x; Q_{p/2}, F) - \stsc{IF}(x;Q_{0.25},F)\right) 
                                        \left(Q_{0.5-p/2} - Q_{0.25}\right)
                     \end{array}}
@@ -868,7 +879,7 @@ and
     \stsc{IF}(x; \stsc{RQW}_p, F) 
          = 2\, \frac{\begin{array}{@{}l@{}}
                     \left(\stsc{IF}(x; Q_{0.5+p/2}, F) - \stsc{IF}(x; Q_{0.75}, F)\right)
-                                       \left(q_{1-p/2} - Q_{0.75}\right)\\
+                                       \left(Q_{1-p/2} - Q_{0.75}\right)\\
                     \qquad - \left(\stsc{IF}(x; Q_{0.75}, F) - \stsc{IF}(x;Q_{1-p/2},F)\right) 
                                        \left(Q_{0.75} - Q_{0.5+p/2}\right)
                     \end{array}}

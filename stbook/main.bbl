@@ -1,0 +1,395 @@
+\ifnum 72=1 \def\bibname{Reference}
+\else \def\bibname{References} \fi
+\begin{thebibliography}{72}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+
+\bibitem[{Anderson(1984)}]{Anderson:1984}
+Anderson, T.~W. 1984.
+\newblock \emph{An Introduction to Multivariate Statistical Analysis}.
+\newblock 2nd ed. John Wiley \& Sons.
+
+\bibitem[{Andrews(1974)}]{Andrews:1974}
+Andrews, D.~F. 1974.
+\newblock A Robust Method for Multiple Linear Regression.
+\newblock \emph{Technometrics} 16: 523--531.
+
+\bibitem[{Anscombe(1973)}]{anscombe73}
+Anscombe, F.~J. 1973.
+\newblock Graphs in Statistical Analysis.
+\newblock \emph{The American Statistician} 27(1): 17--21.
+
+\bibitem[{Belsley et~al.(1980)Belsley, Kuh, and Welsch}]{belsley80}
+Belsley, D.~A., E.~Kuh, and R.~E. Welsch. 1980.
+\newblock \emph{Regression Diagnostics: Identifying Influential Data and
+  Sources of Collinearity}.
+\newblock Wiley series in probability and mathematical statistics, New York:
+  Wiley.
+
+\bibitem[{Brown and Mood(1951)}]{Brown:1951}
+Brown, G.~W., and A.~M. Mood. 1951.
+\newblock On Median Tests for Linear Hypotheses.
+\newblock In \emph{Proceedings of the 2nd Berkeley Symposium on Mathematical
+  Statistics and Probability},  159--166.
+
+\bibitem[{{Bruffaerts et al.}(2014)}]{Bruffaerts:etal:2014}
+{Bruffaerts et al.} 2014.
+\newblock \alert{Details missing!!!} .
+
+\bibitem[{Brys et~al.(2004{\natexlab{a}})Brys, Hubert, and
+  Struyf}]{brys:etal:2004a}
+Brys, Hubert, and Struyf. 2004{\natexlab{a}}.
+\newblock \alert{Details missing!!!} .
+
+\bibitem[{Brys et~al.(2004{\natexlab{b}})Brys, Hubert, and
+  Struyf}]{brys:etal:2004b}
+\mbox{\vrule width30.25006ptheight2.62222ptdepth-2.25222pt}.
+  2004{\natexlab{b}}.
+\newblock \alert{Details missing!!!} .
+
+\bibitem[{Brys et~al.(2006)Brys, Hubert, and Struyf}]{brys:etal:2006}
+\mbox{\vrule width30.25006ptheight2.62222ptdepth-2.25222pt}. 2006.
+\newblock \alert{Details missing!!!} .
+
+\bibitem[{Chatterjee and Hadi(1988)}]{Chatterjee88}
+Chatterjee, S., and A.~S. Hadi. 1988.
+\newblock \emph{Sensitivity Analysis in Linear Regression}.
+\newblock New York: John Wiley \& Sons.
+
+\bibitem[{Cook and Weisberg(1982)}]{cookweisberg82}
+Cook, R.~D., and S.~Weisberg. 1982.
+\newblock \emph{Residuals and Influence in Regression}.
+\newblock New York: Chapman and Hall.
+
+\bibitem[{Croux and Dehon(2003)}]{croux:dehon:2003}
+Croux, C., and C.~Dehon. 2003.
+\newblock Estimators of the multiple correlation coefficient: Local robustness
+  and confidence intervals.
+\newblock \emph{Statistical Paper} 44: 315--334.
+
+\bibitem[{Croux et~al.(2003)Croux, Dhaene, and Hoorelbeke}]{Croux:2003}
+Croux, C., G.~Dhaene, and D.~Hoorelbeke. 2003.
+\newblock Robust Standard Errors for Robust Estimators.
+\newblock Discussions Paper Series (DPS) 03.16, Center for Economic Studies,
+  KULeuven. Available from
+  \url{http://www.econ.kuleuven.be/eng/ew/discussionpapers/Dps03/Dps0316.pdf}.
+
+\bibitem[{Dehon et~al.(2012)Dehon, Gassner, and Verardi}]{Dehon:2012}
+Dehon, C., M.~Gassner, and V.~Verardi. 2012.
+\newblock Extending the Hausman test to check for the presence of outliers.
+\newblock \emph{Advances in Econometrics} 29(Essays in Honor of Jerry Hausman):
+  435--453.
+
+\bibitem[{Donoho and Huber(1983)}]{donoho:huber:1983}
+Donoho, and P.~J. Huber. 1983.
+\newblock \alert{Details missing!!!} .
+
+\bibitem[{Edgeworth(1887)}]{edgeworth:1887}
+Edgeworth, F.~Y. 1887.
+\newblock On Observations Relating to Several Quantities.
+\newblock \emph{Hermathena} 6: 279--285.
+
+\bibitem[{Fox(1991)}]{fox91}
+Fox, J. 1991.
+\newblock \emph{Regression Diagnostics}.
+\newblock Quantitative applications in the social sciences, Newbury Park, CA:
+  Sage.
+
+\bibitem[{Gervini and Yohai(2002)}]{Gervini:2002}
+Gervini, D., and V.~J. Yohai. 2002.
+\newblock A class of robust and fully efficient regression estimators.
+\newblock \emph{The Annals of Statistics} 30: 583--616.
+
+\bibitem[{Greene(1997)}]{Greene:1997}
+Greene, W. 1997.
+\newblock \emph{Econometric Analysis}.
+\newblock 3rd ed. Prentice Hall.
+
+\bibitem[{Groeneveld(1991)}]{groeneveld:1991}
+Groeneveld. 1991.
+\newblock \alert{Details missing!!!} .
+
+\bibitem[{Hampel(1971)}]{hampel:1971}
+Hampel, F.~R. 1971.
+\newblock \alert{Details missing!!!} .
+
+\bibitem[{Hampel(1974)}]{hampel:1974}
+\mbox{\vrule width30.25006ptheight2.62222ptdepth-2.25222pt}. 1974.
+\newblock \alert{Details missing!!!} .
+
+\bibitem[{Hampel et~al.(1986)Hampel, Ronchetti, Rousseeuw, and
+  Stahel}]{hampel:etal:1986}
+Hampel, F.~R., E.~M. Ronchetti, P.~J. Rousseeuw, and W.~A. Stahel. 1986.
+\newblock \emph{Robust Statistics. The Approach Based on Influence Functions}.
+\newblock New York: John Wiley \& Sons.
+
+\bibitem[{Hampel and Stahel(1982)}]{hampel:stahel:1982}
+Hampel, F.~R., and W.~A. Stahel. 1982.
+\newblock \alert{Details missing!!!} .
+
+\bibitem[{Hansen(1982)}]{Hansen:1982}
+Hansen, L.~P. 1982.
+\newblock Large sample properties of generalized method of moments estimators.
+\newblock \emph{Econometrica} 50: 1029--1054.
+
+\bibitem[{Hausman(1978)}]{Hausman:1978}
+Hausman, J.~A. 1978.
+\newblock Specification tests in econometrics.
+\newblock \emph{Econometrica} 46(6): 1251--1271.
+
+\bibitem[{Heritier et~al.(2009)Heritier, Cantoni, Copt, and
+  Victoria-Feser}]{heritier.etal.09}
+Heritier, S., E.~Cantoni, S.~Copt, and M.-P. Victoria-Feser. 2009.
+\newblock \emph{Robust Statistics in Biostatistics}.
+\newblock West Sussey: Wiley.
+
+\bibitem[{Hinkley(1975)}]{hinkley:1975}
+Hinkley. 1975.
+\newblock \alert{Details missing!!!} .
+
+\bibitem[{Hodges and Lehmann(1963)}]{hodges:lehmann:1963}
+Hodges, and Lehmann. 1963.
+\newblock \alert{Details missing!!!} .
+
+\bibitem[{H{\"o}ssjer(1992)}]{Hossjer:1992}
+H{\"o}ssjer, O. 1992.
+\newblock On the optimality of S-estimators.
+\newblock \emph{Statistics and Probability Letters} 14(5): 413--419.
+
+\bibitem[{Huber and Ronchetti(2009)}]{Huber:2009}
+Huber, and Ronchetti. 2009.
+\newblock \alert{Details missing!!!} .
+
+\bibitem[{Huber(1964)}]{huber64}
+Huber, P.~J. 1964.
+\newblock Robust Estimation of a Location Parameter.
+\newblock \emph{The Annals of Mathematical Statistics} 35(1): 73--101.
+
+\bibitem[{Huber(1972)}]{huber72}
+\mbox{\vrule width30.25006ptheight2.62222ptdepth-2.25222pt}. 1972.
+\newblock The 1972 {W}ald {L}ecture. Robust Statistics: A Review.
+\newblock \emph{The Annals of Mathematical Statistics} 43(4): 1041--1067.
+
+\bibitem[{Huber(1973)}]{huber73}
+\mbox{\vrule width30.25006ptheight2.62222ptdepth-2.25222pt}. 1973.
+\newblock Robust Regression: Asymptotics, Conjectures and Monte Carlo.
+\newblock \emph{The Annals of Statistics} 1(5): 799--821.
+
+\bibitem[{Huber(1981)}]{huber:1981}
+\mbox{\vrule width30.25006ptheight2.62222ptdepth-2.25222pt}. 1981.
+\newblock \emph{Robust Statistics}.
+\newblock New York: John Wiley \& Sons.
+
+\bibitem[{Hubert and Vandervieren(2008)}]{hubert:vandervieren:2008}
+Hubert, M., and E.~Vandervieren. 2008.
+\newblock An Adjusted Boxplot for Skewed Distributions.
+\newblock \emph{Computational Statistics and Data Analysis} 52: 5186--5201.
+
+\bibitem[{Jaeckel(1972)}]{Jaeckel:1972}
+Jaeckel, L.~A. 1972.
+\newblock Estimating Regression Coefficients by Minimizing the Dispersion of
+  Residuals.
+\newblock \emph{Annals of Mathematical Statistics} 5: 1449--1458.
+
+\bibitem[{Jarque and Bera(1980)}]{Jarque:Bera:1980}
+Jarque, and Bera. 1980.
+\newblock \alert{Details missing!!!} .
+
+\bibitem[{Jasso(1985)}]{jasso85}
+Jasso, G. 1985.
+\newblock Marital Coital Frequency and the Passage of Time: Estimating the
+  Separate Effects of Spouses' Ages and Marital Duration, Birth and Marriage
+  Cohorts, and Period Influences.
+\newblock \emph{American Sociological Review} 50(2): 224--241.
+
+\bibitem[{Jim{\'e}nez and Arunachalam(2011)}]{Jimenez:2011}
+Jim{\'e}nez, J.~A., and V.~Arunachalam. 2011.
+\newblock Using Tukey's $g$ and $h$ family of distributions to calculate
+  value-at-risk and conditional value-at-risk.
+\newblock \emph{Journal of Risk} 13(4): 95--116.
+
+\bibitem[{Kahn and Udry(1986)}]{kahnudry86}
+Kahn, J.~R., and J.~R. Udry. 1986.
+\newblock Mariatl Coital Frequency: Unnoticed Outliers and Unspecified
+  Interactions Lead to Erroneous Conclusions.
+\newblock \emph{American Sociological Review} 51(5): 734--737.
+
+\bibitem[{Koenker(2005)}]{Koenker:2005}
+Koenker, R. 2005.
+\newblock \emph{Quantile Regression}.
+\newblock Cambridge: Cambridge University Press.
+
+\bibitem[{Koenker and Bassett(1978)}]{Koenker:1978}
+Koenker, R., and G.~Bassett. 1978.
+\newblock Regression Quantiles.
+\newblock \emph{Econometrica} 46(1): 33--50.
+
+\bibitem[{Koller(2012)}]{Koller:2012}
+Koller, M. 2012.
+\newblock Nonsingular subsampling for S-estimators with categorical predictors.
+\newblock \href{http://arxiv.org/abs/1208.5595v1}{arXiv:1208.5595v1} [stat.CO].
+
+\bibitem[{Kruskal(1960)}]{kruskal60}
+Kruskal, W.~H. 1960.
+\newblock Some Remarks on Wild Observations.
+\newblock \emph{Technometrics} 2(1): 1--3.
+
+\bibitem[{Lehmann and Casella(1988)}]{LehmannCasella1988}
+Lehmann, E.~L., and G.~Casella. 1988.
+\newblock \emph{Theory of Point Estimation}.
+\newblock 2nd ed. Springer.
+
+\bibitem[{Mallows(1975)}]{Mallows:1975}
+Mallows, C.~L. 1975.
+\newblock On some topics in robustness.
+\newblock Unpublished memorandum, Bell Telephone Laboratories, Murray Hill, NJ.
+
+\bibitem[{Maronna et~al.(1979)Maronna, Bustos, and Yohai}]{Maronna:1979}
+Maronna, R.~A., O.~H. Bustos, and V.~J. Yohai. 1979.
+\newblock Bias- and efficiency-robustness of general M-estimators for
+  regression with random carriers.
+\newblock In \emph{Smoothing techniques for curve estimation}, ed. T.~Gasser
+  and J.~M. Rossenblat,  91--116. Lecture Notes in Mathematics 757, New York:
+  Springer.
+
+\bibitem[{Maronna et~al.(2006)Maronna, Martin, and Yohai}]{maronna:etal:2006}
+Maronna, R.~A., D.~R. Martin, and V.~J. Yohai. 2006.
+\newblock \emph{Robust Statistics. Theory and Methods}.
+\newblock Chichester: John Wiley \& Sons.
+
+\bibitem[{Mendes and Tyler(1996)}]{Mendes:1996}
+Mendes, B. V.~M., and D.~E. Tyler. 1996.
+\newblock Constrained M-estimation for regression.
+\newblock In \emph{Robust Statistics, Data Analysis and Computer Intensive
+  Methods (Schloss Thurnau, 1994)}, ed. \alert{EDITORS?},  299--320. Lecture
+  Notes in Statistics 109, New York: Springer.
+
+\bibitem[{Omelka and Salibian-Barrera(2010)}]{Omelka:2010}
+Omelka, M., and M.~Salibian-Barrera. 2010.
+\newblock Uniform asymptotics for S- and MM-regression estimators.
+\newblock \emph{Annals of the Institute of Statistical Mathematics} 62(5):
+  897--927.
+
+\bibitem[{Renaud and Victoria-Feser(2010)}]{Renaud:2010}
+Renaud, O., and M.-P. Victoria-Feser. 2010.
+\newblock A robust coefficient of determination for regression.
+\newblock \emph{Journal of Statistical Planning and Inference} 140(7):
+  1852--1862.
+
+\bibitem[{Ronchetti and Rousseeuw(1985)}]{Ronchetti:Rousseeuw:1985}
+Ronchetti, E., and P.~J. Rousseeuw. 1985.
+\newblock Change-of-Variance Sensitivities in Regression Analysis.
+\newblock \emph{Probability Theory and Related Fields} 68: 503--519.
+
+\bibitem[{Rousseeuw and Yohai(1984)}]{rousseeuw:yohai:1984}
+Rousseeuw, P., and V.~Yohai. 1984.
+\newblock Robust Regression by Means of {S}-Estimators.
+\newblock In \emph{Robust and Nonlinear Time Series Analysis. Lecture Notes in
+  Statistics Vol. 26}, ed. J.~Franke, W.~Hardle, and D.~Martin,  256--272.
+  Berlin: Springer.
+
+\bibitem[{Rousseeuw(1983)}]{Rousseeuw:1983}
+Rousseeuw, P.~J. 1983.
+\newblock Regression Techniques with High Breakdown Point.
+\newblock \emph{The Institute of Mathematical Statistics Bulletin} 12:
+  155\alert{--???}
+
+\bibitem[{Rousseeuw(1984)}]{rousseeuw:1984}
+\mbox{\vrule width30.25006ptheight2.62222ptdepth-2.25222pt}. 1984.
+\newblock Least Median of Squares Regression.
+\newblock \emph{Journal of the American Statistical Association} 79(388):
+  871--880.
+
+\bibitem[{Rousseeuw and Croux(1993)}]{rousseeuw:croux:1993}
+Rousseeuw, P.~J., and C.~Croux. 1993.
+\newblock Alternatives to the Median Absolute Deviation.
+\newblock \emph{Journal of the American Statistical Association} 88(424):
+  1273--1283.
+
+\bibitem[{Rousseeuw and Leroy(1987)}]{rousseeuw:leroy:1987}
+Rousseeuw, P.~J., and A.~M. Leroy. 1987.
+\newblock \emph{Robust Regression and Outlier Detection}.
+\newblock New York: John Wiley \& Sons.
+
+\bibitem[{Rousseeuw and Van~Driessen(1999)}]{rousseeuw&vdriessen99}
+Rousseeuw, P.~J., and K.~Van~Driessen. 1999.
+\newblock A Fast Algorithm for the Minimum Covariance Determinant Estimator.
+\newblock \emph{Technometrics} 41(3): 212--223.
+
+\bibitem[{Ruppert(1987)}]{ruppert:1987}
+Ruppert. 1987.
+\newblock \alert{Details missing!!!} .
+
+\bibitem[{Salibian-Barrera and Yohai(2006)}]{salibian:yohai:2006}
+Salibian-Barrera, M., and V.~J. Yohai. 2006.
+\newblock A Fast Algorithm for {S}-Regression Estimates.
+\newblock \emph{Journal of Computational and Graphical Statistics} 15(2):
+  414--427.
+
+\bibitem[{Salibian-Barrera and Zamar(2004)}]{Salibian-Barrera:2004}
+Salibian-Barrera, M., and R.~H. Zamar. 2004.
+\newblock Uniform asymptotics for robust location estimates when the scale is
+  unknown.
+\newblock \emph{The Annals of Statistics} 32(4): 1434--1447.
+
+\bibitem[{Sen(1968)}]{Sen:1968}
+Sen, P.~K. 1968.
+\newblock Estimates of the Regression Coefficient Based on Kendall's Tau.
+\newblock \emph{Journal of the American Statistical Association} 63:
+  1379--1389.
+
+\bibitem[{Serfling(1980)}]{Serfling1980}
+Serfling, R. 1980.
+\newblock \emph{Approximation Theorems of Mathematical Statistics}.
+\newblock New York: John Wiley \& Sons.
+
+\bibitem[{Siegel(1982)}]{Siegel:1982}
+Siegel, A.~F. 1982.
+\newblock Robust Regression Using Repeated Medians.
+\newblock \emph{Biometrika} 69: 242--244.
+
+\bibitem[{Staudte and Sheather(1990)}]{staudte:sheather:1990}
+Staudte, R.~G., and S.~J. Sheather. 1990.
+\newblock \emph{Robust Estimation and Testing}.
+\newblock New York: John Wiley \& Sons.
+
+\bibitem[{Street et~al.(1988)Street, Carroll, and
+  Ruppert}]{street.etal.AmStat.1988}
+Street, J.~O., R.~J. Carroll, and D.~Ruppert. 1988.
+\newblock A Note on Computing Robust Regression Estimates Via Iteratively
+  Reweighted Least Squares.
+\newblock \emph{The American Statistician} 42(2): 152--154.
+
+\bibitem[{Theil(1950)}]{Theil:1950}
+Theil, H. 1950.
+\newblock A Rank-Invariant Method of Linear and Polynomial Regression Analysis
+  (Parts 1-3).
+\newblock \emph{Nederlandsche Akademie van Wetenschappen Proceedings (Ser. A)}
+  53: 386--392; 521--525; 1397--1412.
+
+\bibitem[{White(1980)}]{white80}
+White, H. 1980.
+\newblock A Heteroskedasticity-Consistent Covariance Matrix Estimator and a
+  Direct Test for Heteroskedasticity.
+\newblock \emph{Econometrica} 48(4): 817--838.
+
+\bibitem[{Wilcox(2005)}]{wilcox:2005}
+Wilcox, R.~R. 2005.
+\newblock \emph{Introduction to Robust Estimation and Hypothesis Testing}.
+\newblock 2nd ed. New York: Elsevier Academic Press.
+
+\bibitem[{Yohai(1987)}]{yohai:1987}
+Yohai, V.~J. 1987.
+\newblock High Breakdown-Point and High Efficiency Robust Estimates for
+  Regression.
+\newblock \emph{The Annals of Statistics} 15(2): 642--656.
+
+\bibitem[{Yohai and Zamar(1988)}]{Yohai:1988}
+Yohai, V.~J., and R.~H. Zamar. 1988.
+\newblock High breakdown estimates of regression by means of the minimization
+  of an efficient scale.
+\newblock \emph{Journal of the American Statistical Association} 83: 406--413.
+
+\end{thebibliography}

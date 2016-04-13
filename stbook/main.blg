@@ -1,0 +1,95 @@
+This is BibTeX, Version 0.99d (TeX Live 2015)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: main.aux
+A level-1 auxiliary file: insidecover.aux
+A level-1 auxiliary file: title.aux
+A level-1 auxiliary file: copyright.aux
+A level-1 auxiliary file: acknowledge.aux
+A level-1 auxiliary file: preface.aux
+A level-1 auxiliary file: notation.aux
+A level-1 auxiliary file: part1.aux
+A level-1 auxiliary file: chapter1.aux
+A level-1 auxiliary file: part2.aux
+A level-1 auxiliary file: chapter2.aux
+A level-1 auxiliary file: chapter3.aux
+A level-1 auxiliary file: part3.aux
+A level-1 auxiliary file: chapter4.aux
+A level-1 auxiliary file: chapter5.aux
+A level-1 auxiliary file: chapter6.aux
+A level-1 auxiliary file: chapter7.aux
+A level-1 auxiliary file: part4.aux
+A level-1 auxiliary file: chapter8.aux
+A level-1 auxiliary file: chapter9.aux
+A level-1 auxiliary file: appendix.aux
+White space in argument---line 7 of file appendix.aux
+ : \citation{Croux.Rousseeuw
+ :                           (1992)}
+I'm skipping whatever remains of this command
+White space in argument---line 8 of file appendix.aux
+ : \citation{Johnson.Mizoguchi
+ :                             (1978)}
+I'm skipping whatever remains of this command
+White space in argument---line 9 of file appendix.aux
+ : \citation{Gelade.Verardi.Vermandele
+ :                                     (2013)}
+I'm skipping whatever remains of this command
+The style file: sj.bst
+Database file #1: main.bib
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Warning--empty journal in Bruffaerts:etal:2014
+Warning--empty journal in brys:etal:2004a
+Warning--empty journal in brys:etal:2004b
+Warning--empty journal in brys:etal:2006
+Warning--empty journal in donoho:huber:1983
+Warning--empty journal in groeneveld:1991
+Warning--empty journal in hampel:1971
+Warning--empty journal in hampel:1974
+Warning--empty journal in hampel:stahel:1982
+Warning--empty journal in hinkley:1975
+Warning--empty journal in hodges:lehmann:1963
+Warning--empty journal in Huber:2009
+Warning--empty journal in Jarque:Bera:1980
+Warning--empty journal in ruppert:1987
+You've used 72 entries,
+            3193 wiz_defined-function locations,
+            1089 strings with 14246 characters,
+and the built_in function-call counts, 35254 in all, are:
+= -- 3093
+> -- 1354
+< -- 69
++ -- 470
+- -- 375
+* -- 3218
+:= -- 6088
+add.period$ -- 281
+call.type$ -- 72
+change.case$ -- 788
+chr.to.int$ -- 83
+cite$ -- 86
+duplicate$ -- 1749
+empty$ -- 2842
+format.name$ -- 579
+if$ -- 6940
+int.to.chr$ -- 2
+int.to.str$ -- 2
+missing$ -- 85
+newline$ -- 355
+num.names$ -- 294
+pop$ -- 669
+preamble$ -- 1
+purify$ -- 771
+quote$ -- 0
+skip$ -- 1233
+stack$ -- 0
+substring$ -- 1774
+swap$ -- 203
+text.length$ -- 4
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 600
+warning$ -- 14
+while$ -- 266
+width$ -- 0
+write$ -- 894
+(There were 3 error messages)
