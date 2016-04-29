@@ -259,7 +259,7 @@ efficiency (95\% vs. 64\%) but a lower asymptotic breakdown point (29\% vs.
 
 \subsection{M estimate of location}
 
-\alert{[What about \stsc{M} estimators???]}
+\alert{[to be completed]}
 
 \subsection{Summary}
 
@@ -581,6 +581,11 @@ texdoc stlog close
 
 /***
 
+\subsection{M estimate of scale}
+
+\alert{[to be completed]}
+
+
 \subsection{Summary}
 
 To conclude, Table \ref{tab:stat:scale} summarizes the different properties of the
@@ -702,7 +707,7 @@ are just as fragile with respect to outliers as the standard
 skewness estimator. 
 
 Fortunately, robust alternatives based on quantiles are
-available. For example, Yule and Kendall have proposed the skewness measure     \todo{Do you have a citation for this?}
+available. For example, \citet{Yule:Kendall:1968} have proposed the skewness measure
 \[
     \stsc{SK}_{\stsc{YK}}
     = \frac{(Q_{0.75} - Q_{0.5}) - (Q_{0.5}-Q_{0.25})}{Q_{0.75} - Q_{0.25}}
@@ -749,7 +754,7 @@ and is no longer an odd function of $x$ (see \citealp[p.~101]{groeneveld:1991}).
 \index{subject}{medcouple|(textbf}
 
 As usual when working with quantiles, the influence function of $\stsc{SK}_p$
-is not smooth. To tackle this problem, \citet{brys:etal:2004a} propose to
+is not smooth. To tackle this problem, \citet{brys:etal:2004} propose to
 replace the quantiles $Q_p$ and $Q_{1-p}$ in $\stsc{SK}_p$ by actual data
 points and introduce a new skewness measure called \emph{medcouple}. 
 Let $x_{(1)}\leq x_{(2)}\leq\dots\leq x_{(n)}$ be the $n$ order
@@ -967,6 +972,12 @@ texdoc graph, optargs(width=.9\textwidth) label(fig:stat:IF_tail) ///
 
 \subsection{The quantile and medcouple tail weight measures}
 
+\alert{[There should also be a section on the quantile tail weight measure defined as
+\[
+    \stsc{QW}_p = \frac{(Q_{1-p/2} - Q_{0.5+p/2}) + (Q_{0.5-p/2} - Q_{p/2})}{Q_{1-p}-Q_{p}}
+\]
+because this is used in one of the normality tests. See \citet[p. 432]{brys:etal:2008}.]}
+
 To overcome the problems of the kurtosis coefficient, \citet{brys:etal:2006}
 have proposed two measures of \emph{left} and \emph{right} tail weight for
 univariate continuous distributions. As discussed below, these measures have
@@ -1145,6 +1156,12 @@ heaviness estimators. \alert{[Another sentence needed here!]}           \todo{Ho
 \end{table}
 
 \index{subject}{kurtosis estimators|)}
+
+\section{Variance estimation}
+
+\alert{[to be completed]}
+
+
 
 \section{Example}                                                               \todo{The examples will be replaced 
                                                                                 later by the \stcmd{robstat} command. 
@@ -1478,6 +1495,9 @@ texdoc write }
 
 \section{Robust tests of normality}
 
+\alert{[Need to revise this section to include all normality tests computed by
+\stcmd{robstat}. Also need to include details on the Wald-style variant of the tests.]}
+
 The estimates of location, scale, skewness and tails heaviness can be used to
 characterize the underlying distribution. In particular, they can be used to
 test for normality. For example, \citet{Jarque:Bera:1980} have proposed a
@@ -1517,7 +1537,7 @@ computational simplicity, the Jarque-Bera test is highly sensitive to outliers
 because it is constructed from the moment-based skewness and kurtosis measures.
 
 Robust alternatives to the Jarque-Bera test have been proposed and studied in
-\citet{brys:etal:2004b}. The authors start from the fact that the Jarque-Bera
+\citet{brys:etal:2008}. The authors start from the fact that the Jarque-Bera
 test can be seen as a special case of the following general testing procedure.
 Let $\sthat{\boldsymbol\theta} = (\sthat{\theta}_1, \dots, \sthat{\theta}_p)'$
 be a vector of estimators of $\boldsymbol\theta = (\theta_1, \dots, \theta_p)'$
@@ -1537,7 +1557,7 @@ hypothesis of normality if
     > \chi_{p;1-\alpha}^2
 \]
 where $\chi_{p;1-\alpha}^2$ is the $(1-\alpha)$-quantile of the chi-square
-distribution with $p$ degrees of freedom. \citet{brys:etal:2004b} then propose
+distribution with $p$ degrees of freedom. \citet{brys:etal:2008} then propose
 to use, in this general testing procedure, the robust skewness estimator
 $\stsc{MC}_n$ or the tails heaviness estimators $\stsc{LMC}_n$ and
 $\stsc{RMC}_n$.
