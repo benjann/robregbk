@@ -1,0 +1,44 @@
+\documentclass{book}
+\usepackage[crop,cam,newcenter]{pagedims}\headsep=18pt\pdSetDims
+\usepackage{epsfig,array,natbib,url,stata}
+\usepackage[tbtags]{amsmath}
+\def\href#1#2{\url{#2}}
+\input author.sty
+\renewcommand{\Index}[2][]{#2}
+\renewcommand{\index}[2]{}
+\newcommand{\stbkpreface}[1][Preface]{\chapter*{#1}}
+\def\statashabox{$\Box$}
+\def\paragraph#1{\subsubsection{#1}}
+
+\begin{document}
+
+\frontmatter\tableofcontents
+
+\include{preface}
+\include{notation}
+
+\mainmatter
+
+\include{part1}
+\include{chapter1}  % Introduction
+
+\include{part2}
+\include{chapter2}  % Basic concepts
+\include{chapter3}  % Univariate robust statistics
+
+%\include{part3}
+%\include{chapter4}  % Robust linear regression
+%\include{chapter5}  % Panel data
+%\include{chapter6}  % IV
+%\include{chapter7}  % Logit
+
+%\include{part4}
+%\include{chapter8}  % MCD
+%\include{chapter9}  % PCA
+
+%\include{appendix}
+
+\bibliographystyle{sj}
+\bibliography{main}
+
+\end{document}

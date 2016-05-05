@@ -24,26 +24,31 @@ from an applied perspective.
 The goal of statistical estimation is to obtain a reasonable value for the
 unknown \emph{paramater} of a statistical model, based on data whose properties
 are assumed to be consistent with the suggested model. Let $\mathcal{X}^{(n)} =
-\{X_1, \dots, X_n\}$                                           
-be a set of $n$ random variables $X_1, \ldots, X_n$ that have a joint
-probability distribution $P_{\boldsymbol\theta}^{(n)}$ depending on the unknown
-parameter $\boldsymbol\theta$. Note that, depending on context,
-$\boldsymbol\theta$ may be scalar, or it may be a vector of multiple parameters,
-that is $\boldsymbol\theta = (\theta_1, \dots, \theta_p)^t$. For simplicity, we consider here that the observations $X_i$ are univariate. However, the concepts introduced hereafter may be (quite easily) generalized in the case of multivariate observations $\stvec{X}_i$, that is, in the case $\stvec{X}_i$ is a vector of random variables ($\stvec{X}_i=(X_{i1},\ldots,X_{ik})^t$).
+\{X_1, \dots, X_n\}$ be a set of $n$ random variables $X_1, \ldots, X_n$ that
+have a joint probability distribution $P_{\boldsymbol\theta}^{(n)}$ depending
+on the unknown parameter $\boldsymbol\theta$. Note that, depending on context,
+$\boldsymbol\theta$ may be scalar, or it may be a vector of multiple
+parameters, that is $\boldsymbol\theta = (\theta_1, \dots, \theta_p)^t$. For
+simplicity, we consider here that the observations $X_i$ are univariate.
+However, the concepts introduced hereafter may be (quite easily) generalized in
+the case of multivariate observations $\stvec{X}_i$, that is, in the case
+$\stvec{X}_i$ is a vector of random variables
+($\stvec{X}_i=(X_{i1},\ldots,X_{ik})^t$).
 
-Since $\boldsymbol\theta$ is unknown, this actually leads to assume that the joint distribution of the random variables $X_i$, $i=1,
-\dots, n$, belongs to the (parametric) \emph{statistical model} $\mathcal{P}^{(n)} =
-\{P_{\boldsymbol\theta}^{(n)} | \boldsymbol\theta \in \boldsymbol\Theta\}$,    
-where $\boldsymbol\Theta$ is the set of possible values of $\boldsymbol\theta$. 
+Since $\boldsymbol\theta$ is unknown, this actually leads to assume that the
+joint distribution of the random variables $X_i$, $i=1, \dots, n$, belongs to
+the (parametric) \emph{statistical model} $\mathcal{P}^{(n)} =
+\{P_{\boldsymbol\theta}^{(n)} | \boldsymbol\theta \in \boldsymbol\Theta\}$,
+where $\boldsymbol\Theta$ is the set of possible values of $\boldsymbol\theta$.
 The goal is to estimate $\boldsymbol\theta \in \boldsymbol\Theta$ based on a
 realization of $\mathcal{X}^{(n)}$. In general, we will consider the case in
 which the statistical model $\mathcal{P}^{(n)}$ conforms to simple random
-sampling (\stsc{SRS}), that is, a situation in which the random variables
-$X_1, \dots, X_n$ are independent and identically distributed
-(i.i.d.). In this situation, each $X_i$ independently follows a common probability
-distribution $P_{\boldsymbol\theta}$, which can be characterized by the
-distribution function $F_{\boldsymbol\theta}(\stvec{x}) = \Pr(X_i \leq x)$ (or simply $F$ when there is no risk of confusion about
-the parameter we have to estimate).
+sampling (\stsc{SRS}), that is, a situation in which the random variables $X_1,
+\dots, X_n$ are independent and identically distributed (i.i.d.). In this
+situation, each $X_i$ independently follows a common probability distribution
+$P_{\boldsymbol\theta}$, which can be characterized by the distribution
+function $F_{\boldsymbol\theta}(\stvec{x}) = \Pr(X_i \leq x)$ (or simply $F$
+when there is no risk of confusion about the parameter we have to estimate).
 
 An \emph{\Index{estimator}} of $\boldsymbol\theta$ can then be defined as
 follows: An \Index{estimator} of the parameter $\boldsymbol\theta$ is any
@@ -51,13 +56,13 @@ statistic $\sthat{\boldsymbol\theta} =
 \sthat{\boldsymbol\theta}(\mathcal{X}^{(n)})$ taking its value in
 $\boldsymbol\Theta$.
 
-The value of $\sthat{\boldsymbol\theta}$ provided by a particular realization $x_1,\ldots,x_n$
-of the random variables $X_1, \dots, X_n$ is called an
+The value of $\sthat{\boldsymbol\theta}$ provided by a particular realization
+$x_1,\ldots,x_n$ of the random variables $X_1, \dots, X_n$ is called an
 \emph{\Index{estimate}} of $\boldsymbol\theta$. Note that, for simplicity, we
 will often use the notation $x_i$ ($i \in \{1, \dots, n\}$) to designate the
 $i$th random observation as well as a realization of it (i.e., a specific
-value); the context will always clearly indicate if we have to consider
-$x_i$ as a random variable or as a particular value.
+value); the context will always clearly indicate if we have to consider $x_i$
+as a random variable or as a particular value.
 
 The definition above contains no indication of the quality of an estimator; any
 statistic $\sthat{\boldsymbol\theta}$ that provides a value in
@@ -164,7 +169,7 @@ An estimator $\sthat{\theta}_A$ of $\theta$ is more precise---we will say
     \stsc{MSE}_{\theta}(\sthat{\theta}_B)
     \qquad\text{for all $\theta \in \Theta$}
 \]
-and                                                                    
+and
 \[
     \stsc{MSE}_{\theta}(\sthat{\theta}_A) < 
     \stsc{MSE}_{\theta}(\sthat{\theta}_B)
@@ -188,16 +193,17 @@ efficient than $\sthat{\theta}_A$, then
 \[
     \stsc{ARE}_{\theta}(\sthat{\theta}_B,\sthat{\theta}_A) \leq 1
 \]
-for all $\theta \in \Theta$, with strict inequality holding for at least some value of $\theta$.
+for all $\theta \in \Theta$, with strict inequality holding for at least some
+value of $\theta$.
 
 
 \paragraph{Efficiency of the maximum likelihood estimator}
 
-Let us consider the case in which the random variables
-$X_1, \ldots, X_n$ of the sample ${\cal X}^{(n)}$ are i.i.d.\ with a common
-distribution function $F_{\theta}$ and a common density function $f_{\theta}$
-that satisfies some differentiability conditions with respect to $\theta$.
-Suppose also that the \emph{\Index{Fisher information}}
+Let us consider the case in which the random variables $X_1, \ldots, X_n$ of
+the sample ${\cal X}^{(n)}$ are i.i.d.\ with a common distribution function
+$F_{\theta}$ and a common density function $f_{\theta}$ that satisfies some
+differentiability conditions with respect to $\theta$. Suppose also that the
+\emph{\Index{Fisher information}}
 \[
     \mathcal{I}\left(F_{\theta}\right) =
         E_{\theta}\left(\left(\frac{\partial}{\partial\theta}
@@ -220,11 +226,11 @@ is strictly positive and finite. Then it follows that
      = \frac{(n \mathcal{I}(F_{\theta}))^{-1}}{V} \leq 1
 \end{equation}
 %
-for all $\theta \in \Theta$, making $\sthat{\theta}_{\stsc{ML}}$ the most (asymptotically) efficient among
-the given class of estimators $\sthat{\theta}$. Note, however, as will be
-discussed later, that (\ref{eq:ARE_vsML}) does not necessarily make
-$\sthat{\theta}_{\stsc{ML}}$ the estimator of choice, when certain other
-considerations are taken into account.
+for all $\theta \in \Theta$, making $\sthat{\theta}_{\stsc{ML}}$ the most
+(asymptotically) efficient among the given class of estimators
+$\sthat{\theta}$. Note, however, as will be discussed later, that
+(\ref{eq:ARE_vsML}) does not necessarily make $\sthat{\theta}_{\stsc{ML}}$ the
+estimator of choice, when certain other considerations are taken into account.
 
 
 \paragraph{Notation in the multidimensional case}
@@ -254,7 +260,9 @@ matrices), raised to the power $1/p$, that is
     = \left(\frac{ \det(\boldsymbol\Sigma_A)}{\det(\boldsymbol\Sigma_B)}\right)^{1/p}.
 \]
 If $\stsc{ARE}_{\boldsymbol\theta}(\sthat{\boldsymbol\theta}_B,
-\sthat{\boldsymbol\theta}_A) \leq 1$ for all $\boldsymbol\theta \in \boldsymbol\Theta$, with strict inequality holding for at least some value $\boldsymbol\theta$, estimator $\sthat{\boldsymbol\theta}_B$ is
+\sthat{\boldsymbol\theta}_A) \leq 1$ for all $\boldsymbol\theta \in
+\boldsymbol\Theta$, with strict inequality holding for at least some value
+$\boldsymbol\theta$, estimator $\sthat{\boldsymbol\theta}_B$ is
 (asymptotically) less efficient than estimator $\sthat{\boldsymbol\theta}_A$.
 
 Here again the maximum likelihood estimator $\sthat{\boldsymbol\theta}_\stsc{ML}$ of
@@ -280,19 +288,28 @@ with its elements defined as
 \subsection{Consistency}
 \Index[consistency]{}
 
-High efficiency and (asymptotic) unbiasedness are desired properties for an estimator. But other properties are still required if we want the estimator to provide valid statistical inference for $\boldsymbol\theta$.
+High efficiency and (asymptotic) unbiasedness are desired properties for an
+estimator. But other properties are still required if we want the estimator to
+provide valid statistical inference for $\boldsymbol\theta$.
 
-The sampling distribution of $\sthat{\boldsymbol\theta}$ generally depends on the size $n$ of the sample, e.g. via its mean, its variance and (or) other characteristics. How does the distribution of $\sthat{\boldsymbol\theta}$ evolve when $n$ increases? This question will first lead us to the properties of \emph{(asymptotic) consistency} ---\emph{convergence in probability}--- and \emph{Fisher consistency}. We will  then consider the concept of \emph{convergence in distribution}.
+The sampling distribution of $\sthat{\boldsymbol\theta}$ generally depends on
+the size $n$ of the sample, e.g. via its mean, its variance and (or) other
+characteristics. How does the distribution of $\sthat{\boldsymbol\theta}$
+evolve when $n$ increases? This question will first lead us to the properties
+of \emph{(asymptotic) consistency} ---\emph{convergence in probability}--- and
+\emph{Fisher consistency}. We will then consider the concept of
+\emph{convergence in distribution}.
 
 \paragraph{(Asymptotic) consistency: Convergence in probability}
 \Index[convergence!in probability]{}
 \Index[consistency!asymptotic]{}
 
 An estimator $\sthat{\boldsymbol\theta} =
-\sthat{\boldsymbol\theta}(\mathcal{X}^{(n)})$ is \emph{consistent} or \emph{asymptotic consistent} if, for $n
-\rightarrow \infty$, $\sthat{\boldsymbol\theta}$ \emph{converges in
-probability} to $\boldsymbol\theta$. That is, for any $\epsilon > 0$ and for
-all $\boldsymbol\theta \in \boldsymbol\Theta$:
+\sthat{\boldsymbol\theta}(\mathcal{X}^{(n)})$ is \emph{consistent} or
+\emph{asymptotic consistent} if, for $n \rightarrow \infty$,
+$\sthat{\boldsymbol\theta}$ \emph{converges in probability} to
+$\boldsymbol\theta$. That is, for any $\epsilon > 0$ and for all
+$\boldsymbol\theta \in \boldsymbol\Theta$:
 \begin{equation}
     \lim_{n \rightarrow \infty} P_{\boldsymbol\theta}^{(n)} \left(
         \Vert\sthat{\boldsymbol\theta} - \boldsymbol\theta \Vert \leq \epsilon
@@ -300,53 +317,103 @@ all $\boldsymbol\theta \in \boldsymbol\Theta$:
 \end{equation}
 
 This type of convergence means that, when the sample size grows, the
-probability that the estimator $\sthat{\boldsymbol\theta}$ takes a value arbitrarily close to
-the exact value of the parameter and, consequently, provides a “good” estimate
-of the parameter $\boldsymbol\theta$, grows to 1. 
+probability that the estimator $\sthat{\boldsymbol\theta}$ takes a value
+arbitrarily close to the exact value of the parameter and, consequently,
+provides a “good” estimate of the parameter $\boldsymbol\theta$, grows to 1.
 
-In other terms, a consistent estimator $\sthat{\boldsymbol\theta}$ of $\boldsymbol\theta$ is an estimator that becomes more and more precise when the number of observations increases. It also means that the sampling distribution of $\sthat{\boldsymbol\theta}$ becomes more and more concentrated around the true value of the parameter being estimated. This property of consistency is of course a highly desirable property for an estimator.
+In other terms, a consistent estimator $\sthat{\boldsymbol\theta}$ of
+$\boldsymbol\theta$ is an estimator that becomes more and more precise when the
+number of observations increases. It also means that the sampling distribution
+of $\sthat{\boldsymbol\theta}$ becomes more and more concentrated around the
+true value of the parameter being estimated. This property of consistency is of
+course a highly desirable property for an estimator.
 
 \paragraph{Convergence in quadratic mean}
 \Index[convergence!in quadratic mean]{}
 
-Another type of convergence is closely related to the notion of consistency: the \emph{convergence in quadratic mean}. For simplicity, consider the case of a scalar parameter $\theta$: $\sthat{\theta}=\sthat{\theta}({\cal X}^{(n)})$ converges in quadratic mean to $\theta$ if
+Another type of convergence is closely related to the notion of consistency:
+the \emph{convergence in quadratic mean}. For simplicity, consider the case of
+a scalar parameter $\theta$: $\sthat{\theta}=\sthat{\theta}({\cal X}^{(n)})$
+converges in quadratic mean to $\theta$ if
 \[
-	\stsc{MSE}_{\theta}(\sthat{\theta})=E_{\theta}\left((\sthat{\theta}-\theta)^2\right)  \stackrel{n \rightarrow \infty}{\longrightarrow} 0.
+    \stsc{MSE}_{\theta}(\sthat{\theta})=E_{\theta}\left((\sthat{\theta}-\theta)^2\right) 
+    \stackrel{n \rightarrow \infty}{\longrightarrow} 0.
 \]
 
-Since $\stsc{MSE}_{\theta}(\sthat{\theta})={\rm Var}_{\theta}(\sthat{\theta}) + \left(B_{\theta}(\sthat{\theta})\right)^2$, it is clear that, if $\sthat{\theta}$ is asymptotically unbiased and has a variance that tends to zero when $n$ tends to infinity, then $\sthat{\theta}$ converges to $\theta$ in quadratic mean. Moreover, it is quite easy to prove that the convergence in quadratic mean implies the convergence in probability. This result is intuitive since $\stsc{MSE}_{\theta}(\sthat{\theta})$ is nothing but a measure of the dispersion of the sampling distribution of $\sthat{\theta}$ around the exact value of the parameter to estimate.
+Since $\stsc{MSE}_{\theta}(\sthat{\theta})={\rm Var}_{\theta}(\sthat{\theta}) +
+\left(B_{\theta}(\sthat{\theta})\right)^2$, it is clear that, if
+$\sthat{\theta}$ is asymptotically unbiased and has a variance that tends to
+zero when $n$ tends to infinity, then $\sthat{\theta}$ converges to $\theta$ in
+quadratic mean. Moreover, it is quite easy to prove that the convergence in
+quadratic mean implies the convergence in probability. This result is intuitive
+since $\stsc{MSE}_{\theta}(\sthat{\theta})$ is nothing but a measure of the
+dispersion of the sampling distribution of $\sthat{\theta}$ around the exact
+value of the parameter to estimate.
 
-In practice, it is often easier to establish the consistency of $\sthat{\theta}$ by verifying that $\sthat{\theta}$ converges in quadratic mean to $\theta$ instead of considering directly the equality (\ref{eq:consistency}).
+In practice, it is often easier to establish the consistency of
+$\sthat{\theta}$ by verifying that $\sthat{\theta}$ converges in quadratic mean
+to $\theta$ instead of considering directly the equality (\ref{eq:consistency}).
 
 \paragraph{Fisher consistency}
 \Index[consistency!Fisher]{}
 
-In statistics, \emph{Fisher consistency} is another desirable property of an estimator asserting that if the estimator were calculated using the entire population rather than a sample, the true value of the estimated parameter would be obtained (\citealp{fisher:1922}).
+In statistics, \emph{Fisher consistency} is another desirable property of an
+estimator asserting that if the estimator were calculated using the entire
+population rather than a sample, the true value of the estimated parameter
+would be obtained (\citealp{fisher:1922}).
 
-Suppose we have a statistical sample ${\cal X}^{(n)}=\{X_1,\ldots,X_n\}$ where each $X_i$ has a distribution characterized by the cumulative distribution $F_{\boldsymbol\theta}$ which depends on an unknown parameter $\boldsymbol\theta$. If the estimator $\sthat{\boldsymbol\theta}=\sthat{\boldsymbol\theta}({\cal X}^{(n)})$ can be represented as a \emph{functional} of the empirical distribution function\footnote{The empirical distribution function $F^{(n)}$ is the distribution function associated with the discrete probability distribution allocating a probability mass of $1/n$ at each observation $X_i$, $i=1,\ldots,n$, of the sample ${\cal X}^{(n)}$.} $F^{(n)}$, that is, 
+Suppose we have a statistical sample ${\cal X}^{(n)}=\{X_1,\ldots,X_n\}$ where
+each $X_i$ has a distribution characterized by the cumulative distribution
+$F_{\boldsymbol\theta}$ which depends on an unknown parameter
+$\boldsymbol\theta$. If the estimator
+$\sthat{\boldsymbol\theta}=\sthat{\boldsymbol\theta}({\cal X}^{(n)})$ can be
+represented as a \emph{functional} of the empirical distribution
+function\footnote{The empirical distribution function $F^{(n)}$ is the
+distribution function associated with the discrete probability distribution
+allocating a probability mass of $1/n$ at each observation $X_i$,
+$i=1,\ldots,n$, of the sample ${\cal X}^{(n)}$.} $F^{(n)}$, that is,
 \[
-	\sthat{\boldsymbol\theta}=\stvec{T}(F^{(n)}),
+    \sthat{\boldsymbol\theta}=\stvec{T}(F^{(n)}),
 \] 
 $\sthat{\boldsymbol\theta}$ is said to be \emph{Fisher consistent} if
 \[
-	\stvec{T}(F_{\boldsymbol\theta})=\boldsymbol\theta .
+    \stvec{T}(F_{\boldsymbol\theta})=\boldsymbol\theta .
 \]
 
-If the strong law of large numbers can be applied, the empirical distribution function $F^{(n)}$ converges pointwise to $F_{\boldsymbol\theta}$ when $n$ tends to infinity, allowing us to express Fisher consistency as the following convergence property: The estimator $\sthat{\boldsymbol\theta}=\stvec{T}(F^{(n)})$ is Fisher consistent if
+If the strong law of large numbers can be applied, the empirical distribution
+function $F^{(n)}$ converges pointwise to $F_{\boldsymbol\theta}$ when $n$
+tends to infinity, allowing us to express Fisher consistency as the following
+convergence property: The estimator
+$\sthat{\boldsymbol\theta}=\stvec{T}(F^{(n)})$ is Fisher consistent if
 \[
-	\stvec{T}\left(\lim_{n\rightarrow\infty} F^{(n)}\right)=\boldsymbol\theta .
+    \stvec{T}\left(\lim_{n\rightarrow\infty} F^{(n)}\right)=\boldsymbol\theta .
 \] 
 
-Fisher consistency and (asymptotic) consistency are distinct concepts, although both aim to define a desirable property of an estimator. While many estimators are consistent in both senses, neither definition encompasses the other: There exist estimators that are (asymptotically) consistent but not Fisher consistent and, inversely, there are estimators that are Fisher consistent but not (asymptotically) consistent.
+Fisher consistency and (asymptotic) consistency are distinct concepts, although
+both aim to define a desirable property of an estimator. While many estimators
+are consistent in both senses, neither definition encompasses the other: There
+exist estimators that are (asymptotically) consistent but not Fisher consistent
+and, inversely, there are estimators that are Fisher consistent but not
+(asymptotically) consistent.
 
 \subsection{Convergence in distribution}
 \Index[convergence!in distribution]{}
 
-A last type of convergence is important when we have to provide a confidence interval for (each component of) $\boldsymbol\theta$ or to define a statistical test to solve a testing problem for the unknown parameter $\boldsymbol\theta$: The \emph{convergence in distribution}. Since this property concerns usually a function of an estimator $\sthat{\boldsymbol\theta}$ of $\boldsymbol\theta$ than the estimator $\sthat{\boldsymbol\theta}$ itself, we formulate it in a general way for a statistic $\stvec{U}^{(n)}=\stvec{U}({\cal X}^{(n)})$.
+A last type of convergence is important when we have to provide a confidence
+interval for (each component of) $\boldsymbol\theta$ or to define a statistical
+test to solve a testing problem for the unknown parameter $\boldsymbol\theta$:
+The \emph{convergence in distribution}. Since this property concerns usually a
+function of an estimator $\sthat{\boldsymbol\theta}$ of $\boldsymbol\theta$
+than the estimator $\sthat{\boldsymbol\theta}$ itself, we formulate it in a
+general way for a statistic $\stvec{U}^{(n)}=\stvec{U}({\cal X}^{(n)})$.
 
-The statistic $\stvec{U}^{(n)}$ \emph{converges in distribution} to the probability distribution ${\cal L}$ if, for $n \rightarrow \infty$, the distribution function $F_{\stvec{U}^{(n)}}$ of $\stvec{U}^{(n)}$ converges to the distribution function $F_{\cal L}$ associated with ${\cal L}$ in any point of continuity of $F_{\cal L}$. That is, convergence in distribution is given if
+The statistic $\stvec{U}^{(n)}$ \emph{converges in distribution} to the
+probability distribution ${\cal L}$ if, for $n \rightarrow \infty$, the
+distribution function $F_{\stvec{U}^{(n)}}$ of $\stvec{U}^{(n)}$ converges to
+the distribution function $F_{\cal L}$ associated with ${\cal L}$ in any point
+of continuity of $F_{\cal L}$. That is, convergence in distribution is given if
 \[
-	F_{\stvec{U}^{(n)}}(\stvec{u}) \stackrel{n \rightarrow \infty}{\longrightarrow} F_{\cal L}(\stvec{u})
+    F_{\stvec{U}^{(n)}}(\stvec{u}) \stackrel{n \rightarrow \infty}{\longrightarrow} F_{\cal L}(\stvec{u})
 \] 
 for any continuity point $\stvec{u}$ of the distribution function $F_{\cal L}$.
 
@@ -361,7 +428,14 @@ $\stvec{U}^{(n)}$ is approximately distributed as $\mathcal{L}$, that is,
     \stvec{U}^{(n)} \approx \mathcal{L}.
 \]
 
-In practice, it is useful to consider an estimator $\sthat{\boldsymbol\theta}$ of $\boldsymbol\theta$ such that a certain function of $\sthat{\boldsymbol\theta}$ converges in distribution to a well known probability distribution ${\cal L}$ as, for example, a normal distribution, a Student distribution, a chi-square or a Fisher distribution. Indeed it allows to develop inference procedures for $\boldsymbol\theta$, based on $\sthat{\boldsymbol\theta}$, that are valid when the sample size $n$ is not too small.
+In practice, it is useful to consider an estimator $\sthat{\boldsymbol\theta}$
+of $\boldsymbol\theta$ such that a certain function of
+$\sthat{\boldsymbol\theta}$ converges in distribution to a well known
+probability distribution ${\cal L}$ as, for example, a normal distribution, a
+Student distribution, a chi-square or a Fisher distribution. Indeed it allows
+to develop inference procedures for $\boldsymbol\theta$, based on
+$\sthat{\boldsymbol\theta}$, that are valid when the sample size $n$ is not too
+small.
 
 \subsection{Other aspects}
 
@@ -380,9 +454,27 @@ Furthermore, consistent estimators may differ in their \emph{rate of
 convergence}, that is, in how fast the mean squared error diminishes with
 growing sample size. 
 
-If $\stsc{MSE}_{\boldsymbol\theta}(\sthat{\boldsymbol\theta})$ is of order $n^{-\nu}$ (with $\nu > 0$ such that the mean squared error of $\sthat{\boldsymbol\theta}$ tends to zero when $n$ tends to infinity, ensuring the convergence of $\sthat{\boldsymbol\theta}$ in quadratic mean and, hence, in probability), the rate of convergence of $\sthat{\boldsymbol\theta}$ is said to be equal to $n^{\nu/2}$. This rate of convergence is actually the factor by which we have to multiply $\sthat{\boldsymbol\theta}$ to obtain a mean squared error that does not depend anymore on the sample size $n$. Most of estimators in parametric models have a mean squared error of order $n^{-1}$ and, consequently, enjoy a rate of convergence equal to $\sqrt{n}$. It is the case, for example, for the least squares estimator of the regression coefficients vector in the classical linear regression model. The squared root of $n$ is certainly considered as the usual rate of convergence in the parametric context. In the nonparametric context, we may encounter estimators whose rate of convergence is smaller than $\sqrt{n}$. This is the case, for instance, for a kernel estimator of a density function $f$: The kernel estimator of $f(x)$ has a mean squared error of order $n^{-4/5}$ and hence a rate of convergence equal to $n^{2/5}$.
+If $\stsc{MSE}_{\boldsymbol\theta}(\sthat{\boldsymbol\theta})$ is of order
+$n^{-\nu}$ (with $\nu > 0$ such that the mean squared error of
+$\sthat{\boldsymbol\theta}$ tends to zero when $n$ tends to infinity, ensuring
+the convergence of $\sthat{\boldsymbol\theta}$ in quadratic mean and, hence, in
+probability), the rate of convergence of $\sthat{\boldsymbol\theta}$ is said to
+be equal to $n^{\nu/2}$. This rate of convergence is actually the factor by
+which we have to multiply $\sthat{\boldsymbol\theta}$ to obtain a mean squared
+error that does not depend anymore on the sample size $n$. Most of estimators
+in parametric models have a mean squared error of order $n^{-1}$ and,
+consequently, enjoy a rate of convergence equal to $\sqrt{n}$. It is the case,
+for example, for the least squares estimator of the regression coefficients
+vector in the classical linear regression model. The squared root of $n$ is
+certainly considered as the usual rate of convergence in the parametric
+context. In the nonparametric context, we may encounter estimators whose rate
+of convergence is smaller than $\sqrt{n}$. This is the case, for instance, for
+a kernel estimator of a density function $f$: The kernel estimator of $f(x)$
+has a mean squared error of order $n^{-4/5}$ and hence a rate of convergence
+equal to $n^{2/5}$.
 
-Naturally, an estimator with a faster rate of convergence is usually to be preferred over an estimator with a slower rate of convergence.
+Naturally, an estimator with a faster rate of convergence is usually to be
+preferred over an estimator with a slower rate of convergence.
 
 Finally, an estimator should be \emph{equivariant} to transformations of data.
 That is, a transformation of the data should affect the estimator
@@ -811,7 +903,7 @@ $T$ under the distribution $F$ is defined as
 \[
     \epsilon^*(T, F) = \lim_{n\rightarrow\infty} \epsilon^{*(n)}(T^{(n)}; \mathcal{X}^{(n)})
 \]
-with the $x_i$'s sampled from $F$ (cf.\ \citealp{hampel:1971}).               
+with the $x_i$'s sampled from $F$ (cf.\ \citealp{hampel:1971}).
 
 \index{subject}{breakdown point!asymptotic|)}
 \index{subject}{breakdown point|)}
@@ -861,7 +953,7 @@ How do we choose a good robust estimator? We are clearly interested in estimator
     \item and a \emph{high \Index{breakdown point}}.
 \end{enumerate}
 
-Moreover, we are looking for robust estimators that enjoy good efficiciency for
+Moreover, we are looking for robust estimators that enjoy good efficiency for
 a wide variety of distributions. In general, however, compromises between
 robustness and efficiency must be made to achieve good overall performance, as
 is shown in the following section.

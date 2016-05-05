@@ -3,9 +3,9 @@
 running /Applications/Stata14/sysprofile.do ...
 
 
-. texdoc init ../stbook/chapter2.tex, replace logdir(dof/2) nodo ///
+. texdoc init ../stbook/chapter1.tex, replace logdir(dof/1) nodo ///
 >     grdir(eps/2) gropts(as(eps pdf) epsfig figure(h!))
-(texdoc output file is ../stbook/chapter2.tex)
+(texdoc output file is ../stbook/chapter1.tex)
 
 . 
 end of do-file
@@ -21,18 +21,13 @@ end of do-file
 end of do-file
 
 . 
-.     texdoc stlog
+. texdoc stlog, nolog
 
-.     texdoc stlog close
+. texdoc stlog close
 
-. 
-. 
-end of do-file
-
-. 
-.     texdoc stlog
-
-.     texdoc stlog close
+. texdoc graph, caption(Example scatter plots with outliers and different regres
+> sion fits) ///
+>      label(fig:outliers-and-fits)
 
 . 
 . 
@@ -43,51 +38,13 @@ end of do-file
 
 . texdoc stlog close
 
-. if "`s(nodo)'"=="" {
-.     tempname fh
-.     file open `fh' using `"`s(filename0)'.tex"', write replace
-.     file write `fh' "\begin{center}\begin{tabular}{*{10}{D{.}{.}{2.2}}}" _n
-.     forv i = 1/10 {
-  2.         file write `fh' %9.2f (x[`i']) 
-  3.         if `i'<10 file write `fh' " & "
-  4.         else      file write `fh' " \\" _n
-  5.     }
-.     forv i = 11/20 {
-  2.         file write `fh' %9.2f (x[`i']) 
-  3.         if `i'<20 file write `fh' " & "
-  4.         else      file write `fh' _n
-  5.     }
-.     file write `fh' "\end{tabular}\end{center}"
-.     file close `fh'
-. }
-
-. texdoc write \input{`s(texname0)'.tex}
-
-. 
-. 
-end of do-file
-
-. 
-. texdoc stlog, nolog
-
-. texdoc stlog close
-
-. texdoc graph, label(fig:theory:SClocation) ///
->     caption(Standardized sensitivity curves of the mean and the median for ///
->     a sample of \$n=20\$ random \$\mathcal{N}(0,1)\$ numbers)
-
-. 
-. texdoc stlog, nolog
-
-. texdoc stlog close
-
-. texdoc graph, label(fig:theory:SCscale) ///
->     caption(Standardized sensitivity curves of the standard deviation and the 
+. texdoc graph, caption(Hertzsprung-Russell diagram of the star cluster CYG OB1 
 > ///
->     interquartile range for a sample of \$n=20\$ random \$\mathcal{N}(0,1)\$ n
-> umbers)
+>     including different regression fits (source: \citealp[27]{rousseeuw:leroy:
+> 1987})) ///
+>     label(fig:hrdiagram)
 
 . 
 . 
 end of do-file
-(texdoc output written to ../stbook/chapter2.tex)
+(texdoc output written to ../stbook/chapter1.tex)

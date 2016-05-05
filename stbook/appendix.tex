@@ -62,12 +62,11 @@ heaviness estimators based on pairwise combinations or comparisons of the
 observations are particularly interesting because they perform better than the
 classical or quantile-based estimators, namely in terms of robustness. But
 they require at first sight a heavy computation time of an order of $n^2$.
-Fortunately, as explained in \cite{Croux.Rousseeuw (1992)}, an efficient
-algorithm proposed by Johnson and Mizoguchi (see \cite{Johnson.Mizoguchi
-(1978)}) allows to substantially reduce the computation time to an order of
+Fortunately, as explained in \citet{croux:rousseeuw:1992}, an efficient
+algorithm proposed by \citet{johnson:mizoguchi:1978} allows to substantially reduce the computation time to an order of
 $n\log n$ and, hence, allows to use these robust estimators even in very large
 datasets. This algorithm has been programmed in Stata (cf.\
-\cite{Gelade.Verardi.Vermandele (2013)}) and is involved in the Stata
+\citealp{gelade:verardi:vermandele:2015}) and is involved in the Stata
 computation of the pairwise-based estimators.
 
 For these pairwise-based estimators, the Stata commands are \texttt{hl} (for
