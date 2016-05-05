@@ -28,16 +28,21 @@ the best unbiased estimator for the expected value (for historical background
 see \citealp{huber72}).} Also under relaxed assumption, such as non-normal or
 heteroscedastic (i.e., non-equal-variance) errors, the \stsc{LS} estimator is
 consistent and has, in many cases, good efficiency
-properties.\footnote{Although in the later case, ordinary \stsc{LS} estimates
-of the sampling variance are biased and need to be adjusted by applying
-heteroscedasticity-robust variance estimation; see \citealp{white80})} For
+properties.\footnote{Although in the later case, the ordinary \stsc{LS} estimate
+of the sampling variance is biased and needs to be adjusted by applying
+heteroscedasticity-robust variance estimation; see \citealp{white80}.} For
 example, in case of homoscedastic non-normal errors, the \stsc{LS} estimator is
 the beast linear unbiased estimator (\stsc{BLUE}), that is, has the smallest
 sampling variance among all “linear” unbiased estimators.\footnote{The term
 “linear” does not refer to the fact that the coefficients of a linear
-regression model are to be estimated; it refers to a property of the estimation
-methodology. A linear estimators is \alert{... explain the difference between
-linear and nonlinear estimators ...}}
+regression model are to be estimated. An estimator is said to be \emph{linear}
+if it is a linear function of the observations $Y_1,\ldots,Y_n$ of the
+dependent variable of the regression model. More precisely,
+$\sthat{\boldsymbol\beta}$ is a linear estimator of the regression parameters
+vector $\boldsymbol\beta \in {\mathbb R}^p$ if there exists a matrix $\stvec{A}
+\in {\mathbb R}^{p \times n}$ such that
+$\sthat{\boldsymbol\beta}=\stvec{A}\stvec{Y}$ with
+$\stvec{Y}=(Y_1,\ldots,Y_n)^t$.}
 
 The outstanding usefulness of \stsc{LS} regression should not be challenged
 here. It is important, however, to realize that \stsc{LS} regression may not
@@ -63,7 +68,7 @@ observations or, more generally, by a secondary data-generating process.
 Assume, for now, that the data are not contaminated and, more or less, follow a
 uniform data-generating process that can be described by a linear regression
 model. Why, under such a condition, can a low efficiency of the \stsc{LS}
-estimator be a problem? Although, on average across multiple samples, the
+estimator be a problem? Although the
 \stsc{LS} estimator is unbiased, more efficient estimators would be preferable
 because the precision of an estimator has a direct effect on the value of the
 results. For example, the power of a significance test and, therefore, the
@@ -82,11 +87,11 @@ be estimated.
 Figure~\ref{fig:outliers-and-fits} shows two examples of data sets that have
 been generated according to model
 \[
-    Y = \beta_1 + \beta_2 X + \epsilon
+    Y = \beta_0 + \beta_1 X + \epsilon
 \]
-with $\beta_1 = \beta_2 = 0$ (that is, the “true” regression function is a
-horizontal line at $Y=0$) and $\epsilon$ following a $t$ distribution with two
-degrees of freedom, that is $\epsilon \sim t(2)$. Included as lines are the
+with $\beta_0 = \beta_1 = 0$ (that is, the “true” regression function is a
+horizontal line at $y=0$) and $\epsilon$ following a $t$ (Student) distribution with two
+degrees of freedom, that is $\epsilon \sim t_2$. Included as lines are the
 estimated regression fits using \stsc{LS} estimation, as well as two robust
 estimators (an \stsc{M} estimator and an \stsc{MM} estimator). As is evident,
 the \stsc{LS} solution is affected by the outliers and suggests a positive
@@ -208,7 +213,7 @@ supposed model, $G$ is an arbitrary alternative distribution, and $\varepsilon
 assumptions of classic linear regression, $F_{\boldsymbol\theta}$ could be a
 distribution according to the linear model
 \[
-    Y = \beta_1 + \beta_2 X + \dots + \epsilon
+    Y = \beta_0 + \beta_1 X + \epsilon
 \]
 where $X$ has a given distribution and $\epsilon$ is an independent and
 identically normally distributed error term. The distribution of the observed
@@ -217,15 +222,15 @@ distribution $G$ and does not fully follow this model. The goal of robust
 regression now is to deliver reasonable results for $F_{\boldsymbol\theta}$
 even if the model is somewhat misspecified, that is, if $\varepsilon>0$. In the
 words of \citet[7]{heritier.etal.09}, robust methods are “a set of statistical
-tools for correct estimation and inference about $F_\theta$ when the
+tools for correct estimation and inference about $F_{\boldsymbol\theta}$ when the
 data-generating process is $F_\varepsilon$, not only when $\varepsilon=0$, as
 with classical methods, but also for relatively small $\varepsilon$ and
-\emph{any} $G$. As a by-product, data not fitting $F_\theta$ exactly can be
-easily identified, and the model can possibly be changed and refitted.“ In
+\emph{any} $G$. As a by-product, data not fitting $F_{\boldsymbol\theta}$ exactly can be
+easily identified, and the model can possibly be changed and refitted". In
 addition, to be of diagnostic value, robust estimators should be serious
 competitors of classic methods in case of $\varepsilon=0$. In particular,
 robust estimators should achieve good “gaussian efficiency”, that is, they
-should achieve a hight relative efficiency compared to \stsc{LS} estimation in
+should achieve a high relative efficiency compared to \stsc{LS} estimation in
 the ideal case of normally distributed errors.\footnote{Note that the
 estimation of “robust standard errors” is not the primary concern of robust
 regression. The term “robust standard errors” refers to estimators for the

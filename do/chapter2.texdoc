@@ -22,44 +22,27 @@ from an applied perspective.
 \section{Classical properties of estimators}
 
 The goal of statistical estimation is to obtain a reasonable value for the
-unknown \emph{paramater} of a statistical model, based data whose properties
+unknown \emph{paramater} of a statistical model, based on data whose properties
 are assumed to be consistent with the suggested model. Let $\mathcal{X}^{(n)} =
-\{\stvec{x}_1, \dots, \stvec{x}_n\}$                                            \todo{Do we need the parentheses around $n$? 
-                                                                                (In general, to improve readability, we should use
-                                                                                as little ink as possible in equations.) Later 
-                                                                                in the chapter, $n$ is a subscript (without 
-                                                                                parentheses) not a superscript; what would be the 
-                                                                                best way to deal with $n$?}
-be a set of $n$ random variables $\stvec{x}_1, \ldots, \stvec{x}_n$ that have a joint
+\{X_1, \dots, X_n\}$                                           
+be a set of $n$ random variables $X_1, \ldots, X_n$ that have a joint
 probability distribution $P_{\boldsymbol\theta}^{(n)}$ depending on the unknown
 parameter $\boldsymbol\theta$. Note that, depending on context,
 $\boldsymbol\theta$ may be scalar, or it may be a vector of multiple parameters,
-that is $\boldsymbol\theta = (\theta_1, \dots, \theta_p)'$. Likewise, $\stvec{x}_i$
-may be univariate, or it may contain multiple dimensions, that is $\stvec{x}_i =
-(X_{i1}, \dots, X_{ik})'$. \alert{[I think it is important to
-emphasize that $X$ can be a collection of variables as the book is on
-regression and not on univariate statistics. Hence, I changed notation to vectors.
-But I'm unsure whether this is ok...]}
+that is $\boldsymbol\theta = (\theta_1, \dots, \theta_p)^t$. For simplicity, we consider here that the observations $X_i$ are univariate. However, the concepts introduced hereafter may be (quite easily) generalized in the case of multivariate observations $\stvec{X}_i$, that is, in the case $\stvec{X}_i$ is a vector of random variables ($\stvec{X}_i=(X_{i1},\ldots,X_{ik})^t$).
 
-We assume that the joint distribution of the random variables $\stvec{x}_i$, $i=1,
-\dots, n$, belongs to the (parametric) statistical model $\mathcal{P}^{(n)} =
-\{P_{\boldsymbol\theta}^{(n)} | \boldsymbol\theta \in \boldsymbol\Theta\}$,     \todo{I do not really understand. Why do we need 
-                                                                                $\mathcal{P}$? What is the difference to 
-                                                                                $P_{\boldsymbol\theta}$?}
-where $\boldsymbol\Theta$ is the set of possible values of $\boldsymbol\theta$. \todo{Maybe be a bit more specific about 
-                                                                                $\boldsymbol\Theta$. I made Theta bold because if 
-                                                                                $\boldsymbol\theta$ is multidimensional then also 
-                                                                                $\boldsymbol\Theta$ has to be. Or do I misunderstand 
-                                                                                what Theta is?}
+Since $\boldsymbol\theta$ is unknown, this actually leads to assume that the joint distribution of the random variables $X_i$, $i=1,
+\dots, n$, belongs to the (parametric) \emph{statistical model} $\mathcal{P}^{(n)} =
+\{P_{\boldsymbol\theta}^{(n)} | \boldsymbol\theta \in \boldsymbol\Theta\}$,    
+where $\boldsymbol\Theta$ is the set of possible values of $\boldsymbol\theta$. 
 The goal is to estimate $\boldsymbol\theta \in \boldsymbol\Theta$ based on a
 realization of $\mathcal{X}^{(n)}$. In general, we will consider the case in
 which the statistical model $\mathcal{P}^{(n)}$ conforms to simple random
 sampling (\stsc{SRS}), that is, a situation in which the random variables
-$\stvec{x}_1, \dots, \stvec{x}_n$ are independent and identically distributed
-(i.i.d.). In this situation, each $\stvec{x}_i$ independently follows a common
+$X_1, \dots, X_n$ are independent and identically distributed
+(i.i.d.). In this situation, each $X_i$ independently follows a common probability
 distribution $P_{\boldsymbol\theta}$, which can be characterized by the
-distribution function $F_{\boldsymbol\theta}(\stvec{x}) = \Pr(X_1 \leq x_1,
-\dots, X_k \leq x_k)$ (or simply $F$ when there is no risk of confusion about
+distribution function $F_{\boldsymbol\theta}(\stvec{x}) = \Pr(X_i \leq x)$ (or simply $F$ when there is no risk of confusion about
 the parameter we have to estimate).
 
 An \emph{\Index{estimator}} of $\boldsymbol\theta$ can then be defined as
@@ -68,13 +51,13 @@ statistic $\sthat{\boldsymbol\theta} =
 \sthat{\boldsymbol\theta}(\mathcal{X}^{(n)})$ taking its value in
 $\boldsymbol\Theta$.
 
-The value of $\sthat{\boldsymbol\theta}$ provided by a particular realization
-of the random variables $\stvec{x}_1, \dots, \stvec{x}_n$ is called an
+The value of $\sthat{\boldsymbol\theta}$ provided by a particular realization $x_1,\ldots,x_n$
+of the random variables $X_1, \dots, X_n$ is called an
 \emph{\Index{estimate}} of $\boldsymbol\theta$. Note that, for simplicity, we
-will often use the notation $\stvec{x}_i$, $i = 1, \dots, n$, to designate the
-$i$th random variable as well as a realization of it (i.e., a specific
-observation); the context will always clearly indicate if we have to consider
-$\stvec{x}_i$ as a random variable or as a particular value.
+will often use the notation $x_i$ ($i \in \{1, \dots, n\}$) to designate the
+$i$th random observation as well as a realization of it (i.e., a specific
+value); the context will always clearly indicate if we have to consider
+$x_i$ as a random variable or as a particular value.
 
 The definition above contains no indication of the quality of an estimator; any
 statistic $\sthat{\boldsymbol\theta}$ that provides a value in
@@ -102,12 +85,12 @@ The estimator $\sthat{\boldsymbol\theta} = \sthat{\boldsymbol\theta}
 \[
     E_{\boldsymbol\theta}(\sthat{\boldsymbol\theta}) = \boldsymbol\theta
     \qquad
-    \text{for all $\boldsymbol\theta \in \boldsymbol\Theta$ and all $n$}
+    \text{for all $\boldsymbol\theta \in \boldsymbol\Theta$ and all $n$}.
 \]
 
 That is, no matter the sample size $n$, estimator $\sthat{\boldsymbol\theta}$
 will, on average across a large number of repeated samples, provide the correct
-answer (given that our assumptions about the joint distribution of
+value of $\boldsymbol\theta$ (given that our assumptions about the joint distribution of
 $\mathcal{X}^{(n)}$ are correct, such as, e.g., independent sampling of
 observations). The difference
 \[
@@ -126,7 +109,7 @@ called asymptotically unbiased if
 \[
     \lim_{n \rightarrow \infty} E_{\boldsymbol\theta}(\sthat{\boldsymbol\theta}) = \boldsymbol\theta
     \qquad
-    \text{for all $\boldsymbol\theta \in \boldsymbol\Theta$}
+    \text{for all $\boldsymbol\theta \in \boldsymbol\Theta$}.
 \]
 
 That is, an estimator is asymptotically unbiased if the bias vanishes with 
@@ -154,7 +137,7 @@ precision of estimator $\sthat{\theta}$ can be measured by its
 \emph{\Index{mean squared error}} (\stsc{MSE}):
 \[
     \stsc{MSE}_{\theta}(\sthat{\theta}) 
-    = E_{\theta} \left((\sthat{\theta} - \theta)^2\right)
+    = E_{\theta} \left((\sthat{\theta} - \theta)^2\right).
 \]
 A small mean squared error for $\sthat{\theta}$ means that the sampling
 distribution of $\sthat{\theta}$ is well concentrated around the exact value
@@ -165,7 +148,7 @@ It is easy to show that
 \[
     \stsc{MSE}_{\theta}(\sthat{\theta})
     = \mathrm{Var}_{\theta}(\sthat{\theta}) 
-      + \left(B_{\theta}(\sthat{\theta})\right)^2
+      + \left(B_{\theta}(\sthat{\theta})\right)^2.
 \]
 That is, the mean squared error of an estimator can be decomposed into its
 variance and its squared bias. Hence, if $\sthat{\theta}$ is unbiased,
@@ -181,13 +164,13 @@ An estimator $\sthat{\theta}_A$ of $\theta$ is more precise---we will say
     \stsc{MSE}_{\theta}(\sthat{\theta}_B)
     \qquad\text{for all $\theta \in \Theta$}
 \]
-\alert{and                                                                     \todo{Shouldn't it be “$<$” in at least one case?}
+and                                                                    
 \[
     \stsc{MSE}_{\theta}(\sthat{\theta}_A) < 
     \stsc{MSE}_{\theta}(\sthat{\theta}_B)
-    \qquad\text{for at least one $\theta \in \Theta$}
+    \qquad\text{for at least one $\theta \in \Theta$}.
 \]
-}
+
 
 In general, we consider the “large-sample” sampling distributions of
 asymptotically unbiased estimators. If, for large $n$, the estimators
@@ -203,21 +186,22 @@ $\sthat{\theta}_B$ with respect to $\sthat{\theta}_A$ as the ratio
 (see \citealp{Serfling1980}). If $\sthat{\theta}_B$ is (asymptotically) less
 efficient than $\sthat{\theta}_A$, then
 \[
-    \stsc{ARE}_{\theta}(\sthat{\theta}_B,\sthat{\theta}_A) < 1
+    \stsc{ARE}_{\theta}(\sthat{\theta}_B,\sthat{\theta}_A) \leq 1
 \]
+for all $\theta \in \Theta$, with strict inequality holding for at least some value of $\theta$.
 
 
 \paragraph{Efficiency of the maximum likelihood estimator}
 
 Let us consider the case in which the random variables
-$\stvec{x}_1, \ldots, \stvec{x}_n$ are univariate and i.i.d.\ with a common
+$X_1, \ldots, X_n$ of the sample ${\cal X}^{(n)}$ are i.i.d.\ with a common
 distribution function $F_{\theta}$ and a common density function $f_{\theta}$
 that satisfies some differentiability conditions with respect to $\theta$.
 Suppose also that the \emph{\Index{Fisher information}}
 \[
     \mathcal{I}\left(F_{\theta}\right) =
         E_{\theta}\left(\left(\frac{\partial}{\partial\theta}
-        \log f_{\theta}(\stvec{x})\right)^2\right)
+        \log f_{\theta}(X)\right)^2\right)
 \] 
 is strictly positive and finite. Then it follows that
 \begin{enumerate}
@@ -236,7 +220,7 @@ is strictly positive and finite. Then it follows that
      = \frac{(n \mathcal{I}(F_{\theta}))^{-1}}{V} \leq 1
 \end{equation}
 %
-making $\sthat{\theta}_{\stsc{ML}}$ the most (asymptotically) efficient among
+for all $\theta \in \Theta$, making $\sthat{\theta}_{\stsc{ML}}$ the most (asymptotically) efficient among
 the given class of estimators $\sthat{\theta}$. Note, however, as will be
 discussed later, that (\ref{eq:ARE_vsML}) does not necessarily make
 $\sthat{\theta}_{\stsc{ML}}$ the estimator of choice, when certain other
@@ -245,14 +229,14 @@ considerations are taken into account.
 
 \paragraph{Notation in the multidimensional case}
 
-If $\boldsymbol\theta = (\theta_1, \dots, \theta_p)'$ is a vector of parameters
+If $\boldsymbol\theta = (\theta_1, \dots, \theta_p)^t$ is a vector of parameters
 we define the \emph{\Index[mean squared error!matrix]{mean squared error matrix}}
 of the estimator $\sthat{\boldsymbol\theta}$ as follows:
 \[
     \stsc{MSE}_{\boldsymbol\theta}(\sthat{\boldsymbol\theta})
     = E_{\boldsymbol\theta}\left((\sthat{\boldsymbol\theta} - \boldsymbol\theta)
-                                 (\sthat{\boldsymbol\theta} - \boldsymbol\theta)'
-                           \right)
+                                 (\sthat{\boldsymbol\theta} - \boldsymbol\theta)^t
+                           \right).
 \]
 If $\sthat{\boldsymbol\theta}$ is unbiased, the mean squared error matrix simply
 coincides with the covariance matrix of the estimator.
@@ -267,10 +251,10 @@ the ratio of the \emph{generalized variances} (determinants of the covariance
 matrices), raised to the power $1/p$, that is
 \[
     \stsc{ARE}_{\boldsymbol\theta}(\sthat{\boldsymbol\theta}_B, \sthat{\boldsymbol\theta}_A)
-    = \left(\frac{ \det(\boldsymbol\Sigma_A)}{\det(\boldsymbol\Sigma_B)}\right)^{1/p}
+    = \left(\frac{ \det(\boldsymbol\Sigma_A)}{\det(\boldsymbol\Sigma_B)}\right)^{1/p}.
 \]
 If $\stsc{ARE}_{\boldsymbol\theta}(\sthat{\boldsymbol\theta}_B,
-\sthat{\boldsymbol\theta}_A)<1$, estimator $\sthat{\boldsymbol\theta}_B$ is
+\sthat{\boldsymbol\theta}_A) \leq 1$ for all $\boldsymbol\theta \in \boldsymbol\Theta$, with strict inequality holding for at least some value $\boldsymbol\theta$, estimator $\sthat{\boldsymbol\theta}_B$ is
 (asymptotically) less efficient than estimator $\sthat{\boldsymbol\theta}_A$.
 
 Here again the maximum likelihood estimator $\sthat{\boldsymbol\theta}_\stsc{ML}$ of
@@ -287,86 +271,97 @@ with its elements defined as
 \[
     \mathcal{I}_{ij}\left(F_{\boldsymbol\theta}\right) =
     E_{\boldsymbol\theta}\left(
-    \frac{\partial}{\partial\theta_i}\log f_{\boldsymbol\theta}(\stvec{x}) \cdot 
-    \frac{\partial}{\partial \theta_j}\log f_{\boldsymbol\theta}(\stvec{x})
-    \right)
+    \frac{\partial}{\partial\theta_i}\log f_{\boldsymbol\theta}(X) \times 
+    \frac{\partial}{\partial \theta_j}\log f_{\boldsymbol\theta}(X)
+    \right).
 \] 
 
 
 \subsection{Consistency}
 \Index[consistency]{}
 
-The consistency criterion comes in two flavors, as consistency in terms of
-convergence in probability and as consistency in terms of convergence in
-distribution. \alert{[Please explain here (or below) why (asymptotic)
-unbiasedness and efficiency is not enough an why the additional criterion of
-consistency is needed.]}
+High efficiency and (asymptotic) unbiasedness are desired properties for an estimator. But other properties are still required if we want the estimator to provide valid statistical inference for $\boldsymbol\theta$.
 
-\paragraph{Convergence in probability}
+The sampling distribution of $\sthat{\boldsymbol\theta}$ generally depends on the size $n$ of the sample, e.g. via its mean, its variance and (or) other characteristics. How does the distribution of $\sthat{\boldsymbol\theta}$ evolve when $n$ increases? This question will first lead us to the properties of \emph{(asymptotic) consistency} ---\emph{convergence in probability}--- and \emph{Fisher consistency}. We will  then consider the concept of \emph{convergence in distribution}.
+
+\paragraph{(Asymptotic) consistency: Convergence in probability}
 \Index[convergence!in probability]{}
+\Index[consistency!asymptotic]{}
 
 An estimator $\sthat{\boldsymbol\theta} =
-\sthat{\boldsymbol\theta}(\mathcal{X}^{(n)})$ is \emph{consistent} if, for $n
+\sthat{\boldsymbol\theta}(\mathcal{X}^{(n)})$ is \emph{consistent} or \emph{asymptotic consistent} if, for $n
 \rightarrow \infty$, $\sthat{\boldsymbol\theta}$ \emph{converges in
 probability} to $\boldsymbol\theta$. That is, for any $\epsilon > 0$ and for
 all $\boldsymbol\theta \in \boldsymbol\Theta$:
-\[
+\begin{equation}
     \lim_{n \rightarrow \infty} P_{\boldsymbol\theta}^{(n)} \left(
         \Vert\sthat{\boldsymbol\theta} - \boldsymbol\theta \Vert \leq \epsilon
-        \right) = 1
+        \right) = 1. \label{eq:consistency}
+\end{equation}
+
+This type of convergence means that, when the sample size grows, the
+probability that the estimator $\sthat{\boldsymbol\theta}$ takes a value arbitrarily close to
+the exact value of the parameter and, consequently, provides a “good” estimate
+of the parameter $\boldsymbol\theta$, grows to 1. 
+
+In other terms, a consistent estimator $\sthat{\boldsymbol\theta}$ of $\boldsymbol\theta$ is an estimator that becomes more and more precise when the number of observations increases. It also means that the sampling distribution of $\sthat{\boldsymbol\theta}$ becomes more and more concentrated around the true value of the parameter being estimated. This property of consistency is of course a highly desirable property for an estimator.
+
+\paragraph{Convergence in quadratic mean}
+\Index[convergence!in quadratic mean]{}
+
+Another type of convergence is closely related to the notion of consistency: the \emph{convergence in quadratic mean}. For simplicity, consider the case of a scalar parameter $\theta$: $\sthat{\theta}=\sthat{\theta}({\cal X}^{(n)})$ converges in quadratic mean to $\theta$ if
+\[
+	\stsc{MSE}_{\theta}(\sthat{\theta})=E_{\theta}\left((\sthat{\theta}-\theta)^2\right)  \stackrel{n \rightarrow \infty}{\longrightarrow} 0.
 \]
 
-This type of consistency means that, when the sample size grows, the
-probability that the estimator $\sthat{\boldsymbol\theta}$ takes a value near
-the exact value of the parameter and, consequently, provides a “good” estimate
-of the parameter $\boldsymbol\theta$, grows to 1. Consistency of                \todo{I don't really understand this sentence (“Consistency of \dots”)}
-$\sthat{\boldsymbol\theta}$ is required if we want an estimator to provide
-unambiguous statistical inference for $\boldsymbol\theta$.
-Note that consistency in terms convergence in probability is given if an
-estimator is asymptotically unbiased and if the
-variance of the estimator approaches zero as the sample size grows.
+Since $\stsc{MSE}_{\theta}(\sthat{\theta})={\rm Var}_{\theta}(\sthat{\theta}) + \left(B_{\theta}(\sthat{\theta})\right)^2$, it is clear that, if $\sthat{\theta}$ is asymptotically unbiased and has a variance that tends to zero when $n$ tends to infinity, then $\sthat{\theta}$ converges to $\theta$ in quadratic mean. Moreover, it is quite easy to prove that the convergence in quadratic mean implies the convergence in probability. This result is intuitive since $\stsc{MSE}_{\theta}(\sthat{\theta})$ is nothing but a measure of the dispersion of the sampling distribution of $\sthat{\theta}$ around the exact value of the parameter to estimate.
 
-For simplicity, consider the case of a scalar parameter $\theta$. If            \todo{I don't understand. What is “convergence in quadratic mean”? Where does $L_2$ come from?}
-$B_{\theta}(\sthat{\theta}) \stackrel{n \rightarrow \infty}{\longrightarrow} 0$
-and $\mathrm{Var}_{\theta}(\sthat{\theta}) \stackrel{n \rightarrow
-\infty}{\longrightarrow} 0$, then $\stsc{MSE}_{\theta}(\sthat{\theta})
-\stackrel{n \rightarrow \infty}{\longrightarrow} 0$, so that $\sthat{\theta} =
-\sthat{\theta}(\mathcal{X}^{(n)})$ \emph{\Index[convergence!in
-quadratic mean]{converges in quadratic mean}} to $\theta$. That is, for $n
-\rightarrow \infty$, $\sthat{\theta} \stackrel{L_2}{\rightarrow} \theta$. It is
-well known that convergence in quadratic mean implies convergence in
-probability.
+In practice, it is often easier to establish the consistency of $\sthat{\theta}$ by verifying that $\sthat{\theta}$ converges in quadratic mean to $\theta$ instead of considering directly the equality (\ref{eq:consistency}).
 
-\paragraph{Convergence in distribution}
+\paragraph{Fisher consistency}
+\Index[consistency!Fisher]{}
+
+In statistics, \emph{Fisher consistency} is another desirable property of an estimator asserting that if the estimator were calculated using the entire population rather than a sample, the true value of the estimated parameter would be obtained (\citealp{fisher:1922}).
+
+Suppose we have a statistical sample ${\cal X}^{(n)}=\{X_1,\ldots,X_n\}$ where each $X_i$ has a distribution characterized by the cumulative distribution $F_{\boldsymbol\theta}$ which depends on an unknown parameter $\boldsymbol\theta$. If the estimator $\sthat{\boldsymbol\theta}=\sthat{\boldsymbol\theta}({\cal X}^{(n)})$ can be represented as a \emph{functional} of the empirical distribution function\footnote{The empirical distribution function $F^{(n)}$ is the distribution function associated with the discrete probability distribution allocating a probability mass of $1/n$ at each observation $X_i$, $i=1,\ldots,n$, of the sample ${\cal X}^{(n)}$.} $F^{(n)}$, that is, 
+\[
+	\sthat{\boldsymbol\theta}=\stvec{T}(F^{(n)}),
+\] 
+$\sthat{\boldsymbol\theta}$ is said to be \emph{Fisher consistent} if
+\[
+	\stvec{T}(F_{\boldsymbol\theta})=\boldsymbol\theta .
+\]
+
+If the strong law of large numbers can be applied, the empirical distribution function $F^{(n)}$ converges pointwise to $F_{\boldsymbol\theta}$ when $n$ tends to infinity, allowing us to express Fisher consistency as the following convergence property: The estimator $\sthat{\boldsymbol\theta}=\stvec{T}(F^{(n)})$ is Fisher consistent if
+\[
+	\stvec{T}\left(\lim_{n\rightarrow\infty} F^{(n)}\right)=\boldsymbol\theta .
+\] 
+
+Fisher consistency and (asymptotic) consistency are distinct concepts, although both aim to define a desirable property of an estimator. While many estimators are consistent in both senses, neither definition encompasses the other: There exist estimators that are (asymptotically) consistent but not Fisher consistent and, inversely, there are estimators that are Fisher consistent but not (asymptotically) consistent.
+
+\subsection{Convergence in distribution}
 \Index[convergence!in distribution]{}
 
-The statistic $T^{(n)} = T(\mathcal{X}^{(n)})$ \emph{converges in distribution}
-to the probability distribution $\mathcal{L}$ if, for $n \rightarrow \infty$,
-the distribution function $F_{T^{(n)}}$ of $T^{(n)}$ converges to the
-distribution function $F_\mathcal{L}$ of $\mathcal{L}$ in any point of
-continuity of $F_\mathcal{L}$. That is, convergence in probability is
-given if
+A last type of convergence is important when we have to provide a confidence interval for (each component of) $\boldsymbol\theta$ or to define a statistical test to solve a testing problem for the unknown parameter $\boldsymbol\theta$: The \emph{convergence in distribution}. Since this property concerns usually a function of an estimator $\sthat{\boldsymbol\theta}$ of $\boldsymbol\theta$ than the estimator $\sthat{\boldsymbol\theta}$ itself, we formulate it in a general way for a statistic $\stvec{U}^{(n)}=\stvec{U}({\cal X}^{(n)})$.
+
+The statistic $\stvec{U}^{(n)}$ \emph{converges in distribution} to the probability distribution ${\cal L}$ if, for $n \rightarrow \infty$, the distribution function $F_{\stvec{U}^{(n)}}$ of $\stvec{U}^{(n)}$ converges to the distribution function $F_{\cal L}$ associated with ${\cal L}$ in any point of continuity of $F_{\cal L}$. That is, convergence in distribution is given if
 \[
-    F_{T^{(n)}}(x) \stackrel{n \rightarrow \infty}{\longrightarrow} F_\mathcal{L}(x)
-    \quad\text{for any continuity point $x$ of distribution function $F_\mathcal{L}$}
-\]
+	F_{\stvec{U}^{(n)}}(\stvec{u}) \stackrel{n \rightarrow \infty}{\longrightarrow} F_{\cal L}(\stvec{u})
+\] 
+for any continuity point $\stvec{u}$ of the distribution function $F_{\cal L}$.
 
 As a shorthand, we will write
 \[
-    T^{(n)} \stackrel{d}{\rightarrow} \mathcal{L}
+    \stvec{U}^{(n)} \stackrel{d}{\rightarrow} \mathcal{L}
 \]
-to denote convergence in probability for $n \rightarrow \infty$. In practice, 
-convergence in probability means that, for large $n$, we may consider that
-$T^{(n)}$ is approximately distributed as $\mathcal{L}$, that is,
+to denote convergence in distribution for $n \rightarrow \infty$. In practice, 
+convergence in distribution means that, for large $n$, we may consider that
+$\stvec{U}^{(n)}$ is approximately distributed as $\mathcal{L}$, that is,
 \[
-    T^{(n)} \approx \mathcal{L}
+    \stvec{U}^{(n)} \approx \mathcal{L}.
 \]
 
-\alert{[Please explain here why convergence in probability is a useful
-concept. What is it used for? Why do we need it in the context of robust
-statistics?]}
-
-\alert{[What about Fisher-consistency?]}
+In practice, it is useful to consider an estimator $\sthat{\boldsymbol\theta}$ of $\boldsymbol\theta$ such that a certain function of $\sthat{\boldsymbol\theta}$ converges in distribution to a well known probability distribution ${\cal L}$ as, for example, a normal distribution, a Student distribution, a chi-square or a Fisher distribution. Indeed it allows to develop inference procedures for $\boldsymbol\theta$, based on $\sthat{\boldsymbol\theta}$, that are valid when the sample size $n$ is not too small.
 
 \subsection{Other aspects}
 
@@ -383,21 +378,11 @@ are thus much more efficient (with respect to computer time) in large samples.
 
 Furthermore, consistent estimators may differ in their \emph{rate of
 convergence}, that is, in how fast the mean squared error diminishes with
-growing sample size. \alert{[Please expand on this. How is the rate of
-convergence defined (and interpreted)? What are typical rates of convergence,
-e.g. of the mean etc.?]} Naturally, an estimator with a faster rate of
-convergence, is usually to be preferred over an estimator with a slower rate of
-convergence. \alert{[Does this make sense?]}
+growing sample size. 
 
-To enable approximately valid statistical inference in terms of confidence
-intervals and significance tests, a further important criterion is
-\emph{asymptotic normality}. Asymptotic normality is given if it can be shown
-that the sampling distribution of an estimator approximates the normal
-distribution in large samples. For example, maximum-likelihood estimators can
-be shown to be asymptotically normal under general conditions. If,
-however, the asymptotic sampling distribution of an estimator is known to be 
-non-normal, the viability of the estimator for statistical inference is 
-limited.\alert{[Does this make sense? Please expand ...]}
+If $\stsc{MSE}_{\boldsymbol\theta}(\sthat{\boldsymbol\theta})$ is of order $n^{-\nu}$ (with $\nu > 0$ such that the mean squared error of $\sthat{\boldsymbol\theta}$ tends to zero when $n$ tends to infinity, ensuring the convergence of $\sthat{\boldsymbol\theta}$ in quadratic mean and, hence, in probability), the rate of convergence of $\sthat{\boldsymbol\theta}$ is said to be equal to $n^{\nu/2}$. This rate of convergence is actually the factor by which we have to multiply $\sthat{\boldsymbol\theta}$ to obtain a mean squared error that does not depend anymore on the sample size $n$. Most of estimators in parametric models have a mean squared error of order $n^{-1}$ and, consequently, enjoy a rate of convergence equal to $\sqrt{n}$. It is the case, for example, for the least squares estimator of the regression coefficients vector in the classical linear regression model. The squared root of $n$ is certainly considered as the usual rate of convergence in the parametric context. In the nonparametric context, we may encounter estimators whose rate of convergence is smaller than $\sqrt{n}$. This is the case, for instance, for a kernel estimator of a density function $f$: The kernel estimator of $f(x)$ has a mean squared error of order $n^{-4/5}$ and hence a rate of convergence equal to $n^{2/5}$.
+
+Naturally, an estimator with a faster rate of convergence is usually to be preferred over an estimator with a slower rate of convergence.
 
 Finally, an estimator should be \emph{equivariant} to transformations of data.
 That is, a transformation of the data should affect the estimator
@@ -405,23 +390,19 @@ $\sthat{\boldsymbol\theta}$ in the same functional way as it affects the true
 parameter $\boldsymbol\theta$. For example, let $\theta_A$ be the expected
 value of variable $X_A$ and $\theta_B$ be the expected value of variable $X_B$.
 If $X_B$ can be expressed as a linear combination of $X_A$, that is, $X_B = a +
-b \cdot X_A$, then $\theta_B = a + b \cdot \theta_A$. In this case, also
-$\sthat{\theta_B} = a + b \cdot \sthat{\theta_A}$ should hold. In other words,
+b X_A$, then $\theta_B = a + b \theta_A$. In this case, also
+$\sthat{\theta}_B = a + b \sthat{\theta}_A$ should hold. In other words,
 whether you express your data in Dollars or in Euros, whether you express your
 data in degrees Fahrenheit or degrees Celsius should only affect the scaling of
 your estimator, but should not affect your results otherwise.
-
-\alert{[I just wrote some stuff in this section about points that seem 
-relevant to me. I am not sure whether I always chose the right words. Also, maybe 
-it would be good express some of it formally.]}
 
 
 \section{Measures of robustness}
 
 Intuitively, the classical approach to statistics is about defining estimators
-that have desirable properties under clearly specified conditions. The goal of
+that have desirable properties under a specified model. The goal of
 robust methods, however, is to develop estimators that perform well also in the
-“neighborhood” of such conditions. This leads to the proposition of so called
+“neighborhood” of such a model. This leads to the proposition of so called
 “robust” estimators, that are, for instance, not affected too strongly or too
 quickly by the presence of outliers. Although outliers are only one of
 the main concerns of robust methods, we will make our first steps into
@@ -431,7 +412,7 @@ which estimators are affected by atypical observations.
 
 \begin{stexample}
     Consider the following observations of the grades achieved by $n = 25$ students
-    in fifth year of primary school (on a scale of 1 to 10):                        \todo{Is 1-10 correct?}
+    in fifth year of primary school (on a scale of 0 to 10):                       
     
     \begin{center}
     \begin{tabular}{rrrrrr}%
@@ -443,7 +424,7 @@ which estimators are affected by atypical observations.
     \end{tabular}
     \end{center}
     
-    If we calculate two \emph{measures of location}, the \Index{mean} and the
+    If we calculate on these data two \emph{measures of location}, the \Index{mean} and the
     \Index{median}, as well as two \emph{measures of scale}, the
     \Index{standard deviation} and the \Index{interquartile range}, the results
     are as follows:
@@ -485,40 +466,6 @@ which estimators are affected by atypical observations.
     statistics can be considered as being more robust to erroneous data than
     the two first ones.
 
-    % Let $x_i$, $j=1, \dots, n$, denote the (unordered) data. Furthermore, let
-    % $x_{(i)}$ be the $i$th observation in the list of ordered data (i.e.\
-    % $x_{(1)}\leq\dots\leq x_{(n)}$) and let $\lceil x \rceil$ denote the
-    % smallest integer greater or equal to $x$. We can then calculate two
-    % \emph{measures of location}, the \Index{mean} $\mu$ and the
-    % \Index{median} $Q_{0.5}$, as follows:
-    % \[
-    %     \mu = \frac{1}{n}\sum_{i=1}^n x_i = 8.22
-    %     \qquad\qquad
-    %     Q_{0.5} = x_{(\lceil 25/2 \rceil)} = x_{(13)} = 8.50
-    % \]
-    %
-    % Furthermore, two \emph{measures of scale}, the \Index{standard deviation}
-    % $\sigma$ and the \Index{interquartile range} $\stsc{IQR}$, are given
-    % as:
-    % \begin{align*}
-    %     \sigma       &= \sqrt{\frac{1}{n} \sum_{i=1}^n (x_i - \mu)^2} = 1.11\\[1ex]
-    %     \stsc{IQR}   &= Q_{0.75} - Q_{0.25}
-    %                     = x_{(\lceil 25 \cdot 0.75\rceil)}-x_{(\lceil 25 \cdot 0.25\rceil)}
-    %                     = x_{(19)} - x_{(7)}\\
-    %                    &= 9.50 - 7.00 = 2.50
-    % \end{align*}
-    %
-    % Now, imagine the dot separating the decimals in the last observation is
-    % mistakenly removed, so that the last observation is coded as 1000. In this
-    % case, the \Index{mean} increases to 47.82, but the \Index{median} is not
-    % affected by the erroneous data and remains at 8.50. Furthermore, the
-    % \Index{standard deviation} moves from 1.11 to 194.37, while the
-    % \Index{interquartile range} remains unchanged. This example illustrates the
-    % fact that one single outlier may “break” the sample \Index{mean}
-    % and the \Index{standard deviation}, but does not affect the sample
-    % \Index{median} or the \Index{interquartile range}. Hence, these two later
-    % statistics can be considered as being more robust to erroneous data than
-    % the two first ones.
 \end{stexample}
 
 How can the degree of robustness of different statistics be quantified? How can
@@ -526,48 +473,48 @@ we compare the robustness of different estimators from various viewpoints?
 These are questions we will address in the rest of this section.
 
 In robust estimation theory it is common to consider \emph{parameters} as
-\emph{functionals}. More precisely, the functional by which a parameter $T$ is
-defined is a rule that maps every probability distribution $F$ into a real
-number, that is $T = T(F)$.\footnote{$F$ is the cumulative distribution
-function of a random variable $X$. Evaluated at position $x$, the function
-returns the probability that the random variable will take on a value lower
-than or equal to $x$, that is, $F(x) = \Pr(X \leq x)$. In order to avoid
-unnecessary technical difficulties we will generally assume in this chapter
-that the distribution $F$ is continuous with density $f$. The density is the
-first derivative of $F$; it is nonnegative and integrates to one.} Often, a
-natural \emph{estimate} $T_n$ of the parameter $T(F)$ based on sample
-$\mathbf{X}_n= \{x_1, \dots, x_n\}$---where $x_1, \dots, x_n$ are realizations
-of $n$ independent and identically distributed (i.i.d.) random variables $X_1,
-\dots, X_n$ of distribution $F$---may be defined as the value of the functional
-at the empirical distribution $F_n$.\footnote{The empirical distribution $F_n$
-is a discrete distribution with a probability mass of $1/n$ at each value of
-the sample $\mathbf{X}_n$.} That is,
-$T_n = T(F_n)$. For example, if
-\[
-    T(F) = \int_{-\infty}^\infty x \dif F(x) = \mu
-\]
+\emph{functionals}. More precisely, the functional by which a
+parameter\footnote{For the sake of simplicity, we will only consider here
+\emph{scalar} parameters.} $T$ is defined is a rule that maps every
+distribution function $F$ into a real number, that is, $T = T(F)$.\footnote{$F$
+is the cumulative distribution function of a random variable $X$. Evaluated at
+position $x$, the function returns the probability that the random variable
+will take on a value lower than or equal to $x$, that is, $F(x) = \Pr(X \leq
+x)$. In order to avoid unnecessary technical difficulties we will generally
+assume in this chapter that the distribution $F$ is continuous with density
+$f$. The density is the first derivative of $F$; it is nonnegative and
+integrates to one.} Often, a natural \emph{estimate} $T^{(n)}$ of the parameter
+$T(F)$ based on sample ${\mathcal X}^{(n)}= \{x_1, \dots, x_n\}$---where $x_1,
+\dots, x_n$ are realizations of $n$ independent and identically distributed
+(i.i.d.) random variables $X_1, \dots, X_n$ of distribution $F$---may be
+defined as the value of the functional at the empirical distribution
+$F^{(n)}$.\footnote{The empirical distribution function $F^{(n)}$ is the
+distribution function associated with the discrete probability distribution
+allocating a probability mass of $1/n$ at each observation $x_i$,
+$i=1,\ldots,n$, of the sample ${\mathcal X}^{(n)}$.} That is, $T^{(n)} =
+T(F^{(n)})$. For example, if
 \[
     T(F) = \int_{-\infty}^\infty x \dif F(x) = \mu
 \]
 is the expected value of the distribution $F$, then
 \[
-    T_n = T(F_n) = \int_{-\infty}^\infty x \dif F_n(x) 
-          = \frac{1}{n} \sum_{i=1}^n x_i = \mu_n
+    T^{(n)} = T(F^{(n)}) = \int_{-\infty}^\infty x \dif F^{(n)}(x) 
+          = \frac{1}{n} \sum_{i=1}^n x_i = \mu^{(n)}
 \]
-is the arithmetic \Index{mean} of a sample $\mathbf{X}_n$ from $F$. Likewise, if $T(F) =
-F^{-1}(0.5) = Q_{0.5}$ is the \Index{median} of the distribution $F$, then $T_n =
-T(F_n) = F_n^{-1}(0.5) = Q_{0.5;n}$ is the empirical median of a sample
-$\mathbf{X}_n$ from $F$.
+is the arithmetic \Index{mean} of a sample ${\mathcal X}^{(n)}$ from $F$.
+Likewise, if $T(F) = F^{-1}(0.5) = Q_{0.5}$ is the \Index{median} of the
+distribution $F$, then $T^{(n)} = T(F^{(n)}) = (F^{(n)})^{-1}(0.5) =
+Q_{0.5}^{(n)}$ is the empirical median of a sample ${\cal X}^{(n)}$ from $F$.
 
-The robustness of a statistic (or estimator) $T_n$ may be analyzed in a very
+The robustness of a statistic (or estimator) $T^{(n)}$ may be analyzed in a very
 intuitive way by studying how a contamination of the sample
-$\mathbf{X}_n$ affects $T_n$. This empirical approach leads to the notions of
+$\mathcal{X}^{(n)}$ affects $T^{(n)}$. This empirical approach leads to the notions of
 the \emph{\Index{sensitivity curve}} and the \emph{\Index[breakdown
-point!finite-sample]{finite-sample breakdown point}} of $T_n$. But it is also
+point!finite-sample]{finite-sample breakdown point}} of $T^{(n)}$. But it is also
 of great interest to consider the limiting case where $n$ tends to infinity. As
-the sample size $n$ grows, the empirical distribution function $F_n$ approaches
+the sample size $n$ grows, the empirical distribution function $F^{(n)}$ approaches
 the underlying population distribution function $F$, and the empirical measures
-of robustness of the statistic $T_n$ move in a natural way to the concepts of
+of robustness of the statistic $T^{(n)}$ move in a natural way to the concepts of
 the \emph{\Index{influence function}} and the \emph{\Index[breakdown
 point!asymptotic]{asymptotic breakdown point}} of the functional $T$.
 
@@ -580,22 +527,22 @@ point!asymptotic]{asymptotic breakdown point}} of the functional $T$.
 
 The \textit{sensitivity curve} (\stsc{SC}) is an empirical tool to quantify the
 robustness of a statistic in a given sample. Consider a data set
-$\mathbf{X}_n = \{x_1, \dots, x_n\}$ and the statistic $T_n =
-T_n(x_1, \dots, x_n) = T(F_n)$. To study the impact of a potential
+$\mathcal{X}^{(n)} = \{x_1, \dots, x_n\}$ and the statistic $T^{(n)} =
+T^{(n)}(x_1, \dots, x_n) = T(F^{(n)})$. To study the impact of a potential
 outlier on this statistic, we may analyze the change in the value of the
 statistic once we add an extra data point $x$, where $x$ is varied between
 $-\infty$ an $+\infty$. Hence, the \emph{(standardized) sensitivity curve} of
-statistic $T_n$ for the sample $\mathbf{X}_n$ is defined as
+statistic $T^{(n)}$ for the sample $\mathcal{X}^{(n)}$ is defined as
 \[
-    \stsc{SC}(x; T_n, \mathbf{X}_n) = 
-    \frac{T_{n+1}(x_1, \dots, x_n, x) - T_n(x_1, \dots, x_n)}{\frac{1}{n+1}}
+    \stsc{SC}(x; T^{(n)}, \mathcal{X}^{(n)}) = 
+    \frac{T^{(n+1)}(x_1, \dots, x_n, x) - T^{(n)}(x_1, \dots, x_n)}{\frac{1}{n+1}}\ \cdot
 \]
 That is, for each value of $x$ we compare the statistic in the “contaminated”
 sample to its value in the original sample, and rescale the difference by
 dividing the difference by $1/(n+1)$, the proportion of contamination.
 
 \begin{stexample}
-Consider a data set $\mathbf{X}_n$ of $n=20$ (rounded) random numbers from a
+Consider a data set $\mathcal{X}^{(n)}$ of $n=20$ (rounded) random numbers from a
 $\mathcal{N}(0,1)$ (standard normal) distribution:
 ***/
 
@@ -627,8 +574,8 @@ texdoc write \input{`s(texname0)'.tex}
 /***
 
 Figure \ref{fig:theory:SClocation} shows the standardized sensitivity curves
-for the \Index{mean} and the \Index{median}; Figure \ref{fig:theory:SCscale}
-displays the standardized sensitivity curves for the \Index{standard deviation}
+of the \Index{mean} and the \Index{median}; Figure \ref{fig:theory:SCscale}
+displays the standardized sensitivity curves of the \Index{standard deviation}
 and the \Index{interquartile range}. As is evident, the \Index{mean} and the
 \Index{standard deviation} have unbounded sensitivity curves (the curves go off
 to minus or plus infinity as the outlier moves away from the center of
@@ -699,9 +646,9 @@ texdoc graph, label(fig:theory:SCscale) ///
 
 An intuitive way to introduce the \emph{influence function} (\stsc{IF}) of
 functional $T$ at some distribution $F$ is to think of the influence function
-as an asymptotic version of the \Index{sensitivity curve} of statistic $T_n=T(F_n)$
+as an asymptotic version of the \Index{sensitivity curve} of statistic $T^{(n)}=T(F^{(n)})$
 when the sample size $n$ grows, so that the empirical distribution function
-$F_n$ tends to the underlying population distribution function $F$ (cf.\
+$F^{(n)}$ tends to the underlying population distribution function $F$ (cf.\
 \citealp{hampel:1974}). More precisely, the influence function is defined as
 %
 \begin{align*}
@@ -714,7 +661,7 @@ $F_n$ tends to the underlying population distribution function $F$ (cf.\
 %
 where $\Delta_x$ is a probability distribution with all its mass at point
 $x$. That is, the influence function measures the effect on $T$ of a
-perturbation of $F$ obtained by adding a small probability mass at point $x$.
+perturbation of $F$ obtained by adding a small probability mass at point $x$. The expression of
 $\stsc{IF}(x;T,F)$ can be found for most functionals $T$. In
 chapter~\ref{chap:stats} we will provide the influence functions
 of various measures of location, scale, skewness and tails heaviness.
@@ -729,7 +676,7 @@ contamination of the distribution $F$ at point $x$, it is a \emph{local}
 measure of robustness. It may be completed by a more global measure, the
 \emph{gross-error sensitivity} of $T$ at distribution $F$, defined as
 \[
-    \gamma^*(T, F) = \sup_x \left| \stsc{IF}(x; T, F) \right|
+    \gamma^*(T, F) = \sup_x \left| \stsc{IF}(x; T, F) \right|.
 \]
 $\gamma^*(T, F)$ evaluates to the biggest influence an outlier can have on
 the functional $T$. With respect to robustness it is desirable to use an
@@ -754,7 +701,7 @@ To appreciate this kind of characteristic
 of the \textit{IF}, we may determine the \emph{local-shift sensitivity}:
 \[
     \lambda^*(T, F) = \sup_{x\neq y} \frac{|\stsc{IF}(y; T, F) - \stsc{IF}(x; T, F)|}
-                                          {|y - x|}
+                                          {|y - x|}\ \cdot
 \]
 
 \index{subject}{local-shift sensitivity|)}
@@ -764,15 +711,9 @@ of the \textit{IF}, we may determine the \emph{local-shift sensitivity}:
 
 The \Index{influence function} may also be used as a heuristic tool to determine the
 asymptotic variance of the estimators. Indeed, under some regularity conditions
-for the functional $T$, we have, under $F$,                                     \todo{Why is “under $F$” needed? 
-                                                                                Isn't this obvious? And: What does “$\longrightarrow^d$” mean?
-                                                                                “approximately distributed as”? or “asymptotically 
-                                                                                distributed as”? or simply “distributed as”?
-                                                                                Why not “$\sim$” or “$\stackrel{a}{\sim}$”?
-                                                                                Furthermore: Why not include “$/n$” in the definition
-                                                                                of \stsc{ASV}?}
+for the functional $T$, we have, under $F$,                                    
 \[
-    \sqrt{n}\left(T(F_n) - T(F)\right) \longrightarrow^d \mathcal{N}\left(0, \stsc{ASV}(T, F)\right)
+    \sqrt{n}\left(T(F^{(n)}) - T(F)\right) \stackrel{d}\rightarrow \mathcal{N}\left(0, \stsc{ASV}(T, F)\right)
 \]
 where
 \begin{equation}\label{eq:ASV}
@@ -781,22 +722,18 @@ where
 (cf.\ \citealp[p. 85 and 226]{hampel:etal:1986}). Consequently, under $F$, the
 interval
 \[
-    \left[ T(F_n) - z_{(1-\alpha/2)} \frac{\sqrt{\stsc{ASV}(T, F)}}{\sqrt{n}},\, 
-           T(F_n) + z_{(1-\alpha/2)} \frac{\sqrt{\stsc{ASV}(T, F)}}{\sqrt{n}}\right]
+    \left[ T(F^{(n)}) - z_{1-\alpha/2} \sqrt{\frac{\stsc{ASV}(T, F)}{n}}\ ,\  
+           T(F^{(n)}) + z_{1-\alpha/2} \sqrt{\frac{\stsc{ASV}(T, F)}{n}}\right]
 \]
-provides an asymptotic confidence interval for the parameter $T(F)$, at a
-confidence level of $(1-\alpha)$\%. If the distribution $F$, and hence the
-asymptotic variance $\stsc{ASV}(T, F)$, are not known, it is still possible to
-obtain a confidence interval for $T(F)$ by an appropriate \Index{resampling} method.
-                                                                                \todo{Hm, isn't it possible to simply use
-                                                                                \stsc{IF} evaluated at the sample
-                                                                                to get an estimate of \stsc{ASV}?
-                                                                                (i.e. without resampling) That is, 
-                                                                                evaluate \stsc{IF} at each observed
-                                                                                $x$ using $F_n$ instead of $F$ and 
-                                                                                then compute the variance from these
-                                                                                values. At least this is an approach 
-                                                                                I saw in other research.}
+where $z_{1-\alpha/2}$ is the quantile of order $(1-\alpha/2)$ of the ${\cal
+N}(0,1)$ distribution, provides an asymptotic confidence interval for the
+parameter $T(F)$, at a confidence level of $(1-\alpha)$. If the distribution
+$F$, and hence the asymptotic variance $\stsc{ASV}(T, F)$, are not known, it is
+still possible to obtain a confidence interval for $T(F)$ by an appropriate
+\Index{resampling} method.
+                                                                                \todo{\stcmd{robstat} estimates variances based
+                                                                                on the “empirical” IF; this works well. Should
+                                                                                maybe be explained here...}
 
 \index{subject}{asymptotic variance|)}
 
@@ -822,26 +759,26 @@ is as follows.
 \subsubsection{The finite-sample breakdown point}
 \index{subject}{breakdown point!finite-sample|(textbf}
 
-The breakdown point $\epsilon_n^*(T_n; \mathbf{X}_n)$ of the statistic
-$T_n = T_n(x_1, \dots, x_n) = T(F_n)$ at the sample $\mathbf{X}_n 
+The breakdown point $\epsilon^{*(n)}(T^{(n)}; \mathcal{X}^{(n)})$ of the statistic
+$T^{(n)} = T^{(n)}(x_1, \dots, x_n) = T(F^{(n)})$ at the sample $\mathcal{X}^{(n)}
 = \{x_1, \dots, x_n\}$ refers to the smallest proportion of observations
-in $\mathbf{X}_n$ that need to be replaced to cause the value of the
+in $\mathcal{X}^{(n)}$ that need to be replaced to cause the value of the
 statistic to be arbitrarily large or small, and hence, to make the statistic
-worthless or meaningless. Note that, typically, $\epsilon_n^*$ is
+worthless or meaningless. Note that, typically, $\epsilon^{*(n)}$ is
 independent of $x_1, \dots, x_n$.
 
-More formally, for a univariate location estimator $T_n$, which breaks down
-if its value becomes arbitrarily large, we may define the (finite-sample)
+More formally, for a univariate location estimator $T^{(n)}$, which breaks down
+if its absolute value becomes arbitrarily large, we may define the (finite-sample)
 breakdown point as follows (see \citealp{hampel:stahel:1982};
-\citealp{donoho:huber:1983}). In a given sample $\mathbf{X}_n = \{x_1,
+\citealp{donoho:huber:1983}). In a given sample $\mathcal{X}^{(n)} = \{x_1,
 \dots, x_n\}$, let us replace $m$ data points $x_{i_1}, \dots, x_{i_{m}}$
-by arbitrary values $y_1, \dots, y_{m}$; let us call the new data set        \todo{I assume $\min\{x; y\}$ means “find the smallest $x$ for which $y$ is true”. This should be explained somewhere.}%
-$\mathbf{Z}_n = \{z_1, \dots, z_n\}$. Then the \emph{(finite-sample
-gross-error) breakdown point} of the estimator is%
+by arbitrary values $y_1, \dots, y_{m}$; let us call the new data set       
+$\mathcal{Z}^{(n)} = \{z_1, \dots, z_n\}$. Then the \emph{(finite-sample
+gross-error) breakdown point} of the estimator is
 \[
-    \epsilon_n^{\ast}(T_n; \mathbf{X}_n) 
-    = \min \left\{\frac{m}{n}; \max_{i_i, \dots, i_{m}} \sup_{y_1, \dots, y_{m}} 
-      \left|T_n(z_1, \dots, z_n)\right| =\infty \right\}
+    \epsilon^{*(n)}(T^{(n)}; \mathcal{X}^{(n)}) 
+    = \min \left\{\left. \frac{m}{n}\right| \max_{i_i, \dots, i_{m}} \sup_{y_1, \dots, y_{m}} 
+      \left|T^{(n)}(z_1, \dots, z_n)\right| =\infty \right\}.
 \]
 
 Following the same idea, we will say that a scale estimator breaks down if it
@@ -852,13 +789,13 @@ the estimate attains the value of 1.
 
 \begin{stexample}
 If the $i$th observation among $x_1, \dots, x_n$ goes to infinity, the \Index{mean}
-$\mu$ and the \Index{standard deviation} $\sigma$ go to infinity as well. This
+$\mu^{(n)}$ and the \Index{standard deviation} $\sigma^{(n)}$ go to infinity as well. This
 means that the finite-sample breakdown point of these two statistics is $1/n$.
-In contrast, the finite-sample breakdown point of the \Index{median} $Q_{0.5}$ is
+In contrast, the finite-sample breakdown point of the \Index{median} $Q_{0.5}^{(n)}$ is
 $\frac{(n/2)}{n}$ if $n$ is even and $\frac{(n+1)/2}{n}$ if $n$ is odd. That is,
 half the data or a bit more must be replaced to make the \Index{median} take on arbitrary
 values. The finite-sample breakdown point of the \Index{interquartile range}
-$\stsc{IQR}$ is equal to $\frac{\lfloor n/4 \rfloor + 1}{n}$, where
+$\stsc{IQR}^{(n)}$ is equal to $\frac{\lfloor n/4 \rfloor + 1}{n}$, where
 $\lfloor n/4 \rfloor $ denotes the integer part of $n/4$. That is, a bit more than 
 one fourth of the data needs to be replaced to make the \stsc{IQR} break down.
 \end{stexample}
@@ -872,45 +809,50 @@ one fourth of the data needs to be replaced to make the \stsc{IQR} break down.
 The \emph{asymptotic breakdown point} $\epsilon^*(T, F)$ of the functional
 $T$ under the distribution $F$ is defined as
 \[
-    \epsilon^*(T, F) = \lim_{n\rightarrow\infty} \epsilon_n^*(T_n; \mathbf{X}_n)
+    \epsilon^*(T, F) = \lim_{n\rightarrow\infty} \epsilon^{*(n)}(T^{(n)}; \mathcal{X}^{(n)})
 \]
-with the $x_i$'s sampled from $F$ (cf.\ \citealp{hampel:1971}).               \todo{Maybe give more details: max $\epsilon$ in 
-                                                                                $(1-\epsilon)F+\epsilon G$ with any $G$ before $T$ 
-                                                                                breaks down.}
+with the $x_i$'s sampled from $F$ (cf.\ \citealp{hampel:1971}).               
 
 \index{subject}{breakdown point!asymptotic|)}
 \index{subject}{breakdown point|)}
 
-\subsection{Gaussian efficiency}
-\index{subject}{Gaussian efficiency|(textbf}
+\alert{[I would delete subsections "2.2.3 Gaussian efficiency" and "2.2.4
+Aspects of interpretation". These subsections do not refer to robustness in the
+presence of outliers; there are related with classical properties of
+estimators, presented previously. I have modified the subsection "Summary" in
+order to take into account some ideas that play an important role in the choice
+of a robust estimator.]}
 
-In general, if $F$ it is known, the ML-estimator for that $F$ is most efficient
-(see above). Furthermore, for $F$ equal Gaussian, the mean is the ML-estimator
-and hence most efficient. Robust estimators should not only be efficient with
-respect to Gaussian, but for a wide variety of distributions. However, Gaussian
-efficiency is also important if robust estimators are viewed as competitors of
-standard estimators. Hence it is often good to know (relative) Gaussian
-efficiency and then complement this with relative efficiencies for other
-distributions.
+%\subsection{Gaussian efficiency}
+%\index{subject}{Gaussian efficiency|(textbf}
 
-\alert{[Give formal definitions etc. This is not only about Gaussian
-efficiency. For example, the mean has high variance under fat-tails
-distributions; robust estimators can have better efficiency in such cases...]}
+%In general, if $F$ it is known, the ML-estimator for that $F$ is most efficient
+%(see above). Furthermore, for $F$ equal Gaussian, the mean is the ML-estimator
+%and hence most efficient. Robust estimators should not only be efficient with
+%respect to Gaussian, but for a wide variety of distributions. However, Gaussian
+%efficiency is also important if robust estimators are viewed as competitors of
+%standard estimators. Hence it is often good to know (relative) Gaussian
+%efficiency and then complement this with relative efficiencies for other
+%distributions.
 
-\index{subject}{Gaussian efficiency|)}
+%\alert{[Give formal definitions etc. This is not only about Gaussian
+%efficiency. For example, the mean has high variance under fat-tails
+%distributions; robust estimators can have better efficiency in such cases...]}
 
-\subsection{Aspects of Interpretation}
+%\index{subject}{Gaussian efficiency|)}
 
-\alert{[What about asymmetric distributions and interpretation? (e.g.
-Median vs. Mean) Need to address such aspects. The point is that robust
-estimators often estimate something that is conceptually different than the
-nonrobust counterpart (or something where robust and nonrobust counterparts
-coincide only in special situations, such as in a symmetric distribution or in
-a normal distribution).]}
+%\subsection{Aspects of Interpretation}
+
+%\alert{[What about asymmetric distributions and interpretation? (e.g.
+%Median vs. Mean) Need to address such aspects. The point is that robust
+%estimators often estimate something that is conceptually different than the
+%nonrobust counterpart (or something where robust and nonrobust counterparts
+%coincide only in special situations, such as in a symmetric distribution or in
+%a normal distribution).]}
 
 \subsection{Summary}
 
-How do we choose a good (robust) estimator? We are clearly interested in estimators with
+How do we choose a good robust estimator? We are clearly interested in estimators with
 
 \begin{enumerate}
     \item a \emph{bounded} (low \Index{gross-error sensitivity})
@@ -919,38 +861,14 @@ How do we choose a good (robust) estimator? We are clearly interested in estimat
     \item and a \emph{high \Index{breakdown point}}.
 \end{enumerate}
 
-\index{subject}{Fisher consistency|(textbf}
-Moreover, we are generally considering estimators that are
-\emph{(Fisher-)consistent}. To specify this property, let us consider a
-\emph{parametric model}, that is, let us assume that the underlying
-population distribution $F$ has a specified form but depends on one or more
-unknown parameters. Formally: $F \in \{F_{\theta}; \theta\in\Theta\}$. For
-instance, in the location model, the underlying distribution is assumed to be
-$F_\mu(x) = F_0(x - \mu)$, where $F_0$ is a generic
-distribution function. In the location-scale model, the population
-distribution is $F_{\mathbf{\theta}}(x) = F_0\left(\frac{x-\mu}{\sigma}\right)$ 
-with $\mathbf{\theta} = (\mu, \sigma)'$. In this parametric
-context, an estimator $T_n = T(F_n)$ of the parameter $\theta$ of a
-parametric family is said to be \emph{Fisher-consistent} if this estimator
-is associated with a functional $T$ such that, for $n \rightarrow \infty$,      \todo{I don't really understand. Is Fisher-consistency
-                                                                                defined with respect to a specified $F_0$, 
-                                                                                or does it mean that the 
-                                                                                relation holds in general, for any arbitrary $F_0$?}
-\[
-    T_n = T(F_n) \longrightarrow^\text{P} T(F_{\theta}) = \theta 
-    \qquad
-    \text{for all $\theta\in\Theta$}
-\]
-where $\longrightarrow^\text{P}$ denotes the convergence in probability.
-That is, irrespective of the value of $\theta$, a \emph{Fisher-consistent} 
-estimator will always converge to $\theta$.
-\index{subject}{Fisher consistency|)}
+Moreover, we are looking for robust estimators that enjoy good efficiciency for
+a wide variety of distributions. In general, however, compromises between
+robustness and efficiency must be made to achieve good overall performance, as
+is shown in the following section.
 
-Finally, we are also looking for estimators that are as \emph{efficient}
-as possible at an assumed model. In general, compromises between robustness and 
-efficiency must be made to achieve good overall performance, as is shown in 
-the following section.
-
+Finally, we also wish to use asymptotically and Fisher consistent robust
+estimators, whose rate of convergence is not smaller than the usual rate of
+convergence---equal to $\sqrt{n}$---in the parametric context.
 
 
 \endinput
