@@ -3,9 +3,9 @@
 running /Applications/Stata14/sysprofile.do ...
 
 
-. texdoc init ../stbook/chapter2.tex, replace logdir(dof/2) nodo ///
->     grdir(eps/2) gropts(as(eps pdf) epsfig figure(h!))
-(texdoc output file is ../stbook/chapter2.tex)
+. texdoc init ../stbook/chapter4.tex, replace logdir(dof/4) nodo ///
+>     grdir(eps/4) gropts(as(eps pdf) epsfig figure(h!))
+(texdoc output file is ../stbook/chapter4.tex)
 
 . 
 end of do-file
@@ -21,18 +21,12 @@ end of do-file
 end of do-file
 
 . 
-.     texdoc stlog
+. texdoc stlog, nolog
 
-.     texdoc stlog close
+. texdoc stlog close
 
-. 
-. 
-end of do-file
-
-. 
-.     texdoc stlog
-
-.     texdoc stlog close
+. texdoc graph, label(fig:outlier_types) ///
+>     caption(Vertical outlier, good leverage point and bad leverage point)
 
 . 
 . 
@@ -43,25 +37,18 @@ end of do-file
 
 . texdoc stlog close
 
-. if "`s(nodo)'"=="" {
-.     tempname fh
-.     file open `fh' using `"`s(filename0)'.tex"', write replace
-.     file write `fh' "\begin{center}\begin{tabular}{*{10}{D{.}{.}{2.2}}}" _n
-.     forv i = 1/10 {
-  2.         file write `fh' %9.2f (x[`i']) 
-  3.         if `i'<10 file write `fh' " & "
-  4.         else      file write `fh' " \\" _n
-  5.     }
-.     forv i = 11/20 {
-  2.         file write `fh' %9.2f (x[`i']) 
-  3.         if `i'<20 file write `fh' " & "
-  4.         else      file write `fh' _n
-  5.     }
-.     file write `fh' "\end{tabular}\end{center}"
-.     file close `fh'
-. }
+. texdoc graph, label(fig:rho_psi_Huber) ///
+>     caption(Huber loss function \$\rho_{\kappa}^{\stsc{H}}\$ and ///
+>     score function \$\psi_{\kappa}^{\stsc{H}}\$)
 
-. texdoc write \input{`s(texname0)'.tex}
+. 
+. texdoc stlog, nolog
+
+. texdoc stlog close
+
+. texdoc graph, label(fig:rho_psi_Biweight) ///
+>     caption(Tukey-Biweight loss function \$\rho_{\kappa}^{\stsc{B}}\$ and ///
+>     score function \$\psi_{\kappa}^{\stsc{B}}\$)
 
 . 
 . 
@@ -72,22 +59,85 @@ end of do-file
 
 . texdoc stlog close
 
-. texdoc graph, label(fig:theory:SClocation) ///
->     caption(Standardized sensitivity curves of the mean and the median for ///
->     a sample of \$n=20\$ random \$\mathcal{N}(0,1)\$ numbers)
-
-. 
-. texdoc stlog, nolog
-
-. texdoc stlog close
-
-. texdoc graph, label(fig:theory:SCscale) ///
->     caption(Standardized sensitivity curves of the standard deviation and the 
-> ///
->     interquartile range for a sample of \$n=20\$ random \$\mathcal{N}(0,1)\$ n
-> umbers)
+. texdoc graph, caption(\alert{Caption needed}) label(fig:stars_scatterplot)
 
 . 
 . 
 end of do-file
-(texdoc output written to ../stbook/chapter2.tex)
+
+. 
+. texdoc stlog
+
+. texdoc stlog close
+
+. 
+. 
+end of do-file
+
+. 
+. texdoc stlog
+
+. texdoc stlog close
+
+. 
+. 
+end of do-file
+
+. 
+. texdoc stlog
+
+. texdoc stlog close
+
+. 
+. 
+end of do-file
+
+. 
+. texdoc stlog
+
+. texdoc stlog close
+
+. 
+. 
+end of do-file
+
+. 
+. texdoc stlog, nodo cmdlog
+
+. texdoc stlog close
+hl log_temperature
+local mu=e(hl)
+qn log_temperature
+local s=e(qn)
+gen leverage=(log_temperature-`mu')/`s'
+robreg m log_intensity log_temperature if abs(leverage)<=2.5
+(texdoc stlog written to ../stbook/dof/4/9.log.tex)
+
+. 
+end of do-file
+
+. 
+. texdoc stlog
+
+. texdoc stlog close
+
+. 
+. 
+end of do-file
+
+. 
+. texdoc stlog
+
+. texdoc stlog close
+
+. 
+. 
+end of do-file
+
+. 
+. 
+. 
+. 
+. 
+end of do-file
+(texdoc output written to ../stbook/chapter4.tex)

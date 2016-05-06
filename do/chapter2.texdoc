@@ -933,10 +933,10 @@ with the $x_i$'s sampled from $F$ (cf.\ \citealp{hampel:1971}).
 \index{subject}{breakdown point!asymptotic|)}
 \index{subject}{breakdown point|)}
 
-\alert{[I would delete subsections "2.2.3 Gaussian efficiency" and "2.2.4
-Aspects of interpretation". These subsections do not refer to robustness in the
+\alert{[CV: I would delete subsections “2.2.3 Gaussian efficiency” and “2.2.4
+Aspects of interpretation”. These subsections do not refer to robustness in the
 presence of outliers; there are related with classical properties of
-estimators, presented previously. I have modified the subsection "Summary" in
+estimators, presented previously. I have modified the subsection “Summary” in
 order to take into account some ideas that play an important role in the choice
 of a robust estimator.]}
 
