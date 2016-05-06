@@ -1,0 +1,162 @@
+\contentsline {preface}{\hbox to\@tempdima {\hfil }List of tables}{xiii}{Doc-Start}
+\contentsline {preface}{\hbox to\@tempdima {\hfil }List of figures}{xv}{Doc-Start}
+\contentsline {preface}{\hbox to\@tempdima {\hfil }Preface}{xvii}{Doc-Start}
+\contentsline {preface}{\hbox to\@tempdima {\hfil }Notation and typography}{xix}{Doc-Start}
+\contentsline {part}{\numberline {I}Introduction}{1}{part.1}
+\contentsline {chapter}{\numberline {1}Introduction}{3}{chapter.1}
+\contentsline {section}{\numberline {1.1}Motivation}{3}{section.1.1}
+\contentsline {paragraph}{Efficiency under alternative error distributions}{4}{section*.3}
+\contentsline {paragraph}{Bias due to data contamination}{5}{section*.4}
+\contentsline {paragraph}{Goals and use of robust regression}{7}{section*.5}
+\contentsline {section}{\numberline {1.2}What is covered in this book?}{8}{section.1.2}
+\contentsline {section}{\numberline {1.3}Robust statistics in Stata}{8}{section.1.3}
+\contentsline {part}{\numberline {II}Robustness theory and basic robust statistics}{9}{part.2}
+\contentsline {chapter}{\numberline {2}Basic concepts in estimation}{11}{chapter.2}
+\contentsline {section}{\numberline {2.1}Classical properties of estimators}{11}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Unbiasedness}{12}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Efficiency}{12}{subsection.2.1.2}
+\contentsline {paragraph}{Mean squared error}{13}{section*.6}
+\contentsline {paragraph}{Relative efficiency}{13}{section*.7}
+\contentsline {paragraph}{Efficiency of the maximum likelihood estimator}{14}{section*.8}
+\contentsline {paragraph}{Notation in the multidimensional case}{14}{section*.9}
+\contentsline {subsection}{\numberline {2.1.3}Consistency}{15}{subsection.2.1.3}
+\contentsline {paragraph}{(Asymptotic) consistency: Convergence in probability}{15}{section*.10}
+\contentsline {paragraph}{Convergence in quadratic mean}{16}{section*.11}
+\contentsline {paragraph}{Fisher consistency}{16}{section*.12}
+\contentsline {subsection}{\numberline {2.1.4}Convergence in distribution}{17}{subsection.2.1.4}
+\contentsline {subsection}{\numberline {2.1.5}Other aspects}{17}{subsection.2.1.5}
+\contentsline {section}{\numberline {2.2}Measures of robustness}{18}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}The sensitivity curve and the influence function}{20}{subsection.2.2.1}
+\contentsline {subsubsection}{The sensitivity curve}{20}{section*.13}
+\contentsline {subsubsection}{The influence function}{21}{section*.14}
+\contentsline {subsubsection}{The gross-error sensitivity}{22}{section*.15}
+\contentsline {subsubsection}{The local-shift sensitivity}{23}{section*.16}
+\contentsline {subsubsection}{The asymptotic variance of an estimator}{23}{section*.17}
+\contentsline {subsection}{\numberline {2.2.2}The breakdown point}{24}{subsection.2.2.2}
+\contentsline {subsubsection}{The finite-sample breakdown point}{24}{section*.18}
+\contentsline {subsubsection}{The asymptotic breakdown point}{25}{section*.19}
+\contentsline {subsection}{\numberline {2.2.3}Summary}{26}{subsection.2.2.3}
+\contentsline {chapter}{\numberline {3}Basic robust statistics}{27}{chapter.3}
+\contentsline {section}{\numberline {3.1}Robust estimation of location}{27}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}The mean and the $\alpha $-trimmed mean}{27}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}The median}{29}{subsection.3.1.2}
+\contentsline {subsection}{\numberline {3.1.3}The Hodges-Lehmann estimator}{30}{subsection.3.1.3}
+\contentsline {subsection}{\numberline {3.1.4}M estimate of location}{31}{subsection.3.1.4}
+\contentsline {subsection}{\numberline {3.1.5}Summary}{31}{subsection.3.1.5}
+\contentsline {section}{\numberline {3.2}Robust estimation of scale}{31}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}The standard deviation}{31}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}The interquartile range}{32}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}The median absolute deviation}{33}{subsection.3.2.3}
+\contentsline {subsection}{\numberline {3.2.4}The $Q_n$ coefficient}{34}{subsection.3.2.4}
+\contentsline {subsection}{\numberline {3.2.5}M estimate of scale}{36}{subsection.3.2.5}
+\contentsline {subsection}{\numberline {3.2.6}Summary}{36}{subsection.3.2.6}
+\contentsline {section}{\numberline {3.3}Robust estimation of skewness}{36}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}The Fisher coefficient}{36}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Yule and Kendall, and Hinkley skewness measures}{37}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.3}The medcouple}{38}{subsection.3.3.3}
+\contentsline {subsection}{\numberline {3.3.4}Summary}{39}{subsection.3.3.4}
+\contentsline {section}{\numberline {3.4}Robust estimation of the tails heaviness}{40}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}The classical kurtosis coefficient}{40}{subsection.3.4.1}
+\contentsline {subsection}{\numberline {3.4.2}The quantile and medcouple tail weight measures}{40}{subsection.3.4.2}
+\contentsline {subsection}{\numberline {3.4.3}Summary}{43}{subsection.3.4.3}
+\contentsline {section}{\numberline {3.5}Variance estimation}{44}{section.3.5}
+\contentsline {section}{\numberline {3.6}Example}{44}{section.3.6}
+\contentsline {section}{\numberline {3.7}Robust tests of normality}{48}{section.3.7}
+\contentsline {section}{\numberline {3.8}Robust boxplots}{51}{section.3.8}
+\contentsline {subsection}{\numberline {3.8.1}The classic boxplot and the adjusted boxplot}{52}{subsection.3.8.1}
+\contentsline {subsection}{\numberline {3.8.2}The Tukey $g$-and-$h$ distribution}{52}{subsection.3.8.2}
+\contentsline {subsection}{\numberline {3.8.3}A generalized boxplot}{53}{subsection.3.8.3}
+\contentsline {part}{\numberline {III}Robust regression}{57}{part.3}
+\contentsline {chapter}{\numberline {4}Robust linear regression}{59}{chapter.4}
+\contentsline {section}{\numberline {4.1}The linear regression model}{59}{section.4.1}
+\contentsline {section}{\numberline {4.2}Different types of outliers}{61}{section.4.2}
+\contentsline {section}{\numberline {4.3}LS estimation}{63}{section.4.3}
+\contentsline {section}{\numberline {4.4}M estimation}{64}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}L\textsubscript {1} or Least Absolute Deviation (LAD) estimation}{64}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}The principle of M estimation}{65}{subsection.4.4.2}
+\contentsline {subsection}{\numberline {4.4.3}M estimation as a generalization of maximum likelihood (ML) estimation}{68}{subsection.4.4.3}
+\contentsline {subsection}{\numberline {4.4.4}Practical implementation of M estimates}{69}{subsection.4.4.4}
+\contentsline {subsubsection}{Regression M estimate with preliminary scale estimation}{69}{section*.20}
+\contentsline {subsection}{\numberline {4.4.5}Regression quantiles as regression M estimates}{70}{subsection.4.4.5}
+\contentsline {subsection}{\numberline {4.4.6}Monotone vs. redescending M estimators}{70}{subsection.4.4.6}
+\contentsline {subsection}{\numberline {4.4.7}GM estimation}{71}{subsection.4.4.7}
+\contentsline {section}{\numberline {4.5}Robust regression with a high breakdown point}{72}{section.4.5}
+\contentsline {subsection}{\numberline {4.5.1}LTS and LMS estimation}{73}{subsection.4.5.1}
+\contentsline {subsection}{\numberline {4.5.2}S estimation}{74}{subsection.4.5.2}
+\contentsline {subsection}{\numberline {4.5.3}MM estimation}{76}{subsection.4.5.3}
+\contentsline {subsubsection}{Numerical computation of the S- and MM-estimate}{77}{section*.21}
+\contentsline {subsection}{\numberline {4.5.4}MS-estimation}{79}{subsection.4.5.4}
+\contentsline {section}{\numberline {4.6}Robust inference for M-, S- and MM-estimators}{81}{section.4.6}
+\contentsline {subsection}{\numberline {4.6.1}Asymptotic distribution of M-, S- and MM-estimators}{82}{subsection.4.6.1}
+\contentsline {subsection}{\numberline {4.6.2}Robust confidence intervals and tests with robust regression estimators}{86}{subsection.4.6.2}
+\contentsline {subsubsection}{Inference for a single linear combination of the regression parameters}{86}{section*.22}
+\contentsline {subsubsection}{Inference for several linear combinations of the regression parameters}{87}{section*.23}
+\contentsline {subsection}{\numberline {4.6.3}Robust $R^{2}$}{87}{subsection.4.6.3}
+\contentsline {subsection}{\numberline {4.6.4}Extension of the Hausman test to check for the presence of outliers}{91}{subsection.4.6.4}
+\contentsline {subsubsection}{Some preliminary results}{92}{section*.24}
+\contentsline {subsubsection}{Comparison of LS and S}{93}{section*.25}
+\contentsline {subsubsection}{Comparison of S and MM}{94}{section*.26}
+\contentsline {section}{\numberline {4.7}Examples}{95}{section.4.7}
+\contentsline {subsubsection}{Comparing estimators}{95}{section*.27}
+\contentsline {paragraph}{LTS}{96}{section*.28}
+\contentsline {paragraph}{LMS}{97}{section*.29}
+\contentsline {paragraph}{M-estimator}{97}{section*.30}
+\contentsline {paragraph}{GM-estimator}{98}{section*.31}
+\contentsline {paragraph}{S-estimator}{98}{section*.32}
+\contentsline {paragraph}{MM-estimator}{99}{section*.33}
+\contentsline {subsubsection}{Identifying outliers}{100}{section*.34}
+\contentsline {section}{\numberline {4.8}Appendix 1: M-estimators of location and scale}{105}{section.4.8}
+\contentsline {subsection}{\numberline {4.8.1}M-estimator of location}{105}{subsection.4.8.1}
+\contentsline {subsection}{\numberline {4.8.2}M-estimator of scale}{106}{subsection.4.8.2}
+\contentsline {section}{\numberline {4.9}Appendix 2: Generalized Method of Moments (GMM) and asymptotic distributions of regression M-, S- and MM-estimators}{107}{section.4.9}
+\contentsline {subsection}{\numberline {4.9.1}GMM-estimation principle}{107}{subsection.4.9.1}
+\contentsline {subsection}{\numberline {4.9.2}M-, S- and MM-estimators as GMM-estimators}{108}{subsection.4.9.2}
+\contentsline {subsection}{\numberline {4.9.3}Asymptotic variance matrix of an MM-estimator}{110}{subsection.4.9.3}
+\contentsline {subsubsection}{If the observations $\mathopen {}\mathclose \bgroup \originalleft ( \mathbf x_{i},y_{i}\aftergroup \egroup \originalright ) $, $i = 1, \dots , n$, are generated by a stationary and ergodic process, and are independent (Assumption A1)}{110}{section*.35}
+\contentsline {subsubsection}{In absence of heteroskedasticity (Assumption A2)}{112}{section*.36}
+\contentsline {subsubsection}{If the distribution of the error terms is symmetric around zero (Assumption A3)}{112}{section*.37}
+\contentsline {subsection}{\numberline {4.9.4}Asymptotic variance matrix of an S-estimator}{113}{subsection.4.9.4}
+\contentsline {subsection}{\numberline {4.9.5}Asymptotic variance matrix of an M-estimator}{114}{subsection.4.9.5}
+\contentsline {chapter}{\numberline {5}Robust estimators for panel data}{115}{chapter.5}
+\contentsline {chapter}{\numberline {6}Robust instrumental variables estimation}{117}{chapter.6}
+\contentsline {chapter}{\numberline {7}Robust estimators for categorical and limited dependent variables}{119}{chapter.7}
+\contentsline {part}{\numberline {IV}Robust multivariate statistics}{121}{part.4}
+\contentsline {chapter}{\numberline {8}Robust estimation of location and scatter}{123}{chapter.8}
+\contentsline {chapter}{\numberline {9}Robust principal component analysis}{125}{chapter.9}
+\contentsline {part}{\numberline {V}Appendix}{127}{part.5}
+\contentsline {chapter}{\numberline {A}Syntax and options}{129}{appendix.A}
+\contentsline {section}{\numberline {A.1}Robust statistics (robstat)}{129}{section.A.1}
+\contentsline {subsection}{\numberline {A.1.1}Classical estimators}{129}{subsection.A.1.1}
+\contentsline {subsection}{\numberline {A.1.2}Quantile-based estimators}{129}{subsection.A.1.2}
+\contentsline {subsection}{\numberline {A.1.3}Pairwise-based estimators}{130}{subsection.A.1.3}
+\contentsline {subsection}{\numberline {A.1.4}Normality tests}{131}{subsection.A.1.4}
+\contentsline {subsection}{\numberline {A.1.5}Boxplot}{131}{subsection.A.1.5}
+\contentsline {section}{\numberline {A.2}Robust linear regression (robreg)}{132}{section.A.2}
+\contentsline {subsection}{\numberline {A.2.1}Options for robreg mm}{133}{subsection.A.2.1}
+\contentsline {subsubsection}{Main}{133}{section*.38}
+\contentsline {subsubsection}{Biweight M estimate}{133}{section*.39}
+\contentsline {subsubsection}{Initial S estimate}{133}{section*.40}
+\contentsline {subsubsection}{Standard errors}{134}{section*.41}
+\contentsline {subsubsection}{Reporting}{134}{section*.42}
+\contentsline {subsection}{\numberline {A.2.2}Options for robreg gm}{134}{subsection.A.2.2}
+\contentsline {subsection}{\numberline {A.2.3}Options for robreg m}{134}{subsection.A.2.3}
+\contentsline {subsubsection}{Main}{134}{section*.43}
+\contentsline {subsubsection}{IRWLS algorithm}{135}{section*.44}
+\contentsline {subsubsection}{Initial estimate}{135}{section*.45}
+\contentsline {subsubsection}{Scale estimate}{135}{section*.46}
+\contentsline {subsubsection}{Standard errors}{136}{section*.47}
+\contentsline {subsubsection}{Reporting}{136}{section*.48}
+\contentsline {subsection}{\numberline {A.2.4}Options for robreg s}{136}{subsection.A.2.4}
+\contentsline {subsubsection}{Main}{136}{section*.49}
+\contentsline {subsubsection}{Resampling algorithm}{136}{section*.50}
+\contentsline {subsubsection}{Standard errors}{138}{section*.51}
+\contentsline {subsubsection}{Reporting}{138}{section*.52}
+\contentsline {subsection}{\numberline {A.2.5}Options for robreg lms, robreg lqs, and robreg lts}{138}{subsection.A.2.5}
+\contentsline {subsubsection}{Main}{138}{section*.53}
+\contentsline {subsubsection}{Resampling algorithm}{139}{section*.54}
+\contentsline {subsubsection}{Reporting}{139}{section*.55}
+\contentsline {section}{\numberline {A.3}Robust logistics regression (roblogit)}{139}{section.A.3}
+\contentsline {section}{\numberline {A.4}Robust multivariate statistics (robmv)}{139}{section.A.4}
+\contentsline {index}{\hbox to\@tempdima {\hfil }References}{141}{section.A.4}
+\contentsline {index}{\hbox to\@tempdima {\hfil }Author index}{147}{section.A.4}
+\contentsline {index}{\hbox to\@tempdima {\hfil }Subject index}{149}{section.A.4}

@@ -53,8 +53,8 @@
 \indexentry{local-shift sensitivity|)}{23}
 \indexentry{asymptotic variance|(textbf}{23}
 \indexentry{influence function}{23}
-\indexentry{resampling}{23}
-\indexentry{asymptotic variance|)}{23}
+\indexentry{resampling}{24}
+\indexentry{asymptotic variance|)}{24}
 \indexentry{breakdown point|(textbf}{24}
 \indexentry{sensitivity curve}{24}
 \indexentry{standard deviation}{24}
@@ -62,21 +62,21 @@
 \indexentry{interquartile range}{24}
 \indexentry{sensitivity curve}{24}
 \indexentry{breakdown point!finite-sample|(textbf}{24}
-\indexentry{skewness}{24}
-\indexentry{kurtosis}{24}
-\indexentry{mean}{24}
-\indexentry{standard deviation}{24}
-\indexentry{median}{24}
-\indexentry{median}{24}
-\indexentry{interquartile range}{24}
+\indexentry{skewness}{25}
+\indexentry{kurtosis}{25}
+\indexentry{mean}{25}
+\indexentry{standard deviation}{25}
+\indexentry{median}{25}
+\indexentry{median}{25}
+\indexentry{interquartile range}{25}
 \indexentry{breakdown point!finite-sample|)}{25}
 \indexentry{breakdown point!asymptotic|(textbf}{25}
 \indexentry{breakdown point!asymptotic|)}{25}
 \indexentry{breakdown point|)}{25}
-\indexentry{gross-error sensitivity}{25}
-\indexentry{local-shift sensitivity}{25}
-\indexentry{influence function}{25}
-\indexentry{breakdown point}{25}
+\indexentry{gross-error sensitivity}{26}
+\indexentry{local-shift sensitivity}{26}
+\indexentry{influence function}{26}
+\indexentry{breakdown point}{26}
 \indexentry{skewness}{27}
 \indexentry{kurtosis}{27}
 \indexentry{Gaussian efficiency}{27}
