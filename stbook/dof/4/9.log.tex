@@ -1,6 +1,33 @@
-hl log_temperature
-local mu=e(hl)
-qn log_temperature
-local s=e(qn)
-gen leverage=(log_temperature-`mu')/`s'
-robreg m log_intensity log_temperature if abs(leverage)<=2.5
+. robstat log_temp, statistics(hl qn)
+{\smallskip}
+Robust Statistics                 Number of obs   =         47
+{\smallskip}
+\HLI{13}{\TOPT}\HLI{48}
+    log_temp {\VBAR}      Coef.   Std. Err.     [95\% Conf. Interval]
+\HLI{13}{\PLUS}\HLI{48}
+          HL {\VBAR}      4.375          .             .           .
+          Qn {\VBAR}   .1553394   .0235479      .1079401    .2027388
+\HLI{13}{\BOTT}\HLI{48}
+{\smallskip}
+. generate leverage = (log_temp - _b[HL])/_b[Qn]
+{\smallskip}
+. robreg m log_light log_temp if abs(leverage)<=2.5
+fitting initial LAV estimate ... done
+iterating RWLS estimate ..... done
+{\smallskip}
+M-Regression (95\% efficiency)                   Number of obs     =         42
+                                                  Huber k         =  1.3449986
+                                                  Scale estimate  =  .45145187
+                                                  Robust R2 (w)   =  .50939875
+                                                  Robust R2 (rho) =   .4685587
+{\smallskip}
+\HLI{13}{\TOPT}\HLI{64}
+             {\VBAR}               Robust
+   log_light {\VBAR}      Coef.   Std. Err.      z    P>|z|     [95\% Conf. Interval]
+\HLI{13}{\PLUS}\HLI{64}
+    log_temp {\VBAR}   2.908649   .3751616     7.75   0.000     2.173346    3.643952
+       _cons {\VBAR}  -7.875076   1.664063    -4.73   0.000    -11.13658   -4.613572
+\HLI{13}{\BOTT}\HLI{64}
+{\smallskip}
+. drop leverage
+{\smallskip}

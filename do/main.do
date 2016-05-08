@@ -11,6 +11,18 @@ set more off
 set scheme s2manual
 
 
+/* TODO
+
+- use ~ in names of estimators (e.g. \stsc{MM}~estimator)
+  => chapter 4 OK
+
+- use aligned-environment for systems of equations and not cases
+
+- remove redundant parentheses e.g. [E(x)]^{-1} => E(x)^{-1}
+
+*/
+
+
 // compile chapters
 
 texdoc do chapter1.texdoc

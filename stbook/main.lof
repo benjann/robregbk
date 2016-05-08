@@ -1,5 +1,23 @@
 \addvspace {2ex}
-\contentsline {figure}{\numberline {\kern \digitwidth 1.1}{\ignorespaces Vertical outlier, good leverage point and bad leverage point}}{4}{section.1.2}
-\contentsline {figure}{\numberline {\kern \digitwidth 1.2}{\ignorespaces Huber loss function $\rho _{\kappa }^{\textsc {\lowercase {H}}}$ and score function $\psi _{\kappa }^{\textsc {\lowercase {H}}}$}}{9}{equation.1.4.18}
-\contentsline {figure}{\numberline {\kern \digitwidth 1.3}{\ignorespaces Tukey-Biweight loss function $\rho _{\kappa }^{\textsc {\lowercase {B}}}$ and score function $\psi _{\kappa }^{\textsc {\lowercase {B}}}$}}{9}{equation.1.4.18}
-\contentsline {figure}{\numberline {\kern \digitwidth 1.4}{\ignorespaces \leavevmode {\color {red}Caption needed}}}{37}{section*.10}
+\addvspace {2ex}
+\contentsline {figure}{\numberline {\kern \digitwidth 1.1}{\ignorespaces Example scatter plots with outliers and different regression fits}}{5}{section*.3}
+\contentsline {figure}{\numberline {\kern \digitwidth 1.2}{\ignorespaces Hertzsprung-Russell diagram of the star cluster CYG OB1 including different regression fits (source: \citealp [27]{rousseeuw:leroy:1987})}}{6}{section*.4}
+\addvspace {2ex}
+\addvspace {2ex}
+\contentsline {figure}{\numberline {\kern \digitwidth 2.1}{\ignorespaces Standardized sensitivity curves of the mean and the median for a sample of $n=20$ random $\mathcal {N}(0,1)$ numbers}}{22}{section*.13}
+\contentsline {figure}{\numberline {\kern \digitwidth 2.2}{\ignorespaces Standardized sensitivity curves of the standard deviation and the interquartile range for a sample of $n=20$ random $\mathcal {N}(0,1)$ numbers}}{22}{section*.13}
+\addvspace {2ex}
+\contentsline {figure}{\numberline {\kern \digitwidth 3.1}{\ignorespaces Influence functions of $\mu $, $\mu ^{0.25}$, $\mu ^{0.05}$, $Q_{0.5}$, and $\textsc {\lowercase {HL}}$ under the standard normal distribution}}{28}{subsection.3.1.1}
+\contentsline {figure}{\numberline {\kern \digitwidth 3.2}{\ignorespaces Influence functions of $\sigma $, $\textsc {\lowercase {IQR}}_c$, $\textsc {\lowercase {MAD}}$ and $Q$ under the standard normal distribution}}{32}{subsection.3.2.1}
+\contentsline {figure}{\numberline {\kern \digitwidth 3.3}{\ignorespaces Influence functions of $\gamma _1$, $\textsc {\lowercase {SK}}_{0.25}$ and $\textsc {\lowercase {MC}}$ under the standard normal distribution}}{37}{subsection.3.3.1}
+\contentsline {figure}{\numberline {\kern \digitwidth 3.4}{\ignorespaces Influence functions of $\gamma _2$, $\textsc {\lowercase {LQW}}_{0.25}$ and $\textsc {\lowercase {RQW}}_{0.25}$, $\textsc {\lowercase {LMC}}$ and $\textsc {\lowercase {RMC}}$ under the standard normal distribution}}{41}{subsection.3.4.1}
+\contentsline {figure}{\numberline {\kern \digitwidth 3.5}{\ignorespaces Classic, adjusted, and generalized boxplot \leavevmode {\color {red}[will be inserted after revising the boxplot program]}}}{55}{Item.10}
+\addvspace {2ex}
+\addvspace {2ex}
+\contentsline {figure}{\numberline {\kern \digitwidth 4.1}{\ignorespaces Vertical outlier, good leverage point and bad leverage point}}{62}{section.4.2}
+\contentsline {figure}{\numberline {\kern \digitwidth 4.2}{\ignorespaces Huber loss function $\rho _{\kappa }^{\textsc {\lowercase {H}}}$ and score function $\psi _{\kappa }^{\textsc {\lowercase {H}}}$}}{67}{equation.4.4.18}
+\contentsline {figure}{\numberline {\kern \digitwidth 4.3}{\ignorespaces Tukey-Biweight loss function $\rho _{\kappa }^{\textsc {\lowercase {B}}}$ and score function $\psi _{\kappa }^{\textsc {\lowercase {B}}}$}}{67}{equation.4.4.18}
+\contentsline {figure}{\numberline {\kern \digitwidth 4.4}{\ignorespaces Effective temperatures and light intensities in star cluster CYG OB1}}{95}{subsection.4.7.1}
+\contentsline {figure}{\numberline {\kern \digitwidth 4.5}{\ignorespaces Outliers in the Sachs and Warner data}}{101}{subsection.4.7.2}
+\addvspace {2ex}
+\addvspace {2ex}

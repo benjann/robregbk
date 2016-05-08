@@ -1,0 +1,605 @@
+Latexmk: This is Latexmk, John Collins, 5 February 2015, version: 4.43a.
+Rule 'pdflatex': File changes, etc:
+   Changed files, or newly in use since previous run(s):
+      './main.out'
+      'appendix.aux'
+      'chapter4.aux'
+      'main.lof'
+      'main.out'
+      'main.toc'
+------------
+Run number 1 of rule 'pdflatex'
+------------
+------------
+Running 'pdflatex  -synctex=1 -file-line-error-style  -interaction=nonstopmode -recorder  "./main.tex"'
+------------
+Latexmk: applying rule 'pdflatex'...
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./main.tex
+LaTeX2e <2015/01/01>
+Babel <3.9l> and hyphenation patterns for 79 languages loaded.
+(./statapress.cls
+Document Class: statapress 2008/06/04 v1.17 Stata Press Book document class
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/bk10.clo))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/ifxetex/ifxetex.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/auxhook.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/kvoptions.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(./hyperref.cfg
+
+Package hyperref Warning: Option `letterpaper' is no longer used.
+
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/url/url.sty))
+
+Package hyperref Message: Driver (autodetected): hpdftex.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/hpdftex.def
+(/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/color.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/color.cfg)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/pdftex-def/pdftex.def))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/natbib/natbib.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/makeidx.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/showidx.sty)
+(/Users/jann/Library/texmf/tex/latex/sj/multind.sty)) (./pagedims.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/crop/crop.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/graphics.cfg))
+(/usr/local/texlive/2015/texmf-dist/tex/xelatex/xetexconfig/crop.cfg))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/tools/calc.sty)) (./fr.sty)
+(./stbook.sty (/usr/local/texlive/2015/texmf-dist/tex/latex/base/ifthen.sty))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/caption/caption.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/caption/caption3.sty))
+(./epsfig.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/graphicx.sty))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/multirow/multirow.sty)
+(./multicol.sty) (./stata.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/alltt.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/pstricks/pstricks.sty
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pstricks/pstricks.tex
+(/usr/local/texlive/2015/texmf-dist/tex/generic/xkeyval/pst-xkey.tex
+(/usr/local/texlive/2015/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+(/usr/local/texlive/2015/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/local/texlive/2015/texmf-dist/tex/generic/xkeyval/xkvutils.tex))))
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pstricks/pst-fp.tex
+`pst-fp' v0.05, 2010/01/17 (hv))
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.te
+x
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-li
+sts.tex))
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.c
+ode.tex))
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.
+tex
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic
+.code.tex)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigo
+nometric.code.tex)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.rando
+m.code.tex)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.compa
+rison.code.tex)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.
+code.tex)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round
+.code.tex)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.
+code.tex)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integ
+erarithmetics.code.tex)))
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex)
+))
+`PSTricks' v2.60  <2014/10/25> (tvz)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pstricks/pstricks.con))
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pstricks/pst-fp.tex)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/xcolor/xcolor.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/color.cfg))))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/tools/array.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(./shadow.sty)
+Writing index file author.idx 
+Writing index file subject.idx 
+(./main.aux (./insidecover.aux) (./title.aux) (./copyright.aux)
+(./acknowledge.aux) (./preface.aux) (./notation.aux) (./part1.aux)
+(./chapter1.aux) (./part2.aux) (./chapter2.aux) (./chapter3.aux) (./part3.aux
+
+LaTeX Warning: Label `part2' multiply defined.
+
+) (./chapter4.aux) (./appendix.aux))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/gettitlestring.sty))
+(./main.out) (./main.out)
+(/usr/local/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/grfext.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg))
+automatically inputting author.sty
+(./author.sty (./fr.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/tools/dcolumn.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/booktabs/booktabs.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/enumitem/enumitem.sty)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/numprint/numprint.sty
+No configuration file `numprint.cfg' found.)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/inputenc.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/t1enc.dfu)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/ot1enc.dfu)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/omsenc.dfu)))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/textcomp.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/ts1enc.def
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/ts1enc.dfu)))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/amsfonts.sty)))
+
+Package caption Warning: \caption will not be redefined since it's already
+(caption)                redefined by a document class or package which is
+(caption)                unknown to the caption package.
+See the caption package documentation for explanation.
+
+(./main_front.tex (./insidecover.tex [1{/usr/local/texlive/2015/texmf-var/fonts
+/map/pdftex/updmap/pdftex.map}
+Non-PDF special ignored!
+Non-PDF special ignored!
+Non-PDF special ignored!
+Non-PDF special ignored!
+Non-PDF special ignored!
+Non-PDF special ignored!
+Non-PDF special ignored!] [2]) (./title.tex
+<bug-eps-converted-to.pdf, id=623, 41.15375pt x 35.13126pt>
+<use bug-eps-converted-to.pdf>) [3 <./bug-eps-converted-to.pdf>]
+(./copyright.tex (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd)
+<use bug-eps-converted-to.pdf>
+Overfull \hbox (5.01865pt too wide) in paragraph at lines 19--19
+[]|[]|  
+
+Overfull \vbox (5.43118pt too high) detected at line 19
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/ts1cmr.fd)) [4]
+(./acknowledge.tex) [5] [6] (./main.toc
+Underfull \vbox (badness 2894) has occurred while \output is active [7]
+[8] [9] [10] [11]) [12]
+
+Package hyperref Warning: bookmark level for unknown preface defaults to 0.
+
+(./main.lot) [13] [14] (./main.lof
+Overfull \hbox (6.90146pt too wide) in paragraph at lines 4--4
+ [][] []\OT1/cmr/m/n/10 Hertzsprung-Russell di-a-gram of the star clus-ter CYG 
+OB1 in-clud-ing 
+
+Overfull \hbox (0.64088pt too wide) in paragraph at lines 12--12
+ [][] []\OT1/cmr/m/n/10 Influence func-tions of $\OML/cmm/m/it/10 ^^M[]$\OT1/cm
+r/m/n/10 , $[][]$ and $[]$ un-der the stan-dard nor-mal 
+) [15] (./preface.tex [16]) [17] (./notation.tex [18] [19]) [20])
+(./main_inc.tex (./part1.tex
+Chapter I.
+) [1] (./chapter1.tex [2]
+Chapter 1.
+[3] <eps/2/1.pdf, id=946, 258.36525pt x 187.902pt> <use eps/2/1.pdf>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active [4]
+Underfull \vbox (badness 1107) has occurred while \output is active [5 <./eps/2
+/1.pdf>] <eps/2/2.pdf, id=984, 258.36525pt x 187.902pt> <use eps/2/2.pdf>
+[6 <./eps/2/2.pdf>] [7]) [8] (./part2.tex
+Chapter II.
+) [9] (./chapter2.tex [10]
+Chapter 2.
+
+Underfull \vbox (badness 10000) has occurred while \output is active [11]
+[12] [13] [14]
+Underfull \vbox (badness 3148) has occurred while \output is active [15]
+[16] [17] <tr.pdf, id=1108, 6.8255pt x 7.6285pt> <use tr.pdf>
+Underfull \vbox (badness 4378) has occurred while \output is active [18 </Users
+/jann/Library/texmf/tex/latex/sj/tr.pdf>] (./dof/2/1.log.tex
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/ts1cmtt.fd)
+
+LaTeX Font Warning: Font shape `TS1/cmtt/bx/n' undefined
+(Font)              using `TS1/cmtt/m/n' instead
+(Font)              for symbol `textquotesingle' on input line 7.
+
+) (./dof/2/2.log.tex) <tl.pdf, id=1115, 6.8255pt x 7.32738pt> <use tl.pdf>
+[19 </Users/jann/Library/texmf/tex/latex/sj/tl.pdf>] [20] <use tr.pdf>
+(./dof/2/3.tex) <use tl.pdf> <eps/2/4.pdf, id=1135, 258.36525pt x 187.902pt>
+<use eps/2/4.pdf>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<eps/2/5.pdf, id=1136, 258.36525pt x 187.902pt> <use eps/2/5.pdf>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[21]
+Underfull \vbox (badness 2409) has occurred while \output is active [22 <./eps/
+2/4.pdf> <./eps/2/5.pdf>] [23]
+Overfull \hbox (1.57835pt too wide) in paragraph at lines 792--799
+\OT1/cmr/m/n/10 The break-down point $\OML/cmm/m/it/10 ^^O[]\OT1/cmr/m/n/10 (\O
+ML/cmm/m/it/10 T[]\OT1/cmr/m/n/10 ; \OMS/cmsy/m/n/10 X[]\OT1/cmr/m/n/10 )$ of t
+he statis-tic $\OML/cmm/m/it/10 T[] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 T[]\OT1/
+cmr/m/n/10 (\OML/cmm/m/it/10 x[]; [] ; x[]\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 
+T\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 F[]\OT1/cmr/m/n/10 )$
+[24] <use tr.pdf> <use tl.pdf>
+Underfull \vbox (badness 1092) has occurred while \output is active [25])
+[26] (./chapter3.tex
+Chapter 3.
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 28.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\alpha' on input line 28.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 28.
+
+<eps/3/1.pdf, id=1212, 258.36525pt x 187.902pt> <use eps/3/1.pdf>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active [27]
+Underfull \vbox (badness 4001) has occurred while \output is active [28 <./eps/
+3/1.pdf>]
+Overfull \hbox (9.54422pt too wide) in paragraph at lines 117--120
+\OT1/cmr/m/n/10 The \OT1/cmr/m/sl/10 me-dian\OT1/cmr/m/n/10 ---the quan-tile of
+ or-der 0.5---corresponds to the func-tional $\OML/cmm/m/it/10 Q[]\OT1/cmr/m/n/
+10 (\OML/cmm/m/it/10 F\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 F[]\OT1/cmr/m/n/10 (
+0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 5)$.
+[29]
+
+LaTeX Warning: Marginpar on page 30 moved.
+
+[30]
+Underfull \vbox (badness 1320) has occurred while \output is active [31]
+<eps/3/2.pdf, id=1272, 258.36525pt x 187.902pt> <use eps/3/2.pdf> [32 <./eps/3/
+2.pdf>]
+Overfull \hbox (3.99622pt too wide) in paragraph at lines 342--342
+[][][][][][][] 
+[33]
+Overfull \hbox (3.99622pt too wide) in paragraph at lines 393--393
+[][][][][][][] 
+
+Overfull \hbox (3.99622pt too wide) in paragraph at lines 399--399
+[][][][][][][] 
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 412.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 412.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 412.
+
+
+Overfull \hbox (3.99622pt too wide) in paragraph at lines 427--427
+[][][][][][][] 
+[34]
+Overfull \hbox (3.99622pt too wide) in paragraph at lines 445--445
+[][][][][][][] 
+
+Overfull \hbox (3.99622pt too wide) in paragraph at lines 463--463
+[][][][][][][] 
+
+Overfull \hbox (3.99622pt too wide) in paragraph at lines 468--468
+[][][][][][][] 
+(./dof/3/3.log.tex) [35]
+Overfull \hbox (3.99622pt too wide) in paragraph at lines 540--540
+[][][][][][][] 
+[36]
+Overfull \hbox (3.99622pt too wide) in paragraph at lines 549--549
+[][][][][][][] 
+<eps/3/4.pdf, id=1323, 258.36525pt x 187.902pt> <use eps/3/4.pdf> [37 <./eps/3/
+4.pdf>]
+Overfull \hbox (3.99622pt too wide) in paragraph at lines 590--590
+[][][][][][][] 
+[38]
+Overfull \hbox (3.99622pt too wide) in paragraph at lines 665--665
+[][][][][][][] 
+
+Overfull \hbox (3.99622pt too wide) in paragraph at lines 671--671
+[][][][][][][] 
+
+Overfull \hbox (3.99622pt too wide) in paragraph at lines 684--684
+[][][][][][][] 
+[39]
+Overfull \hbox (3.99622pt too wide) in paragraph at lines 759--759
+[][][][][][][] 
+<eps/3/5.pdf, id=1370, 258.36525pt x 187.902pt> <use eps/3/5.pdf>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[40]
+Underfull \vbox (badness 10000) has occurred while \output is active [41 <./eps
+/3/5.pdf>] [42]
+Overfull \hbox (3.99622pt too wide) in paragraph at lines 906--906
+[][][][][][][] 
+
+Overfull \hbox (3.99622pt too wide) in paragraph at lines 914--914
+[][][][][][][] 
+
+LaTeX Warning: Marginpar on page 43 moved.
+
+
+Overfull \hbox (3.99622pt too wide) in paragraph at lines 930--930
+[][][][][][][] 
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[43]
+Overfull \hbox (3.99622pt too wide) in paragraph at lines 968--968
+[][][][][][][] 
+
+Overfull \hbox (5.00002pt too wide) detected at line 1014
+$\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 0139$ 
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \vbox (badness 6675) has occurred while \output is active [44]
+(./dof/3/6.log.tex [45]
+Underfull \vbox (badness 10000) has occurred while \output is active [46]
+Underfull \vbox (badness 10000) has occurred while \output is active [47])
+Underfull \vbox (badness 10000) has occurred while \output is active [48]
+Overfull \hbox (15.62985pt too wide) in paragraph at lines 1148--1152
+\OT1/cmr/m/n/10 The third test com-bines $[][]$, $[][]$ and $[][]$. In this cas
+e, $\OML/cmm/m/it/10 k \OT1/cmr/m/n/10 = 3$, $[][] = ([][]\OML/cmm/m/it/10 ; []
+[]; [][]\OT1/cmr/m/n/10 )[]$,
+[49] <use tr.pdf>
+Overfull \hbox (3.99622pt too wide) in paragraph at lines 1164--1164
+[][][][][][][] 
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[50] <use tl.pdf> [51]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 1332.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 1332.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 1332.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 1332.
+
+
+Overfull \hbox (3.99622pt too wide) in paragraph at lines 1353--1353
+[][][][][][][] 
+[52] [53]
+Overfull \hbox (3.99622pt too wide) in paragraph at lines 1422--1422
+[][][][][][][] 
+<use tr.pdf> [54] <use tl.pdf> <eps/3/7.pdf, id=1520, 258.36525pt x 187.902pt>
+<use eps/3/7.pdf>) [55 <./eps/3/7.pdf>] (./part3.tex [56]
+Chapter III.
+) [57] (./chapter4.tex [58]
+Chapter 4.
+[59]
+Overfull \hbox (3.99622pt too wide) in paragraph at lines 148--148
+[][][][][][][] 
+
+Overfull \hbox (3.99622pt too wide) in paragraph at lines 156--156
+[][][][][][][] 
+[60] <eps/4/1.pdf, id=1574, 258.36525pt x 187.902pt> <use eps/4/1.pdf>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active [61]
+Overfull \hbox (3.99622pt too wide) in paragraph at lines 214--214
+[][][][][][][] 
+[62 <./eps/4/1.pdf>] [63] [64]
+Overfull \hbox (3.99622pt too wide) in paragraph at lines 444--444
+[][][][][][][] 
+[65] <eps/4/2.pdf, id=1652, 258.36525pt x 187.902pt> <use eps/4/2.pdf>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<eps/4/3.pdf, id=1653, 258.36525pt x 187.902pt> <use eps/4/3.pdf>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Overfull \hbox (3.99622pt too wide) in paragraph at lines 541--541
+[][][][][][][] 
+[66]
+Underfull \vbox (badness 1360) has occurred while \output is active [67 <./eps/
+4/2.pdf> <./eps/4/3.pdf>] [68] [69] [70]
+
+LaTeX Warning: Reference `chap:mv' on page 71 undefined on input line 814.
+
+[71]
+Underfull \vbox (badness 10000) has occurred while \output is active [72]
+Overfull \hbox (3.99622pt too wide) in paragraph at lines 928--928
+[][][][][][][] 
+[73] [74] [75]
+Overfull \hbox (10.27815pt too wide) in paragraph at lines 1112--1117
+\OT1/cmr/m/n/10 ($\OML/cmm/m/it/10 s[]$ \OT1/cmr/m/n/10 is as-so-ci-ated with t
+he func-tion $\OML/cmm/m/it/10 ^^Z[]\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 ^^A\OT1/c
+mr/m/n/10 )$ and the con-stant $\OML/cmm/m/it/10 ^^N$\OT1/cmr/m/n/10 ). Let $[]
+[][] = \OML/cmm/m/it/10 s[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 r[]\OT1/cmr/m/n/10
+ ([][][])\OML/cmm/m/it/10 ;
+[76] [77] [78] [79] [80]
+Underfull \vbox (badness 1430) has occurred while \output is active [81]
+[82] [83] [84] [85] [86] [87]
+Overfull \hbox (3.99622pt too wide) in paragraph at lines 1906--1906
+[][][][][][][] 
+[88] [89] [90] [91] [92] [93]
+Overfull \hbox (3.99622pt too wide) in paragraph at lines 2420--2420
+[][][][][][][] 
+<eps/4/4.pdf, id=2151, 258.36525pt x 187.902pt> <use eps/4/4.pdf>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[94] (./dof/4/5.log.tex) [95 <./eps/4/4.pdf>] (./dof/4/6.log.tex)
+(./dof/4/7.log.tex)
+Underfull \vbox (badness 10000) has occurred while \output is active [96]
+(./dof/4/8.log.tex)
+Overfull \hbox (3.99622pt too wide) in paragraph at lines 2517--2517
+[][][][][][][] 
+(./dof/4/9.log.tex [97]) (./dof/4/10.log.tex)
+Underfull \vbox (badness 1033) has occurred while \output is active [98]
+(./dof/4/11.log.tex)
+Underfull \vbox (badness 10000) has occurred while \output is active [99]
+(./dof/4/12.log.tex) (./dof/4/13.log.tex [100]) (./dof/4/14.log.tex)
+<eps/4/14.pdf, id=2198, 258.36525pt x 187.902pt> <use eps/4/14.pdf>
+Underfull \vbox (badness 10000) has occurred while \output is active [101 <./ep
+s/4/14.pdf>] (./dof/4/15.log.tex) [102] (./dof/4/16.log.tex)
+(./dof/4/17.log.tex
+Underfull \vbox (badness 3792) has occurred while \output is active [103])
+(./dof/4/18.log.tex) (./dof/4/19.log.tex [104])
+Underfull \vbox (badness 10000) has occurred while \output is active [105]
+Overfull \hbox (3.99622pt too wide) in paragraph at lines 2754--2754
+[][][][][][][] 
+(./dof/4/20.log.tex)
+Underfull \vbox (badness 10000) has occurred while \output is active [106]
+Overfull \hbox (3.99622pt too wide) in paragraph at lines 2792--2792
+[][][][][][][] 
+(./dof/4/21.log.tex)
+Underfull \vbox (badness 10000) has occurred while \output is active [107]
+Underfull \vbox (badness 10000) has occurred while \output is active [108]
+[109] [110] [111] [112] [113] [114] [115] [116]) [117] (./appendix.tex [118]
+Chapter IV.
+[119] [120]
+Chapter A.
+
+Overfull \hbox (3.99622pt too wide) in paragraph at lines 10--10
+[][][][][][][] 
+[121] [122] [123]
+Underfull \vbox (badness 10000) has occurred while \output is active [124]
+Underfull \vbox (badness 10000) has occurred while \output is active [125]
+Underfull \vbox (badness 10000) has occurred while \output is active [126]
+Underfull \vbox (badness 10000) has occurred while \output is active [127]
+Underfull \vbox (badness 10000) has occurred while \output is active [128]
+Underfull \vbox (badness 10000) has occurred while \output is active [129]
+Underfull \vbox (badness 10000) has occurred while \output is active [130])
+[131]) (./main.bbl [132]
+
+Package hyperref Warning: bookmark level for unknown index defaults to 0.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 79--84
+[]\OT1/cmr/m/n/10 Croux, C., G. Dhaene, and D. Hoorel-beke. 2003.  Ro-bust Stan
+-
+
+Underfull \hbox (badness 10000) in paragraph at lines 79--84
+\OT1/cmr/m/n/10 dard Er-rors for Ro-bust Es-ti-ma-tors.  Dis-cus-sions Pa-per S
+e-ries (DPS)
+
+Underfull \hbox (badness 10000) in paragraph at lines 79--84
+\OT1/cmr/m/n/10 03.16, Cen-ter for Eco-nomic Stud-ies, KULeu-ven. Avail-able fr
+om
+[133] [134] [135] [136] [137]) [138] (./author.ind) [139] [140] (./subject.ind
+[141]) (./main.aux (./insidecover.aux) (./title.aux) (./copyright.aux)
+(./acknowledge.aux) (./preface.aux) (./notation.aux) (./part1.aux)
+(./chapter1.aux) (./part2.aux) (./chapter2.aux) (./chapter3.aux) (./part3.aux)
+(./chapter4.aux) (./appendix.aux))
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+ )
+(see the transcript file for additional information){/usr/local/texlive/2015/te
+xmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2015/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2015/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2015/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texlive/2015/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2015/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2015/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2015/texmf-dist
+/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/local/texlive/2015/texmf-d
+ist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/texlive/2015/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb></usr/local/texlive/2015/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2015/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2015/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2015/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2015/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2015/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2015/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2015/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2015/texmf-dist/fonts
+/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/local/texlive/2015/texmf-dist/f
+onts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2015/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2015/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2015/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2015/texmf-dist/font
+s/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2015/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmsl10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmsl8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmsy5.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmsy6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmsy7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmsy8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmti10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmti7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmtt10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmtt8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/latxf
+ont/lcircle1.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfont
+s/symbols/msbm10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/ams
+fonts/symbols/msbm7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/
+cm-super/sfrm0900.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/cm
+-super/sfrm1000.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/cm-s
+uper/sftt0800.pfb>
+Output written on main.pdf (161 pages, 1384846 bytes).
+SyncTeX written on main.synctex.gz.
+Transcript written on main.log.
+Latexmk: Index file 'author.idx' was written
+Latexmk: Index file 'subject.idx' was written
+Latexmk: Found input bbl file 'main.bbl'
+Latexmk: Log file says output to 'main.pdf'
+=== bug.eps -> bug-eps-converted-to.pdf
+=== bug.eps -> bug-eps-converted-to.pdf
+Latexmk: List of undefined refs and citations:
+  Label `part2' multiply defined
+  Reference `chap:mv' on page 71 undefined on input line 814
+Latexmk: Found bibliography file(s) [main.bib]
+Latexmk: Summary of warnings:
+  Latex failed to resolve 1 reference(s)
+  Latex found 1 multiply defined reference(s)
+Latexmk: All targets (main.pdf) are up-to-date

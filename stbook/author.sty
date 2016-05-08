@@ -25,7 +25,7 @@
 % Additional settings (BJ)
 
 % - general
-\usepackage{dcolumn,booktabs,enumitem,upquote}
+\usepackage{dcolumn,booktabs,enumitem}%,upquote}
 \usepackage[autolanguage]{numprint}
 \usepackage[utf8]{inputenc}
 \belowcaptionskip=.5\abovecaptionskip
@@ -60,6 +60,9 @@
 \let\originalright\right
 \renewcommand{\left}{\mathopen{}\mathclose\bgroup\originalleft}
 \renewcommand{\right}{\aftergroup\egroup\originalright}
+% - fix position of superscript for \sthat{} and \stbar{}
+\def\sthat#1{\widehat{#1}{\vphantom{#1}}}
+\def\stbar#1{\overline{#1}{\vphantom{#1}}}
 
 % tables
 %\newcolumntype{L}[1]{>{\raggedright\hspace{0pt}}p{#1}}

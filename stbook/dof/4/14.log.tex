@@ -1,0 +1,8 @@
+. generate id = _n if e(sample)
+(137 missing values generated)
+{\smallskip}
+. twoway (scatter stdres id if abs(stdres)<=1.96) ///
+>        (scatter stdres id if abs(stdres)>1.96, mlabel(country)) ///
+>        , yline(-1.96 1.96) yline(0, lpattern(dash)) legend(off) ///
+>          ytitle(Standardized residual) xtitle(Index)
+{\smallskip}

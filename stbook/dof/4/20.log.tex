@@ -1,0 +1,36 @@
+sysuse auto, clear
+{\smallskip}
+*Estimate the model using a highly efficient (95\%) MM-estimator
+xi: robreg mm price mpg i.rep78 headroom trunk weight length turn displacement g
+> ear_ratio foreign, eff(95)
+est store MM
+{\smallskip}
+*Predict the fitted value
+predict yhat
+{\smallskip}
+*Generate the residuals
+gen res=price-yhat
+{\smallskip}
+*Standardize the residuals
+replace res=res/e(scale)
+{\smallskip}
+*Estimate the outlyingness in the space of the explanatory variables
+xi: sd  mpg i.rep78 headroom trunk weight length turn displacement gear_ratio fo
+> reign, gen(a b)
+local p=e(p)
+{\smallskip}
+*Set the 95th percentile of the Chi2(p) as the outlyingness bound
+local c=sqrt(invchi2(`p',0.95))
+{\smallskip}
+*Plot the standardized residuals against the outlyingness distances in the sapce
+>  of the explanatory variables
+{\smallskip}
+local low=invnorm(0.025)
+local up=-`low'
+{\smallskip}
+twoway (scatter res b if abs(res)<`up'\&b<=`c', xscale(range(0 10)) xlabel(0(2)10
+> ) yscale(range(-4 10)) ylabel(-4(2)10)) ///
+(scatter res b if abs(res)>`up'|b>`c', mcolor(navy) msymbol(circle_hollow) mlabe
+> l(make) ///
+mlabcolor(navy) ytitle(Robust Standardized Residuals) xtitle(Robust Distances)),
+>  xline(`c') yline(`low') yline(`up') legend(off)

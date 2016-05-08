@@ -1,6 +1,7 @@
-. use Star.dta, clear
+. use CYG-OB1, clear
+(Hertzsprung-Russell diagram of star cluster CYG OB1; Rousseeuw/Leroy 1987)
 {\smallskip}
-. regress log_intensity log_temperature
+. regress log_light log_temp
 {\smallskip}
       Source {\VBAR}       SS           df       MS      Number of obs   =        47
 \HLI{13}{\PLUS}\HLI{34}   F(1, 45)        =      2.08
@@ -9,10 +10,10 @@
 \HLI{13}{\PLUS}\HLI{34}   Adj R-squared   =    0.0230
        Total {\VBAR}  15.0109868        46  .326325799   Root MSE        =    .56463
 {\smallskip}
-\HLI{14}{\TOPT}\HLI{64}
-log_intensity {\VBAR}      Coef.   Std. Err.      t    P>|t|     [95\% Conf. Interval]
-\HLI{14}{\PLUS}\HLI{64}
-log_tempera{\tytilde}e {\VBAR}  -.4133041   .2862575    -1.44   0.156    -.9898562     .163248
-        _cons {\VBAR}   6.793468   1.236516     5.49   0.000     4.302998    9.283939
-\HLI{14}{\BOTT}\HLI{64}
+\HLI{13}{\TOPT}\HLI{64}
+   log_light {\VBAR}      Coef.   Std. Err.      t    P>|t|     [95\% Conf. Interval]
+\HLI{13}{\PLUS}\HLI{64}
+    log_temp {\VBAR}  -.4133041   .2862575    -1.44   0.156    -.9898562     .163248
+       _cons {\VBAR}   6.793468   1.236516     5.49   0.000     4.302998    9.283939
+\HLI{13}{\BOTT}\HLI{64}
 {\smallskip}

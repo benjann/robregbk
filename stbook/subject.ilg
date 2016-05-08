@@ -1,4 +1,18 @@
 This is makeindex, version 2.15 [TeX Live 2015] (kpathsea + Thai support).
-Scanning input file subject.idx...done (0 entries accepted, 0 rejected).
-Nothing written in subject.ind.
+Scanning input file subject.idx....done (126 entries accepted, 0 rejected).
+Sorting entries....done (924 comparisons).
+Generating output file subject.ind....
+## Warning (input = subject.idx, line = 86; output = subject.ind, line = 66):
+   -- Conflicting entries: multiple encaps for the same page under same key.
+
+## Warning (input = subject.idx, line = 94; output = subject.ind, line = 70):
+   -- Conflicting entries: multiple encaps for the same page under same key.
+
+## Warning (input = subject.idx, line = 36; output = subject.ind, line = 80):
+   -- Conflicting entries: multiple encaps for the same page under same key.
+
+## Warning (input = subject.idx, line = 47; output = subject.ind, line = 80):
+   -- Conflicting entries: multiple encaps for the same page under same key.
+done (93 lines written, 4 warnings).
+Output written in subject.ind.
 Transcript written in subject.ilg.

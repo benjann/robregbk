@@ -1,0 +1,38 @@
+use fertil1, clear
+gen id=_n
+*S-estimator of regression
+robreg s kids educ age agesq black east northcen west farm othrural town smcity 
+> y74 y76 y78 y80 y82 y84
+{\smallskip}
+*Predict the fitted value
+predict xb
+{\smallskip}
+*Estimate the standardized residuals
+gen res=(kids-xb)/e(scale)
+{\smallskip}
+*Estimate the outlyingness distances in the space of the explanatory variables w
+> hen dummies are present
+sd educ age agesq black east northcen west farm othrural town smcity y74 y76 y78
+>  y80 y82 y84, gen(out d)
+{\smallskip}
+*Set the 95th percentile of the Chi2(p) as the outlyingness bound
+local b=sqrt(invchi2(e(p),0.99))
+capture drop out*
+{\smallskip}
+*Identify the vertical outliers
+gen out1=(abs(res)>invnorm(0.995))
+{\smallskip}
+{\smallskip}
+*Identify the leverage points
+gen out2=(d>`b')
+{\smallskip}
+*Identify all the outliers
+gen out0=((out1==1)|(out2==1))>0
+{\smallskip}
+*Identify less extreme outliers for graphical pusposes
+replace out0=out0-(out1==0\&out2==1) if d<11
+{\smallskip}
+*Plot the outliers identification plot
+twoway (scatter res d if out0==0\&d<`b') (scatter res d if out0==0\&d>`b', mcolor(
+> maroon)) (scatter res d if out0==1, mlabel(id) mcolor(maroon) mlabcolor(maroon
+> )), yline(2.58) yline(-2.58) xline(`b') legend(off)

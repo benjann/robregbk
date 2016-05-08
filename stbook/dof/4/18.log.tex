@@ -1,4 +1,4 @@
-. robreg mm log_light log_temp, efficiency(95)
+. robreg mm log_light log_temp, hausman efficiency(95)
 {\smallskip}
 Step 1: fitting S-estimate
 {\smallskip}
@@ -6,7 +6,7 @@ enumerating 50 candidates (percent completed)
 0 \HLI{5} 20 \HLI{6} 40 \HLI{6} 60 \HLI{6} 80 \HLI{5} 100
 ..................................................
 {\smallskip}
-refining 2 best candidates ... done
+refining 2 best candidates .. done
 {\smallskip}
 Step 2: fitting redescending M-estimate
 {\smallskip}
@@ -14,18 +14,19 @@ iterating RWLS estimate .............. done
 {\smallskip}
 MM-Regression (95\% efficiency)                  Number of obs     =         47
                                                   Subsamples      =         50
-                                                  Breakdown point =         .5
-                                                  M-estimate: k   =   4.685045
+                                                  Breakdown point =         50
+                                                  M-estimate: k   =  4.6850649
                                                   S-estimate: k   =   1.547645
-                                                  Scale estimate  =  .47145688
-                                                  Robust R2 (w)   =  .41883093
-                                                  Robust R2 (rho) =  .02050865
+                                                  Scale estimate  =  .47145653
+                                                  Robust R2 (w)   =  .41883043
+                                                  Robust R2 (rho) =  .02050587
 {\smallskip}
 \HLI{13}{\TOPT}\HLI{64}
              {\VBAR}               Robust
    log_light {\VBAR}      Coef.   Std. Err.      z    P>|z|     [95\% Conf. Interval]
 \HLI{13}{\PLUS}\HLI{64}
-    log_temp {\VBAR}   2.253165   .7690643     2.93   0.003     .7458263    3.760503
-       _cons {\VBAR}  -4.969402   3.410051    -1.46   0.145    -11.65298    1.714175
+    log_temp {\VBAR}   2.253162    .769062     2.93   0.003     .7458286    3.760496
+       _cons {\VBAR}  -4.969393   3.410041    -1.46   0.145    -11.65295    1.714164
 \HLI{13}{\BOTT}\HLI{64}
+Hausman test of MM against S:    chi2(1) = .44145604      Prob > chi2 = 0.5064
 {\smallskip}

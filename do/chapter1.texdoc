@@ -204,19 +204,19 @@ point; see below).
 
 texdoc stlog, nolog
 // Hertzsprung-Russell diagram of the star cluster CYG OB1 (Rousseeuw & Leroy 1987: 27-28)
-// log_Te = logarithm of effective temperature at surface of star
+// log_temp = logarithm of effective temperature at surface of star
 // log_light = logarithm of light intensity of star
-use starsCYG, clear
-reg log_light log_Te
+use CYG-OB1, clear
+reg log_light log_temp
 predict ols
-robreg m log_light log_Te
+robreg m log_light log_temp
 predict m
-robreg mm log_light log_Te
+robreg mm log_light log_temp
 predict mm
-scatter log_light log_Te, ms(Oh) ///
-    || line ols log_Te, pstyle(p1line) sort ///
-    || line m log_Te, pstyle(p2line) sort ///
-    || line mm log_Te if log_Te>3.5, pstyle(p3line) sort ///
+scatter log_light log_temp, ms(Oh) ///
+    || line ols log_temp, pstyle(p1line) sort ///
+    || line m log_temp, pstyle(p2line) sort ///
+    || line mm log_temp if log_temp>3.5, pstyle(p3line) sort ///
     xscale(reverse) xti("Log temperature") ///
     yti("Log light intensity") ///
     legen(order(2 "LS" 3 "M" 4 "MM") pos(4) cols(1)) ///

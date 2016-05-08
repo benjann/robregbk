@@ -10,6 +10,25 @@ running /Applications/Stata14/sysprofile.do ...
 . 
 end of do-file
 
+. adopath ++ /Users/jann/Documents/Forschung/robust/ado/robreg
+  [1]              "/Users/jann/Documents/Forschung/robust/ado/robreg"
+  [2]  (BASE)      "/Applications/Stata14/ado/base/"
+  [3]  (SITE)      "/Applications/Stata14/ado/site/"
+  [4]              "."
+  [5]  (PERSONAL)  "~/Documents/Forschung/Stata/ado/personal/"
+  [6]  (PLUS)      "~/Library/Application Support/Stata/Stata 14/ado/plus/"
+  [7]  (OLDPLACE)  "~/ado/"
+
+. adopath ++ /Users/jann/Documents/Forschung/robust/ado/robstat
+  [1]              "/Users/jann/Documents/Forschung/robust/ado/robstat"
+  [2]              "/Users/jann/Documents/Forschung/robust/ado/robreg"
+  [3]  (BASE)      "/Applications/Stata14/ado/base/"
+  [4]  (SITE)      "/Applications/Stata14/ado/site/"
+  [5]              "."
+  [6]  (PERSONAL)  "~/Documents/Forschung/Stata/ado/personal/"
+  [7]  (PLUS)      "~/Library/Application Support/Stata/Stata 14/ado/plus/"
+  [8]  (OLDPLACE)  "~/ado/"
+
 . clear all
 
 . set scheme sj
@@ -59,7 +78,9 @@ end of do-file
 
 . texdoc stlog close
 
-. texdoc graph, caption(\alert{Caption needed}) label(fig:stars_scatterplot)
+. texdoc graph, label(fig:stars_scatterplot) ///
+>     caption(Effective temperatures and light intensities in star cluster CYG O
+> B1)
 
 . 
 . 
@@ -102,17 +123,20 @@ end of do-file
 end of do-file
 
 . 
-. texdoc stlog, nodo cmdlog
+. texdoc stlog
 
 . texdoc stlog close
-hl log_temperature
-local mu=e(hl)
-qn log_temperature
-local s=e(qn)
-gen leverage=(log_temperature-`mu')/`s'
-robreg m log_intensity log_temperature if abs(leverage)<=2.5
-(texdoc stlog written to ../stbook/dof/4/9.log.tex)
 
+. 
+. 
+end of do-file
+
+. 
+. texdoc stlog
+
+. texdoc stlog close
+
+. 
 . 
 end of do-file
 
@@ -135,9 +159,160 @@ end of do-file
 end of do-file
 
 . 
+. texdoc stlog
+
+. texdoc stlog close
+
 . 
 . 
+end of do-file
+
 . 
+. texdoc stlog
+
+. texdoc stlog close
+
+. texdoc graph, label(fig:countries_S_standardized_res) ///
+>     caption(Outliers in the Sachs and Warner data)
+
+. 
+. 
+end of do-file
+
+. 
+. texdoc stlog
+
+. texdoc stlog close
+
+. 
+. 
+end of do-file
+
+. 
+. texdoc stlog
+
+. texdoc stlog close
+
+. 
+. 
+end of do-file
+
+. 
+. texdoc stlog
+
+. texdoc stlog close
+
+. 
+. 
+end of do-file
+
+. 
+. texdoc stlog
+
+. texdoc stlog close
+
+. 
+. 
+end of do-file
+
+. 
+. texdoc stlog
+
+. texdoc stlog close
+
+. 
+. 
+end of do-file
+
+. 
+. texdoc stlog, cmdlog nodo
+
+. texdoc stlog close
+sysuse auto, clear
+
+*Estimate the model using a highly efficient (95%) MM-estimator
+xi: robreg mm price mpg i.rep78 headroom trunk weight length turn displacement g
+> ear_ratio foreign, eff(95)
+est store MM
+
+*Predict the fitted value
+predict yhat
+
+*Generate the residuals
+gen res=price-yhat
+
+*Standardize the residuals
+replace res=res/e(scale)
+
+*Estimate the outlyingness in the space of the explanatory variables
+xi: sd  mpg i.rep78 headroom trunk weight length turn displacement gear_ratio fo
+> reign, gen(a b)
+local p=e(p)
+
+*Set the 95th percentile of the Chi2(p) as the outlyingness bound
+local c=sqrt(invchi2(`p',0.95))
+
+*Plot the standardized residuals against the outlyingness distances in the sapce
+>  of the explanatory variables
+
+local low=invnorm(0.025)
+local up=-`low'
+
+twoway (scatter res b if abs(res)<`up'&b<=`c', xscale(range(0 10)) xlabel(0(2)10
+> ) yscale(range(-4 10)) ylabel(-4(2)10)) ///
+(scatter res b if abs(res)>`up'|b>`c', mcolor(navy) msymbol(circle_hollow) mlabe
+> l(make) ///
+mlabcolor(navy) ytitle(Robust Standardized Residuals) xtitle(Robust Distances)),
+>  xline(`c') yline(`low') yline(`up') legend(off)
+(texdoc stlog written to ../stbook/dof/4/20.log.tex)
+
+. 
+end of do-file
+
+. 
+. texdoc stlog, cmdlog nodo
+
+. texdoc stlog close
+use fertil1, clear
+gen id=_n
+*S-estimator of regression
+robreg s kids educ age agesq black east northcen west farm othrural town smcity 
+> y74 y76 y78 y80 y82 y84
+
+*Predict the fitted value
+predict xb
+
+*Estimate the standardized residuals
+gen res=(kids-xb)/e(scale)
+
+*Estimate the outlyingness distances in the space of the explanatory variables w
+> hen dummies are present
+sd educ age agesq black east northcen west farm othrural town smcity y74 y76 y78
+>  y80 y82 y84, gen(out d)
+
+*Set the 95th percentile of the Chi2(p) as the outlyingness bound
+local b=sqrt(invchi2(e(p),0.99))
+capture drop out*
+
+*Identify the vertical outliers
+gen out1=(abs(res)>invnorm(0.995))
+
+
+*Identify the leverage points
+gen out2=(d>`b')
+
+*Identify all the outliers
+gen out0=((out1==1)|(out2==1))>0
+
+*Identify less extreme outliers for graphical pusposes
+replace out0=out0-(out1==0&out2==1) if d<11
+
+*Plot the outliers identification plot
+twoway (scatter res d if out0==0&d<`b') (scatter res d if out0==0&d>`b', mcolor(
+> maroon)) (scatter res d if out0==1, mlabel(id) mcolor(maroon) mlabcolor(maroon
+> )), yline(2.58) yline(-2.58) xline(`b') legend(off)
+(texdoc stlog written to ../stbook/dof/4/21.log.tex)
+
 . 
 end of do-file
 (texdoc output written to ../stbook/chapter4.tex)

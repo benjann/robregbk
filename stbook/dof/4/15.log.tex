@@ -1,22 +1,26 @@
-. robreg s log_light log_temp
+. use CYG-OB1, clear
+(Hertzsprung-Russell diagram of star cluster CYG OB1; Rousseeuw/Leroy 1987)
+{\smallskip}
+. robreg s log_light log_temp, hausman
 {\smallskip}
 enumerating 50 candidates (percent completed)
 0 \HLI{5} 20 \HLI{6} 40 \HLI{6} 60 \HLI{6} 80 \HLI{5} 100
 ..................................................
 {\smallskip}
-refining 2 best candidates ... done
+refining 2 best candidates .. done
 {\smallskip}
 S-Regression (28.7\% efficiency)                 Number of obs     =         47
                                                   Subsamples      =         50
-                                                  Breakdown point =         .5
+                                                  Breakdown point =         50
                                                   Bisquare k      =   1.547645
-                                                  Scale estimate  =  .47145696
+                                                  Scale estimate  =  .47145653
 {\smallskip}
 \HLI{13}{\TOPT}\HLI{64}
              {\VBAR}               Robust
    log_light {\VBAR}      Coef.   Std. Err.      z    P>|z|     [95\% Conf. Interval]
 \HLI{13}{\PLUS}\HLI{64}
-    log_temp {\VBAR}   3.290339    1.64075     2.01   0.045     .0745278    6.506151
-       _cons {\VBAR}  -9.570732   7.373867    -1.30   0.194    -24.02325    4.881783
+    log_temp {\VBAR}   3.290342   1.640777     2.01   0.045     .0744783    6.506206
+       _cons {\VBAR}  -9.570744   7.373987    -1.30   0.194    -24.02349    4.882005
 \HLI{13}{\BOTT}\HLI{64}
+Hausman test of S against LS:    chi2(1) = 4.8433473      Prob > chi2 = 0.0278
 {\smallskip}
